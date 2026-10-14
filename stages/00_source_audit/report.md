@@ -1,10 +1,10 @@
 # GO_FLORA — отчёт STAGE 00
 
-Дата: **14 октября 2026**, Asia/Yekaterinburg. [Issue #1](https://github.com/alekseypilishkov-gif/go_flora/issues/1). Ветка: `codex/stage-00-foundation`. Этап: исследования, аудит источников/лицензий, архитектура и изолированные пробы. Полноценный генератор и Foliage Painter не реализованы; Stage 01 не начат; релиз и слияние не выполняются.
+Дата: **14 октября 2026**, Asia/Yekaterinburg. [Issue #1](https://github.com/alekseypilishkov-gif/go_flora/issues/1). Ветка: `codex/stage-00-foundation`. **[PR #2](https://github.com/alekseypilishkov-gif/go_flora/pull/2) открыт в main для review владельца.** Этап: исследования, аудит источников/лицензий, архитектура и изолированные пробы. Полноценный генератор и Foliage Painter не реализованы; Stage 01 не начат; релиз и слияние не выполняются.
 
 ## Окружение и подтверждённые результаты
 
-- Пустой публичный репозиторий/default `main` перепроверен. Минимальный bootstrap: [`6c79285`](https://github.com/alekseypilishkov-gif/go_flora/commit/6c79285) — README, .gitignore, CONTRIBUTING и AGENTS. Результаты этапа находятся в отдельной ветке. Окончательные ссылки на commit и PR добавляются при закрытии этапа.
+- Пустой публичный репозиторий/default `main` перепроверен. Минимальный bootstrap: [`6c79285877b44782bf38c93f99d1c4680acc4671`](https://github.com/alekseypilishkov-gif/go_flora/commit/6c79285877b44782bf38c93f99d1c4680acc4671) — README, .gitignore, CONTRIBUTING и AGENTS. Основной коммит результатов: [`b5555ad04f0772a36406776c3fa8e5aaaba37c95`](https://github.com/alekseypilishkov-gif/go_flora/commit/b5555ad04f0772a36406776c3fa8e5aaaba37c95). Завершающий коммит добавляет PR/CI ссылки; точный текущий head виден в [списке коммитов PR](https://github.com/alekseypilishkov-gif/go_flora/pull/2/commits), чтобы не создавать циклическую ссылку на SHA собственного отчёта.
 - Godot фактически сообщает `4.7.2.stable.official.ed1daf0bf`; Windows 11 AMD64. Python 3.12.14, Git 2.55.0.windows.3. GPU: NVIDIA GeForce RTX 5060 Ti; OpenGL 3.3 / Vulkan 1.4.351. Предлагаем зафиксировать **Godot 4.7.2** как начальную проверенную версию; поддержка остальных версий пока не заявлена.
 - Visual Studio Community 2022 установлена, но компонент C++ не найден через vswhere; cl.exe также не найден. SCons отсутствует; CMake/Ninja/GCC/Clang/Docker/gh отсутствуют на PATH. Проверка SCons — **FAIL**. Сборка исходного Tree3D — **NOT_RUN** с инструкцией воспроизведения; системные установки не выполнялись.
 - Tree3D tag v1.1.0 закреплён на `dfe70274f5fe2a4845f1937fab524f7ee8f2c532`, исследованный main — `e9ec657b0ee3667ac11dddad6133d52274c656f7`. Прочитаны C++ API, производство mesh, Proctree, материалы/коллизии/lifecycle, SConstruct, workflow и история релизов.
@@ -44,7 +44,7 @@ Tag v1.1.0 не совпадает с main: release ZIP содержит tier sh
 
 Обязательные документы подготовлены: [vision](../../docs/PRODUCT_VISION.md), [ADR](../../docs/ARCHITECTURE_ADR_0001.md), [лицензии](../../docs/LICENSING_DECISION.md), [roadmap](../../docs/ROADMAP.md), [аудит Tree3D](tree3d_source_audit.md), матрица, evidence и [узкий proposal Stage 01](next_stage_01_proposal.md). Production addon отсутствует; downloads/build caches/.godot/binaries исключены из Git. Базовый процесс: stage branch → проверки → commit → PR → review владельца, без auto-merge/release. CI выполняет только статические проверки репозитория и не выдаёт их за runtime.
 
-Завершающие Git/PR/CI результаты фиксируются после публикации PR. Приёмка аудита допускает честные FAIL/NOT_RUN; она не означает готовность продукта.
+Локальные статические проверки и `git diff --cached --check` — **PASS**. Рабочее дерево после основного коммита чистое; feature branch отправлена, PR создан и прикреплён к чату. GitHub Actions [run 38543078304](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38543078304) на `b5555ad...` — **success**: проверка обязательных файлов, локальных ссылок, Python/JSON syntax, запрет бинарников/кэшей и whitespace gate. Это статический CI, не Godot runtime. Приёмка аудита допускает честные FAIL/NOT_RUN; она не означает готовность продукта. После завершающего коммита требуется чистый статус и совпадение локального/remote head; итог проверяется перед остановкой.
 
 Требуется утверждение владельца:
 
