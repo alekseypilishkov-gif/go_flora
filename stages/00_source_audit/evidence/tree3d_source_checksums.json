@@ -1,0 +1,50 @@
+[
+  {
+    "path": "src/Tree3D.h",
+    "git_blob_sha1": "43b6f62cd7da8297d13a37fd664bd24872c546c1",
+    "sha256_utf8_bytes": "53f53aa71719e92bd48c497734b31e9a6f47586ddc1a65f46023b1b3af4bf5fd",
+    "ref": "dfe70274f5fe2a4845f1937fab524f7ee8f2c532"
+  },
+  {
+    "path": "src/Tree3D.cpp",
+    "git_blob_sha1": "bd3aab705616ebf2f1749333726a7560a7358914",
+    "sha256_utf8_bytes": "3d09e8b8cae65fc2e131c42958cffab05eb471bcf5efe4d47450b85fbdb4245a",
+    "ref": "dfe70274f5fe2a4845f1937fab524f7ee8f2c532"
+  },
+  {
+    "path": "src/register_types.cpp",
+    "git_blob_sha1": "ea1e2f0508f2bcb53b896984a43703221880ce99",
+    "sha256_utf8_bytes": "10f02dff1ff4ad88b929a0883849cc372fc3cc308beba29e32fc20fa7c5b7d0e",
+    "ref": "dfe70274f5fe2a4845f1937fab524f7ee8f2c532"
+  },
+  {
+    "path": "addons/Tree3D/Tree3D.gdextension",
+    "git_blob_sha1": "73e057b1c73faf6be3d70d745af68d845c5371e8",
+    "sha256_utf8_bytes": "7a5b9daa5900af0cb9cc06156c033ec514262bf1279c9f33cb5193b2b341e2f0",
+    "ref": "dfe70274f5fe2a4845f1937fab524f7ee8f2c532"
+  },
+  {
+    "path": ".github/workflows/build-with-github.yml",
+    "git_blob_sha1": "dcdbbcbe313ce550bdb074d2b277429f77dd1f93",
+    "sha256_utf8_bytes": "f1925545ee40fac56639799ed90314af4f5afa3fdae1966b019007a685c488e2",
+    "ref": "dfe70274f5fe2a4845f1937fab524f7ee8f2c532"
+  },
+  {
+    "path": "LICENSE.md",
+    "git_blob_sha1": "d23028a987834d5f472ce6dc8ea437d42f6760ee",
+    "sha256_utf8_bytes": "9ab78590d9e1b1caf4fbd1ebd604d1b9d5a30e12e8cf9b4bdd5f47b76d88713b",
+    "ref": "dfe70274f5fe2a4845f1937fab524f7ee8f2c532"
+  },
+  {
+    "path": "src/proctree.cpp",
+    "git_blob_sha1": "83ac5c3d06c442881dbf821b8779d1cccae443ad",
+    "sha256_utf8_bytes": "69e10a39e178ba370a77f49454e4f5f5d83047d6274b31093cdf25c4b0e49f9d",
+    "ref": "dfe70274f5fe2a4845f1937fab524f7ee8f2c532"
+  },
+  {
+    "path": "SConstruct",
+    "git_blob_sha1": "1ef037a0c1a87f5379facd20d07c2591aefc7a97",
+    "sha256_utf8_bytes": "097cf30298dbbfc03bd034aefbc45afb71332894d414bbc050a49f22b08e13a8",
+    "ref": "dfe70274f5fe2a4845f1937fab524f7ee8f2c532"
+  }
+]

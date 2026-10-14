@@ -1,0 +1,106 @@
+{
+  "local": {
+    "archive_name": "Tree3D_1.1.zip",
+    "sha256": "0d27c9673bd664a2b4a3d17d426f27142e8a1b78c49b72b9f66a806477c4cd72",
+    "addon_entries": {
+      "Tree3D/LICENSE.md": "9ab78590d9e1b1caf4fbd1ebd604d1b9d5a30e12e8cf9b4bdd5f47b76d88713b",
+      "Tree3D/Materials/Tree3DUniversalMaterial.gdshader": "1b15d2f6141aa380589d27b448a50cda57600320e0d37192b434224ff7cc89bd",
+      "Tree3D/Materials/Tree3DUniversalMaterialLow.gdshader": "21e040b39ce80fa8f160d879a45ca25dae4c18c9d573b544a996f1624a5dc35b",
+      "Tree3D/Materials/Tree3DUniversalMaterialMedium.gdshader": "a1c406e8d15722019fc97d26f4ac380d5b0ca9c9bc81da300c1339e34da68b35",
+      "Tree3D/Materials/Tree3DUniversalMaterialNigh.gdshader": "9a53ca53b610298d1c1465188e25da574b31bdceaf6d90a5e675cef8f8119d68",
+      "Tree3D/README.md": "d4c1d33ec6087784348950da4736cdc7a8bd68130b65d2dbe9875a6ae82d0cfa",
+      "Tree3D/Tree3D.gdextension": "7a5b9daa5900af0cb9cc06156c033ec514262bf1279c9f33cb5193b2b341e2f0",
+      "Tree3D/Tree3D.gdextension.uid": "37e60167b852fd297551b3341ca3204d3ae0bd1414a262fb9ad1b4a197b0eb9f",
+      "Tree3D/ico/Tree3D.png": "d191f95ddd73401b37a97d2e602bfb8e6bc501574923cd282e61f37f6ac945a3",
+      "Tree3D/ico/Tree3D.png.import": "845d1e80765d7ce6a7f5bf1764404c9c350e9b77fc2a630efb94ec96e7d15670",
+      "Tree3D/libTree3D.linux.template_debug.x86_32.so": "74c4993d2a797f5e0f86752c9abf0c3e611553928b5f11190828df02e24cb834",
+      "Tree3D/libTree3D.linux.template_debug.x86_64.so": "40a6c689c844ffb1bcf98f06ae0f2da4b4c9bc4ff30e430faea37a8edcce64dc",
+      "Tree3D/libTree3D.linux.template_release.x86_32.so": "b8118e229f214e3d9713b5ddec90797e04ba27801baa22dac5370e9b9f360a54",
+      "Tree3D/libTree3D.linux.template_release.x86_64.so": "b57f72bcffcf80eb7f056d2d695ad9d01acd4f59f15ce7e55891879411ea1b11",
+      "Tree3D/libTree3D.macos.template_debug.arm64": "2fa9ae9fc17fab01afda84c9aff7b6ee39914ec887e0176bd51df3896c1552a9",
+      "Tree3D/libTree3D.macos.template_debug.universal": "dd4ec24a075804985302c39b3accfc97d2f3d9f71ac228b296a06fde57ce4920",
+      "Tree3D/libTree3D.macos.template_debug.x86_64": "d7497e4fcc6a9840038d16900ba7377bef65f30f08d9e99622d7c5e49f65a292",
+      "Tree3D/libTree3D.macos.template_release.arm64": "2ec9aab5f2ef6e60edb91852f23489bc532cf36c629058c0a9f3cbe7dddc2f05",
+      "Tree3D/libTree3D.macos.template_release.universal": "1cc4b110fff34ec8951938f6a79b1c84854d35e04f2756d7c130b778d2873437",
+      "Tree3D/libTree3D.macos.template_release.x86_64": "37768e3d625c695a80c944450cd949ac1f0ca2a0ee71e9a1c710c50b285ffd3f",
+      "Tree3D/libTree3D.windows.template_debug.x86_32.dll": "a610784d8c5acd8a5f5ed68726c4eabaa1cf77b7ffaf21de56a8926c891850d8",
+      "Tree3D/libTree3D.windows.template_debug.x86_64.dll": "9dcd855d72fd88b3c4f9677151fbafc9c3e2871c8b6431cc76724364b87bdbf2",
+      "Tree3D/libTree3D.windows.template_release.x86_32.dll": "521275455d109b9ed530e16d64046ffdd4f31ee66ea8015487090687595a2b06",
+      "Tree3D/libTree3D.windows.template_release.x86_64.dll": "b6f9b63e4984c2354d8bb888166a34263d279f4d9c3e89a0e61a8539e75d1358"
+    },
+    "descriptors": {
+      "Tree3D 1.1/addons/Tree3D/Tree3D.gdextension": "[infomation]\r\nname = \"Tree3D\"\r\n# TODO generate version via SCons using git-tag inside Github Actions workflow\r\nversion = \"v1.0\"\r\ndecription = \"Plugin for procedural generation of 3D trees of varying complexity.\"\r\nauthor = \"Artyom Bozhko (JekSun97)\"\r\nemail = \"jeksun2022@gmail.com\"\r\nrepo = \"https://github.com/JekSun97/gdTree3D\"\r\n\r\n[icons]\r\nTree3D = \"res://addons/Tree3D/ico/Tree3D.png\"\r\n\r\n[configuration]\r\nentry_symbol = \"tree3d_library_init\"\r\ncompatibility_minimum = \"4.5\"\r\n\r\n[libraries]\r\n# Include the necessary files for your platform\r\nmacos.debug = \"res://addons/Tree3D/libTree3D.macos.template_debug.universal\"\r\nmacos.release = \"res://addons/Tree3D/libTree3D.macos.template_release.universal\"\r\nwindows.debug.x86_32 = \"res://addons/Tree3D/libTree3D.windows.template_debug.x86_32.dll\"\r\nwindows.release.x86_32 = \"res://addons/Tree3D/libTree3D.windows.template_release.x86_32.dll\"\r\nwindows.debug.x86_64 = \"res://addons/Tree3D/libTree3D.windows.template_debug.x86_64.dll\"\r\nwindows.release.x86_64 = \"res://addons/Tree3D/libTree3D.windows.template_release.x86_64.dll\"\r\nlinux.debug.x86_32 = \"res://addons/Tree3D/libTree3D.linux.template_debug.x86_32.so\"\r\nlinux.release.x86_32 = \"res://addons/Tree3D/libTree3D.linux.template_release.x86_32.so\"\r\nlinux.debug.x86_64 = \"res://addons/Tree3D/libTree3D.linux.template_debug.x86_64.so\"\r\nlinux.release.x86_64 = \"res://addons/Tree3D/libTree3D.linux.template_release.x86_64.so\"\r\n",
+      "Tree3D 1.1/demo/addons/Tree3D/Tree3D.gdextension": "[infomation]\r\nname = \"Tree3D\"\r\n# TODO generate version via SCons using git-tag inside Github Actions workflow\r\nversion = \"v1.0\"\r\ndecription = \"Plugin for procedural generation of 3D trees of varying complexity.\"\r\nauthor = \"Artyom Bozhko (JekSun97)\"\r\nemail = \"jeksun2022@gmail.com\"\r\nrepo = \"https://github.com/JekSun97/gdTree3D\"\r\n\r\n[icons]\r\nTree3D = \"res://addons/Tree3D/ico/Tree3D.png\"\r\n\r\n[configuration]\r\nentry_symbol = \"tree3d_library_init\"\r\ncompatibility_minimum = \"4.5\"\r\n\r\n[libraries]\r\n# Include the necessary files for your platform\r\nmacos.debug = \"res://addons/Tree3D/libTree3D.macos.template_debug.universal\"\r\nmacos.release = \"res://addons/Tree3D/libTree3D.macos.template_release.universal\"\r\nwindows.debug.x86_32 = \"res://addons/Tree3D/libTree3D.windows.template_debug.x86_32.dll\"\r\nwindows.release.x86_32 = \"res://addons/Tree3D/libTree3D.windows.template_release.x86_32.dll\"\r\nwindows.debug.x86_64 = \"res://addons/Tree3D/libTree3D.windows.template_debug.x86_64.dll\"\r\nwindows.release.x86_64 = \"res://addons/Tree3D/libTree3D.windows.template_release.x86_64.dll\"\r\nlinux.debug.x86_32 = \"res://addons/Tree3D/libTree3D.linux.template_debug.x86_32.so\"\r\nlinux.release.x86_32 = \"res://addons/Tree3D/libTree3D.linux.template_release.x86_32.so\"\r\nlinux.debug.x86_64 = \"res://addons/Tree3D/libTree3D.linux.template_debug.x86_64.so\"\r\nlinux.release.x86_64 = \"res://addons/Tree3D/libTree3D.linux.template_release.x86_64.so\"\r\n"
+    },
+    "cpp_source_files": []
+  },
+  "upstream": {
+    "archive_name": "Tree3D-upstream-v1.1.0.zip",
+    "sha256": "fb12f381ec19d1e9eb6339f8df85da474e9255ba0f86e5251df5d4599cc1b42d",
+    "addon_entries": {
+      "Tree3D/Materials/Tree3DUniversalMaterial.gdshader": "1b15d2f6141aa380589d27b448a50cda57600320e0d37192b434224ff7cc89bd",
+      "Tree3D/Materials/Tree3DUniversalMaterial.gdshader.uid": "33601b345ecd007468fc85668a5339a3dbb2bf52e20a7186c92596dcb1dbf7d7",
+      "Tree3D/Materials/Tree3DUniversalMaterialLow.gdshader": "21e040b39ce80fa8f160d879a45ca25dae4c18c9d573b544a996f1624a5dc35b",
+      "Tree3D/Materials/Tree3DUniversalMaterialMedium.gdshader": "a1c406e8d15722019fc97d26f4ac380d5b0ca9c9bc81da300c1339e34da68b35",
+      "Tree3D/Materials/Tree3DUniversalMaterialNigh.gdshader": "9a53ca53b610298d1c1465188e25da574b31bdceaf6d90a5e675cef8f8119d68",
+      "Tree3D/Tree3D.gdextension": "7a5b9daa5900af0cb9cc06156c033ec514262bf1279c9f33cb5193b2b341e2f0",
+      "Tree3D/Tree3D.gdextension.uid": "37e60167b852fd297551b3341ca3204d3ae0bd1414a262fb9ad1b4a197b0eb9f",
+      "Tree3D/ico/Tree3D.png": "d191f95ddd73401b37a97d2e602bfb8e6bc501574923cd282e61f37f6ac945a3",
+      "Tree3D/ico/Tree3D.png.import": "845d1e80765d7ce6a7f5bf1764404c9c350e9b77fc2a630efb94ec96e7d15670",
+      "Tree3D/libTree3D.linux.template_debug.x86_32.so": "74c4993d2a797f5e0f86752c9abf0c3e611553928b5f11190828df02e24cb834",
+      "Tree3D/libTree3D.linux.template_debug.x86_64.so": "40a6c689c844ffb1bcf98f06ae0f2da4b4c9bc4ff30e430faea37a8edcce64dc",
+      "Tree3D/libTree3D.linux.template_release.x86_32.so": "b8118e229f214e3d9713b5ddec90797e04ba27801baa22dac5370e9b9f360a54",
+      "Tree3D/libTree3D.linux.template_release.x86_64.so": "b57f72bcffcf80eb7f056d2d695ad9d01acd4f59f15ce7e55891879411ea1b11",
+      "Tree3D/libTree3D.macos.template_debug.arm64": "2fa9ae9fc17fab01afda84c9aff7b6ee39914ec887e0176bd51df3896c1552a9",
+      "Tree3D/libTree3D.macos.template_debug.universal": "dd4ec24a075804985302c39b3accfc97d2f3d9f71ac228b296a06fde57ce4920",
+      "Tree3D/libTree3D.macos.template_debug.x86_64": "d7497e4fcc6a9840038d16900ba7377bef65f30f08d9e99622d7c5e49f65a292",
+      "Tree3D/libTree3D.macos.template_release.arm64": "2ec9aab5f2ef6e60edb91852f23489bc532cf36c629058c0a9f3cbe7dddc2f05",
+      "Tree3D/libTree3D.macos.template_release.universal": "1cc4b110fff34ec8951938f6a79b1c84854d35e04f2756d7c130b778d2873437",
+      "Tree3D/libTree3D.macos.template_release.x86_64": "37768e3d625c695a80c944450cd949ac1f0ca2a0ee71e9a1c710c50b285ffd3f",
+      "Tree3D/libTree3D.windows.template_debug.x86_32.dll": "a610784d8c5acd8a5f5ed68726c4eabaa1cf77b7ffaf21de56a8926c891850d8",
+      "Tree3D/libTree3D.windows.template_debug.x86_64.dll": "9dcd855d72fd88b3c4f9677151fbafc9c3e2871c8b6431cc76724364b87bdbf2",
+      "Tree3D/libTree3D.windows.template_release.x86_32.dll": "521275455d109b9ed530e16d64046ffdd4f31ee66ea8015487090687595a2b06",
+      "Tree3D/libTree3D.windows.template_release.x86_64.dll": "b6f9b63e4984c2354d8bb888166a34263d279f4d9c3e89a0e61a8539e75d1358"
+    },
+    "descriptors": {
+      "Tree3D/Tree3D.gdextension": "[infomation]\r\nname = \"Tree3D\"\r\n# TODO generate version via SCons using git-tag inside Github Actions workflow\r\nversion = \"v1.0\"\r\ndecription = \"Plugin for procedural generation of 3D trees of varying complexity.\"\r\nauthor = \"Artyom Bozhko (JekSun97)\"\r\nemail = \"jeksun2022@gmail.com\"\r\nrepo = \"https://github.com/JekSun97/gdTree3D\"\r\n\r\n[icons]\r\nTree3D = \"res://addons/Tree3D/ico/Tree3D.png\"\r\n\r\n[configuration]\r\nentry_symbol = \"tree3d_library_init\"\r\ncompatibility_minimum = \"4.5\"\r\n\r\n[libraries]\r\n# Include the necessary files for your platform\r\nmacos.debug = \"res://addons/Tree3D/libTree3D.macos.template_debug.universal\"\r\nmacos.release = \"res://addons/Tree3D/libTree3D.macos.template_release.universal\"\r\nwindows.debug.x86_32 = \"res://addons/Tree3D/libTree3D.windows.template_debug.x86_32.dll\"\r\nwindows.release.x86_32 = \"res://addons/Tree3D/libTree3D.windows.template_release.x86_32.dll\"\r\nwindows.debug.x86_64 = \"res://addons/Tree3D/libTree3D.windows.template_debug.x86_64.dll\"\r\nwindows.release.x86_64 = \"res://addons/Tree3D/libTree3D.windows.template_release.x86_64.dll\"\r\nlinux.debug.x86_32 = \"res://addons/Tree3D/libTree3D.linux.template_debug.x86_32.so\"\r\nlinux.release.x86_32 = \"res://addons/Tree3D/libTree3D.linux.template_release.x86_32.so\"\r\nlinux.debug.x86_64 = \"res://addons/Tree3D/libTree3D.linux.template_debug.x86_64.so\"\r\nlinux.release.x86_64 = \"res://addons/Tree3D/libTree3D.linux.template_release.x86_64.so\"\r\n"
+    },
+    "cpp_source_files": []
+  },
+  "comparison": {
+    "shared_entries": 22,
+    "identical_entries": [
+      "Tree3D/Materials/Tree3DUniversalMaterial.gdshader",
+      "Tree3D/Materials/Tree3DUniversalMaterialLow.gdshader",
+      "Tree3D/Materials/Tree3DUniversalMaterialMedium.gdshader",
+      "Tree3D/Materials/Tree3DUniversalMaterialNigh.gdshader",
+      "Tree3D/Tree3D.gdextension",
+      "Tree3D/Tree3D.gdextension.uid",
+      "Tree3D/ico/Tree3D.png",
+      "Tree3D/ico/Tree3D.png.import",
+      "Tree3D/libTree3D.linux.template_debug.x86_32.so",
+      "Tree3D/libTree3D.linux.template_debug.x86_64.so",
+      "Tree3D/libTree3D.linux.template_release.x86_32.so",
+      "Tree3D/libTree3D.linux.template_release.x86_64.so",
+      "Tree3D/libTree3D.macos.template_debug.arm64",
+      "Tree3D/libTree3D.macos.template_debug.universal",
+      "Tree3D/libTree3D.macos.template_debug.x86_64",
+      "Tree3D/libTree3D.macos.template_release.arm64",
+      "Tree3D/libTree3D.macos.template_release.universal",
+      "Tree3D/libTree3D.macos.template_release.x86_64",
+      "Tree3D/libTree3D.windows.template_debug.x86_32.dll",
+      "Tree3D/libTree3D.windows.template_debug.x86_64.dll",
+      "Tree3D/libTree3D.windows.template_release.x86_32.dll",
+      "Tree3D/libTree3D.windows.template_release.x86_64.dll"
+    ],
+    "different_entries": [],
+    "local_only": [
+      "Tree3D/LICENSE.md",
+      "Tree3D/README.md"
+    ],
+    "upstream_only": [
+      "Tree3D/Materials/Tree3DUniversalMaterial.gdshader.uid"
+    ],
+    "source_binary_build_identity": "UNVERIFIED: payload equality does not prove build provenance"
+  }
+}

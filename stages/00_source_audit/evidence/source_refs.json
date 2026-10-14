@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-14",
+  "tree3d": {
+    "repo": "JekSun97/gdTree3D",
+    "tag": "v1.1.0",
+    "tag_commit": "dfe70274f5fe2a4845f1937fab524f7ee8f2c532",
+    "main_commit": "e9ec657b0ee3667ac11dddad6133d52274c656f7",
+    "godot_cpp_candidate": "27d9dd23c83871e0619fca5dc2cddfbfd69e926a"
+  },
+  "competitors": [
+    {
+      "repo": "dreadpon/godot_spatial_gardener",
+      "sha": "77b822f50ded7211f91c0f0588d7b7c8bedac5f6",
+      "date": "2025-03-05T07:54:57Z"
+    },
+    {
+      "repo": "TokisanGames/Terrain3D",
+      "sha": "854a4575ef0f6db8f3e2c051d352181da75236a2",
+      "date": "2026-10-07T10:20:39Z"
+    },
+    {
+      "repo": "HungryProton/scatter",
+      "sha": "7198cc00078ebde61307578137c3f35223c6e438",
+      "date": "2026-09-27T13:11:14Z"
+    },
+    {
+      "repo": "spimort/TerraBrush",
+      "sha": "d538805f1c2278787641588d9de1fb227a150cba",
+      "date": "2026-10-14T01:52:13Z"
+    },
+    {
+      "repo": "GdevSarvesh/FoliageFlow",
+      "sha": "7be55699ffc6f02af3d1cc1189a9745847e5fb86",
+      "date": "2026-09-04T17:59:10Z"
+    },
+    {
+      "repo": "gtibo/multimesh-plus",
+      "sha": "03f518bb2eedaa26a138400e7718ad83cfaf49a8",
+      "date": "2026-10-11T10:53:19Z"
+    }
+  ]
+}

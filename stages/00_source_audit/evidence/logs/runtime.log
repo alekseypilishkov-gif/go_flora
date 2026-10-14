@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS E1_PHYSICS ray hits collision generated from PlaneMesh at origin with up normal
+PASS E2_A cell 0 disabled; adjacent cell 1 enabled
+PASS E2_B cell 1 disabled independently; 4 transforms unchanged
+PASS E3_DO transaction appends record
+PASS E3_UNDO logical state restored
+PASS E3_REDO stable IDs restored
+PASS E3_SAVE logical records packed and saved for separate-process reopen
