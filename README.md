@@ -8,7 +8,7 @@ An editor-first, terrain-independent 3D vegetation workflow for Godot: reusable 
 
 Copy `addons/go_flora/` into a Godot 4.7.2 project's `res://addons/go_flora/`, then enable **GO_FLORA** in Project Settings → Plugins. Follow the [addon guide](addons/go_flora/README.md) to configure a layer, weighted sets and Mesh sources. No native extension or Tree3D dependency is required.
 
-For the original two-set sample, run `python tools/prepare_stage01.py` from the repository root, then open `stages/01_painter_mvp/demo/project.godot` in Godot 4.7.2. Read the [demo guide](stages/01_painter_mvp/demo/README.md), [manual acceptance script](stages/01_painter_mvp/manual_qa.md) and [Russian Stage 01 report](stages/01_painter_mvp/report.md). The work stops at the Stage 01 PR for owner acceptance.
+For the original two-set sample, run `python tools/prepare_stage01.py` from the repository root, then open `stages/01_painter_mvp/demo/project.godot` in Godot 4.7.2. Read the [demo guide](stages/01_painter_mvp/demo/README.md), [manual acceptance script](stages/01_painter_mvp/manual_qa.md) and [Russian Stage 01 report](stages/01_painter_mvp/report.md). [PR #4](https://github.com/alekseypilishkov-gif/go_flora/pull/4) is open for owner acceptance; no automatic merge.
 
 ## Repository layout
 

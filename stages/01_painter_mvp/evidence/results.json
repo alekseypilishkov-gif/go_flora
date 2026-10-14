@@ -152,5 +152,11 @@
   "repository_static_gate": "PASS",
   "whitespace_regression": "PASS",
   "working_whitespace": "PASS",
-  "GitHub_Actions": "NOT_RUN"
+  "GitHub_Actions": "PASS",
+  "implementation_commit": "b4a3381fe5cf5daef0fd5001ddb7571370db3e22",
+  "pr": "https://github.com/alekseypilishkov-gif/go_flora/pull/4",
+  "staged_whitespace": "PASS",
+  "committed_whitespace": "PASS",
+  "previous_stage_unchanged": "PASS",
+  "ci_summary": "ci_summary.json"
 }

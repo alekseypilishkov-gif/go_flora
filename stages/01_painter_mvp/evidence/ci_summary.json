@@ -1,0 +1,191 @@
+{
+  "scope": "GitHub Actions headless Linux automation; not GUI/export support or owner acceptance",
+  "tested_commit": "b4a3381fe5cf5daef0fd5001ddb7571370db3e22",
+  "pr": "https://github.com/alekseypilishkov-gif/go_flora/pull/4",
+  "status": "PASS",
+  "jobs": [
+    {
+      "id": 115847211526,
+      "name": "repository-checks",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 38562618639,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python tools/verify_repository.py",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Static whitespace gate regression",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Static whitespace check of committed changes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        }
+      ],
+      "url": "https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38562618639"
+    },
+    {
+      "id": 115847210264,
+      "name": "godot-automatic",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 38562618673,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Download pinned Godot 4.7.2 runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run python tools/prepare_stage01.py",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Headless core, fresh process, native Editor API (not GUI acceptance)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Upload automatic evidence including failures",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        }
+      ],
+      "url": "https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38562618673"
+    }
+  ],
+  "artifact": {
+    "id": 11893506724,
+    "name": "stage01-godot-automatic",
+    "size_in_bytes": 5680,
+    "url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/artifacts/11893506724",
+    "archive_download_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/artifacts/11893506724/zip",
+    "expired": false,
+    "created_at": "2026-10-14T12:17:07Z",
+    "expires_at": "2027-01-12T12:16:52Z",
+    "updated_at": "2026-10-14T12:17:07Z",
+    "digest": "sha256:1d10396840b430dfa5ee298fb255692cd263d825f43434be53f2916a5fcda507",
+    "workflow_run": {
+      "id": 38562618673,
+      "repository_id": 1418626687,
+      "head_repository_id": 1418626687,
+      "head_branch": "codex/stage-01-painter-mvp",
+      "head_sha": "b4a3381fe5cf5daef0fd5001ddb7571370db3e22"
+    },
+    "browser_url": "https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38562618673/artifacts/11893506724"
+  },
+  "observed_log_lines": [
+    "2026-10-14T12:16:57.0400864Z .scratch/ci-godot/godot.zip: OK",
+    "2026-10-14T12:16:58.2855009Z version PASS",
+    "2026-10-14T12:17:03.0438756Z editor_import PASS",
+    "2026-10-14T12:17:03.6883184Z core PASS",
+    "2026-10-14T12:17:03.9406176Z fresh_reopen PASS",
+    "2026-10-14T12:17:03.9409661Z PASS fresh_process_scene_reopen exact IDs/count/seed/set/cells; transform tolerance 1e-5; one rebuilt cache",
+    "2026-10-14T12:17:06.8345360Z editor_api PASS",
+    "2026-10-14T12:17:06.8384101Z PASS EDITOR_API installed_enabled_actual_addon",
+    "2026-10-14T12:17:06.8384645Z PASS EDITOR_API pending_no_persistent_mutation",
+    "2026-10-14T12:17:06.8385528Z PASS EDITOR_API cancel_no_undo_action",
+    "2026-10-14T12:17:06.8386480Z PASS EDITOR_API application_focus_loss_cancels_pending_API_only",
+    "2026-10-14T12:17:06.8387805Z PASS EDITOR_API outside_viewport_release_cancels_pending_API_only",
+    "2026-10-14T12:17:06.8389401Z PASS EDITOR_API single_commit_exactly_one",
+    "2026-10-14T12:17:06.8389886Z PASS EDITOR_API one_scene_history_undo",
+    "2026-10-14T12:17:06.8390341Z PASS EDITOR_API scene_redo_exact_id",
+    "2026-10-14T12:17:06.8391858Z PASS EDITOR_API multi_sample_paint_one_native_undo_step",
+    "2026-10-14T12:17:06.8392525Z PASS EDITOR_API native_paint_redo_restores_exact_ID_sequence",
+    "2026-10-14T12:17:06.8394140Z PASS EDITOR_API native_erase_commits_record_delta",
+    "2026-10-14T12:17:06.8394767Z PASS EDITOR_API native_erase_one_undo_restores_exact_order",
+    "2026-10-14T12:17:06.8395831Z PASS EDITOR_API scene_switch_cancels_pending",
+    "2026-10-14T12:17:06.8397769Z PASS EDITOR_API distinct_scene_history_ids",
+    "2026-10-14T12:17:06.8398444Z PASS EDITOR_API undo_B_does_not_edit_A",
+    "2026-10-14T12:17:06.8399084Z PASS EDITOR_API disable_preserves_data_removes_editor_state",
+    "2026-10-14T12:17:06.8400252Z PASS EDITOR_API reenable_one_plugin_no_parse_errors_data_rendered",
+    "2026-10-14T12:17:06.8401130Z NOT_RUN INTERACTIVE_GUI_QA these Editor API checks do not inject real mouse strokes"
+  ]
+}

@@ -59,7 +59,7 @@ git diff --check origin/main...HEAD
 | INTERACTIVE_GUI_QA / visual set-distance / actual editor close-reopen | NOT_RUN | Владелец выполняет [manual_qa.md](manual_qa.md); синтетические callbacks и headless API не подтверждают mouse workflow |
 | CPU cache construction benchmark | PASS | Реально построенные 1 024 и 5 000 records, counts/timings ниже; не FPS |
 | GPU/FPS / large forest / clean-machine install/export / other GUI platforms | NOT_RUN | Такие проверки не выполнены, широкая совместимость не заявлена |
-| GitHub Actions | NOT_RUN до публикации PR | Два workflow подготовлены; актуальный CI результат и ссылки будут зафиксированы после push |
+| GitHub Actions | PASS | Implementation commit `b4a3381fe5cf5daef0fd5001ddb7571370db3e22`: [repository static checks](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38562618639) и [Godot automatic checks](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38562618673), оба job conclusion=success. Linux headless automation с pinned official runtime; не Linux GUI/export support |
 
 Все автоматические final Godot subprocess завершились с exit=0. Raw logs, machine-readable assertions и fingerprints входных scripts/scene: [evidence index](evidence/README.md), [results.json](evidence/results.json). Source analysis отдельно от runtime. Наблюдённый первоначальный parse FAIL исправлен без ослабления теста; прочие фактические ошибки среды перечислены в [development_failures.md](evidence/development_failures.md). Исторический Stage 00 alpha-hash Compatibility FAIL сохранён; alpha cards вне этого этапа.
 
@@ -80,4 +80,6 @@ Windows Computer Use попытался получить управление Go
 
 Владельцу нужно пройти Paint/Erase/Single, navigation/Esc/pending scene switch, реальный save/close/reopen, enable/disable и видимую дальность A/B на двух расстояниях по [manual QA](manual_qa.md). Опциональный read-only EditorScript позволяет снять ID/transform/batch-settings до/после этих настоящих действий. После этого владелец принимает workflow и решает о merge PR. Других новых решений о лицензиях или интеграциях этот этап не запрашивает.
 
-PR и implementation commit будут внесены после публикации ветки; база уже зафиксирована выше, точные проверенные source fingerprints — в results.json. **Не выполнять auto-merge, не публиковать release, не начинать Stage 02.**
+[PR #4](https://github.com/alekseypilishkov-gif/go_flora/pull/4): `codex/stage-01-painter-mvp` → `main`, открыт для приёмки, не merged. Implementation commit: [`b4a3381fe5cf5daef0fd5001ddb7571370db3e22`](https://github.com/alekseypilishkov-gif/go_flora/commit/b4a3381fe5cf5daef0fd5001ddb7571370db3e22). Последующие изменения только фиксируют отчёт/CI ссылки. Точные проверенные source fingerprints — в results.json; metadata jobs/artifact и log excerpts — в [ci_summary.json](evidence/ci_summary.json). Полные CI Godot logs/results сохранены в [workflow artifact](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38562618673/artifacts/11893506724).
+
+**Не выполнять auto-merge, не публиковать release, не начинать Stage 02.**
