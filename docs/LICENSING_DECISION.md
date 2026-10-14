@@ -1,6 +1,8 @@
-# Licensing decision — owner sign-off pending
+# Licensing decision — MIT approved for original GO_FLORA work
 
-**Recommendation:** adopt MIT for original GO_FLORA code and documentation, with a separate third-party notices file for any approved dependency distribution. **Decision: PENDING.** No root LICENSE is added, and this recommendation does not grant rights to upstream assets. Owner approval is required before adopting the license, distributing derivatives or publishing a release.
+**Decision: APPROVED — 2026-10-14.** The project owner approved MIT for original GO_FLORA source code and original project documentation. The standard root [LICENSE](../LICENSE) uses `Copyright (c) 2026 GO_FLORA contributors`, as specified in the [owner decision on PR #2](https://github.com/alekseypilishkov-gif/go_flora/pull/2#issuecomment-6166184229).
+
+This approval applies to original GO_FLORA work only. It does not relicense or authorize redistribution of Tree3D/Proctree code or binaries, third-party shaders, unverified demo assets/textures, competitor code or Unreal assets. Preserve their separate license/provenance boundaries below and include complete notices for any later approved dependency distribution. Owner approval and the existing integration/release gates remain required before distributing third-party derivatives or publishing a release.
 
 This is a provenance inventory based on inspected sources, not a substitute for review of the eventual distributable. Stage 00 distributes only original probes/docs and small logs/checksums. Downloaded upstream code, binaries, icons and demos stay in ignored `.scratch/`.
 
@@ -15,4 +17,4 @@ This is a provenance inventory based on inspected sources, not a substitute for 
 | Competitor plugin code | Primary repos linked in matrix; MIT code notices inspected or referenced | Each code license is separate from demo textures/brands. ProtonScatter explicitly restricts standalone redistribution of bundled Textures.com textures | Research only; no implementation/assets copied |
 | Unreal Engine reference | [official Foliage Mode docs](https://dev.epicgames.com/documentation/unreal-engine/foliage-mode-in-unreal-engine) | Behavior reference only; no permission inferred to reuse Epic assets/code | No copies |
 
-Owner decisions: approve or reject MIT for original work; approve the optional external-provider strategy; authorize any later Tree3D derivative integration only after notice completeness, build provenance and asset exclusions are resolved. Keep unknown-license assets out of future release packages by an explicit allowlist.
+Remaining owner/integration gates: authorize any later Tree3D derivative integration only after notice completeness, build provenance and asset exclusions are resolved. Keep unknown-license assets out of future release packages by an explicit allowlist. MIT approval does not authorize Stage 01 implementation, automatic merge or release publication.

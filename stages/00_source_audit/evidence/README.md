@@ -22,9 +22,17 @@ python stages/00_source_audit/evidence/run_probes.py --godot .scratch/godot-port
 python stages/00_source_audit/evidence/audit_archives.py <local-archive> .scratch/Tree3D-upstream-v1.1.0.zip --output .scratch/archive-rerun.json
 python tools/verify_repository.py
 git diff --check
+git diff --cached --check
+git diff --check origin/main...HEAD
 ```
 
 The run summary JSON under stage `.scratch/runs/` includes the exact child command and exit code. The alpha GPU commands open short-lived renderer windows and write viewport PNGs. They do not use headless dummy rendering for pixel checks. The Compatibility alpha-hash probe currently returns FAIL and exit 1; retain it as evidence, do not relabel it PASS. Resource-only headless alpha checks explicitly print render NOT_RUN. Review [results.json](results.json) for per-case distinctions; command PASS can coexist with explicit NOT_RUN subchecks.
+
+## Licensing follow-up static checks
+
+The corrected Actions workflow checks out the actual PR head with full history and compares its committed diff with the event's PR base SHA; push runs compare with `origin/main`. A clean working-tree check alone does not inspect committed changes. [licensing_followup_whitespace.json](licensing_followup_whitespace.json) records a regression probe of the actual Bash block extracted from the workflow: an intentionally bad committed file in a clean fixture is rejected (exit 2) for both PR-base and push-fallback paths; corrected committed content passes (exit 0).
+
+Reproduce with `python stages/00_source_audit/evidence/whitespace_probe.py --bash <bash-executable>` from any working directory, using Git Bash on Windows or `bash` on Linux. It creates original temporary Git fixtures under ignored repository `.scratch/` and writes results under stage `.scratch/`; it does not modify project branches. These are static Git checks, not Godot runtime tests. The initial Windows sandbox launcher failed to create an MSYS named object; the authorized rerun passed.
 
 ## Manual viewport gate — NOT_RUN
 

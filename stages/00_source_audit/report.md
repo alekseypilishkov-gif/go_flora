@@ -46,10 +46,12 @@ Tag v1.1.0 не совпадает с main: release ZIP содержит tier sh
 
 Локальные статические проверки и `git diff --cached --check` — **PASS**. Рабочее дерево после основного коммита чистое; feature branch отправлена, PR создан и прикреплён к чату. GitHub Actions [run 38543078304](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38543078304) на `b5555ad...` — **success**: проверка обязательных файлов, локальных ссылок, Python/JSON syntax, запрет бинарников/кэшей и whitespace gate. Это статический CI, не Godot runtime. Приёмка аудита допускает честные FAIL/NOT_RUN; она не означает готовность продукта. После завершающего коммита требуется чистый статус и совпадение локального/remote head; итог проверяется перед остановкой.
 
-Требуется утверждение владельца:
+Дополнение после [решения владельца о лицензии](https://github.com/alekseypilishkov-gif/go_flora/pull/2#issuecomment-6166184229): MIT утверждена для собственного кода/документации; README, contributor guidance и валидатор согласованы с LICENSE. PixelLab-правило удалено из AGENTS. CI получает полную историю и проверяет committed diff с базой PR (`base...HEAD`), а при push — с `origin/main`. Старый bare `git diff --check` на чистом checkout не проверял изменения PR. [Регрессионная проба](evidence/licensing_followup_whitespace.json) — **PASS**: ошибка в уже закоммиченном файле обнаруживается при чистом рабочем дереве; чистый diff проходит. Эти проверки статические, прежние runtime FAIL/NOT_RUN/UNVERIFIED сохраняются.
+
+Статус решений владельца и оставшихся разрешений:
 
 1. Принять архитектуру A и Godot 4.7.2 как начальную версию.
-2. Принять MIT для собственного GO_FLORA или выбрать другую лицензию; сейчас решение PENDING и LICENSE не создан.
+2. **MIT для собственного кода и документации GO_FLORA утверждена владельцем 2026-10-14**: добавлен корневой LICENSE с `Copyright (c) 2026 GO_FLORA contributors`. [Решение владельца](https://github.com/alekseypilishkov-gif/go_flora/pull/2#issuecomment-6166184229) не меняет отдельные условия сторонних зависимостей и не разрешает их перераспространение.
 3. Согласовать отдельный optional Tree3D provider; разрешение на derivative code/бинарную поставку вынести на Stage 03 после notices/provenance review.
 4. Принять alpha-scissor по умолчанию и ограничения hash/fade; выполнить/назначить ручную viewport-проверку.
 5. Утвердить узкий Stage 01 proposal отдельным заданием; данный PR не разрешает начать следующий этап.

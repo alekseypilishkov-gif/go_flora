@@ -6,7 +6,7 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-REQUIRED = ["README.md", "AGENTS.md", "CONTRIBUTING.md", "docs/PRODUCT_VISION.md",
+REQUIRED = ["LICENSE", "README.md", "AGENTS.md", "CONTRIBUTING.md", "docs/PRODUCT_VISION.md",
             "docs/ARCHITECTURE_ADR_0001.md", "docs/LICENSING_DECISION.md", "docs/ROADMAP.md",
             "stages/00_source_audit/report.md", "stages/00_source_audit/competitor_matrix.md",
             "stages/00_source_audit/tree3d_source_audit.md", "stages/00_source_audit/next_stage_01_proposal.md"]
@@ -40,7 +40,5 @@ readme = (ROOT / "README.md").read_text(encoding="utf-8")
 for phrase in ["pre-development", "not yet available"]:
     if phrase not in readme:
         errors.append("README missing status: " + phrase)
-if (ROOT / "LICENSE").exists():
-    errors.append("Stage 00 must not silently adopt a final license")
 print("\n".join(errors) if errors else "PASS static repository outputs, links, Python/JSON syntax and artifact isolation")
 raise SystemExit(1 if errors else 0)

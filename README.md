@@ -14,8 +14,8 @@ An editor-first, terrain-independent 3D vegetation workflow for Godot: reusable 
 
 ## Development
 
-Read [AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md). Work on a stage branch, record exact test commands and limitations, and submit a PR. Owner approval is required for merging, license adoption, and later release work.
+Read [AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md). Work on a stage branch, record exact test commands and limitations, and submit a PR. Owner approval is required for merging, third-party integration, and later release work.
 
-Scope and acceptance: [Issue #1](https://github.com/alekseypilishkov-gif/go_flora/issues/1). No third-party assets or native libraries are distributed here. The project license is pending owner decision.
+Scope and acceptance: [Issue #1](https://github.com/alekseypilishkov-gif/go_flora/issues/1). Original GO_FLORA code and documentation are licensed under [MIT](LICENSE), approved by the owner on 2026-10-14. Third-party components retain their own licenses and notices; see the [licensing inventory](docs/LICENSING_DECISION.md). No third-party assets or native libraries are distributed here.
 
 Stage 00 results: [Russian report](stages/00_source_audit/report.md), [architecture proposal](docs/ARCHITECTURE_ADR_0001.md), [evidence and reproduction](stages/00_source_audit/evidence/README.md), and [PR #2](https://github.com/alekseypilishkov-gif/go_flora/pull/2). Audited engine baseline: Godot 4.7.2; broader compatibility is not yet verified.
