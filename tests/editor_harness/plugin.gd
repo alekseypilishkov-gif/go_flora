@@ -1,0 +1,128 @@
+@tool
+extends EditorPlugin
+
+var failed := false
+var results: Array[Dictionary] = []
+
+func _enter_tree() -> void:
+	call_deferred("run")
+
+func check(ok: bool, id: String) -> void:
+	print(("PASS " if ok else "FAIL ") + "EDITOR_API " + id)
+	results.append({"id": id, "status": "PASS" if ok else "FAIL", "scope": "headless native Editor API, not real GUI"})
+	failed = failed or not ok
+
+func wait_scene(name_value: String) -> Node:
+	for i in 300:
+		var scene := get_editor_interface().get_edited_scene_root()
+		if scene != null and str(scene.name) == name_value:
+			await get_tree().process_frame
+			await get_tree().process_frame
+			return scene
+		await get_tree().process_frame
+	return null
+
+func painter() -> EditorPlugin:
+	var plugins := get_tree().get_nodes_in_group("go_flora_editor_plugin")
+	return plugins[0] as EditorPlugin if plugins.size() == 1 else null
+
+func plane(point: Vector3, _normal: Vector3) -> Dictionary:
+	return {"position": Vector3(point.x, 0, point.z), "normal": Vector3.UP}
+
+func pending(plugin: EditorPlugin, layer: VegetationLayer3D, stroke_mode: GFStroke.Mode = GFStroke.Mode.SINGLE) -> void:
+	plugin.active_layer = layer
+	plugin.active_set = layer.layer_data.sets[0]
+	plugin.mode = int(stroke_mode) + 1
+	plugin._stroke_layer = layer
+	plugin._stroke_transform = layer.global_transform
+	plugin._stroke = GFStroke.new()
+	plugin._stroke.begin(layer.layer_data, layer.global_transform, plugin.active_set, plugin.brush, layer.cell_size_m, stroke_mode)
+	plugin._stroke.feed({"position": Vector3.ZERO, "normal": Vector3.UP}, plane)
+	layer.set_stroke_preview(plugin._stroke.delta.added, {})
+
+func run() -> void:
+	var scene_a := await wait_scene("GOFloraDemo")
+	var plugin := painter()
+	check(scene_a != null and plugin != null, "installed_enabled_actual_addon")
+	if scene_a == null or plugin == null:
+		get_tree().quit(1)
+		return
+	var layer_a := scene_a.get_node("VegetationLayer") as VegetationLayer3D
+	plugin._edit(layer_a)
+	pending(plugin, layer_a)
+	check(layer_a.layer_data.records.is_empty(), "pending_no_persistent_mutation")
+	plugin.cancel_stroke()
+	check(plugin._stroke == null and layer_a.layer_data.records.is_empty(), "cancel_no_undo_action")
+	pending(plugin, layer_a)
+	plugin._notification(NOTIFICATION_APPLICATION_FOCUS_OUT)
+	check(plugin._stroke == null and layer_a.layer_data.records.is_empty(), "application_focus_loss_cancels_pending_API_only")
+	pending(plugin, layer_a)
+	plugin._cancel_unhandled_release()
+	check(plugin._stroke == null and layer_a.layer_data.records.is_empty(), "outside_viewport_release_cancels_pending_API_only")
+	pending(plugin, layer_a)
+	plugin.commit_stroke()
+	var manager := plugin.get_undo_redo()
+	var history_a_id := manager.get_object_history_id(layer_a)
+	var history_a := manager.get_history_undo_redo(history_a_id)
+	var record_id: String = layer_a.layer_data.records[0].record_id
+	check(layer_a.layer_data.records.size() == 1, "single_commit_exactly_one")
+	history_a.undo()
+	check(layer_a.layer_data.records.is_empty(), "one_scene_history_undo")
+	history_a.redo()
+	check(layer_a.layer_data.records.size() == 1 and layer_a.layer_data.records[0].record_id == record_id, "scene_redo_exact_id")
+	pending(plugin, layer_a, GFStroke.Mode.PAINT)
+	plugin._stroke.feed({"position": Vector3(2, 0, 0), "normal": Vector3.UP}, plane)
+	plugin.commit_stroke()
+	var painted_ids := layer_a.layer_data.records.map(func(record: GFInstanceRecord) -> String: return record.record_id)
+	history_a.undo()
+	check(painted_ids.size() > 1 and layer_a.layer_data.records.size() == 1, "multi_sample_paint_one_native_undo_step")
+	history_a.redo()
+	check(layer_a.layer_data.records.map(func(record: GFInstanceRecord) -> String: return record.record_id) == painted_ids, "native_paint_redo_restores_exact_ID_sequence")
+	pending(plugin, layer_a, GFStroke.Mode.ERASE)
+	plugin.commit_stroke()
+	check(layer_a.layer_data.records.size() < painted_ids.size(), "native_erase_commits_record_delta")
+	history_a.undo()
+	check(layer_a.layer_data.records.map(func(record: GFInstanceRecord) -> String: return record.record_id) == painted_ids, "native_erase_one_undo_restores_exact_order")
+	history_a.undo() # Return scene A to its single placement before isolation checks.
+	var scene_b := Node3D.new()
+	scene_b.name = "HistoryB"
+	var layer_b := VegetationLayer3D.new()
+	layer_b.name = "VegetationLayer"
+	layer_b.layer_data.layer_id = "history-b"
+	layer_b.layer_data.sets = layer_a.layer_data.sets
+	scene_b.add_child(layer_b)
+	layer_b.owner = scene_b
+	var packed := PackedScene.new()
+	packed.pack(scene_b)
+	DirAccess.make_dir_recursive_absolute("res://.scratch")
+	ResourceSaver.save(packed, "res://.scratch/history_b.tscn")
+	scene_b.free()
+	pending(plugin, layer_a)
+	get_editor_interface().open_scene_from_path("res://.scratch/history_b.tscn")
+	var active_b := await wait_scene("HistoryB")
+	check(active_b != null and plugin._stroke == null and layer_a.layer_data.records.size() == 1, "scene_switch_cancels_pending")
+	if active_b == null:
+		get_tree().quit(1)
+		return
+	layer_b = active_b.get_node("VegetationLayer") as VegetationLayer3D
+	pending(plugin, layer_b)
+	plugin.commit_stroke()
+	var history_b_id := manager.get_object_history_id(layer_b)
+	check(history_a_id != history_b_id, "distinct_scene_history_ids")
+	manager.get_history_undo_redo(history_b_id).undo()
+	check(layer_b.layer_data.records.is_empty() and layer_a.layer_data.records.size() == 1, "undo_B_does_not_edit_A")
+	manager.get_history_undo_redo(history_b_id).redo()
+	get_editor_interface().set_plugin_enabled("go_flora", false)
+	await get_tree().process_frame
+	check(painter() == null and layer_b.layer_data.records.size() == 1, "disable_preserves_data_removes_editor_state")
+	get_editor_interface().set_plugin_enabled("go_flora", true)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	plugin = painter()
+	layer_b.rebuild_now()
+	check(plugin != null and layer_b.layer_data.records.size() == 1 and layer_b.batch_count() > 0, "reenable_one_plugin_no_parse_errors_data_rendered")
+	var output := FileAccess.open("res://.scratch/editor_api_results.json", FileAccess.WRITE)
+	output.store_string(JSON.stringify(results, "\t"))
+	output.close()
+	print("NOT_RUN INTERACTIVE_GUI_QA these Editor API checks do not inject real mouse strokes")
+	get_tree().quit(1 if failed else 0)

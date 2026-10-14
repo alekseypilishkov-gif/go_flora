@@ -1,6 +1,8 @@
 # ADR 0001 — Editor-first logical data with optional plant providers
 
-Date: 2026-10-14. Status: **PROPOSED — owner approval pending**. Baseline for the next slice: **Godot 4.7.2**, Windows x86_64 verified in Stage 00. Tree3D advertises 4.5+; GO_FLORA does not yet claim 4.5, Linux or macOS runtime support. The evidence and gaps are in the [report](../stages/00_source_audit/report.md) and [Tree3D audit](../stages/00_source_audit/tree3d_source_audit.md).
+Date: 2026-10-14. Status: **ACCEPTED — ADR A**, per [owner review](https://github.com/alekseypilishkov-gif/go_flora/pull/2#pullrequestreview-5516040817), [merged PR #2](https://github.com/alekseypilishkov-gif/go_flora/pull/2), and [Stage 01 authorization](https://github.com/alekseypilishkov-gif/go_flora/issues/3). Baseline: **Godot 4.7.2**, Windows x86_64 verified in Stage 00. Tree3D advertises 4.5+; GO_FLORA does not yet claim 4.5, Linux or macOS runtime support. Stage 00 findings below are historical; Stage 01 evidence lives in its own directory.
+
+The [implemented Stage 01 contracts](STAGE_01_DATA_CONTRACTS.md) distinguish this static-Mesh vertical slice from the broader provider, migration and optimization proposals below. Real interactive owner acceptance remains pending.
 
 ## Options and decision
 

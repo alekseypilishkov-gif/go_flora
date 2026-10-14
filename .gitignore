@@ -25,3 +25,7 @@ Thumbs.db
 *.exe
 __pycache__/
 *.pyc
+
+# Generated install copies of original Stage 01 code (source lives at repo root)
+/stages/01_painter_mvp/demo/addons/
+/stages/01_painter_mvp/demo/tests/

@@ -11,4 +11,4 @@ Every stage needs its own owner-approved issue, branch, PR, evidence and stop po
 | 04 | Optimization and extensions | Measured chunk sizing, explicit LOD, selective collisions, wind/fade gates, optional Terrain3D adapter; platform evidence |
 | 05 | Open beta | Packaging, clean-machine installation/export, migrations, supported versions, docs, owner-approved license and publication |
 
-The detailed [Stage 01 proposal](../stages/00_source_audit/next_stage_01_proposal.md) is a review artifact, not an active implementation instruction.
+Stage 00 is accepted and merged through [PR #2](https://github.com/alekseypilishkov-gif/go_flora/pull/2). [Issue #3](https://github.com/alekseypilishkov-gif/go_flora/issues/3) authorizes Stage 01. Its implementation is **READY_FOR_MANUAL_QA**: automatic checks are recorded in the [Stage 01 report](../stages/01_painter_mvp/report.md), while real interactive GUI acceptance is **NOT_RUN**, reserved for the owner using the [manual script](../stages/01_painter_mvp/manual_qa.md). No Stage 02 work has begun. The historical [Stage 01 proposal](../stages/00_source_audit/next_stage_01_proposal.md) remains unchanged.

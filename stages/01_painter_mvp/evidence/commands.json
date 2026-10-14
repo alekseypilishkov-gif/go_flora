@@ -1,0 +1,78 @@
+[
+  {
+    "case": "version",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\evidence\\.scratch\\test_project",
+      "--headless",
+      "--version"
+    ]
+  },
+  {
+    "case": "editor_import",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\evidence\\.scratch\\test_project",
+      "--headless",
+      "--editor",
+      "--import"
+    ]
+  },
+  {
+    "case": "core",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\evidence\\.scratch\\test_project",
+      "--headless",
+      "--script",
+      "tests/test_stage01.gd"
+    ]
+  },
+  {
+    "case": "fresh_reopen",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\evidence\\.scratch\\test_project",
+      "--headless",
+      "--script",
+      "tests/test_stage01_reopen.gd"
+    ]
+  },
+  {
+    "case": "editor_api",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\evidence\\.scratch\\test_project",
+      "--headless",
+      "--editor",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\evidence\\.scratch\\editor_project",
+      "demo.tscn"
+    ]
+  }
+]

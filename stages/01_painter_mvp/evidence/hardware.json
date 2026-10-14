@@ -1,0 +1,28 @@
+{
+  "captured_utc": "2026-10-14T11:58:52.0644431Z",
+  "cpu": [
+    {
+      "Name": "13th Gen Intel(R) Core(TM) i5-13400F",
+      "NumberOfCores": 10,
+      "NumberOfLogicalProcessors": 16
+    }
+  ],
+  "system": [
+    {
+      "TotalPhysicalMemory": 34138931200
+    }
+  ],
+  "os": [
+    {
+      "Caption": "Майкрософт Windows 11 Pro",
+      "Version": "10.0.26200",
+      "OSArchitecture": "64-разрядная"
+    }
+  ],
+  "gpu": [
+    {
+      "Name": "NVIDIA GeForce RTX 5060 Ti",
+      "DriverVersion": "32.0.16.1656"
+    }
+  ]
+}

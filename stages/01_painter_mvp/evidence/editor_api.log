@@ -1,0 +1,54 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started Project initialization (5 steps)
+[   0% ] first_scan_filesystem | Scanning file structure...
+[  16% ] first_scan_filesystem | Loading global class names...
+[  33% ] first_scan_filesystem | Verifying GDExtensions...
+[  50% ] first_scan_filesystem | Creating autoload scripts...
+[  66% ] first_scan_filesystem | Initializing plugins...
+GO_FLORA_PLUGIN_ENABLED
+[  83% ] first_scan_filesystem | Starting file scan...
+[ DONE ] first_scan_filesystem
+
+[   0% ] update_scripts_classes | Started Registering global classes... (3 steps)
+[   0% ] update_scripts_classes | GFStroke
+[  25% ] update_scripts_classes | GFCellRenderer
+[  50% ] update_scripts_classes |
+[ DONE ] update_scripts_classes
+
+[   0% ] loading_editor_layout | Started Loading editor (5 steps)
+[   0% ] loading_editor_layout | Loading editor layout...
+[  16% ] loading_editor_layout | Loading docks...
+[ DONE ] loading_editor_layout
+
+PASS EDITOR_API installed_enabled_actual_addon
+PASS EDITOR_API pending_no_persistent_mutation
+GO_FLORA_PENDING_CLEARED
+PASS EDITOR_API cancel_no_undo_action
+GO_FLORA_PENDING_CLEARED
+PASS EDITOR_API application_focus_loss_cancels_pending_API_only
+GO_FLORA_PENDING_CLEARED
+PASS EDITOR_API outside_viewport_release_cancels_pending_API_only
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=1 removed=0 records=1 set=set-a
+PASS EDITOR_API single_commit_exactly_one
+PASS EDITOR_API one_scene_history_undo
+PASS EDITOR_API scene_redo_exact_id
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=42 removed=0 records=43 set=set-a
+PASS EDITOR_API multi_sample_paint_one_native_undo_step
+PASS EDITOR_API native_paint_redo_restores_exact_ID_sequence
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=0 removed=28 records=15 set=set-a
+PASS EDITOR_API native_erase_commits_record_delta
+PASS EDITOR_API native_erase_one_undo_restores_exact_order
+GO_FLORA_PENDING_CLEARED
+PASS EDITOR_API scene_switch_cancels_pending
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=1 removed=0 records=1 set=set-a
+PASS EDITOR_API distinct_scene_history_ids
+PASS EDITOR_API undo_B_does_not_edit_A
+PASS EDITOR_API disable_preserves_data_removes_editor_state
+GO_FLORA_PLUGIN_ENABLED
+PASS EDITOR_API reenable_one_plugin_no_parse_errors_data_rendered
+NOT_RUN INTERACTIVE_GUI_QA these Editor API checks do not inject real mouse strokes

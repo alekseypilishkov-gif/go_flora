@@ -1,8 +1,8 @@
-name: Foundation source checks
+name: Repository static checks
 on:
   pull_request:
   push:
-    branches: [codex/stage-00-foundation]
+    branches: [main, 'codex/**']
 permissions:
   contents: read
 jobs:
