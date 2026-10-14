@@ -1,0 +1,15 @@
+config_version=5
+
+[application]
+config/name="GO_FLORA Stage 00 probes"
+
+[display]
+window/size/viewport_width=256
+window/size/viewport_height=256
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.6, 0, 0, 1)
+
+[editor_plugins]
+enabled=PackedStringArray("res://addons/input_probe/plugin.cfg")

@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-14",
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "platform": "Windows 11 AMD64, NVIDIA GeForce RTX 5060 Ti",
+  "cases": [
+    {"id": "E1_EDITOR_REGISTER", "status": "PASS", "evidence": "logs/editor.log", "scope": "real headless editor loads EditorPlugin and registers forwarding"},
+    {"id": "E1_EDITOR_SYNTHETIC", "status": "PASS", "evidence": "logs/editor.log", "scope": "direct callback invocation with camera-projected mouse event hits real physics collision"},
+    {"id": "E1_EDITOR_MOUSE", "status": "NOT_RUN", "scope": "actual interactive editor viewport event delivery; no native UI automation available"},
+    {"id": "E1_PHYSICS", "status": "PASS", "evidence": "logs/runtime.log"},
+    {"id": "E2_TWO_CELLS", "status": "PASS", "evidence": "logs/runtime.log", "scope": "two adjacent cells, independent node visibility state, four transforms"},
+    {"id": "E2_GPU_CULL", "status": "NOT_RUN", "scope": "GPU frustum/occlusion/distance behavior, large-scene performance"},
+    {"id": "E3_TRANSACTIONS", "status": "PASS", "evidence": "logs/runtime.log", "scope": "logical record do/undo/redo and PackedScene save"},
+    {"id": "E3_EDITOR_HISTORY", "status": "PASS", "evidence": "logs/editor.log", "scope": "EditorUndoRedoManager isolated object history; scene switching/cancellation NOT_RUN"},
+    {"id": "E3_REOPEN", "status": "PASS", "evidence": "logs/reopen.log", "scope": "separate Godot process reopens saved records and checks typed fields"},
+    {"id": "E4_RESOURCE", "status": "PASS", "evidence": "logs/alpha.log", "scope": "generated PNG/WebP alpha, atlas region, ground pivot, saved material/card"},
+    {"id": "E4_SCISSOR_COMPATIBILITY", "status": "PASS", "evidence": "logs/alpha_gl_compatibility.log"},
+    {"id": "E4_HASH_COMPATIBILITY", "status": "FAIL", "evidence": "logs/alpha_gl_compatibility.log", "scope": "transparent half returned black RGBA 0 instead of expected red background; screenshot retained"},
+    {"id": "E4_SCISSOR_HASH_MOBILE", "status": "PASS", "evidence": "logs/alpha_mobile.log", "scope": "desktop Vulkan Mobile, not mobile device execution"},
+    {"id": "E4_SCISSOR_HASH_FORWARD_PLUS", "status": "PASS", "evidence": "logs/alpha_forward_plus.log"},
+    {"id": "E5_TREE3D_IMPORT", "status": "PASS", "evidence": "logs/tree3d_editor.log", "scope": "official unmodified v1.1.0 Windows x86_64 debug library import"},
+    {"id": "E5_TREE3D_EXTRACTION", "status": "PASS", "evidence": "logs/tree3d.log", "scope": "two ordinary mesh duplicates survive generator free, save and assign to MultiMesh"},
+    {"id": "E5_TREE3D_NATIVE_BUILD", "status": "NOT_RUN", "evidence": "environment.json", "scope": "no SCons or C++ compiler component; godot-cpp placeholder"},
+    {"id": "E5_TREE3D_VISUAL_LIFECYCLE", "status": "NOT_RUN", "scope": "wind, appearance/material transfer, collision, export and repeated editor lifecycle"},
+    {"id": "ARCHIVE_PAYLOAD_COMPARISON", "status": "PASS", "evidence": "archive_comparison.json", "scope": "22 shared payload entries identical; archive hashes differ"},
+    {"id": "SOURCE_BINARY_IDENTITY", "status": "UNVERIFIED", "scope": "tag differs from main; no reproducible build provenance"},
+    {"id": "CROSS_PLATFORM", "status": "NOT_RUN", "scope": "Linux/macOS/Web/mobile hardware/release export"},
+    {"id": "SET_DISTANCE_PROPAGATION", "status": "NOT_RUN", "scope": "architecture proposal only, no full painter/set subsystem in Stage 00"}
+  ]
+}

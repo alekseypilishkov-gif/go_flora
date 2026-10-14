@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.351 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5060 Ti
+
+PASS E4_RESOURCE generated PNG/WebP atlas retains alpha; card ground pivot; scissor material saved
+PASS E4_RENDER renderer=forward_plus mode=2 opaque=(0.0, 1.0, 0.0, 1.0) transparent=(0.6, 0.0, 0.0, 1.0)
+PASS E4_RENDER renderer=forward_plus mode=3 opaque=(0.0, 1.0, 0.0, 1.0) transparent=(0.6, 0.0, 0.0, 1.0)

@@ -1,0 +1,20 @@
+# Licensing decision — MIT approved for original GO_FLORA work
+
+**Decision: APPROVED — 2026-10-14.** The project owner approved MIT for original GO_FLORA source code and original project documentation. The standard root [LICENSE](../LICENSE) uses `Copyright (c) 2026 GO_FLORA contributors`, as specified in the [owner decision on PR #2](https://github.com/alekseypilishkov-gif/go_flora/pull/2#issuecomment-6166184229).
+
+This approval applies to original GO_FLORA work only. It does not relicense or authorize redistribution of Tree3D/Proctree code or binaries, third-party shaders, unverified demo assets/textures, competitor code or Unreal assets. Preserve their separate license/provenance boundaries below and include complete notices for any later approved dependency distribution. Owner approval and the existing integration/release gates remain required before distributing third-party derivatives or publishing a release.
+
+This is a provenance inventory based on inspected sources, not a substitute for review of the eventual distributable. Stage 00 distributes only original probes/docs and small logs/checksums. Downloaded upstream code, binaries, icons and demos stay in ignored `.scratch/`.
+
+| Boundary | Evidence | Obligations / uncertainty | Stage 00 treatment |
+| --- | --- | --- | --- |
+| Tree3D core | [MIT notice](https://github.com/JekSun97/gdTree3D/blob/dfe70274f5fe2a4845f1937fab524f7ee8f2c532/LICENSE.md), copyright 2024 Artyom Bozhko and contributors | Retain copyright and full permission/disclaimer in copies/substantial portions | Referenced; no derivative code committed |
+| Proctree algorithm/C++ port | [src/proctree.cpp header](https://github.com/JekSun97/gdTree3D/blob/dfe70274f5fe2a4845f1937fab524f7ee8f2c532/src/proctree.cpp) | BSD-style three conditions: retain notices in source; reproduce notices/disclaimer for binaries; no contributor endorsement. Paul Brunt 2012; Jari Komppa 2015 | Separate obligation from core MIT; require notices before binary distribution |
+| godot-cpp | [official MIT LICENSE](https://github.com/godotengine/godot-cpp/blob/27d9dd23c83871e0619fca5dc2cddfbfd69e926a/LICENSE.md) | Preserve notices in a native distributable. Pin actual build revision and audit linked components | Not bundled or built here |
+| Tree3D shaders | Source under Tree3D repo's core notice; individual shader files lack their own attribution header | Treat as dependency material, preserve root notice if included; later shader adaptations require review | No shader copied to committed probes |
+| Tree3D sample textures / demo scenes / icon | Repo and ZIP inventory; no asset-by-asset provenance manifest found | **UNVERIFIED** individual ownership/license. Root MIT alone does not prove external texture provenance | Not redistributed; synthetic green alpha sample only |
+| Packaged native libraries | Official v1.1.0 asset digest and per-entry hashes; local binary payload matches | Source ↔ exact compiler/godot-cpp build identity **UNVERIFIED**. Official addon ZIP has no full license/Proctree notice; local archive adds MIT README/LICENSE only | Used locally for import probe, not committed or licensed for redistribution by this audit |
+| Competitor plugin code | Primary repos linked in matrix; MIT code notices inspected or referenced | Each code license is separate from demo textures/brands. ProtonScatter explicitly restricts standalone redistribution of bundled Textures.com textures | Research only; no implementation/assets copied |
+| Unreal Engine reference | [official Foliage Mode docs](https://dev.epicgames.com/documentation/unreal-engine/foliage-mode-in-unreal-engine) | Behavior reference only; no permission inferred to reuse Epic assets/code | No copies |
+
+Remaining owner/integration gates: authorize any later Tree3D derivative integration only after notice completeness, build provenance and asset exclusions are resolved. Keep unknown-license assets out of future release packages by an explicit allowlist. MIT approval does not authorize Stage 01 implementation, automatic merge or release publication.

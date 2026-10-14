@@ -1,0 +1,29 @@
+name: Foundation source checks
+on:
+  pull_request:
+  push:
+    branches: [codex/stage-00-foundation]
+permissions:
+  contents: read
+jobs:
+  repository-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/verify_repository.py
+      - name: Static whitespace gate regression
+        run: python stages/00_source_audit/evidence/whitespace_probe.py
+      - name: Static whitespace check of committed changes
+        shell: bash
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          comparison_base="${PR_BASE_SHA:-refs/remotes/origin/main}"
+          git rev-parse --verify "${comparison_base}^{commit}"
+          git diff --check "${comparison_base}...HEAD"
