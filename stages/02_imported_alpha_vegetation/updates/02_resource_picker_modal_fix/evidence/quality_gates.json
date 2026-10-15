@@ -1,0 +1,151 @@
+{
+  "source_head": "1c61bf1fcd059cfb4d559eeabac806c684ecfddb",
+  "probes": [
+    {
+      "case": "working_whitespace",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "case": "staged_whitespace",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "case": "committed_PR_whitespace",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "origin/main...HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "case": "previous_evidence_scenes_tests_and_ADR_preserved",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--name-only",
+        "1c61bf1fcd059cfb4d559eeabac806c684ecfddb",
+        "--",
+        "docs",
+        "stages/00_source_audit",
+        "stages/01_painter_mvp",
+        "stages/02_imported_alpha_vegetation/evidence",
+        "stages/02_imported_alpha_vegetation/demo",
+        "stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux",
+        "tests/test_stage01.gd",
+        "tests/test_stage01_reopen.gd",
+        "tests/test_stage02.gd",
+        "tests/test_stage02_reopen.gd",
+        "tests/test_stage021.gd",
+        "tests/test_stage021_reopen.gd",
+        "tests/editor_harness",
+        "tests/editor_stage02_harness",
+        "tests/editor_ux_harness"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "case": "runtime_data_core_renderer_and_schema_unchanged",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--name-only",
+        "1c61bf1fcd059cfb4d559eeabac806c684ecfddb",
+        "--",
+        "addons/go_flora/data",
+        "addons/go_flora/core",
+        "addons/go_flora/rendering",
+        "addons/go_flora/sources",
+        "addons/go_flora/vegetation_layer_3d.gd"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "case": "repository_validation",
+      "status": "PASS",
+      "command": [
+        "C:/Users/pial/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "tools/verify_repository.py"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS static repository outputs, links, Python/JSON syntax and artifact isolation\n",
+      "stderr": ""
+    },
+    {
+      "case": "ZIP_CRC_53_files_match_current_addon_SHA",
+      "status": "PASS",
+      "command": [
+        "C:/Users/pial/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        ".scratch/finalize_stage022.py"
+      ],
+      "files": 53,
+      "sha256": "2cc3e987af9c8c1fdeef10b1815defaba933173ac0f24157390b3de125e0f059"
+    },
+    {
+      "case": "runtime_GDScript_matches_all_final_test_projects",
+      "status": "PASS",
+      "command": [
+        "C:/Users/pial/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        ".scratch/finalize_stage022.py"
+      ],
+      "snapshots": {
+        "regression": "PASS byte-identical runtime GDScript",
+        "native_headless_274": "PASS byte-identical runtime GDScript",
+        "native_windows_gpu_277": "PASS byte-identical runtime GDScript"
+      }
+    },
+    {
+      "case": "raw_log_content_SHA_preserved",
+      "status": "PASS",
+      "logs": 85,
+      "command": [
+        "C:/Users/pial/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        ".scratch/finalize_stage022.py"
+      ]
+    },
+    {
+      "case": "full_git_status",
+      "status": "FAIL",
+      "command": [
+        "git",
+        "status",
+        "--porcelain=v1",
+        "-z"
+      ],
+      "stdout": " M .github/workflows/stage02-godot.yml\u0000 M README.md\u0000 M addons/go_flora/README.md\u0000 M addons/go_flora/editor/plugin.gd\u0000 M addons/go_flora/editor/source_creator.gd\u0000 M addons/go_flora/plugin.cfg\u0000 M stages/02_imported_alpha_vegetation/report.md\u0000?? addons/go_flora/editor/source_asset_picker.gd\u0000?? addons/go_flora/editor/source_asset_picker.gd.uid\u0000?? stages/02_imported_alpha_vegetation/updates/02_resource_picker_modal_fix/\u0000?? tests/editor_modal_harness/\u0000?? tests/test_stage022_reopen.gd\u0000?? tests/test_stage022_reopen.gd.uid\u0000?? tools/collect_stage022_evidence.py\u0000?? tools/run_stage022_tests.py\u0000?? Изображение ChatGPT 15 окт. 2026 г., 08_28_48.webp\u0000",
+      "reason": "Owner pre-existing untracked WebP intentionally preserved outside commits; task changes not yet committed"
+    },
+    {
+      "case": "tracked_and_staged_clean",
+      "status": "NOT_RUN",
+      "reason": "Finalize after committing task changes"
+    }
+  ]
+}

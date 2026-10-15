@@ -7,10 +7,18 @@ var source := GFVegetationSource.new()
 var _preview: TextureRect
 var _info: Label
 var _save: EditorFileDialog
+var _closing := false
+var _saving := false
+var _saved := false
+var _native_popup: WeakRef
 
 func setup(alpha: bool) -> void:
+	# EditorResourcePicker Quick Load is an editor-root exclusive window.
+	# This tool must leave that slot available; only the native choosers are modal.
+	exclusive = false
+	transient = true
 	dialog_hide_on_ok = false
-	canceled.connect(queue_free)
+	canceled.connect(close_creator)
 	title = "Create alpha plant" if alpha else "Add Mesh / imported GLB / PackedScene"
 	size = Vector2i(470, 650)
 	get_ok_button().text = "Save Source…"
@@ -26,7 +34,8 @@ func setup(alpha: bool) -> void:
 	help.text = "Choose a project-local imported resource. Saves a reusable .tres and adds it to the active set. Originals are referenced, never edited."
 	help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	fields.add_child(help)
-	var picker := EditorResourcePicker.new()
+	var picker := preload("res://addons/go_flora/editor/source_asset_picker.gd").new()
+	picker.native_action_finished.connect(_remember_native_popup)
 	picker.base_type = "Texture2D" if alpha else "Mesh,PackedScene"
 	picker.name = "SourceAssetPicker"
 	Help.apply(picker, "texture" if alpha else "add_model")
@@ -86,15 +95,102 @@ func setup(alpha: bool) -> void:
 	_info.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	fields.add_child(_info)
 	_save = EditorFileDialog.new()
+	_save.name = "GOFloraSourceSaveDialog"
 	_save.file_mode = EditorFileDialog.FILE_MODE_SAVE_FILE
 	_save.access = EditorFileDialog.ACCESS_RESOURCES
 	_save.add_filter("*.tres", "GO_FLORA source")
-	add_child(_save)
-	confirmed.connect(func() -> void:
-		_save.current_file = source.display_name.validate_filename() + "_source.tres"
-		_save.popup_centered_ratio(0.6))
+	# Editor-owned sibling: Save is the single exclusive child of the editor root.
+	# It is explicitly released with this draft, including context changes.
+	get_parent().add_child(_save)
+	confirmed.connect(_request_save)
+	_save.canceled.connect(_save_cancelled)
 	_save.file_selected.connect(_save_source)
 	_refresh()
+
+func close_creator() -> void:
+	if _closing:
+		return
+	_closing = true
+	_release_native_popup()
+	_release_save()
+	_hide_owned_windows(self)
+	hide()
+	queue_free()
+
+func _exit_tree() -> void:
+	_closing = true
+	_release_native_popup()
+	_release_save()
+
+func _remember_native_popup() -> void:
+	if _closing:
+		return
+	var window := get_parent().get_last_exclusive_window()
+	if window != null and window != get_parent().get_window():
+		_native_popup = weakref(window)
+		if not window.visibility_changed.is_connected(_native_popup_visibility.bind(window)):
+			window.visibility_changed.connect(_native_popup_visibility.bind(window))
+
+func _native_popup_visibility(window: Window) -> void:
+	if not window.visible:
+		if _native_popup != null and _native_popup.get_ref() == window:
+			_native_popup = null
+		if window.visibility_changed.is_connected(_native_popup_visibility.bind(window)):
+			window.visibility_changed.disconnect(_native_popup_visibility.bind(window))
+		call_deferred("_focus_draft")
+
+func _focus_draft() -> void:
+	if not _closing and not _saving and visible and get_parent().get_last_exclusive_window() == get_parent().get_window():
+		grab_focus()
+
+func _release_native_popup() -> void:
+	var window: Window = _native_popup.get_ref() if _native_popup != null else null
+	_native_popup = null
+	if is_instance_valid(window):
+		if window.visible and window is AcceptDialog:
+			window.notification(Window.NOTIFICATION_WM_CLOSE_REQUEST)
+		window.hide()
+		if window.visibility_changed.is_connected(_native_popup_visibility.bind(window)):
+			window.visibility_changed.disconnect(_native_popup_visibility.bind(window))
+
+func _hide_owned_windows(node: Node) -> void:
+	for child in node.get_children(true):
+		if child is Window:
+			child.hide()
+		_hide_owned_windows(child)
+
+func _release_save() -> void:
+	if is_instance_valid(_save):
+		_save.hide()
+		if not _save.is_queued_for_deletion():
+			_save.queue_free()
+
+func _request_save() -> void:
+	if _closing or _saved or _saving:
+		return
+	_refresh()
+	if get_ok_button().disabled:
+		return
+	_saving = true
+	_save.current_file = source.display_name.validate_filename() + "_source.tres"
+	hide()
+	call_deferred("_show_save")
+
+func _show_save() -> void:
+	if not _closing and _saving and is_instance_valid(_save):
+		_save.popup_centered_ratio(0.6)
+
+func _save_cancelled() -> void:
+	if _closing or _saved:
+		return
+	_save.hide()
+	_saving = false
+	call_deferred("_restore_draft")
+
+func _restore_draft() -> void:
+	if not _closing and not _saved and not _saving:
+		popup_centered()
+		grab_focus()
 
 func _add_number(fields: Control, label_text: String, minimum: float, maximum: float, step_value: float, value: float, help_key: String, callback: Callable) -> void:
 	var row := HBoxContainer.new()
@@ -133,11 +229,24 @@ func _refresh() -> void:
 			_preview.texture = source.alpha_card.texture
 
 func _save_source(path: String) -> void:
+	if _closing or _saved:
+		return
 	if not GFSourceResolver.project_path(path) or path.get_extension() != "tres":
+		_info.text = "Выберите путь Source .tres внутри проекта."
+		_save_cancelled()
+		return
+	_refresh()
+	if get_ok_button().disabled:
+		_save_cancelled()
 		return
 	var error := ResourceSaver.save(source, path)
 	if error != OK:
 		_info.text = "Cannot save source: %s (error %d). Choose a writable project path." % [path, error]
+		_save_cancelled()
 		return
+	_saved = true
+	_saving = false
+	_save.hide()
+	hide()
 	source_saved.emit(source)
-	queue_free()
+	close_creator()

@@ -2,7 +2,7 @@
 
 Editor-first, terrain-independent 3D vegetation for **Godot 4.7.2**: reusable Mesh/GLB/PackedScene sources, PNG/WebP alpha plants, weighted palettes, stable placement records and spatial MultiMesh rendering.
 
-**Stage 02.1 / 0.2.1-dev: READY_FOR_MANUAL_QA. INTERACTIVE_GUI_QA: NOT_RUN.** [Issue #7](https://github.com/alekseypilishkov-gif/go_flora/issues/7) authorizes the palette/dock update within [Stage 02 / Issue #5](https://github.com/alekseypilishkov-gif/go_flora/issues/5). [New Russian report and ZIP instructions](stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/report.md). Stage 01 was owner-accepted and merged in [PR #4](https://github.com/alekseypilishkov-gif/go_flora/pull/4) at `5c076153e1dea6363b885e82f4ef391808586348`. Its historical reports retain their original statuses; unexecuted older manual/GPU/export cases are not retroactively marked PASS.
+**Stage 02.2 / 0.2.2-dev: READY_FOR_MANUAL_QA. INTERACTIVE_GUI_QA: NOT_RUN.** [Issue #8](https://github.com/alekseypilishkov-gif/go_flora/issues/8) fixes the owner-confirmed resource-picker modal conflict from 0.2.1-dev, within [Stage 02 / Issue #5](https://github.com/alekseypilishkov-gif/go_flora/issues/5). [Current Russian report and Explorer ZIP instructions](stages/02_imported_alpha_vegetation/updates/02_resource_picker_modal_fix/report.md). [Palette/dock update](stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/report.md) remains intact. Stage 01 was owner-accepted and merged in [PR #4](https://github.com/alekseypilishkov-gif/go_flora/pull/4) at `5c076153e1dea6363b885e82f4ef391808586348`. Historical reports retain their original statuses.
 
 ## Install and use
 
@@ -30,6 +30,7 @@ python tools/run_stage02_gpu.py --godot .scratch/godot-portable/godot.exe
 python tests/test_stage02_package.py --godot .scratch/godot-portable/godot.exe
 python tools/run_stage02_tests.py --godot .scratch/godot-portable/godot.exe --phase final
 python tools/run_stage021_tests.py --godot .scratch/godot-portable/godot.exe --phase ux
+python tools/run_stage022_tests.py --godot .scratch/godot-portable/godot.exe --phase modal
 python tools/verify_repository.py
 ```
 

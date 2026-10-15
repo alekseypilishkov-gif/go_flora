@@ -39,6 +39,8 @@ var _ui_updating := false
 var _last_hit: Dictionary = {}
 var _creator: ConfirmationDialog
 var _source_details: AcceptDialog
+var _creator_layer: VegetationLayer3D
+var _creator_set: GFVegetationSet
 
 func _enter_tree() -> void:
 	add_to_group("go_flora_editor_plugin")
@@ -72,8 +74,7 @@ func _exit_tree() -> void:
 	remove_tool_menu_item("GO_FLORA Help / Справка")
 	if is_instance_valid(_help_window):
 		_help_window.queue_free()
-	if is_instance_valid(_creator):
-		_creator.queue_free()
+	_close_creator()
 	if is_instance_valid(_source_details):
 		_source_details.queue_free()
 	if is_instance_valid(_dock_scroll):
@@ -127,6 +128,7 @@ func set_status(message: String) -> void:
 		_status.text = message
 
 func _on_scene_changed(root: Node) -> void:
+	_close_creator()
 	cancel_stroke()
 	_remove_preview()
 	_scene_root = root
@@ -138,6 +140,7 @@ func _on_scene_changed(root: Node) -> void:
 	_refresh_layers()
 
 func _on_scene_closed(_path: String) -> void:
+	_close_creator()
 	cancel_stroke()
 	_remove_preview()
 
@@ -176,6 +179,8 @@ func _refresh_sets() -> void:
 			_set_picker.select(active_layer.layer_data.sets.find(active_set))
 	else:
 		active_set = null
+	if is_instance_valid(_creator) and (_creator_layer != active_layer or _creator_set != active_set):
+		_close_creator()
 	_ui_updating = false
 	_observe_set(active_set)
 	selected_source_id = _selected_by_set.get(active_set.get_instance_id(), "") if active_set != null else ""
@@ -500,7 +505,9 @@ func _open_set_in_inspector() -> void:
 	set_status("Inspector: открыт набор %s (%s). Ctrl+Alt+G возвращает GO_FLORA." % [active_set.display_name, active_set.set_id])
 
 func _show_help() -> void:
-	for window in [_creator, _source_details, _help_window]:
+	cancel_stroke()
+	_close_creator()
+	for window in [_source_details, _help_window]:
 		if is_instance_valid(window):
 			window.hide()
 			window.queue_free()
@@ -518,15 +525,14 @@ func _show_help() -> void:
 	_help_window.popup_centered()
 
 func _show_source_details() -> void:
+	cancel_stroke()
 	if is_instance_valid(_help_window):
 		_help_window.hide()
 		_help_window.queue_free()
 	if active_set == null or active_set.entries.is_empty():
 		set_status("Choose a set containing source entries.")
 		return
-	if is_instance_valid(_creator):
-		_creator.hide()
-		_creator.queue_free()
+	_close_creator()
 	if is_instance_valid(_source_details):
 		_source_details.hide()
 		_source_details.queue_free()
@@ -584,19 +590,33 @@ func _create_source(alpha: bool) -> void:
 	if is_instance_valid(_source_details):
 		_source_details.hide()
 		_source_details.queue_free()
-	if is_instance_valid(_creator):
-		_creator.hide()
-		_creator.queue_free()
+	_close_creator()
 	_creator = preload("res://addons/go_flora/editor/source_creator.gd").new()
+	_creator_layer = active_layer
+	_creator_set = active_set
 	get_editor_interface().get_base_control().add_child(_creator)
 	_creator.setup(alpha)
-	_creator.source_saved.connect(_add_created_source.bind(active_layer, active_set))
+	_creator.source_saved.connect(_add_created_source.bind(active_layer, active_set), CONNECT_ONE_SHOT)
 	_creator.popup_centered()
+
+func _close_creator() -> void:
+	if is_instance_valid(_creator):
+		_creator.close_creator()
+	_creator = null
+	_creator_layer = null
+	_creator_set = null
+
+func _source_ui_open() -> bool:
+	# Save hides the draft; its editor-owned modal is still part of this operation.
+	return (is_instance_valid(_creator) and not _creator.is_queued_for_deletion()) or (is_instance_valid(_help_window) and _help_window.visible) or (is_instance_valid(_source_details) and _source_details.visible)
 
 func _add_created_source(source: GFVegetationSource, layer: VegetationLayer3D, vegetation_set: GFVegetationSet) -> void:
 	get_editor_interface().get_resource_filesystem().scan()
 	if not is_instance_valid(layer) or layer != active_layer or vegetation_set != active_set:
 		set_status("Source saved. Scene/set changed; add the .tres through the Set Inspector.")
+		return
+	if vegetation_set.source_by_id(source.source_id) != null:
+		set_status("Этот Source уже есть в активной палитре; повторное добавление пропущено.")
 		return
 	var entry := GFPaletteEntry.new()
 	entry.source = source
@@ -701,6 +721,11 @@ func _ensure_preview() -> void:
 		_preview.top_level = true
 
 func _forward_3d_gui_input(camera: Camera3D, event: InputEvent) -> int:
+	if _source_ui_open():
+		cancel_stroke()
+		if is_instance_valid(_preview):
+			_preview.visible = false
+		return AFTER_GUI_INPUT_STOP
 	if not is_instance_valid(active_layer) or active_set == null or mode == Tool.NAVIGATION or not is_instance_valid(_scene_root):
 		return AFTER_GUI_INPUT_PASS
 	if not _scene_root.is_ancestor_of(active_layer) and _scene_root != active_layer:

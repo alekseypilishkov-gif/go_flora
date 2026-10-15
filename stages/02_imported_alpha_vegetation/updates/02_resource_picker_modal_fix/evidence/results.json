@@ -1,0 +1,19 @@
+{
+  "version": "0.2.2-dev",
+  "source_base": "1c61bf1fcd059cfb4d559eeabac806c684ecfddb",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "selected_runs": {
+    "regression": "runs/regression-1792051391635731900/summary.json",
+    "native_headless_274": "runs/modal-1792052470956064500/summary.json",
+    "native_windows_gpu_277": "runs/modal-gpu-1792052252492895900/summary.json",
+    "fresh_process_reopen": "runs/modal-1792052470956064500/summary.json",
+    "alpha_gpu_18": "runs/alpha-gpu-final/summary.json",
+    "package": "runs/package-final/summary.json",
+    "legacy_gpu_FAIL_reproduction_PASS": "runs/repro-gpu-1792051886684400200/summary.json"
+  },
+  "OWNER_REPORTED_GUI_FAIL": "0.2.1-dev PNG Quick Load exclusive conflict, Issue #8",
+  "INTERACTIVE_GUI_QA": "NOT_RUN",
+  "delivery": "READY_FOR_MANUAL_QA",
+  "test_isolation": "Only disposable projects and profiles under GO_FLORA .scratch; owner TEST_FLORA untouched"
+}

@@ -1,0 +1,226 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+GO_FLORA_PLUGIN_ENABLED
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+PASS STAGE022_EDITOR installed_enabled
+WINDOW_STATE creator=/root/@EditorNode@19507/@Panel@14/@ConfirmationDialog@19954 exclusive=false transient=true embedded=true
+PASS STAGE022_EDITOR native_ResourcePicker_menu_found
+WINDOW_STATE quick=/root/@EditorNode@19507/@Panel@14/@EditorQuickOpenDialog@19422 visible=true exclusive=true
+PASS STAGE022_EDITOR creator_nonexclusive_native_QuickLoad_opens
+ERROR: Inconsistent undo history.
+   at: is_history_unsaved (editor/editor_undo_redo_manager.cpp:406)
+PASS STAGE022_EDITOR grass.png/Quick Load/creator_editor_owned_nonexclusive
+PASS STAGE022_EDITOR grass.png/Quick Load/native_ResourcePicker_menu_found
+PASS STAGE022_EDITOR grass.png/Quick Load/native_QuickLoad_exclusive
+PASS STAGE022_EDITOR grass.png/Quick Load/native_search_field
+PASS STAGE022_EDITOR grass.png/Quick Load/native_search_result_selected_grass.png
+PASS STAGE022_EDITOR grass.png/Quick Load/native_selection_retained_in_picker_and_draft
+PASS STAGE022_EDITOR grass.png/Quick Load/human_name_unique_stable_source_ID
+PASS STAGE022_EDITOR grass.png/Quick Load/alpha_reference_kind_UV_preview
+PASS STAGE022_EDITOR grass.png/Quick Load/Save_Source_single_editor_root_modal_double_click_safe
+PASS STAGE022_EDITOR grass.png/Quick Load/Save_modal_blocks_background_brush
+PASS STAGE022_EDITOR grass.png/Quick Load/Save_Cancel_restores_same_draft_no_add_or_undo
+PASS STAGE022_EDITOR grass.png/Quick Load/native_Save_Source_writes_once_cleans_windows_adds_once
+PASS STAGE022_EDITOR grass.png/Quick Load/saved_tres_stable_identity
+FAIL STAGE022_EDITOR grass.png/Quick Load/saved_card_dimensions_threshold_atlas_exact
+PASS STAGE022_EDITOR grass.png/Quick Load/existing_records_unchanged_single_palette_history
+PASS STAGE022_EDITOR grass.png/Quick Load/one_native_Undo_only_palette_add
+PASS STAGE022_EDITOR grass.png/Quick Load/native_Redo_same_source_no_duplicate
+PASS STAGE022_EDITOR grass.png/Quick Load/duplicate_callback_not_appended
+PASS STAGE022_EDITOR grass.png/Load/creator_editor_owned_nonexclusive
+PASS STAGE022_EDITOR grass.png/Load/native_Load_exclusive
+PASS STAGE022_EDITOR grass.png/Load/native_selection_retained_in_picker_and_draft
+PASS STAGE022_EDITOR grass.png/Load/human_name_unique_stable_source_ID
+PASS STAGE022_EDITOR grass.png/Load/alpha_reference_kind_UV_preview
+PASS STAGE022_EDITOR grass.png/Load/Save_Source_single_editor_root_modal_double_click_safe
+PASS STAGE022_EDITOR grass.png/Load/Save_modal_blocks_background_brush
+PASS STAGE022_EDITOR grass.png/Load/Save_Cancel_restores_same_draft_no_add_or_undo
+PASS STAGE022_EDITOR grass.png/Load/native_Save_Source_writes_once_cleans_windows_adds_once
+PASS STAGE022_EDITOR grass.png/Load/saved_tres_stable_identity
+FAIL STAGE022_EDITOR grass.png/Load/saved_card_dimensions_threshold_atlas_exact
+PASS STAGE022_EDITOR grass.png/Load/existing_records_unchanged_single_palette_history
+PASS STAGE022_EDITOR grass.png/Load/one_native_Undo_only_palette_add
+PASS STAGE022_EDITOR grass.png/Load/native_Redo_same_source_no_duplicate
+PASS STAGE022_EDITOR grass.png/Load/duplicate_callback_not_appended
+PASS STAGE022_EDITOR flower.png/Quick Load/creator_editor_owned_nonexclusive
+PASS STAGE022_EDITOR flower.png/Quick Load/native_ResourcePicker_menu_found
+PASS STAGE022_EDITOR flower.png/Quick Load/native_QuickLoad_exclusive
+PASS STAGE022_EDITOR flower.png/Quick Load/native_search_field
+PASS STAGE022_EDITOR flower.png/Quick Load/native_search_result_selected_flower.png
+PASS STAGE022_EDITOR flower.png/Quick Load/native_selection_retained_in_picker_and_draft
+PASS STAGE022_EDITOR flower.png/Quick Load/human_name_unique_stable_source_ID
+PASS STAGE022_EDITOR flower.png/Quick Load/alpha_reference_kind_UV_preview
+PASS STAGE022_EDITOR flower.png/Quick Load/Save_Source_single_editor_root_modal_double_click_safe
+PASS STAGE022_EDITOR flower.png/Quick Load/Save_modal_blocks_background_brush
+PASS STAGE022_EDITOR flower.png/Quick Load/Save_Cancel_restores_same_draft_no_add_or_undo
+PASS STAGE022_EDITOR flower.png/Quick Load/native_Save_Source_writes_once_cleans_windows_adds_once
+PASS STAGE022_EDITOR flower.png/Quick Load/saved_tres_stable_identity
+FAIL STAGE022_EDITOR flower.png/Quick Load/saved_card_dimensions_threshold_atlas_exact
+PASS STAGE022_EDITOR flower.png/Quick Load/existing_records_unchanged_single_palette_history
+PASS STAGE022_EDITOR flower.png/Quick Load/one_native_Undo_only_palette_add
+PASS STAGE022_EDITOR flower.png/Quick Load/native_Redo_same_source_no_duplicate
+PASS STAGE022_EDITOR flower.png/Quick Load/duplicate_callback_not_appended
+PASS STAGE022_EDITOR flower.png/Load/creator_editor_owned_nonexclusive
+PASS STAGE022_EDITOR flower.png/Load/native_Load_exclusive
+PASS STAGE022_EDITOR flower.png/Load/native_selection_retained_in_picker_and_draft
+PASS STAGE022_EDITOR flower.png/Load/human_name_unique_stable_source_ID
+PASS STAGE022_EDITOR flower.png/Load/alpha_reference_kind_UV_preview
+PASS STAGE022_EDITOR flower.png/Load/Save_Source_single_editor_root_modal_double_click_safe
+PASS STAGE022_EDITOR flower.png/Load/Save_modal_blocks_background_brush
+PASS STAGE022_EDITOR flower.png/Load/Save_Cancel_restores_same_draft_no_add_or_undo
+PASS STAGE022_EDITOR flower.png/Load/native_Save_Source_writes_once_cleans_windows_adds_once
+PASS STAGE022_EDITOR flower.png/Load/saved_tres_stable_identity
+FAIL STAGE022_EDITOR flower.png/Load/saved_card_dimensions_threshold_atlas_exact
+PASS STAGE022_EDITOR flower.png/Load/existing_records_unchanged_single_palette_history
+PASS STAGE022_EDITOR flower.png/Load/one_native_Undo_only_palette_add
+PASS STAGE022_EDITOR flower.png/Load/native_Redo_same_source_no_duplicate
+PASS STAGE022_EDITOR flower.png/Load/duplicate_callback_not_appended
+PASS STAGE022_EDITOR grass.webp/Quick Load/creator_editor_owned_nonexclusive
+PASS STAGE022_EDITOR grass.webp/Quick Load/native_ResourcePicker_menu_found
+PASS STAGE022_EDITOR grass.webp/Quick Load/native_QuickLoad_exclusive
+PASS STAGE022_EDITOR grass.webp/Quick Load/native_search_field
+PASS STAGE022_EDITOR grass.webp/Quick Load/native_search_result_selected_grass.webp
+PASS STAGE022_EDITOR grass.webp/Quick Load/native_selection_retained_in_picker_and_draft
+PASS STAGE022_EDITOR grass.webp/Quick Load/human_name_unique_stable_source_ID
+PASS STAGE022_EDITOR grass.webp/Quick Load/alpha_reference_kind_UV_preview
+PASS STAGE022_EDITOR grass.webp/Quick Load/Save_Source_single_editor_root_modal_double_click_safe
+PASS STAGE022_EDITOR grass.webp/Quick Load/Save_modal_blocks_background_brush
+PASS STAGE022_EDITOR grass.webp/Quick Load/Save_Cancel_restores_same_draft_no_add_or_undo
+PASS STAGE022_EDITOR grass.webp/Quick Load/native_Save_Source_writes_once_cleans_windows_adds_once
+PASS STAGE022_EDITOR grass.webp/Quick Load/saved_tres_stable_identity
+FAIL STAGE022_EDITOR grass.webp/Quick Load/saved_card_dimensions_threshold_atlas_exact
+PASS STAGE022_EDITOR grass.webp/Quick Load/existing_records_unchanged_single_palette_history
+PASS STAGE022_EDITOR grass.webp/Quick Load/one_native_Undo_only_palette_add
+PASS STAGE022_EDITOR grass.webp/Quick Load/native_Redo_same_source_no_duplicate
+PASS STAGE022_EDITOR grass.webp/Quick Load/duplicate_callback_not_appended
+PASS STAGE022_EDITOR grass.webp/Load/creator_editor_owned_nonexclusive
+PASS STAGE022_EDITOR grass.webp/Load/native_Load_exclusive
+PASS STAGE022_EDITOR grass.webp/Load/native_selection_retained_in_picker_and_draft
+PASS STAGE022_EDITOR grass.webp/Load/human_name_unique_stable_source_ID
+PASS STAGE022_EDITOR grass.webp/Load/alpha_reference_kind_UV_preview
+PASS STAGE022_EDITOR grass.webp/Load/Save_Source_single_editor_root_modal_double_click_safe
+PASS STAGE022_EDITOR grass.webp/Load/Save_modal_blocks_background_brush
+PASS STAGE022_EDITOR grass.webp/Load/Save_Cancel_restores_same_draft_no_add_or_undo
+PASS STAGE022_EDITOR grass.webp/Load/native_Save_Source_writes_once_cleans_windows_adds_once
+PASS STAGE022_EDITOR grass.webp/Load/saved_tres_stable_identity
+FAIL STAGE022_EDITOR grass.webp/Load/saved_card_dimensions_threshold_atlas_exact
+PASS STAGE022_EDITOR grass.webp/Load/existing_records_unchanged_single_palette_history
+PASS STAGE022_EDITOR grass.webp/Load/one_native_Undo_only_palette_add
+PASS STAGE022_EDITOR grass.webp/Load/native_Redo_same_source_no_duplicate
+PASS STAGE022_EDITOR grass.webp/Load/duplicate_callback_not_appended
+PASS STAGE022_EDITOR atlas.png/Quick Load/creator_editor_owned_nonexclusive
+PASS STAGE022_EDITOR atlas.png/Quick Load/native_ResourcePicker_menu_found
+PASS STAGE022_EDITOR atlas.png/Quick Load/native_QuickLoad_exclusive
+PASS STAGE022_EDITOR atlas.png/Quick Load/native_search_field
+PASS STAGE022_EDITOR atlas.png/Quick Load/native_search_result_selected_atlas.png
+PASS STAGE022_EDITOR atlas.png/Quick Load/native_selection_retained_in_picker_and_draft
+PASS STAGE022_EDITOR atlas.png/Quick Load/human_name_unique_stable_source_ID
+PASS STAGE022_EDITOR atlas.png/Quick Load/alpha_reference_kind_UV_preview
+PASS STAGE022_EDITOR atlas.png/Quick Load/Save_Source_single_editor_root_modal_double_click_safe
+PASS STAGE022_EDITOR atlas.png/Quick Load/Save_modal_blocks_background_brush
+PASS STAGE022_EDITOR atlas.png/Quick Load/Save_Cancel_restores_same_draft_no_add_or_undo
+PASS STAGE022_EDITOR atlas.png/Quick Load/native_Save_Source_writes_once_cleans_windows_adds_once
+PASS STAGE022_EDITOR atlas.png/Quick Load/saved_tres_stable_identity
+FAIL STAGE022_EDITOR atlas.png/Quick Load/saved_card_dimensions_threshold_atlas_exact
+PASS STAGE022_EDITOR atlas.png/Quick Load/existing_records_unchanged_single_palette_history
+PASS STAGE022_EDITOR atlas.png/Quick Load/one_native_Undo_only_palette_add
+PASS STAGE022_EDITOR atlas.png/Quick Load/native_Redo_same_source_no_duplicate
+PASS STAGE022_EDITOR atlas.png/Quick Load/duplicate_callback_not_appended
+PASS STAGE022_EDITOR atlas.png/Load/creator_editor_owned_nonexclusive
+PASS STAGE022_EDITOR atlas.png/Load/native_Load_exclusive
+PASS STAGE022_EDITOR atlas.png/Load/native_selection_retained_in_picker_and_draft
+PASS STAGE022_EDITOR atlas.png/Load/human_name_unique_stable_source_ID
+PASS STAGE022_EDITOR atlas.png/Load/alpha_reference_kind_UV_preview
+PASS STAGE022_EDITOR atlas.png/Load/Save_Source_single_editor_root_modal_double_click_safe
+PASS STAGE022_EDITOR atlas.png/Load/Save_modal_blocks_background_brush
+PASS STAGE022_EDITOR atlas.png/Load/Save_Cancel_restores_same_draft_no_add_or_undo
+PASS STAGE022_EDITOR atlas.png/Load/native_Save_Source_writes_once_cleans_windows_adds_once
+PASS STAGE022_EDITOR atlas.png/Load/saved_tres_stable_identity
+FAIL STAGE022_EDITOR atlas.png/Load/saved_card_dimensions_threshold_atlas_exact
+PASS STAGE022_EDITOR atlas.png/Load/existing_records_unchanged_single_palette_history
+PASS STAGE022_EDITOR atlas.png/Load/one_native_Undo_only_palette_add
+PASS STAGE022_EDITOR atlas.png/Load/native_Redo_same_source_no_duplicate
+PASS STAGE022_EDITOR atlas.png/Load/duplicate_callback_not_appended
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/creator_editor_owned_nonexclusive
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/native_ResourcePicker_menu_found
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/native_QuickLoad_exclusive
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/native_search_field
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/native_search_result_selected_original_plant.glb
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/native_selection_retained_in_picker_and_draft
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/human_name_unique_stable_source_ID
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/imported_static_two_parts_kept
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/Save_Source_single_editor_root_modal_double_click_safe
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/Save_modal_blocks_background_brush
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/Save_Cancel_restores_same_draft_no_add_or_undo
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/native_Save_Source_writes_once_cleans_windows_adds_once
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/saved_tres_stable_identity
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/saved_import_reference_no_flattening_loss
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/existing_records_unchanged_single_palette_history
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/one_native_Undo_only_palette_add
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/native_Redo_same_source_no_duplicate
+PASS STAGE022_EDITOR original_plant.glb/Quick Load/duplicate_callback_not_appended
+PASS STAGE022_EDITOR original_plant.glb/Load/creator_editor_owned_nonexclusive
+PASS STAGE022_EDITOR original_plant.glb/Load/native_Load_exclusive
+PASS STAGE022_EDITOR original_plant.glb/Load/native_selection_retained_in_picker_and_draft
+PASS STAGE022_EDITOR original_plant.glb/Load/human_name_unique_stable_source_ID
+PASS STAGE022_EDITOR original_plant.glb/Load/imported_static_two_parts_kept
+PASS STAGE022_EDITOR original_plant.glb/Load/Save_Source_single_editor_root_modal_double_click_safe
+PASS STAGE022_EDITOR original_plant.glb/Load/Save_modal_blocks_background_brush
+PASS STAGE022_EDITOR original_plant.glb/Load/Save_Cancel_restores_same_draft_no_add_or_undo
+PASS STAGE022_EDITOR original_plant.glb/Load/native_Save_Source_writes_once_cleans_windows_adds_once
+PASS STAGE022_EDITOR original_plant.glb/Load/saved_tres_stable_identity
+PASS STAGE022_EDITOR original_plant.glb/Load/saved_import_reference_no_flattening_loss
+PASS STAGE022_EDITOR original_plant.glb/Load/existing_records_unchanged_single_palette_history
+PASS STAGE022_EDITOR original_plant.glb/Load/one_native_Undo_only_palette_add
+PASS STAGE022_EDITOR original_plant.glb/Load/native_Redo_same_source_no_duplicate
+PASS STAGE022_EDITOR original_plant.glb/Load/duplicate_callback_not_appended
+PASS STAGE022_EDITOR static_plant.tscn/Quick Load/creator_editor_owned_nonexclusive
+PASS STAGE022_EDITOR static_plant.tscn/Quick Load/native_ResourcePicker_menu_found
+PASS STAGE022_EDITOR static_plant.tscn/Quick Load/native_QuickLoad_exclusive
+PASS STAGE022_EDITOR static_plant.tscn/Quick Load/native_search_field
+FAIL STAGE022_EDITOR static_plant.tscn/Quick Load/native_search_result_selected_static_plant.tscn
+FAIL STAGE022_EDITOR static_plant.tscn/Quick Load/native_selection_retained_in_picker_and_draft
+FAIL STAGE022_EDITOR static_plant.tscn/Quick Load/human_name_unique_stable_source_ID
+FAIL STAGE022_EDITOR static_plant.tscn/Quick Load/imported_static_two_parts_kept
+FAIL STAGE022_EDITOR static_plant.tscn/Quick Load/Save_Source_single_editor_root_modal_double_click_safe
+PASS STAGE022_EDITOR static_plant.tscn/Quick Load/Save_modal_blocks_background_brush
+PASS STAGE022_EDITOR static_plant.tscn/Quick Load/Save_Cancel_restores_same_draft_no_add_or_undo
+FAIL STAGE022_EDITOR static_plant.tscn/Quick Load/native_Save_Source_writes_once_cleans_windows_adds_once
+ERROR: Cannot open file 'res://.scratch/static_plant.tscn_Quick_Load.tres'.
+   at: load (scene/resources/resource_format_text.cpp:1442)
+   GDScript backtrace (most recent call first):
+       [0] test_saved_sources (res://tests/editor_modal_harness/plugin.gd:195)
+       [1] choose_file (res://tests/editor_modal_harness/plugin.gd:94)
+       [2] frames (res://tests/editor_modal_harness/plugin.gd:13)
+ERROR: Failed loading resource: res://.scratch/static_plant.tscn_Quick_Load.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] test_saved_sources (res://tests/editor_modal_harness/plugin.gd:195)
+       [1] choose_file (res://tests/editor_modal_harness/plugin.gd:94)
+       [2] frames (res://tests/editor_modal_harness/plugin.gd:13)
+ERROR: Error loading resource: 'res://.scratch/static_plant.tscn_Quick_Load.tres'.
+   at: load (core/core_bind.cpp:82)
+   GDScript backtrace (most recent call first):
+       [0] test_saved_sources (res://tests/editor_modal_harness/plugin.gd:195)
+       [1] choose_file (res://tests/editor_modal_harness/plugin.gd:94)
+       [2] frames (res://tests/editor_modal_harness/plugin.gd:13)
+FAIL STAGE022_EDITOR static_plant.tscn/Quick Load/saved_tres_stable_identity
+SCRIPT ERROR: Invalid access to property or key 'asset' on a base object of type 'Nil'.
+   at: test_saved_sources (res://tests/editor_modal_harness/plugin.gd:202)
+   GDScript backtrace (most recent call first):
+       [0] test_saved_sources (res://tests/editor_modal_harness/plugin.gd:202)
+       [1] choose_file (res://tests/editor_modal_harness/plugin.gd:94)
+       [2] frames (res://tests/editor_modal_harness/plugin.gd:13)

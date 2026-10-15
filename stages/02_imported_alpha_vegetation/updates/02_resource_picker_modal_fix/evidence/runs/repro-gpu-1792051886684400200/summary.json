@@ -1,0 +1,79 @@
+{
+  "phase": "repro",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "probes": [
+    {
+      "case": "version",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\02_resource_picker_modal_fix\\evidence\\.scratch\\repro-gpu-1792051886684400200\\project",
+        "--headless",
+        "--version"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa022-profiles\\1792051886684400200"
+    },
+    {
+      "case": "import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\02_resource_picker_modal_fix\\evidence\\.scratch\\repro-gpu-1792051886684400200\\project",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa022-profiles\\1792051886684400200"
+    },
+    {
+      "case": "editor_modal_harness_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\02_resource_picker_modal_fix\\evidence\\.scratch\\repro-gpu-1792051886684400200\\editor_modal_harness",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa022-profiles\\1792051886684400200"
+    },
+    {
+      "case": "editor_modal_harness",
+      "status": "FAIL",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\02_resource_picker_modal_fix\\evidence\\.scratch\\repro-gpu-1792051886684400200\\editor_modal_harness",
+        "--rendering-method",
+        "gl_compatibility",
+        "--position",
+        "-10000,-10000",
+        "--resolution",
+        "1500x1000",
+        "--editor",
+        "demo.tscn"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa022-profiles\\1792051886684400200",
+      "legacy_picker_observed": "FAIL",
+      "reproduction_probe": "PASS"
+    }
+  ],
+  "INTERACTIVE_GUI_QA": "NOT_RUN",
+  "OWNER_REPORTED_GUI_FAIL": "0.2.1-dev PNG Quick Load; Issue #8",
+  "legacy_addon_ref": "1c61bf1fcd059cfb4d559eeabac806c684ecfddb"
+}

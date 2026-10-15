@@ -1,4 +1,4 @@
-# GO_FLORA 0.2.1-dev
+# GO_FLORA 0.2.2-dev
 
 GDScript vegetation painter for Godot **4.7.2**, MIT. Stage 02 is **READY_FOR_MANUAL_QA**, **INTERACTIVE_GUI_QA: NOT_RUN**. Copy this directory to `res://addons/go_flora/`, then enable GO_FLORA in Project Settings → Plugins. No native dependency or Tree3D is required. The plugin-only ZIP contains no scenes, textures or models.
 
@@ -18,6 +18,12 @@ GDScript vegetation painter for Godot **4.7.2**, MIT. Stage 02 is **READY_FOR_MA
 Основные поля кисти, палитры и Create Alpha Plant имеют русские всплывающие подсказки с единицами, defaults и примерами. **Help / Справка** открывает легенду по клику. **Ctrl+Alt+G** показывает GO_FLORA. Open Set in Inspector переключает на Inspector через публичный API Godot, даже когда палитра занимает ту же группу вкладок.
 
 Cards use ground pivot Y=0, owned mesh/material, double-sided **alpha-scissor**, linear filtering with mipmaps, clamp, default threshold 0.5. Texture originals are referenced and never rewritten. Set texture Import → Mipmaps → Generate when desired; supply extruded atlas gutters. UV Gutter is an inward pixel inset; 0.5 px avoids sampling the boundary, while stronger minification may require larger gutters (tested diagnostic atlas: 8 px at 3/12/24 m). A gutter cannot repair a tightly packed/poorly padded atlas. Width/height control aspect explicitly. Alpha-hash is not exposed: Compatibility has a historical failing pixel probe.
+
+## Выбор файла и окна создания
+
+В 0.2.2-dev исправлен конфликт эксклюзивных окон из 0.2.1-dev. В SourceAssetPicker используйте штатные **Quick Load…** (поиск имени и выбор результата/Enter) или **Load…** для PNG/WebP и Mesh/GLB/PackedScene. Окно создания — неэксклюзивный инструмент редактора; штатные choosers сохраняют модальность. На время операции кисть приостановлена, фоновые клики viewport не создают strokes.
+
+**Save Source…** временно скрывает черновик и открывает отдельный модальный EditorFileDialog. **Cancel** в сохранении возвращает те же настройки и Source ID, без добавления в палитру. Cancel/X/Escape окна создания отменяют черновик. Смена слоя/набора/сцены, Help/diagnostics или отключение плагина освобождают его окна; окно Godot, открытое другим инструментом, не закрывается. Успешное сохранение добавляет источник ровно один раз с одним Undo/Redo; повторное уведомление не создаёт дубликат. Старые размещения и схема данных остаются прежними.
 
 ## Scenes with authored behavior
 
