@@ -1,0 +1,11 @@
+{
+  "project": "C:\\Dev\\TEST_FLORA",
+  "archive_sha256": "478debec228a1e3104a5aaf6881ed57ed986120876b025caa70a995938e34b36",
+  "version": "0.1.1-dev",
+  "scene": "res://go_flora_stage01_demo/demo.tscn",
+  "backup": "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\.scratch\\install_backups\\TEST_FLORA-20261015T033745760990Z",
+  "scene_created": true,
+  "existing_scene_files_preserved": true,
+  "plugin_files_verified": true,
+  "INTERACTIVE_GUI_QA": "NOT_RUN"
+}

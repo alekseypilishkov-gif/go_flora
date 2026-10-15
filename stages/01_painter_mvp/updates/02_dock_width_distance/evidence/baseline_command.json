@@ -1,0 +1,19 @@
+{
+  "baseline": "51b137434c143b21f02a53430a00687f37c76395",
+  "command": [
+    "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+    "--language",
+    "en",
+    "--headless",
+    "--editor",
+    "--path",
+    "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\evidence\\.scratch\\width_baseline_c1b5a35d71844317bfbbe72b7dd1614a",
+    "demo.tscn"
+  ],
+  "exit_code": 1,
+  "expected_failures": [
+    "FAIL EDITOR_API dock_shares_Scene_Import_tab_group",
+    "FAIL EDITOR_API dynamic_status_and_counts_do_not_resize_dock",
+    "FAIL EDITOR_API active_set_distance_visible_in_dock"
+  ]
+}

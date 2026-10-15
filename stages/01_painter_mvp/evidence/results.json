@@ -1,0 +1,162 @@
+{
+  "stage": "01",
+  "status": "READY_FOR_MANUAL_QA",
+  "captured_utc": "2026-10-14T12:09:23.461923+00:00",
+  "base_main": "8cbac98f0705a16f5746baa07f37ec2b2bae75b6",
+  "branch": "codex/stage-01-painter-mvp",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "engine_binary_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "source_contract_review": "PASS",
+  "core_headless": "PASS",
+  "core_checks": 45,
+  "fresh_process_scene_reopen": "PASS",
+  "native_editor_api": "PASS",
+  "native_editor_checks": 17,
+  "native_editor_lifecycle_API": "PASS",
+  "render_batch_settings_API": "PASS",
+  "CPU_cache_benchmark": "PASS",
+  "INTERACTIVE_GUI_QA": "NOT_RUN",
+  "interactive_lifecycle": "NOT_RUN",
+  "visual_distance_acceptance": "NOT_RUN",
+  "native_GUI_startup_only": "PASS",
+  "GUI_control_attempt": "FAIL",
+  "GUI_control_failure": "Computer Use app approval timed out",
+  "owner_decision": "Оставить GUI-приёмку мне",
+  "screenshots_or_video": "NOT_RUN",
+  "GPU_FPS_benchmark": "NOT_RUN",
+  "large_forest_performance": "NOT_RUN",
+  "clean_machine_install_export": "NOT_RUN",
+  "benchmarks": [
+    {
+      "batches": 51,
+      "display_driver": "headless",
+      "nodes": 53,
+      "rebuild_ms": 8.131,
+      "records": 1024,
+      "renderer": "gl_compatibility",
+      "scope": "CPU cache construction, not GPU/FPS"
+    },
+    {
+      "batches": 182,
+      "display_driver": "headless",
+      "nodes": 184,
+      "rebuild_ms": 42.736,
+      "records": 5000,
+      "renderer": "gl_compatibility",
+      "scope": "CPU cache construction, not GPU/FPS"
+    }
+  ],
+  "automatic_processes": [
+    {
+      "case": "version",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\evidence\\.scratch\\test_project",
+        "--headless",
+        "--version"
+      ]
+    },
+    {
+      "case": "editor_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\evidence\\.scratch\\test_project",
+        "--headless",
+        "--editor",
+        "--import"
+      ]
+    },
+    {
+      "case": "core",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\evidence\\.scratch\\test_project",
+        "--headless",
+        "--script",
+        "tests/test_stage01.gd"
+      ]
+    },
+    {
+      "case": "fresh_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\evidence\\.scratch\\test_project",
+        "--headless",
+        "--script",
+        "tests/test_stage01_reopen.gd"
+      ]
+    },
+    {
+      "case": "editor_api",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\evidence\\.scratch\\test_project",
+        "--headless",
+        "--editor",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\evidence\\.scratch\\editor_project",
+        "demo.tscn"
+      ]
+    }
+  ],
+  "tested_inputs_sha256": {
+    "addons/go_flora/core/placement.gd": "5572a13c2c90ae92785aa9d5d5785720e2e8b025336a1b946247237d7801296b",
+    "addons/go_flora/core/record_delta.gd": "df8ef522af288eb8440d658c7f28b4962c32b53d6123c7c25ece3c63f11f6193",
+    "addons/go_flora/core/stroke.gd": "48a9959953b36e02786fcc24f10cdc98fa6fb2bba8ae47be1c6f78673dd45d43",
+    "addons/go_flora/data/brush.gd": "5d9e2a06f57e3d3f5e41b6ed44c93ce07208915da5e53b99a6eaca38b9ad3132",
+    "addons/go_flora/data/instance_record.gd": "21e7be76d4a535a5c2b1903d39975d0dbf37c44e3a123b4aab70ed8ef085bf90",
+    "addons/go_flora/data/layer_data.gd": "c64e13426f980dec29f515ac7ee74c43aace49237fef9ab02cac1520c337953d",
+    "addons/go_flora/data/palette_entry.gd": "7ecf19a936b4a3704bfda60a27a0ae2394878a698aca82893aa189052d6bd14a",
+    "addons/go_flora/data/source.gd": "97bd49f728ad7f4d1311076a40765e902b6cdc35cf255143af11ec910355b0f7",
+    "addons/go_flora/data/vegetation_set.gd": "5d328592c7890f00787ddd5c2541eb801bcc5669e4ad63cc98d04692faed48ce",
+    "addons/go_flora/editor/brush_preview.gd": "874f2b8df3a3a9b8425a75ff8bf106ad651d3f61c0b542cea9302313d99e676a",
+    "addons/go_flora/editor/plugin.gd": "e1a16200021c1152553460a8d89a8849dbb32a0b3978d491ffd8bbb88c61a12a",
+    "addons/go_flora/editor/surface_target.gd": "3b89d5b1a8a02081a242af37de369619db76821615fd90fc4f85a4deb82243d2",
+    "addons/go_flora/plugin.cfg": "10ba68a88fb2b8f679cc4d9f272b2d59674bf8d2f8cf44b9cea34e6bd496f526",
+    "addons/go_flora/rendering/cell_renderer.gd": "03fbe25d543a7ad6335af12eb5d58aa4edbb0965cb2f94ce52140065a6c3e594",
+    "addons/go_flora/vegetation_layer_3d.gd": "98db07b8e798cf764b63c7d21a62ae6044f3973883591b73d001a27be159f81b",
+    "stages/01_painter_mvp/demo/demo.tscn": "da2498cf9ea944dc6b2d9e59b648b3e72478196860764a5e9301dffa1c2f75c5",
+    "stages/01_painter_mvp/demo/project.godot": "807c3ec1a50b65b0331dfc5be73911c8e1306b1f2cd4ead0c710f232e96dbb13",
+    "stages/01_painter_mvp/demo/runtime_camera.gd": "4327e3c1bb03cad0dc0d104cb05f9c95be64e593361c73f731d04ef3a5bfa8cf",
+    "tests/create_demo.gd": "940b858416aa9d8af15eb635a4b6bfbcad34e4ff0df6db9858c1860936426798",
+    "tests/editor_harness/plugin.gd": "9ad3f26ce608d724a72c7175fb2ad754908fba7d0e10ef84c77f318aff1f7c6d",
+    "tests/manual_inspect.gd": "981e1a86e3587f93a73c7ac502234ca5d748c74684ec2632fdf526503ab2e6a3",
+    "tests/test_stage01.gd": "62298d40f97c50ebcbc7c2667ea35705be1f2aa333f69fa7332af7b7e1f2d781",
+    "tests/test_stage01_reopen.gd": "b093e3d5da25e407b5efd690572081811c300ffa6143815689c38edcaf22acee"
+  },
+  "repository_static_gate": "PASS",
+  "whitespace_regression": "PASS",
+  "working_whitespace": "PASS",
+  "GitHub_Actions": "PASS",
+  "implementation_commit": "b4a3381fe5cf5daef0fd5001ddb7571370db3e22",
+  "pr": "https://github.com/alekseypilishkov-gif/go_flora/pull/4",
+  "staged_whitespace": "PASS",
+  "committed_whitespace": "PASS",
+  "previous_stage_unchanged": "PASS",
+  "ci_summary": "ci_summary.json"
+}

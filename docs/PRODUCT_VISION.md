@@ -21,4 +21,4 @@ Selection and Reapply require stable instance IDs and stored placement seeds/bru
 
 Stage 02 adds asset interchange and grass/card sources. Stage 03 evaluates optional Tree3D trees/shrubs after provenance and licensing review. Stage 04 measures chunking, LOD, selective colliders, wind, and fade. A Terrain3D adapter can provide terrain-specific targeting later; the core keeps its generic collision target interface. Open beta, installation instructions and Asset Library publication require later gates and explicit approval.
 
-No promise of infinite worlds, per-instance MultiMesh culling, support for every imported scene, or production performance is made by Stage 00. The current repository is research and evidence only.
+Stage 00 is accepted. Stage 01 contains an initial static-Mesh painter and original demo; owner GUI acceptance is pending. There is no promise of infinite worlds, per-instance MultiMesh culling, support for every imported scene, or production performance.

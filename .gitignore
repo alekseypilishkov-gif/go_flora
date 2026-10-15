@@ -25,3 +25,10 @@ Thumbs.db
 *.exe
 __pycache__/
 *.pyc
+
+# Generated install copies of original Stage 01 code (source lives at repo root)
+/stages/01_painter_mvp/demo/addons/
+/stages/01_painter_mvp/demo/tests/
+
+# Owner's local acceptance scene; preserve it without shipping it in the addon.
+/stages/01_painter_mvp/demo/qa_owner.tscn

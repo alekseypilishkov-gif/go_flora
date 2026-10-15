@@ -1,0 +1,179 @@
+{
+	"disabled": {
+		"base": {
+			"class": "Panel",
+			"minimum": "(0.0, 0.0)",
+			"name": "@Panel@14",
+			"rect": "[P: (0.0, 0.0), S: (1024.0, 600.0)]",
+			"size": "(1024.0, 600.0)"
+		},
+		"filesystem": {
+			"class": "FileSystemDock",
+			"minimum": "(148.0, 94.0)",
+			"name": "FileSystem",
+			"rect": "[P: (10.0, 359.0), S: (214.0, 231.0)]",
+			"size": "(214.0, 231.0)"
+		}
+	},
+	"enabled": {
+		"base": {
+			"class": "Panel",
+			"minimum": "(0.0, 0.0)",
+			"name": "@Panel@14",
+			"rect": "[P: (0.0, 0.0), S: (1024.0, 600.0)]",
+			"size": "(1024.0, 600.0)"
+		},
+		"dock_ancestors": [
+			{
+				"class": "VBoxContainer",
+				"minimum": "(292.0, 6282.0)",
+				"name": "GO_FLORA",
+				"rect": "[P: (988.0, 44.0), S: (292.0, 6282.0)]",
+				"size": "(292.0, 6282.0)"
+			},
+			{
+				"class": "EditorDock",
+				"minimum": "(292.0, 6282.0)",
+				"name": "@EditorDock@19918",
+				"rect": "[P: (988.0, 44.0), S: (292.0, 6282.0)]",
+				"size": "(292.0, 6282.0)"
+			},
+			{
+				"class": "SideDockTabContainer",
+				"minimum": "(304.0, 6326.0)",
+				"name": "DockSlotRightUL",
+				"rect": "[P: (988.0, 44.0), S: (304.0, 6326.0)]",
+				"size": "(304.0, 6326.0)"
+			},
+			{
+				"class": "DockSplitContainer",
+				"minimum": "(304.0, 6326.0)",
+				"name": "DockVSplitRightL",
+				"rect": "[P: (988.0, 44.0), S: (304.0, 6326.0)]",
+				"size": "(304.0, 6326.0)"
+			},
+			{
+				"class": "DockSplitContainer",
+				"minimum": "(1288.0, 6326.0)",
+				"name": "DockHSplitMain",
+				"rect": "[P: (4.0, 44.0), S: (1288.0, 6326.0)]",
+				"size": "(1288.0, 6326.0)"
+			},
+			{
+				"class": "DockSplitContainer",
+				"minimum": "(1288.0, 6326.0)",
+				"name": "DockVSplitMain",
+				"rect": "[P: (4.0, 44.0), S: (1288.0, 6326.0)]",
+				"size": "(1288.0, 6326.0)"
+			},
+			{
+				"class": "VBoxContainer",
+				"minimum": "(1288.0, 6366.0)",
+				"name": "@VBoxContainer@15",
+				"rect": "[P: (4.0, 4.0), S: (1288.0, 6366.0)]",
+				"size": "(1288.0, 6366.0)"
+			},
+			{
+				"class": "Panel",
+				"minimum": "(0.0, 0.0)",
+				"name": "@Panel@14",
+				"rect": "[P: (0.0, 0.0), S: (1024.0, 600.0)]",
+				"size": "(1024.0, 600.0)"
+			}
+		],
+		"dock_children": [
+			{
+				"class": "Label",
+				"minimum": "(228.0, 29.0)",
+				"name": "@Label@19795",
+				"rect": "[P: (988.0, 44.0), S: (228.0, 29.0)]",
+				"size": "(228.0, 29.0)"
+			},
+			{
+				"class": "OptionButton",
+				"minimum": "(181.0, 33.0)",
+				"name": "@OptionButton@19806",
+				"rect": "[P: (988.0, 44.0), S: (181.0, 33.0)]",
+				"size": "(181.0, 33.0)"
+			},
+			{
+				"class": "Button",
+				"minimum": "(157.0, 33.0)",
+				"name": "@Button@19807",
+				"rect": "[P: (988.0, 44.0), S: (157.0, 33.0)]",
+				"size": "(157.0, 33.0)"
+			},
+			{
+				"class": "OptionButton",
+				"minimum": "(198.0, 33.0)",
+				"name": "@OptionButton@19818",
+				"rect": "[P: (988.0, 44.0), S: (198.0, 33.0)]",
+				"size": "(198.0, 33.0)"
+			},
+			{
+				"class": "Button",
+				"minimum": "(275.0, 33.0)",
+				"name": "@Button@19819",
+				"rect": "[P: (988.0, 44.0), S: (275.0, 33.0)]",
+				"size": "(275.0, 33.0)"
+			},
+			{
+				"class": "Label",
+				"minimum": "(17.0, 1469.0)",
+				"name": "@Label@19820",
+				"rect": "[P: (988.0, 44.0), S: (17.0, 1469.0)]",
+				"size": "(17.0, 1469.0)"
+			},
+			{
+				"class": "HBoxContainer",
+				"minimum": "(196.0, 64.0)",
+				"name": "@HBoxContainer@19821",
+				"rect": "[P: (988.0, 44.0), S: (196.0, 64.0)]",
+				"size": "(196.0, 64.0)"
+			},
+			{
+				"class": "HBoxContainer",
+				"minimum": "(292.0, 33.0)",
+				"name": "@HBoxContainer@19826",
+				"rect": "[P: (988.0, 44.0), S: (292.0, 33.0)]",
+				"size": "(292.0, 33.0)"
+			},
+			{
+				"class": "ScrollContainer",
+				"minimum": "(0.0, 320.0)",
+				"name": "@ScrollContainer@19829",
+				"rect": "[P: (988.0, 44.0), S: (0.0, 320.0)]",
+				"size": "(0.0, 320.0)"
+			},
+			{
+				"class": "Label",
+				"minimum": "(237.0, 29.0)",
+				"name": "@Label@19915",
+				"rect": "[P: (988.0, 44.0), S: (237.0, 29.0)]",
+				"size": "(237.0, 29.0)"
+			},
+			{
+				"class": "Label",
+				"minimum": "(17.0, 1421.0)",
+				"name": "@Label@19916",
+				"rect": "[P: (988.0, 44.0), S: (17.0, 1421.0)]",
+				"size": "(17.0, 1421.0)"
+			},
+			{
+				"class": "Label",
+				"minimum": "(17.0, 2741.0)",
+				"name": "@Label@19917",
+				"rect": "[P: (988.0, 44.0), S: (17.0, 2741.0)]",
+				"size": "(17.0, 2741.0)"
+			}
+		],
+		"filesystem": {
+			"class": "FileSystemDock",
+			"minimum": "(148.0, 94.0)",
+			"name": "FileSystem",
+			"rect": "[P: (10.0, 3246.0), S: (214.0, 3118.0)]",
+			"size": "(214.0, 3118.0)"
+		}
+	},
+	"scope": "Headless native Control geometry; not real GUI acceptance"
+}
