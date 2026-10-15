@@ -1,4 +1,8 @@
-# GO_FLORA 0.2.2-dev
+# GO_FLORA 0.2.3-dev
+
+Erase непрерывен: удерживайте ЛКМ и ведите по поверхности. Пространственный поиск работает по кадрам; при отпускании очередь завершается перед одним действием Undo. Esc отменяет весь мазок, отпускание за пределами viewport отменяет его. Лимит Stroke work budget по-прежнему ограничивает только Paint/Single; Erase использует внутренний несохраняемый лимит 512 операций / до 4 мс на шаг очереди (один в кадре и один при отпускании). Это не жёсткий предел времени всего кадра: окончательный delta/Undo и перестройка render cache выполняются синхронно.
+
+Кнопка **−** у имени растения в GO_FLORA и Inspector открывает **Remove from Palette**: строка исчезает, размещённые растения остаются видимыми и сохраняются благодаря скрытому каталогу `render_only_sources`. Selected остаётся выбранным по ID и явно требует выбрать доступный источник. **Удалить и размещения…** открывает отдельное подтверждение с точным количеством в выбранном слое; это одно действие Undo/Redo. Оригинальные .tres/PNG/WebP/GLB не удаляются. Повторное добавление того же Source возвращает его в палитру, не дублируя ID. Каталог сохраняет и неиспользуемые ссылки: один набор может использоваться в других, закрытых сценах.
 
 GDScript vegetation painter for Godot **4.7.2**, MIT. Stage 02 is **READY_FOR_MANUAL_QA**, **INTERACTIVE_GUI_QA: NOT_RUN**. Copy this directory to `res://addons/go_flora/`, then enable GO_FLORA in Project Settings → Plugins. No native dependency or Tree3D is required. The plugin-only ZIP contains no scenes, textures or models.
 

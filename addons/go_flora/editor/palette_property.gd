@@ -20,6 +20,8 @@ func _init() -> void:
 	palette.inspect_source.connect(func(source: GFVegetationSource) -> void: controller.inspect_resource(source))
 	palette.entry_edited.connect(func(entry: GFPaletteEntry, property: String, value: Variant) -> void:
 		controller.edit_palette_entry(get_edited_object(), entry, property, value))
+	palette.remove_requested.connect(func(entry: GFPaletteEntry) -> void:
+		controller.request_palette_removal(get_edited_object(), entry))
 	palette.reference_edited.connect(func(index: int, source: GFVegetationSource) -> void:
 		controller.assign_palette_source(get_edited_object(), index, source))
 	var label := Label.new()

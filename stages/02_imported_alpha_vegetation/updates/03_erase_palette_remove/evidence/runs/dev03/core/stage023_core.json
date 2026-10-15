@@ -1,0 +1,202 @@
+{
+	"checks": [
+		{
+			"detail": "",
+			"id": "begin_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "dense_single_click_complete_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "apply_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "exact_ID_order_reference_serial_undo_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "redo_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "begin_1000",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "dense_single_click_complete_1000",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "apply_1000",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "exact_ID_order_reference_serial_undo_1000",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "redo_1000",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "begin_2001",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "dense_single_click_complete_2001",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "apply_2001",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "exact_ID_order_reference_serial_undo_2001",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "redo_2001",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "begin_5000",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "dense_single_click_complete_5000",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "apply_5000",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "exact_ID_order_reference_serial_undo_5000",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "redo_5000",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "begin_12000",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "dense_single_click_complete_12000",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "apply_12000",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "exact_ID_order_reference_serial_undo_12000",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "redo_12000",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "fast_sweep_stationary_other_set_prefix_locked_complete",
+			"status": "PASS"
+		},
+		{
+			"detail": "15600",
+			"id": "spatial_queries_less_than_two_full_scans_for_450m_sweep",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "other_sets_locked_untouched",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "interleaved_original_order_restore",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "ineligible_surface_break_never_bridges_gap",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "rotated_nonuniform_scaled_layer_exact_world_sphere",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "pending_index_does_not_mutate_saved_records",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "cancel_discards_every_pending_delete",
+			"status": "PASS"
+		}
+	],
+	"scope": "native core CPU timings, not FPS",
+	"timings": [
+		{
+			"CPU_usec": 1569,
+			"candidates": 1,
+			"records": 1,
+			"ticks": 1
+		},
+		{
+			"CPU_usec": 5135,
+			"candidates": 1000,
+			"records": 1000,
+			"ticks": 4
+		},
+		{
+			"CPU_usec": 9966,
+			"candidates": 2001,
+			"records": 2001,
+			"ticks": 8
+		},
+		{
+			"CPU_usec": 24224,
+			"candidates": 5000,
+			"records": 5000,
+			"ticks": 20
+		},
+		{
+			"CPU_usec": 55349,
+			"candidates": 12000,
+			"records": 12000,
+			"ticks": 47
+		}
+	]
+}

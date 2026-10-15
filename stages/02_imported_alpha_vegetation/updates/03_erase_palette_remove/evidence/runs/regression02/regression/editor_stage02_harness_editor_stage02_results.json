@@ -1,0 +1,312 @@
+[
+	{
+		"id": "installed_enabled",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "paint_begin_original_plant.glb",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_paint_one_undo_original_plant.glb",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_paint_redo_exact_IDs_original_plant.glb",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "single_begin_original_plant.glb",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "inert_editor_preview_original_plant.glb",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "cancel_removes_all_parts_original_plant.glb",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "single_one_record_original_plant.glb",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_undo_all_parts_original_plant.glb",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_redo_ID_original_plant.glb",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "existing_distance_A_B_stable_original_plant.glb",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_erase_all_parts_original_plant.glb",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_erase_undo_original_plant.glb",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "reimport_callback_records_retained_original_plant.glb",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "paint_begin_static_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_paint_one_undo_static_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_paint_redo_exact_IDs_static_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "single_begin_static_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "inert_editor_preview_static_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "cancel_removes_all_parts_static_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "single_one_record_static_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_undo_all_parts_static_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_redo_ID_static_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "existing_distance_A_B_stable_static_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_erase_all_parts_static_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_erase_undo_static_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "reimport_callback_records_retained_static_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "paint_begin_authored_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_paint_one_undo_authored_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_paint_redo_exact_IDs_authored_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "single_begin_authored_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "inert_editor_preview_authored_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "cancel_removes_all_parts_authored_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "single_one_record_authored_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_undo_all_parts_authored_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_redo_ID_authored_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "existing_distance_A_B_stable_authored_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_erase_all_parts_authored_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_erase_undo_authored_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "reimport_callback_records_retained_authored_plant.tscn",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "paint_begin_editor-card",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_paint_one_undo_editor-card",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_paint_redo_exact_IDs_editor-card",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "single_begin_editor-card",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "inert_editor_preview_editor-card",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "cancel_removes_all_parts_editor-card",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "single_one_record_editor-card",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_undo_all_parts_editor-card",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_redo_ID_editor-card",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "existing_distance_A_B_stable_editor-card",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_erase_all_parts_editor-card",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_erase_undo_editor-card",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "reimport_callback_records_retained_editor-card",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "actual_PNG_file_reimport_invalidates_card_keeps_ID",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "actual_GLB_file_reimport_new_revision_positions_retained",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "deleted_scene_file_actionable_diagnostic",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "deleted_texture_file_records_retained",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "source_diagnostics_selectable_revision",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "creator_WebP_UV_preview_validation",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "creator_saved_reusable_source_added_palette",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "creator_add_palette_scene_undo",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "creator_add_palette_scene_redo",
+		"scope": "native Editor API; not interactive GUI",
+		"status": "PASS"
+	}
+]

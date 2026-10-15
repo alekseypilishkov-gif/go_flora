@@ -1,0 +1,4 @@
+{
+  "raw_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\nOpenGL API 3.3.0 NVIDIA 616.56 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Ti\n\nPASS STAGE023_FRESH_SOURCE_RECORD_RESOLUTION {\"batches\":1,\"diagnostics\":[],\"record\":\"native-0\",\"set\":\"set-a\",\"source\":\"primitive-cone-v1\"}\nPASS STAGE023_FRESH_GPU_RETAINED (0.0, 1.0, 0.0, 1.0)\nPASS STAGE023_REOPEN_COMPLETE\n",
+  "readable_log": "trailing whitespace normalized"
+}

@@ -34,6 +34,8 @@ var _layers: Array[VegetationLayer3D] = []
 var _stroke: GFStroke
 var _stroke_layer: VegetationLayer3D
 var _stroke_transform: Transform3D
+var _stroke_releasing := false
+var _remove_dialog: ConfirmationDialog
 var _scene_root: Node
 var _ui_updating := false
 var _last_hit: Dictionary = {}
@@ -66,6 +68,7 @@ func _enter_tree() -> void:
 	print("GO_FLORA_PLUGIN_ENABLED")
 
 func _exit_tree() -> void:
+	_close_palette_removal()
 	cancel_stroke()
 	_remove_preview()
 	_observe_set(null)
@@ -101,7 +104,7 @@ func _input(event: InputEvent) -> void:
 		call_deferred("_cancel_unhandled_release")
 
 func _cancel_unhandled_release() -> void:
-	if _stroke != null:
+	if _stroke != null and not _stroke_releasing:
 		cancel_stroke()
 		set_status("Stroke cancelled after release outside the 3D viewport.")
 
@@ -112,6 +115,11 @@ func _notification(what: int) -> void:
 func _process(_delta: float) -> void:
 	if _stroke != null and (not is_instance_valid(_stroke_layer) or _stroke_layer != active_layer or _stroke_layer.global_transform != _stroke_transform or _stroke_layer.layer_data != _stroke._data):
 		cancel_stroke()
+	if _stroke != null and _stroke.has_pending_work():
+		_stroke.process_pending()
+		_update_stroke_preview()
+	if _stroke != null and _stroke_releasing and not _stroke.has_pending_work():
+		commit_stroke()
 	if active_layer != null and not is_instance_valid(active_layer):
 		active_layer = null
 		active_set = null
@@ -128,6 +136,7 @@ func set_status(message: String) -> void:
 		_status.text = message
 
 func _on_scene_changed(root: Node) -> void:
+	_close_palette_removal()
 	_close_creator()
 	cancel_stroke()
 	_remove_preview()
@@ -140,6 +149,7 @@ func _on_scene_changed(root: Node) -> void:
 	_refresh_layers()
 
 func _on_scene_closed(_path: String) -> void:
+	_close_palette_removal()
 	_close_creator()
 	cancel_stroke()
 	_remove_preview()
@@ -151,6 +161,7 @@ func _walk_layers(node: Node) -> void:
 		_walk_layers(child)
 
 func _refresh_layers() -> void:
+	_close_palette_removal()
 	cancel_stroke()
 	_layers.clear()
 	if is_instance_valid(_scene_root):
@@ -168,6 +179,7 @@ func _refresh_layers() -> void:
 	set_status("Choose a set and a tool. Navigation mode passes editor input through." if active_layer != null else "Add/select a VegetationLayer3D with data and sets, then Refresh Layers.")
 
 func _refresh_sets() -> void:
+	_close_palette_removal()
 	_ui_updating = true
 	_set_picker.clear()
 	if is_instance_valid(active_layer) and active_layer.layer_data != null:
@@ -276,6 +288,7 @@ func _build_dock() -> void:
 	_palette.source_selected.connect(_select_palette_source)
 	_palette.inspect_source.connect(inspect_resource)
 	_palette.entry_edited.connect(func(entry: GFPaletteEntry, property: String, value: Variant) -> void: edit_palette_entry(active_set, entry, property, value))
+	_palette.remove_requested.connect(func(entry: GFPaletteEntry) -> void: request_palette_removal(active_set, entry))
 	_dock.add_child(_palette)
 	for action in [["Add Mesh / GLB / Scene…", false], ["Create Alpha Plant…", true]]:
 		var button := Button.new()
@@ -450,10 +463,23 @@ func edit_palette_entry(vegetation_set: GFVegetationSet, entry: GFPaletteEntry, 
 		set_status("Вес должен быть конечным числом >= 0.")
 		return
 	cancel_stroke()
+	if property == "source" and value != null:
+		for other in vegetation_set.entries:
+			if other != null and other != entry and other.source != null and other.source.source_id == value.source_id:
+				set_status("Этот source_id уже есть в палитре.")
+				return
 	var history := get_undo_redo()
 	history.create_action("GO_FLORA Palette " + property, UndoRedo.MERGE_DISABLE, _context_for_set(vegetation_set))
 	history.add_do_property(entry, property, value)
 	history.add_undo_property(entry, property, entry.get(property))
+	if property == "source":
+		var retained := vegetation_set.render_only_sources.duplicate()
+		if entry.source != null and not retained.has(entry.source):
+			retained.append(entry.source)
+		if value != null:
+			retained = retained.filter(func(source: GFVegetationSource) -> bool: return source == null or source.source_id != value.source_id)
+		history.add_do_property(vegetation_set, "render_only_sources", retained)
+		history.add_undo_property(vegetation_set, "render_only_sources", vegetation_set.render_only_sources.duplicate())
 	history.commit_action()
 
 func assign_palette_source(vegetation_set: GFVegetationSet, index: int, source: GFVegetationSource) -> void:
@@ -471,6 +497,9 @@ func assign_palette_source(vegetation_set: GFVegetationSet, index: int, source: 
 func append_palette_source(vegetation_set: GFVegetationSet, source: GFVegetationSource) -> void:
 	if vegetation_set == null or source == null:
 		return
+	if vegetation_set.source_by_id(source.source_id) != null:
+		set_status("Этот Source уже есть в палитре; повторное добавление пропущено.")
+		return
 	var entries := vegetation_set.entries.duplicate()
 	var entry := GFPaletteEntry.new()
 	entry.source = source
@@ -479,10 +508,116 @@ func append_palette_source(vegetation_set: GFVegetationSet, source: GFVegetation
 
 func _change_palette_entries(vegetation_set: GFVegetationSet, entries: Array[GFPaletteEntry]) -> void:
 	cancel_stroke()
+	var ids: Dictionary = {}
+	for entry in entries:
+		if entry != null and entry.source != null:
+			if ids.has(entry.source.source_id):
+				set_status("Этот source_id уже есть в палитре.")
+				return
+			ids[entry.source.source_id] = true
+	var retained := vegetation_set.render_only_sources.duplicate()
+	for entry in entries:
+		if entry != null and entry.source != null:
+			retained = retained.filter(func(source: GFVegetationSource) -> bool: return source == null or source.source_id != entry.source.source_id)
 	var history := get_undo_redo()
 	history.create_action("GO_FLORA Palette sources", UndoRedo.MERGE_DISABLE, _context_for_set(vegetation_set))
 	history.add_do_property(vegetation_set, "entries", entries)
 	history.add_undo_property(vegetation_set, "entries", vegetation_set.entries.duplicate())
+	history.add_do_property(vegetation_set, "render_only_sources", retained)
+	history.add_undo_property(vegetation_set, "render_only_sources", vegetation_set.render_only_sources.duplicate())
+	history.commit_action()
+
+func _close_palette_removal() -> void:
+	if is_instance_valid(_remove_dialog):
+		_remove_dialog.hide()
+		_remove_dialog.queue_free()
+	_remove_dialog = null
+
+func _source_records(layer: VegetationLayer3D, vegetation_set: GFVegetationSet, source: GFVegetationSource) -> Array[GFInstanceRecord]:
+	var records: Array[GFInstanceRecord] = []
+	if is_instance_valid(layer) and layer.layer_data != null and source != null:
+		for record in layer.layer_data.records:
+			if record.set_id == vegetation_set.set_id and record.source_id == source.source_id:
+				records.append(record)
+	return records
+
+func request_palette_removal(vegetation_set: GFVegetationSet, entry: GFPaletteEntry, delete_placements: bool = false) -> void:
+	if vegetation_set == null or not vegetation_set.entries.has(entry):
+		return
+	cancel_stroke()
+	_close_creator()
+	_close_palette_removal()
+	for window in [_help_window, _source_details]:
+		if is_instance_valid(window):
+			window.hide()
+	var layer := _context_for_set(vegetation_set) as VegetationLayer3D
+	if layer == null:
+		set_status("Откройте сцену со слоем этого набора для Undo/Redo удаления.")
+		return
+	var source := entry.source if entry != null else null
+	var records := _source_records(layer, vegetation_set, source)
+	if records.is_empty() and not delete_placements:
+		_remove_palette_entry(layer, vegetation_set, entry, false)
+		return
+	var scene := _scene_root
+	var data := layer.layer_data
+	var source_id := source.source_id if source != null else ""
+	_remove_dialog = ConfirmationDialog.new()
+	_remove_dialog.name = "RemovePaletteConfirmation"
+	_remove_dialog.title = "Удалить источник и размещения?" if delete_placements else "Убрать из палитры?"
+	# Nonexclusive editor-owned popup: never competes with native resource choosers.
+	_remove_dialog.exclusive = false
+	_remove_dialog.dialog_text = "%s\nРазмещений в этом слое: %d.\n%s\nОригинальные файлы остаются. Действие поддерживает Undo/Redo." % [source.display_name if source != null else "Пустая строка", records.size(),
+		"Будут удалены ВСЕ эти размещения и строка палитры." if delete_placements else "Строка исчезнет; все растения останутся видимыми после сохранения и перезапуска."]
+	_remove_dialog.ok_button_text = "Удалить %d размещений" % records.size() if delete_placements else "Убрать из палитры"
+	if not delete_placements:
+		_remove_dialog.add_button("Удалить и размещения…", false, "all")
+		_remove_dialog.custom_action.connect(func(_action: StringName) -> void: request_palette_removal(vegetation_set, entry, true))
+	_remove_dialog.confirmed.connect(func() -> void:
+		_close_palette_removal()
+		if _scene_root != scene or not is_instance_valid(layer) or layer.layer_data != data or not data.sets.has(vegetation_set) or not vegetation_set.entries.has(entry) or entry.source != source or (source != null and source.source_id != source_id) or _source_records(layer, vegetation_set, source) != records:
+			set_status("Контекст или число размещений изменились; повторите удаление.")
+			return
+		_remove_palette_entry(layer, vegetation_set, entry, delete_placements))
+	_remove_dialog.canceled.connect(_close_palette_removal)
+	get_editor_interface().get_base_control().add_child(_remove_dialog)
+	_remove_dialog.popup_centered()
+
+func _apply_palette_removal(layer: VegetationLayer3D, vegetation_set: GFVegetationSet, entries: Array[GFPaletteEntry], retained: Array[GFVegetationSource], delta: GFRecordDelta, reverse: bool) -> void:
+	vegetation_set.entries = entries
+	vegetation_set.render_only_sources = retained
+	if delta != null:
+		delta.apply_to(layer.layer_data, reverse)
+	# Keep Selected mode and the stable ID. Its diagnostic explicitly asks for
+	# a new source while absent; undo makes that exact selection usable again.
+	if active_set == vegetation_set:
+		_sync_palette()
+
+func _remove_palette_entry(layer: VegetationLayer3D, vegetation_set: GFVegetationSet, entry: GFPaletteEntry, delete_placements: bool) -> void:
+	if not is_instance_valid(layer) or layer.layer_data == null or not layer.layer_data.sets.has(vegetation_set) or not vegetation_set.entries.has(entry):
+		return
+	cancel_stroke()
+	var entries := vegetation_set.entries.duplicate()
+	entries.erase(entry)
+	var retained := vegetation_set.render_only_sources.duplicate()
+	# Retain even an unused source: a saved set can be shared with unopened
+	# scenes. No automatic archive cleanup can invalidate those records or Undo.
+	if entry != null and entry.source != null and not retained.has(entry.source):
+		retained.append(entry.source)
+	var delta: GFRecordDelta
+	if delete_placements and entry != null and entry.source != null:
+		delta = GFRecordDelta.new()
+		delta.before_serial = layer.layer_data.next_stroke_serial
+		delta.after_serial = delta.before_serial
+		for i in layer.layer_data.records.size():
+			var record := layer.layer_data.records[i]
+			if record.set_id == vegetation_set.set_id and record.source_id == entry.source.source_id:
+				delta.removed.append(record)
+				delta.removed_indices.append(i)
+	var history := get_undo_redo()
+	history.create_action("GO_FLORA Remove source and placements" if delete_placements else "GO_FLORA Remove from Palette", UndoRedo.MERGE_DISABLE, layer)
+	history.add_do_method(self, "_apply_palette_removal", layer, vegetation_set, entries, retained, delta, false)
+	history.add_undo_method(self, "_apply_palette_removal", layer, vegetation_set, vegetation_set.entries.duplicate(), vegetation_set.render_only_sources.duplicate(), delta, true)
 	history.commit_action()
 
 func inspect_resource(resource: Resource, property: String = "") -> void:
@@ -505,6 +640,7 @@ func _open_set_in_inspector() -> void:
 	set_status("Inspector: открыт набор %s (%s). Ctrl+Alt+G возвращает GO_FLORA." % [active_set.display_name, active_set.set_id])
 
 func _show_help() -> void:
+	_close_palette_removal()
 	cancel_stroke()
 	_close_creator()
 	for window in [_source_details, _help_window]:
@@ -525,6 +661,7 @@ func _show_help() -> void:
 	_help_window.popup_centered()
 
 func _show_source_details() -> void:
+	_close_palette_removal()
 	cancel_stroke()
 	if is_instance_valid(_help_window):
 		_help_window.hide()
@@ -580,6 +717,7 @@ func _show_source_details() -> void:
 	_source_details.popup_centered()
 
 func _create_source(alpha: bool) -> void:
+	_close_palette_removal()
 	if is_instance_valid(_help_window):
 		_help_window.hide()
 		_help_window.queue_free()
@@ -608,7 +746,7 @@ func _close_creator() -> void:
 
 func _source_ui_open() -> bool:
 	# Save hides the draft; its editor-owned modal is still part of this operation.
-	return (is_instance_valid(_creator) and not _creator.is_queued_for_deletion()) or (is_instance_valid(_help_window) and _help_window.visible) or (is_instance_valid(_source_details) and _source_details.visible)
+	return (is_instance_valid(_remove_dialog) and _remove_dialog.visible) or (is_instance_valid(_creator) and not _creator.is_queued_for_deletion()) or (is_instance_valid(_help_window) and _help_window.visible) or (is_instance_valid(_source_details) and _source_details.visible)
 
 func _add_created_source(source: GFVegetationSource, layer: VegetationLayer3D, vegetation_set: GFVegetationSet) -> void:
 	get_editor_interface().get_resource_filesystem().scan()
@@ -618,17 +756,7 @@ func _add_created_source(source: GFVegetationSource, layer: VegetationLayer3D, v
 	if vegetation_set.source_by_id(source.source_id) != null:
 		set_status("Этот Source уже есть в активной палитре; повторное добавление пропущено.")
 		return
-	var entry := GFPaletteEntry.new()
-	entry.source = source
-	var entries := vegetation_set.entries.duplicate()
-	entries.append(entry)
-	var history := get_undo_redo()
-	history.create_action("GO_FLORA Add plant source", UndoRedo.MERGE_DISABLE, layer)
-	history.add_do_property(vegetation_set, "entries", entries)
-	history.add_undo_property(vegetation_set, "entries", vegetation_set.entries.duplicate())
-	history.add_do_method(self, "_refresh_sets")
-	history.add_undo_method(self, "_refresh_sets")
-	history.commit_action()
+	append_palette_source(vegetation_set, source)
 	get_editor_interface().edit_resource(source)
 	set_status("Source saved and added. Edit weight in Set Inspector; Paint / Single are ready.")
 
@@ -640,10 +768,7 @@ func _resources_reimported(paths: PackedStringArray) -> void:
 		for vegetation_set in layer.layer_data.sets:
 			if vegetation_set == null:
 				continue
-			for entry in vegetation_set.entries:
-				if entry == null or entry.source == null:
-					continue
-				var source := entry.source
+			for source in vegetation_set.rendering_sources():
 				if source.asset != null and source.asset.resource_path in paths:
 					source.asset = ResourceLoader.load(source.asset.resource_path, "", ResourceLoader.CACHE_MODE_REPLACE)
 				if source.alpha_card != null and source.alpha_card.texture != null and source.alpha_card.texture.resource_path in paths:
@@ -746,9 +871,17 @@ func _forward_3d_gui_input(camera: Camera3D, event: InputEvent) -> int:
 		cancel_stroke()
 		return AFTER_GUI_INPUT_PASS
 	if event is InputEventMouseButton and not event.pressed and event.button_index == MOUSE_BUTTON_LEFT and _stroke != null:
+		if not _stroke_releasing and _stroke._mode == GFStroke.Mode.ERASE:
+			_last_hit = GFSurfaceTarget.from_camera(camera, event.position, brush, active_layer, _scene_root)
+			if not _last_hit.is_empty():
+				_feed_stroke(camera)
+			else:
+				_stroke.break_path()
 		commit_stroke()
 		return AFTER_GUI_INPUT_STOP
-	var reason := active_layer.editing_diagnostic()
+	if _stroke_releasing:
+		return AFTER_GUI_INPUT_STOP
+	var reason := active_layer.editing_diagnostic() if _stroke == null else ""
 	if reason.is_empty():
 		reason = brush.diagnostic()
 	if reason.is_empty() and mode != Tool.ERASE:
@@ -775,6 +908,8 @@ func _forward_3d_gui_input(camera: Camera3D, event: InputEvent) -> int:
 			return AFTER_GUI_INPUT_PASS
 		_stroke_layer = active_layer
 		_stroke_transform = active_layer.global_transform
+		_stroke_releasing = false
+		active_layer.layer_data.changed.connect(cancel_stroke)
 		_feed_stroke(camera)
 		return AFTER_GUI_INPUT_STOP
 	if event is InputEventMouseMotion and _stroke != null:
@@ -786,22 +921,43 @@ func _forward_3d_gui_input(camera: Camera3D, event: InputEvent) -> int:
 func _feed_stroke(camera: Camera3D) -> void:
 	var resolver := GFSurfaceTarget.project_sample.bind(camera.get_world_3d(), brush, active_layer, _scene_root)
 	_stroke.feed(_last_hit, resolver)
-	active_layer.set_stroke_preview(_stroke.delta.added, _stroke.preview_removed_ids())
+	_update_stroke_preview()
+
+func _update_stroke_preview() -> void:
+	if _stroke._mode == GFStroke.Mode.ERASE:
+		var changes := _stroke.take_erase_preview()
+		if not changes.is_empty():
+			_stroke_layer.set_stroke_preview([], changes)
+		set_status("Erase: %d удалений · %d проверок · %s · Esc отменяет всё" % [_stroke.preview_removed_ids().size(), _stroke.candidates_used,
+			"завершаем очередь перед одним Undo" if _stroke_releasing else ("обработка очереди" if _stroke.has_pending_work() else "продолжайте движение / отпустите ЛКМ")])
+		return
+	_stroke_layer.set_stroke_preview(_stroke.delta.added, _stroke.preview_removed_ids())
 	set_status("Pending: %d added / %d erased · %d samples%s" % [_stroke.delta.added.size(), _stroke.preview_removed_ids().size(), _stroke.candidates_used,
 		" · work budget reached; release to commit" if _stroke.budget_exhausted else " · release to commit, Esc to cancel"])
 
 func cancel_stroke() -> void:
 	var was_pending := _stroke != null
+	if _stroke != null and _stroke._data.changed.is_connected(cancel_stroke):
+		_stroke._data.changed.disconnect(cancel_stroke)
 	if is_instance_valid(_stroke_layer):
 		_stroke_layer.cancel_stroke_preview()
 	_stroke = null
 	_stroke_layer = null
+	_stroke_releasing = false
 	if was_pending:
 		print("GO_FLORA_PENDING_CLEARED")
 
 func commit_stroke() -> void:
 	if _stroke == null or not is_instance_valid(_stroke_layer):
 		cancel_stroke()
+		return
+	# Preserve immediate completion for small legacy Editor API transactions.
+	# A release gets one bounded slice; larger erases drain on later frames.
+	if not _stroke_releasing:
+		_stroke.process_pending()
+	if _stroke.has_pending_work():
+		_stroke_releasing = true
+		_update_stroke_preview()
 		return
 	var delta := _stroke.finish_delta()
 	var layer := _stroke_layer

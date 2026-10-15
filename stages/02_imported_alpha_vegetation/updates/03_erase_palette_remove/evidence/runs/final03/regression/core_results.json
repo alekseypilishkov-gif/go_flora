@@ -1,0 +1,260 @@
+{
+	"benchmarks": [
+		{
+			"batches": 51,
+			"display_driver": "headless",
+			"nodes": 53,
+			"rebuild_ms": 185.359,
+			"records": 1024,
+			"renderer": "gl_compatibility",
+			"scope": "CPU cache construction, not GPU/FPS"
+		},
+		{
+			"batches": 182,
+			"display_driver": "headless",
+			"nodes": 184,
+			"rebuild_ms": 292.248,
+			"records": 5000,
+			"renderer": "gl_compatibility",
+			"scope": "CPU cache construction, not GPU/FPS"
+		}
+	],
+	"checks": [
+		{
+			"detail": "",
+			"id": "determinism_same_seed_path",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "distance_sampling_event_rate_independent",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "different_seed_varies_records",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "candidate_rejection_keeps_other_choices",
+			"status": "PASS"
+		},
+		{
+			"detail": "{\"primitive-box-v1\":264,\"primitive-cone-v1\":760}",
+			"id": "weighted_palette",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "invalid_weight_rejected_-1.0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "invalid_weight_rejected_nan",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "invalid_weight_rejected_inf",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "all_zero_weights_rejected",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "zero_density_no_records",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "negative_density_rejected",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "nan_density_rejected",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "zero_sources_diagnostic",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "bounded_stroke_work",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "negative_cells_floor",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "nonuniform_rotated_layer_coordinates_and_normals",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "layer_motion_preserves_logical_local_transform",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "real_physics_ground_raycast",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "collision_mask_filter",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "visual_only_not_collision_target",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "rotated_scaled_surface_raycast",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "slope_filter",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "world_height_filter",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "layer_relative_height_with_nonuniform_transform",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "include_target_filter",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "exclude_target_filter",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "effective_material_does_not_mutate_original",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "pending_paint_does_not_mutate_data",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "pending_preview_uses_disposable_cache",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "cancel_discards_preview",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "paint_one_undo_step",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "redo_exact_ids_transforms",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "erase_selected_set_only",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "erase_undo_restores_order_and_exact_records",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "single_exactly_one",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "single_target_exit_reentry_still_one_per_click",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "distance_propagates_existing_A_batches_B_untouched_no_repaint",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "distance_zero_unlimited",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "cells_independently_visible",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "missing_source_preserves_data_with_diagnostic",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "unsupported_scene_not_flattened_or_deleted",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "future_schema_read_only_preserves_data",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "repeated_delta_rebuild_no_duplicate_records_or_nodes",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "scene_saved_for_fresh_process",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "stable_ID_pairs_do_not_alias_source_resolution",
+			"status": "PASS"
+		}
+	],
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	}
+}

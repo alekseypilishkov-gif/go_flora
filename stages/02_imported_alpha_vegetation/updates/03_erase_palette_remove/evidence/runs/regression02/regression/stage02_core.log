@@ -1,0 +1,94 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS legacy_enum_values_unchanged
+PASS real_imported_GLB_two_mesh_parts
+PASS GLB_stable_part_paths_and_multiple_surfaces
+PASS GLB_UV_normals_tangents_preserved_./OriginalPlant/NestedPivot/Stem_0
+PASS GLB_UV_normals_tangents_preserved_./OriginalPlant/NestedPivot/LeafPair_0
+PASS GLB_UV_normals_tangents_preserved_./OriginalPlant/NestedPivot/LeafPair_1
+PASS GLB_accumulated_nested_nonuniform_transforms_bounds
+PASS PackedScene_all_static_parts
+PASS material_priority_instance_over_surface_over_mesh
+PASS original_GLB_file_immutable
+PASS original_scene_mesh_material_not_mutated
+PASS frozen_pre_stage02_scene_identical_records_transforms_batches
+PASS unsupported_feature_precise_AnimationPlayer
+PASS unsupported_feature_precise_Skeleton3D
+PASS unsupported_feature_precise_OmniLight3D
+PASS unsupported_feature_precise_GPUParticles3D
+PASS unknown_tool_script_never_executed_for_resolution
+PASS card_valid_0_3
+PASS card_bounded_geometry_no_vertex_colors_0_3
+PASS card_normals_winding_ground_height_0_3
+PASS card_owned_scissor_filter_flags_0_3
+PASS card_valid_1_3
+PASS card_bounded_geometry_no_vertex_colors_1_3
+PASS card_normals_winding_ground_height_1_3
+PASS card_owned_scissor_filter_flags_1_3
+PASS card_valid_2_3
+PASS card_bounded_geometry_no_vertex_colors_2_3
+PASS card_normals_winding_ground_height_2_3
+PASS card_owned_scissor_filter_flags_2_3
+PASS card_valid_2_4
+PASS card_bounded_geometry_no_vertex_colors_2_4
+PASS card_normals_winding_ground_height_2_4
+PASS card_owned_scissor_filter_flags_2_4
+PASS splayed_card_vertical_height_ground_pivot
+PASS atlas_pixel_region_inset_UV_top_bottom
+PASS atlas_out_of_bounds_rejected
+PASS atlas_consumed_gutter_rejected
+PASS lossless_WebP_import_alpha
+PASS shared_deterministic_card_cache
+PASS card_parameter_invalidation_original_texture_immutable
+PASS authored_semantics_blocked_before_review Scene semantics: .: authored groups; .: script; ./Collider: StaticBody3D; ./Collider/Shape: CollisionShape3D; authored signal connections; Review scene and scripts, then enable fallback and set Reviewed Scene Revision to 'static-v1:4186c5b970b4b05bda0202c019b054d662a4416448c7e15c3fe5b3f1c163bed8'. Revision changes require review again.
+PASS reviewed_scene_fallback_explicit_capabilities
+PASS source_paths_confined_to_project
+PASS mixed_weighted_paint_deterministic_tilted_surface
+PASS mixed_erase_all_source_types
+PASS mixed_erase_undo_restores_order_ID_transform
+PASS single_begin_set-0
+PASS pending_preview_no_records_set-0
+PASS cancel_no_orphans_set-0
+PASS undo_all_parts_removed_set-0
+PASS redo_exact_record_set-0
+PASS single_begin_set-1
+PASS pending_preview_no_records_set-1
+PASS cancel_no_orphans_set-1
+PASS undo_all_parts_removed_set-1
+PASS redo_exact_record_set-1
+PASS single_begin_set-2
+PASS pending_preview_no_records_set-2
+PASS cancel_no_orphans_set-2
+PASS undo_all_parts_removed_set-2
+PASS redo_exact_record_set-2
+PASS single_begin_set-3
+PASS pending_preview_no_records_set-3
+PASS cancel_no_orphans_set-3
+PASS undo_all_parts_removed_set-3
+PASS redo_exact_record_set-3
+PASS one_record_many_parts_and_managed_scene
+PASS fallback_script_signals_collider_preserved
+PASS fallback_real_physics_authored_collider
+PASS fallback_hidden_visual_gameplay_keeps_processing_collision ticks 7 -> 9; visible=false
+PASS fallback_lifecycle_survives_static_cache_rebuild
+PASS distance_existing_parts_B_records_unchanged_0
+PASS distance_zero_0
+PASS distance_existing_parts_B_records_unchanged_1
+PASS distance_zero_1
+PASS distance_existing_parts_B_records_unchanged_2
+PASS distance_zero_2
+PASS legacy_unsupported_keeps_logical_data
+PASS missing_GLB_keeps_records
+PASS missing_texture_keeps_records
+PASS source_schema_readonly_0
+PASS source_schema_readonly_99
+PASS future_layer_schema_preserves_records
+PASS future_record_schema_preserved_not_rendered
+PASS corrupted_record_coordinate_preserved_not_rendered
+PASS changed_scene_revision_requires_review_no_record_loss
+PASS stage02_native_scene_saved
+BENCH {"batches":26,"cache_ms":13.397,"parts_per_record":1,"records":1000,"scope":"headless CPU cache construction, not GPU/FPS","source":"card-grass.png1","static_memory_delta_bytes":496672}
+BENCH {"batches":91,"cache_ms":58.851,"parts_per_record":1,"records":5000,"scope":"headless CPU cache construction, not GPU/FPS","source":"card-grass.png1","static_memory_delta_bytes":2625492}
+BENCH {"batches":52,"cache_ms":21.952,"parts_per_record":2,"records":1000,"scope":"headless CPU cache construction, not GPU/FPS","source":"real-glb","static_memory_delta_bytes":763288}
+BENCH {"batches":182,"cache_ms":100.277,"parts_per_record":2,"records":5000,"scope":"headless CPU cache construction, not GPU/FPS","source":"real-glb","static_memory_delta_bytes":3896880}
+PASS STAGE02_COMPLETE

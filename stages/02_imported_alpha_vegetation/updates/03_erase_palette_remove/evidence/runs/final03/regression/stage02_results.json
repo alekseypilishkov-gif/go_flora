@@ -1,0 +1,477 @@
+{
+	"benchmarks": [
+		{
+			"batches": 26,
+			"cache_ms": 13.384,
+			"parts_per_record": 1,
+			"records": 1000,
+			"scope": "headless CPU cache construction, not GPU/FPS",
+			"source": "card-grass.png1",
+			"static_memory_delta_bytes": 496672
+		},
+		{
+			"batches": 91,
+			"cache_ms": 57.525,
+			"parts_per_record": 1,
+			"records": 5000,
+			"scope": "headless CPU cache construction, not GPU/FPS",
+			"source": "card-grass.png1",
+			"static_memory_delta_bytes": 2625492
+		},
+		{
+			"batches": 52,
+			"cache_ms": 23.219,
+			"parts_per_record": 2,
+			"records": 1000,
+			"scope": "headless CPU cache construction, not GPU/FPS",
+			"source": "real-glb",
+			"static_memory_delta_bytes": 763288
+		},
+		{
+			"batches": 182,
+			"cache_ms": 104.595,
+			"parts_per_record": 2,
+			"records": 5000,
+			"scope": "headless CPU cache construction, not GPU/FPS",
+			"source": "real-glb",
+			"static_memory_delta_bytes": 3896880
+		}
+	],
+	"checks": [
+		{
+			"detail": "",
+			"id": "legacy_enum_values_unchanged",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "real_imported_GLB_two_mesh_parts",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "GLB_stable_part_paths_and_multiple_surfaces",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "GLB_UV_normals_tangents_preserved_./OriginalPlant/NestedPivot/Stem_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "GLB_UV_normals_tangents_preserved_./OriginalPlant/NestedPivot/LeafPair_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "GLB_UV_normals_tangents_preserved_./OriginalPlant/NestedPivot/LeafPair_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "GLB_accumulated_nested_nonuniform_transforms_bounds",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "PackedScene_all_static_parts",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "material_priority_instance_over_surface_over_mesh",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "original_GLB_file_immutable",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "original_scene_mesh_material_not_mutated",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "frozen_pre_stage02_scene_identical_records_transforms_batches",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "unsupported_feature_precise_AnimationPlayer",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "unsupported_feature_precise_Skeleton3D",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "unsupported_feature_precise_OmniLight3D",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "unsupported_feature_precise_GPUParticles3D",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "unknown_tool_script_never_executed_for_resolution",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_valid_0_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_bounded_geometry_no_vertex_colors_0_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_normals_winding_ground_height_0_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_owned_scissor_filter_flags_0_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_valid_1_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_bounded_geometry_no_vertex_colors_1_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_normals_winding_ground_height_1_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_owned_scissor_filter_flags_1_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_valid_2_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_bounded_geometry_no_vertex_colors_2_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_normals_winding_ground_height_2_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_owned_scissor_filter_flags_2_3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_valid_2_4",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_bounded_geometry_no_vertex_colors_2_4",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_normals_winding_ground_height_2_4",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_owned_scissor_filter_flags_2_4",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "splayed_card_vertical_height_ground_pivot",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "atlas_pixel_region_inset_UV_top_bottom",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "atlas_out_of_bounds_rejected",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "atlas_consumed_gutter_rejected",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "lossless_WebP_import_alpha",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "shared_deterministic_card_cache",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "card_parameter_invalidation_original_texture_immutable",
+			"status": "PASS"
+		},
+		{
+			"detail": "Scene semantics: .: authored groups; .: script; ./Collider: StaticBody3D; ./Collider/Shape: CollisionShape3D; authored signal connections; Review scene and scripts, then enable fallback and set Reviewed Scene Revision to 'static-v1:4186c5b970b4b05bda0202c019b054d662a4416448c7e15c3fe5b3f1c163bed8'. Revision changes require review again.",
+			"id": "authored_semantics_blocked_before_review",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "reviewed_scene_fallback_explicit_capabilities",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "source_paths_confined_to_project",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "mixed_weighted_paint_deterministic_tilted_surface",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "mixed_erase_all_source_types",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "mixed_erase_undo_restores_order_ID_transform",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "single_begin_set-0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "pending_preview_no_records_set-0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "cancel_no_orphans_set-0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "undo_all_parts_removed_set-0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "redo_exact_record_set-0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "single_begin_set-1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "pending_preview_no_records_set-1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "cancel_no_orphans_set-1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "undo_all_parts_removed_set-1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "redo_exact_record_set-1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "single_begin_set-2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "pending_preview_no_records_set-2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "cancel_no_orphans_set-2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "undo_all_parts_removed_set-2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "redo_exact_record_set-2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "single_begin_set-3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "pending_preview_no_records_set-3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "cancel_no_orphans_set-3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "undo_all_parts_removed_set-3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "redo_exact_record_set-3",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "one_record_many_parts_and_managed_scene",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "fallback_script_signals_collider_preserved",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "fallback_real_physics_authored_collider",
+			"status": "PASS"
+		},
+		{
+			"detail": "ticks 5 -> 7; visible=false",
+			"id": "fallback_hidden_visual_gameplay_keeps_processing_collision",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "fallback_lifecycle_survives_static_cache_rebuild",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "distance_existing_parts_B_records_unchanged_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "distance_zero_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "distance_existing_parts_B_records_unchanged_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "distance_zero_1",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "distance_existing_parts_B_records_unchanged_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "distance_zero_2",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "legacy_unsupported_keeps_logical_data",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "missing_GLB_keeps_records",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "missing_texture_keeps_records",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "source_schema_readonly_0",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "source_schema_readonly_99",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "future_layer_schema_preserves_records",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "future_record_schema_preserved_not_rendered",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "corrupted_record_coordinate_preserved_not_rendered",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "changed_scene_revision_requires_review_no_record_loss",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "stage02_native_scene_saved",
+			"status": "PASS"
+		}
+	]
+}

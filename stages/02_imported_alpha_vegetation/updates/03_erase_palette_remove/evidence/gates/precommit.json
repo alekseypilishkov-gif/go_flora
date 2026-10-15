@@ -1,0 +1,48 @@
+{
+  "probes": [
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 2,
+      "status": "FAIL",
+      "stdout": "stages/02_imported_alpha_vegetation/updates/03_erase_palette_remove/evidence/package/stage01_runtime.log:2: new blank line at EOF.\nstages/02_imported_alpha_vegetation/updates/03_erase_palette_remove/evidence/package/stage02_runtime.log:2: new blank line at EOF.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\pial\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "tools/verify_repository.py"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "PASS static repository outputs, links, Python/JSON syntax and artifact isolation\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\pial\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "tools/verify_stage023_delivery.py"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"archive\": \"stages\\\\02_imported_alpha_vegetation\\\\updates\\\\03_erase_palette_remove\\\\.scratch\\\\packages\\\\GO_FLORA_stage02_0.2.3-dev_2e26e47a.zip\",\n  \"sha256\": \"42556f0fa6232f73acce7e8c353b851b27d94b7bf266a61b1a342c37549ff034\",\n  \"files\": 55,\n  \"git_head\": \"f8917186ce7cdbfd1177a2a80610e500280d81d3\",\n  \"committed_blobs\": \"NOT_RUN\",\n  \"historical_evidence\": \"PASS\",\n  \"INTERACTIVE_GUI_QA\": \"NOT_RUN\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "INTERACTIVE_GUI_QA": "NOT_RUN"
+}

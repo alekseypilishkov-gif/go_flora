@@ -1,0 +1,8 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS ERASE_PROFILE {"CPU_usec":248,"budget_exhausted":false,"candidates":1,"records":1,"removed":1}
+PASS ERASE_PROFILE {"CPU_usec":5460,"budget_exhausted":false,"candidates":1891,"records":1000,"removed":1000}
+PASS ERASE_PROFILE {"CPU_usec":11060,"budget_exhausted":false,"candidates":3882,"records":2001,"removed":2001}
+PASS ERASE_PROFILE {"CPU_usec":28770,"budget_exhausted":false,"candidates":9851,"records":5000,"removed":5000}
+PASS ERASE_PROFILE {"CPU_usec":72927,"budget_exhausted":false,"candidates":23781,"records":12000,"removed":12000}
+PASS ERASE_PROFILE_COMPLETE

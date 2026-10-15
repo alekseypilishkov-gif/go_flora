@@ -1,0 +1,109 @@
+{
+	"checks": [
+		{
+			"id": "archive_preserves_source_record_resolution_original_plant.glb",
+			"status": "PASS"
+		},
+		{
+			"id": "archive_never_paintable_original_plant.glb",
+			"status": "PASS"
+		},
+		{
+			"id": "archive_source_observed_original_plant.glb",
+			"status": "PASS"
+		},
+		{
+			"id": "serialized_original_plant.glb",
+			"status": "PASS"
+		},
+		{
+			"id": "serialized_archive_load_original_plant.glb",
+			"status": "PASS"
+		},
+		{
+			"id": "archive_preserves_source_record_resolution_static_plant.tscn",
+			"status": "PASS"
+		},
+		{
+			"id": "archive_never_paintable_static_plant.tscn",
+			"status": "PASS"
+		},
+		{
+			"id": "archive_source_observed_static_plant.tscn",
+			"status": "PASS"
+		},
+		{
+			"id": "serialized_static_plant.tscn",
+			"status": "PASS"
+		},
+		{
+			"id": "serialized_archive_load_static_plant.tscn",
+			"status": "PASS"
+		},
+		{
+			"id": "archive_preserves_source_record_resolution_authored_plant.tscn",
+			"status": "PASS"
+		},
+		{
+			"id": "archive_never_paintable_authored_plant.tscn",
+			"status": "PASS"
+		},
+		{
+			"id": "archive_source_observed_authored_plant.tscn",
+			"status": "PASS"
+		},
+		{
+			"id": "serialized_authored_plant.tscn",
+			"status": "PASS"
+		},
+		{
+			"id": "serialized_archive_load_authored_plant.tscn",
+			"status": "PASS"
+		},
+		{
+			"id": "archived_fallback_still_refuses_stale_review",
+			"status": "PASS"
+		},
+		{
+			"id": "archive_preserves_source_record_resolution_grass.png",
+			"status": "PASS"
+		},
+		{
+			"id": "archive_never_paintable_grass.png",
+			"status": "PASS"
+		},
+		{
+			"id": "archive_source_observed_grass.png",
+			"status": "PASS"
+		},
+		{
+			"id": "serialized_grass.png",
+			"status": "PASS"
+		},
+		{
+			"id": "serialized_archive_load_grass.png",
+			"status": "PASS"
+		},
+		{
+			"id": "archive_preserves_source_record_resolution_grass.webp",
+			"status": "PASS"
+		},
+		{
+			"id": "archive_never_paintable_grass.webp",
+			"status": "PASS"
+		},
+		{
+			"id": "archive_source_observed_grass.webp",
+			"status": "PASS"
+		},
+		{
+			"id": "serialized_grass.webp",
+			"status": "PASS"
+		},
+		{
+			"id": "serialized_archive_load_grass.webp",
+			"status": "PASS"
+		}
+	],
+	"scope": "native runtime source catalog; no GUI"
+}

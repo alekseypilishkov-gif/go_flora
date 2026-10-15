@@ -1,0 +1,279 @@
+{
+  "phase": "regression",
+  "source_base": "f8917186ce7cdbfd1177a2a80610e500280d81d3",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "probes": [
+    {
+      "case": "version",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\project",
+        "--headless",
+        "--version"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\project",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "stage01_core",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\project",
+        "--headless",
+        "--script",
+        "tests/test_stage01.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "stage01_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\project",
+        "--headless",
+        "--script",
+        "tests/test_stage01_reopen.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "stage02_core",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\project",
+        "--headless",
+        "--script",
+        "tests/test_stage02.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "stage02_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\project",
+        "--headless",
+        "--script",
+        "tests/test_stage02_reopen.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "ux_core",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\project",
+        "--headless",
+        "--script",
+        "tests/test_stage021.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "ux_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\project",
+        "--headless",
+        "--script",
+        "tests/test_stage021_reopen.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "editor_harness_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\editor_harness",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "editor_harness",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\editor_harness",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "editor_stage02_harness_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\editor_stage02_harness",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "editor_stage02_harness",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\editor_stage02_harness",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "editor_ux_harness_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\editor_ux_harness",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "editor_ux_harness",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\editor_ux_harness",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "editor_modal_harness_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\editor_modal_harness",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "editor_modal_harness",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\editor_modal_harness",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    },
+    {
+      "case": "modal_fresh_process_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa023\\final02\\regression\\editor_modal_harness",
+        "--headless",
+        "--script",
+        "tests/test_stage022_reopen.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa023-profiles\\final02\\regression"
+    }
+  ],
+  "INTERACTIVE_GUI_QA": "NOT_RUN"
+}

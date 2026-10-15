@@ -5,6 +5,7 @@ signal source_selected(source_id: String)
 signal inspect_source(source: GFVegetationSource)
 signal entry_edited(entry: GFPaletteEntry, property: String, value: Variant)
 signal reference_edited(index: int, source: GFVegetationSource)
+signal remove_requested(entry: GFPaletteEntry)
 const Help = preload("res://addons/go_flora/editor/help_text.gd")
 var vegetation_set: GFVegetationSet
 var selected_id := ""
@@ -112,6 +113,12 @@ func _add_row(entry: GFPaletteEntry, index: int) -> void:
 		if entry != null and entry.source != null:
 			inspect_source.emit(entry.source))
 	heading.add_child(inspect)
+	var remove := Button.new()
+	remove.name = "RemoveFromPalette"
+	remove.text = "−"
+	remove.tooltip_text = "Убрать из палитры (Remove from Palette). Уже размещённые растения останутся видимыми. Файлы не удаляются."
+	remove.pressed.connect(func() -> void: remove_requested.emit(entry))
+	heading.add_child(remove)
 	var controls := HBoxContainer.new()
 	panel.add_child(controls)
 	var preview := EditorResourcePicker.new()
@@ -137,7 +144,7 @@ func _add_row(entry: GFPaletteEntry, index: int) -> void:
 	Help.apply(weight, "weight")
 	weight.value_changed.connect(func(value: float) -> void: entry_edited.emit(entry, "weight", value))
 	controls.add_child(weight)
-	var row := {"entry": entry, "select": select, "enabled": enabled, "weight": weight, "preview": preview, "inspect": inspect}
+	var row := {"entry": entry, "select": select, "enabled": enabled, "weight": weight, "preview": preview, "inspect": inspect, "remove": remove}
 	if editable_references:
 		var reference := EditorResourcePicker.new()
 		reference.base_type = "GFVegetationSource"

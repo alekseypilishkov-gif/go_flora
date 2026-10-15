@@ -15,6 +15,11 @@ extends Resource
 	set(value):
 		entries = value
 		emit_changed()
+## Serialized render catalog; never used for Paint, Single or named palette rows.
+@export_storage var render_only_sources: Array[GFVegetationSource] = []:
+	set(value):
+		render_only_sources = value
+		emit_changed()
 ## Показывать растения этого набора. Сохранённые записи остаются; gameplay fallback продолжает работу.
 @export var enabled: bool = true:
 	set(value):
@@ -39,6 +44,19 @@ func source_by_id(id: String, enabled_only: bool = false) -> GFVegetationSource:
 		if entry != null and entry.source != null and entry.source.source_id == id and (not enabled_only or entry.enabled):
 			return entry.source
 	return null
+
+func rendering_sources() -> Array[GFVegetationSource]:
+	var sources: Array[GFVegetationSource] = []
+	var ids: Dictionary = {}
+	for entry in entries:
+		if entry != null and entry.source != null and not ids.has(entry.source.source_id):
+			sources.append(entry.source)
+			ids[entry.source.source_id] = true
+	for source in render_only_sources:
+		if source != null and not ids.has(source.source_id):
+			sources.append(source)
+			ids[source.source_id] = true
+	return sources
 
 func painting_diagnostic(selected_id: String = "") -> String:
 	if set_id.strip_edges().is_empty():

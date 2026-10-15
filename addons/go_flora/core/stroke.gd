@@ -22,6 +22,7 @@ var _distance_to_stamp := 0.0
 var _sample_credit := 0.0
 var _erased: Dictionary = {}
 var _selected_source_id: String = ""
+var _erase_query: GFEraseQuery
 
 func begin(data: GFVegetationLayerData, layer_transform: Transform3D, vegetation_set: GFVegetationSet, brush: GFBrush, cell_size: float, mode: Mode, selected_source_id: String = "") -> bool:
 	diagnostic = data.diagnostic()
@@ -48,6 +49,8 @@ func begin(data: GFVegetationLayerData, layer_transform: Transform3D, vegetation
 	delta.after_serial = data.next_stroke_serial + 1
 	_stroke_id = "%s/stroke/%d" % [data.layer_id, data.next_stroke_serial]
 	_distance_to_stamp = brush.radius_m * brush.spacing_ratio
+	if mode == Mode.ERASE:
+		_erase_query = GFEraseQuery.new(data, vegetation_set.set_id, layer_transform, brush.radius_m)
 	return true
 
 func break_path() -> void:
@@ -65,6 +68,16 @@ func feed(hit: Dictionary, resolver: Callable) -> void:
 		return
 	var position: Vector3 = hit.position
 	var normal: Vector3 = hit.normal
+	if _mode == Mode.ERASE:
+		# A capsule covers the full cursor path, including fast motion and spacing
+		# greater than the radius. Repeated stationary inputs add no duplicate work.
+		if not _has_last or position != _last_position:
+			_erase_query.enqueue(_last_position if _has_last else position, position)
+			stamp_count += 1
+		_last_position = position
+		_last_normal = normal
+		_has_last = true
+		return
 	if not _has_last:
 		_stamp(position, normal, PI * _brush.radius_m * _brush.radius_m, resolver)
 		_has_last = true
@@ -87,20 +100,6 @@ func _stamp(position: Vector3, normal: Vector3, area: float, resolver: Callable)
 		budget_exhausted = true
 		return
 	stamp_count += 1
-	if _mode == Mode.ERASE:
-		# Each scan is bounded by the stroke work budget, as is placement sampling.
-		for i in _data.records.size():
-			if candidates_used >= _brush.max_candidates:
-				budget_exhausted = true
-				break
-			candidates_used += 1
-			var record := _data.records[i]
-			if record.set_id != _set.set_id or (record.flags & 1) != 0 or _erased.has(record.record_id):
-				continue
-			var world_position: Vector3 = _layer_transform * record.local_transform.origin
-			if world_position.distance_squared_to(position) <= _brush.radius_m * _brush.radius_m:
-				_erased[record.record_id] = i
-		return
 	if not _set.enabled:
 		return
 	var count := 1 if _mode == Mode.SINGLE else 0
@@ -131,7 +130,25 @@ func _stamp(position: Vector3, normal: Vector3, area: float, resolver: Callable)
 func preview_removed_ids() -> Dictionary:
 	return _erased
 
+func has_pending_work() -> bool:
+	return _erase_query != null and _erase_query.pending()
+
+func take_erase_preview() -> Dictionary:
+	var changes := _erase_query.preview_changes
+	_erase_query.preview_changes = {}
+	return changes
+
+func process_pending() -> void:
+	if _erase_query != null:
+		_erase_query.process_pending()
+		_erased = _erase_query.removed
+		candidates_used = _erase_query.inspected
+
 func finish_delta() -> GFRecordDelta:
+	# Synchronous core API callers receive a complete result. The editor waits
+	# through bounded process ticks before calling this method.
+	while has_pending_work():
+		process_pending()
 	var indices: Array = _erased.values()
 	indices.sort()
 	delta.removed.clear()

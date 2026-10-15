@@ -10,10 +10,7 @@ static func build(records: Array[GFInstanceRecord], sets: Array[GFVegetationSet]
 		if vegetation_set == null:
 			continue
 		set_map[vegetation_set.set_id] = vegetation_set
-		for entry in vegetation_set.entries:
-			if entry == null or entry.source == null:
-				continue
-			var source := entry.source
+		for source in vegetation_set.rendering_sources():
 			var key := JSON.stringify([vegetation_set.set_id, source.source_id])
 			if not sources.has(key):
 				var resolution := source.resolve()
@@ -22,6 +19,7 @@ static func build(records: Array[GFInstanceRecord], sets: Array[GFVegetationSet]
 	var groups: Dictionary = {}
 	var by_set: Dictionary = {}
 	var live_scenes: Dictionary = {}
+	var record_slots: Dictionary = {}
 	for record in records:
 		var source_key := JSON.stringify([record.set_id, record.source_id])
 		if not set_map.has(record.set_id) or not sources.has(source_key) or sources[source_key].resolution.status != GFSourceResolution.Status.READY:
@@ -97,6 +95,9 @@ static func build(records: Array[GFInstanceRecord], sets: Array[GFVegetationSet]
 		for i in group.transforms.size():
 			var transform: Transform3D = group.transforms[i]
 			batch.multimesh.set_instance_transform(i, transform)
+			if not record_slots.has(group.ids[i]):
+				record_slots[group.ids[i]] = []
+			record_slots[group.ids[i]].append([batch, i])
 			var item_bounds: AABB = transform * group.mesh.get_aabb()
 			bounds = item_bounds if i == 0 else bounds.merge(item_bounds)
 		batch.multimesh.custom_aabb = bounds.grow(0.01)
@@ -106,7 +107,7 @@ static func build(records: Array[GFInstanceRecord], sets: Array[GFVegetationSet]
 			by_set[group.set_id] = []
 		by_set[group.set_id].append(batch)
 	apply_visibility(by_set, sets)
-	return {"by_set": by_set, "diagnostics": diagnostics}
+	return {"by_set": by_set, "diagnostics": diagnostics, "record_slots": record_slots}
 
 static func apply_visibility(by_set: Dictionary, sets: Array[GFVegetationSet]) -> void:
 	for vegetation_set in sets:
