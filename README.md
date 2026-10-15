@@ -10,6 +10,8 @@ Copy `addons/go_flora/` into a Godot 4.7.2 project's `res://addons/go_flora/`, t
 
 For the original two-set sample, run `python tools/prepare_stage01.py` from the repository root, then open `stages/01_painter_mvp/demo/project.godot` in Godot 4.7.2. Read the [demo guide](stages/01_painter_mvp/demo/README.md), [manual acceptance script](stages/01_painter_mvp/manual_qa.md) and [Russian Stage 01 report](stages/01_painter_mvp/report.md). [PR #4](https://github.com/alekseypilishkov-gif/go_flora/pull/4) is open for owner acceptance; no automatic merge.
 
+Version **0.1.1-dev** fixes a dock minimum-height bug that could move FileSystem/Output below the window. For a separate existing test project, build the plugin-only ZIP with `python tools/package_stage01.py`; extract its `addons/go_flora/` at the project root with Godot closed. The optional `tools/install_stage01_test_project.py --project <project> --archive <ZIP>` also creates the original test scene on first installation, enables the addon, backs up configuration and preserves existing QA scene files on later updates. See the [dock/package update report](stages/01_painter_mvp/updates/01_dock_package/report.md). Owner GUI retest remains NOT_RUN.
+
 ## Repository layout
 
 - `docs/`: product vision, architecture decisions, licensing, and roadmap.

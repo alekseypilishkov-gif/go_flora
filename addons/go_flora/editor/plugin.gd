@@ -7,6 +7,7 @@ var active_set: GFVegetationSet
 var brush := GFBrush.new()
 var mode: Tool = Tool.NAVIGATION
 var _dock: VBoxContainer
+var _dock_scroll: ScrollContainer
 var _layer_picker: OptionButton
 var _set_picker: OptionButton
 var _status: Label
@@ -29,7 +30,7 @@ func _enter_tree() -> void:
 	scene_changed.connect(_on_scene_changed)
 	scene_closed.connect(_on_scene_closed)
 	_build_dock()
-	add_control_to_dock(DOCK_SLOT_RIGHT_UL, _dock)
+	add_control_to_dock(DOCK_SLOT_RIGHT_UL, _dock_scroll)
 	call_deferred("_on_scene_changed", get_editor_interface().get_edited_scene_root())
 	set_process(true)
 	print("GO_FLORA_PLUGIN_ENABLED")
@@ -37,9 +38,9 @@ func _enter_tree() -> void:
 func _exit_tree() -> void:
 	cancel_stroke()
 	_remove_preview()
-	if is_instance_valid(_dock):
-		remove_control_from_docks(_dock)
-		_dock.queue_free()
+	if is_instance_valid(_dock_scroll):
+		remove_control_from_docks(_dock_scroll)
+		_dock_scroll.queue_free()
 
 func _handles(object: Object) -> bool:
 	return object is VegetationLayer3D
@@ -153,9 +154,17 @@ func _refresh_sets() -> void:
 				_source_previews.add_child(picker)
 
 func _build_dock() -> void:
+	# Limit the whole dock's minimum height, including wrapped labels/previews.
+	# A scrollbar around only the numeric fields still lets other children push
+	# Godot's shared dock splits far below the visible editor window.
+	_dock_scroll = ScrollContainer.new()
+	_dock_scroll.name = "GO_FLORA"
+	_dock_scroll.custom_minimum_size = Vector2(260, 120)
+	_dock_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	_dock = VBoxContainer.new()
-	_dock.name = "GO_FLORA"
-	_dock.custom_minimum_size.x = 260
+	_dock.name = "Content"
+	_dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_dock_scroll.add_child(_dock)
 	var title := Label.new()
 	title.text = "GO_FLORA · Static mesh painter"
 	_dock.add_child(title)
@@ -202,13 +211,9 @@ func _build_dock() -> void:
 		button.pressed.connect(_choose_tool.bind(i))
 		tools.add_child(button)
 	_dock.add_child(tools)
-	var scroll := ScrollContainer.new()
-	scroll.custom_minimum_size.y = 320
-	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	_dock.add_child(scroll)
 	var fields := VBoxContainer.new()
 	fields.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	scroll.add_child(fields)
+	_dock.add_child(fields)
 	for field in [
 		["Radius (m)", "radius_m", 0.05, 100.0, 0.05],
 		["Density / m²", "density_per_m2", 0.0, 10000.0, 0.5],

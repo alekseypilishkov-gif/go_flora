@@ -24,6 +24,10 @@ jobs:
       - run: python tools/prepare_stage01.py
       - name: Headless core, fresh process, native Editor API (not GUI acceptance)
         run: python tools/run_stage01_tests.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64
+      - name: Build local addon ZIP (no release publication)
+        run: python tools/package_stage01.py
+      - name: Standalone ZIP import, scene smoke and update preservation
+        run: python tests/test_stage01_package.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64
       - name: Upload automatic evidence including failures
         if: always()
         uses: actions/upload-artifact@v4
@@ -33,4 +37,7 @@ jobs:
             stages/01_painter_mvp/evidence/.scratch/runs/
             stages/01_painter_mvp/evidence/.scratch/test_project/.scratch/core_results.json
             stages/01_painter_mvp/evidence/.scratch/editor_project/.scratch/editor_api_results.json
+            stages/01_painter_mvp/.scratch/packages/
+            stages/01_painter_mvp/evidence/.scratch/package_tests/**/validation.json
+            stages/01_painter_mvp/evidence/.scratch/package_tests/**/*.log
           include-hidden-files: true

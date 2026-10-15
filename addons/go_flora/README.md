@@ -2,6 +2,8 @@
 
 Experimental GDScript foliage painter for **Godot 4.7.2**, under MIT. Manual GUI acceptance is pending. Copy this directory into `res://addons/go_flora/` and enable **GO_FLORA** in Project Settings → Plugins. No native extension is required.
 
+Version 0.1.1-dev wraps the entire dock in a scroll container so hidden/wrapped controls cannot push FileSystem and Output outside the editor window. A local ZIP contains `addons/go_flora/`; extract it into your project root with Godot closed, then reopen and enable the plugin. Do not create an extra nested `addons/go_flora/addons/` directory. No scenes or tests are included in the plugin-only ZIP.
+
 Add a `VegetationLayer3D`, configure its `GFVegetationLayerData.sets`, and assign each set a unique ID and weighted `GFPaletteEntry` resources. Each `GFVegetationSource` needs a unique source ID and an existing **Mesh** in `asset`. `mesh_transform` adjusts its pivot; surface overrides must match the mesh's surface count. PackedScenes/GLB/generated kinds are diagnosed and never flattened.
 
 The GO_FLORA dock selects layer/set and shows native mesh previews. Choose Paint, Erase or Single. Hold LMB for Paint/Erase, click once for Single, release to commit one undo action; Esc cancels pending changes. Navigate mode passes input through. RMB/MMB/Alt/Ctrl navigation cancels pending work and passes input to Godot. Refresh Layers/Sets after changing the scene hierarchy or palette. Edit Set in Inspector exposes distance and enabled state; **0 m is unlimited**, fade is off. Distance changes all existing cells of that set without changing records. A MultiMesh cell is culled as a whole; there is no independent member culling.

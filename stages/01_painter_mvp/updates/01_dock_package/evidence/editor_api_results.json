@@ -1,0 +1,97 @@
+[
+	{
+		"id": "installed_enabled_actual_addon",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "dock_minimum_height_fits_editor",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "filesystem_dock_stays_inside_editor_vertical_bounds",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "pending_no_persistent_mutation",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "cancel_no_undo_action",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "application_focus_loss_cancels_pending_API_only",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "outside_viewport_release_cancels_pending_API_only",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "single_commit_exactly_one",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "one_scene_history_undo",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "scene_redo_exact_id",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "multi_sample_paint_one_native_undo_step",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_paint_redo_restores_exact_ID_sequence",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_erase_commits_record_delta",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "native_erase_one_undo_restores_exact_order",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "scene_switch_cancels_pending",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "distinct_scene_history_ids",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "undo_B_does_not_edit_A",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "disable_preserves_data_removes_editor_state",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "reenable_one_plugin_no_parse_errors_data_rendered",
+		"scope": "headless native Editor API, not real GUI",
+		"status": "PASS"
+	}
+]

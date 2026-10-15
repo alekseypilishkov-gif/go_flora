@@ -2,6 +2,8 @@
 
 Дата: 2026-10-14. Итог: **READY_FOR_MANUAL_QA**. **INTERACTIVE_GUI_QA: NOT_RUN**.
 
+Обновление 2026-10-15, addon **0.1.1-dev**: [исправление размера dock, проверенный ZIP и отдельный TEST_FLORA](updates/01_dock_package/report.md). Ниже сохранён baseline первоначальной реализации 0.1.0-dev; новые проверки и пользовательский GUI FAIL до исправления описаны отдельно в обновлении.
+
 Реализован начальный устанавливаемый GDScript Foliage Painter по [Issue #3](https://github.com/alekseypilishkov-gif/go_flora/issues/3). Автоматические проверки выполнены в настоящих процессах Godot; интерактивную приёмку мышью владелец оставил себе. Этап останавливается на отдельном PR, без merge, релиза и Stage 02.
 
 ## Основание и границы
@@ -80,6 +82,6 @@ Windows Computer Use попытался получить управление Go
 
 Владельцу нужно пройти Paint/Erase/Single, navigation/Esc/pending scene switch, реальный save/close/reopen, enable/disable и видимую дальность A/B на двух расстояниях по [manual QA](manual_qa.md). Опциональный read-only EditorScript позволяет снять ID/transform/batch-settings до/после этих настоящих действий. После этого владелец принимает workflow и решает о merge PR. Других новых решений о лицензиях или интеграциях этот этап не запрашивает.
 
-[PR #4](https://github.com/alekseypilishkov-gif/go_flora/pull/4): `codex/stage-01-painter-mvp` → `main`, открыт для приёмки, не merged. Implementation commit: [`b4a3381fe5cf5daef0fd5001ddb7571370db3e22`](https://github.com/alekseypilishkov-gif/go_flora/commit/b4a3381fe5cf5daef0fd5001ddb7571370db3e22). Последующие изменения только фиксируют отчёт/CI ссылки. Точные проверенные source fingerprints — в results.json; metadata jobs/artifact и log excerpts — в [ci_summary.json](evidence/ci_summary.json). Полные CI Godot logs/results сохранены в [workflow artifact](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38562618673/artifacts/11893506724).
+[PR #4](https://github.com/alekseypilishkov-gif/go_flora/pull/4): `codex/stage-01-painter-mvp` → `main`, открыт для приёмки, не merged. Initial implementation commit: [`b4a3381fe5cf5daef0fd5001ddb7571370db3e22`](https://github.com/alekseypilishkov-gif/go_flora/commit/b4a3381fe5cf5daef0fd5001ddb7571370db3e22). Первоначальные source fingerprints — в results.json; metadata jobs/artifact и log excerpts — в [ci_summary.json](evidence/ci_summary.json). Полные initial CI Godot logs/results сохранены в [workflow artifact](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38562618673/artifacts/11893506724). Дальнейшее исправление 0.1.1-dev имеет отдельные результаты по ссылке обновления выше.
 
 **Не выполнять auto-merge, не публиковать release, не начинать Stage 02.**

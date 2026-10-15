@@ -1,0 +1,34 @@
+[
+  {
+    "case": "standalone_zip_editor_import",
+    "status": "PASS",
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--headless",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\evidence\\.scratch\\standalone_zip_project",
+      "--editor",
+      "--import"
+    ],
+    "exit_code": 0,
+    "scope": "Isolated copy of owner project; addon extracted from ZIP; not GUI acceptance"
+  },
+  {
+    "case": "standalone_zip_scene_smoke",
+    "status": "PASS",
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--headless",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\01_painter_mvp\\evidence\\.scratch\\standalone_zip_project",
+      "--quit-after",
+      "10"
+    ],
+    "exit_code": 0,
+    "scope": "Isolated copy of owner project; addon extracted from ZIP; not GUI acceptance"
+  }
+]

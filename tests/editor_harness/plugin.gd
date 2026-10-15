@@ -49,6 +49,17 @@ func run() -> void:
 		return
 	var layer_a := scene_a.get_node("VegetationLayer") as VegetationLayer3D
 	plugin._edit(layer_a)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var dock_control: Control = plugin.get("_dock_scroll")
+	if dock_control == null:
+		dock_control = plugin.get("_dock")
+	check(dock_control != null and dock_control.get_combined_minimum_size().y <= 180.0, "dock_minimum_height_fits_editor")
+	var filesystem := get_editor_interface().get_file_system_dock()
+	var editor_bounds := get_editor_interface().get_base_control().get_global_rect()
+	var filesystem_bounds := filesystem.get_global_rect()
+	check(filesystem_bounds.position.y >= editor_bounds.position.y and filesystem_bounds.end.y <= editor_bounds.end.y + 1.0,
+		"filesystem_dock_stays_inside_editor_vertical_bounds")
 	pending(plugin, layer_a)
 	check(layer_a.layer_data.records.is_empty(), "pending_no_persistent_mutation")
 	plugin.cancel_stroke()
