@@ -10,9 +10,11 @@ var _dock: VBoxContainer
 var _dock_scroll: ScrollContainer
 var _layer_picker: OptionButton
 var _set_picker: OptionButton
+var _set_distance: SpinBox
+var _observed_set: GFVegetationSet
 var _status: Label
 var _sources: Label
-var _source_previews: HBoxContainer
+var _source_previews: HFlowContainer
 var _counts: Label
 var _preview: GFBrushPreview
 var _layers: Array[VegetationLayer3D] = []
@@ -30,7 +32,7 @@ func _enter_tree() -> void:
 	scene_changed.connect(_on_scene_changed)
 	scene_closed.connect(_on_scene_closed)
 	_build_dock()
-	add_control_to_dock(DOCK_SLOT_RIGHT_UL, _dock_scroll)
+	add_control_to_dock(DOCK_SLOT_LEFT_UR, _dock_scroll)
 	call_deferred("_on_scene_changed", get_editor_interface().get_edited_scene_root())
 	set_process(true)
 	print("GO_FLORA_PLUGIN_ENABLED")
@@ -38,6 +40,7 @@ func _enter_tree() -> void:
 func _exit_tree() -> void:
 	cancel_stroke()
 	_remove_preview()
+	_observe_set(null)
 	if is_instance_valid(_dock_scroll):
 		remove_control_from_docks(_dock_scroll)
 		_dock_scroll.queue_free()
@@ -77,7 +80,7 @@ func _process(_delta: float) -> void:
 		active_layer = null
 		active_set = null
 	if is_instance_valid(active_layer) and active_layer.layer_data != null:
-		_counts.text = "%d saved records · %d cells/batches%s" % [active_layer.layer_data.records.size(), active_layer.batch_count(), " · pending stroke" if _stroke != null else ""]
+		_counts.text = "Saved records: %d%s\nCells / batches: %d" % [active_layer.layer_data.records.size(), " (pending stroke)" if _stroke != null else "", active_layer.batch_count()]
 		var reasons := active_layer.render_diagnostics
 		if not reasons.is_empty() and _stroke == null:
 			set_status(reasons[0])
@@ -134,6 +137,7 @@ func _refresh_sets() -> void:
 	else:
 		active_set = null
 	_ui_updating = false
+	_observe_set(active_set)
 	var names: PackedStringArray = []
 	if active_set != null:
 		for entry in active_set.entries:
@@ -160,15 +164,21 @@ func _build_dock() -> void:
 	_dock_scroll = ScrollContainer.new()
 	_dock_scroll.name = "GO_FLORA"
 	_dock_scroll.custom_minimum_size = Vector2(260, 120)
-	_dock_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	# Isolate both minimum-size axes: changing status/counts/source names must
+	# never resize the editor splits. Horizontal scrolling is a narrow-dock fallback.
+	_dock_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+	_dock_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_RESERVE
 	_dock = VBoxContainer.new()
 	_dock.name = "Content"
 	_dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_dock_scroll.add_child(_dock)
 	var title := Label.new()
 	title.text = "GO_FLORA · Static mesh painter"
+	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_dock.add_child(title)
 	_layer_picker = OptionButton.new()
+	_layer_picker.fit_to_longest_item = false
+	_layer_picker.clip_text = true
 	_layer_picker.tooltip_text = "Active authored VegetationLayer3D"
 	_dock.add_child(_layer_picker)
 	_layer_picker.item_selected.connect(func(index: int) -> void:
@@ -182,6 +192,8 @@ func _build_dock() -> void:
 	refresh.pressed.connect(_refresh_layers)
 	_dock.add_child(refresh)
 	_set_picker = OptionButton.new()
+	_set_picker.fit_to_longest_item = false
+	_set_picker.clip_text = true
 	_set_picker.tooltip_text = "Paint/erase affects this set only"
 	_dock.add_child(_set_picker)
 	_set_picker.item_selected.connect(func(index: int) -> void:
@@ -189,8 +201,26 @@ func _build_dock() -> void:
 			cancel_stroke()
 			active_set = active_layer.layer_data.sets[index]
 			_refresh_sets())
+	var distance_label := Label.new()
+	distance_label.text = "Draw distance (m)"
+	_dock.add_child(distance_label)
+	_set_distance = SpinBox.new()
+	_set_distance.name = "SetDrawDistance"
+	_set_distance.min_value = 0.0
+	_set_distance.max_value = 10000.0
+	_set_distance.allow_greater = true
+	_set_distance.step = 1.0
+	_set_distance.tooltip_text = "Active set only. 0 = unlimited; existing cells update without repaint."
+	_set_distance.value_changed.connect(_set_distance_changed)
+	_dock.add_child(_set_distance)
+	var distance_help := Label.new()
+	distance_help.text = "0 = unlimited · applies to this set"
+	distance_help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_dock.add_child(distance_help)
 	var edit_set := Button.new()
-	edit_set.text = "Edit Set in Inspector (distance, palette)"
+	edit_set.text = "Edit Set in Inspector"
+	edit_set.clip_text = true
+	edit_set.tooltip_text = "Edit the active set's palette, enabled state and density in Inspector."
 	edit_set.pressed.connect(func() -> void:
 		if active_set != null:
 			get_editor_interface().edit_resource(active_set))
@@ -198,9 +228,10 @@ func _build_dock() -> void:
 	_sources = Label.new()
 	_sources.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_dock.add_child(_sources)
-	_source_previews = HBoxContainer.new()
+	_source_previews = HFlowContainer.new()
 	_dock.add_child(_source_previews)
-	var tools := HBoxContainer.new()
+	var tools := GridContainer.new()
+	tools.columns = 2
 	var group := ButtonGroup.new()
 	for i in 4:
 		var button := Button.new()
@@ -208,6 +239,7 @@ func _build_dock() -> void:
 		button.toggle_mode = true
 		button.button_group = group
 		button.button_pressed = i == 0
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		button.pressed.connect(_choose_tool.bind(i))
 		tools.add_child(button)
 	_dock.add_child(tools)
@@ -234,6 +266,7 @@ func _build_dock() -> void:
 		var row := HBoxContainer.new()
 		var label := Label.new()
 		label.text = field[0]
+		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row.add_child(label)
 		var spin := SpinBox.new()
@@ -247,6 +280,8 @@ func _build_dock() -> void:
 		fields.add_child(row)
 	var height_space := CheckBox.new()
 	height_space.text = "Height relative to active layer"
+	height_space.clip_text = true
+	height_space.tooltip_text = height_space.text
 	height_space.toggled.connect(func(value: bool) -> void:
 		cancel_stroke()
 		brush.height_layer_relative = value)
@@ -254,9 +289,12 @@ func _build_dock() -> void:
 	for option in ["Only selected collision target", "Exclude selected collision target", "Clear target restrictions"]:
 		var button := Button.new()
 		button.text = option
+		button.clip_text = true
+		button.tooltip_text = option
 		button.pressed.connect(_target_restriction.bind(option))
 		fields.add_child(button)
 	_counts = Label.new()
+	_counts.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_dock.add_child(_counts)
 	_status = Label.new()
 	_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -265,6 +303,29 @@ func _build_dock() -> void:
 	help.text = "LMB drag: stroke · LMB click: Single\nEsc: cancel · RMB/MMB/Alt/Ctrl: navigation\nDistance = cell visibility; 0 = unlimited; fade off"
 	help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_dock.add_child(help)
+
+func _observe_set(vegetation_set: GFVegetationSet) -> void:
+	if _observed_set != null and _observed_set.changed.is_connected(_sync_set_distance):
+		_observed_set.changed.disconnect(_sync_set_distance)
+	_observed_set = vegetation_set
+	if _observed_set != null:
+		_observed_set.changed.connect(_sync_set_distance)
+	_sync_set_distance()
+
+func _sync_set_distance() -> void:
+	if is_instance_valid(_set_distance):
+		_set_distance.editable = _observed_set != null
+		_set_distance.set_value_no_signal(_observed_set.draw_distance_m if _observed_set != null else 0.0)
+
+func _set_distance_changed(value: float) -> void:
+	if _ui_updating or active_set == null or not is_instance_valid(active_layer) or active_set.draw_distance_m == value:
+		return
+	cancel_stroke()
+	var history := get_undo_redo()
+	history.create_action("GO_FLORA Set draw distance", UndoRedo.MERGE_DISABLE, active_layer)
+	history.add_do_property(active_set, "draw_distance_m", value)
+	history.add_undo_property(active_set, "draw_distance_m", active_set.draw_distance_m)
+	history.commit_action()
 
 func _choose_tool(value: int) -> void:
 	cancel_stroke()

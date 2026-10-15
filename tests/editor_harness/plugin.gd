@@ -40,6 +40,37 @@ func pending(plugin: EditorPlugin, layer: VegetationLayer3D, stroke_mode: GFStro
 	plugin._stroke.feed({"position": Vector3.ZERO, "normal": Vector3.UP}, plane)
 	layer.set_stroke_preview(plugin._stroke.delta.added, {})
 
+func tab_group(node: Node) -> TabContainer:
+	while node != null and not node is TabContainer:
+		node = node.get_parent()
+	return node as TabContainer
+
+func check_dock(plugin: EditorPlugin) -> void:
+	var dock: Control = plugin.get("_dock_scroll")
+	var scenes := get_editor_interface().get_base_control().find_children("*", "SceneTreeDock", true, false)
+	check(scenes.size() == 1 and tab_group(dock) == tab_group(scenes[0]), "dock_shares_Scene_Import_tab_group")
+	var group := tab_group(dock)
+	if group != null:
+		group.current_tab = group.get_tab_idx_from_control(dock.get_parent() if dock.get_parent() != group else dock)
+	for i in 10:
+		await get_tree().process_frame
+	var minimum_before := dock.get_combined_minimum_size().x
+	var width_before := dock.size.x
+	var editor_before := get_editor_interface().get_base_control().size.x
+	var stable := true
+	plugin.set_process(false)
+	# Exercise dynamic labels and the pending-stroke counter through native controls.
+	# This does not inject mouse input or prove interactive GUI acceptance.
+	for message in ["Eligible surface", "Pending: 20000 added / 20000 erased · 20000 samples · release to commit, Esc to cancel", "A very long missing source diagnostic ".repeat(12)]:
+		plugin.set_status(message)
+		plugin._counts.text = "999999 saved records · 999999 cells/batches · pending stroke"
+		for i in 6:
+			await get_tree().process_frame
+		stable = stable and is_equal_approx(dock.get_combined_minimum_size().x, minimum_before) and absf(dock.size.x - width_before) <= 1.0
+		print("DOCK_WIDTH ", JSON.stringify({"minimum": dock.get_combined_minimum_size().x, "width": dock.size.x, "status": message}))
+	plugin.set_process(true)
+	check(stable and minimum_before <= 280.0 and get_editor_interface().get_base_control().size.x == editor_before, "dynamic_status_and_counts_do_not_resize_dock")
+
 func run() -> void:
 	var scene_a := await wait_scene("GOFloraDemo")
 	var plugin := painter()
@@ -60,6 +91,7 @@ func run() -> void:
 	var filesystem_bounds := filesystem.get_global_rect()
 	check(filesystem_bounds.position.y >= editor_bounds.position.y and filesystem_bounds.end.y <= editor_bounds.end.y + 1.0,
 		"filesystem_dock_stays_inside_editor_vertical_bounds")
+	await check_dock(plugin)
 	pending(plugin, layer_a)
 	check(layer_a.layer_data.records.is_empty(), "pending_no_persistent_mutation")
 	plugin.cancel_stroke()
@@ -81,6 +113,30 @@ func run() -> void:
 	check(layer_a.layer_data.records.is_empty(), "one_scene_history_undo")
 	history_a.redo()
 	check(layer_a.layer_data.records.size() == 1 and layer_a.layer_data.records[0].record_id == record_id, "scene_redo_exact_id")
+	var set_a: GFVegetationSet = layer_a.layer_data.sets[0]
+	var set_b: GFVegetationSet = layer_a.layer_data.sets[1]
+	var initial_distance := set_a.draw_distance_m
+	var initial_b := set_b.draw_distance_m
+	var distance_control := plugin.get("_set_distance") as SpinBox
+	check(distance_control != null and distance_control.editable and distance_control.value == initial_distance, "active_set_distance_visible_in_dock")
+	if distance_control != null:
+		layer_a.rebuild_now()
+		await get_tree().process_frame
+		var batch_ids := layer_a._cache_root.get_children().map(func(node: Node) -> int: return node.get_instance_id())
+		distance_control.value = 23.0
+		await get_tree().process_frame
+		check(set_a.draw_distance_m == 23.0 and set_b.draw_distance_m == initial_b and layer_a.layer_data.records.size() == 1 and layer_a.layer_data.records[0].record_id == record_id,
+			"dock_distance_updates_A_without_record_or_B_changes")
+		check(layer_a._cache_root.get_children().map(func(node: Node) -> int: return node.get_instance_id()) == batch_ids,
+			"dock_distance_reuses_existing_batches")
+		history_a.undo()
+		check(set_a.draw_distance_m == initial_distance and distance_control.value == initial_distance and layer_a.layer_data.records.size() == 1, "dock_distance_native_undo_syncs_control")
+		history_a.redo()
+		check(set_a.draw_distance_m == 23.0 and distance_control.value == 23.0, "dock_distance_native_redo_syncs_control")
+		history_a.undo()
+		plugin._set_picker.item_selected.emit(1)
+		check(plugin.active_set == set_b and distance_control.value == initial_b, "distance_control_tracks_selected_set")
+		plugin._set_picker.item_selected.emit(0)
 	pending(plugin, layer_a, GFStroke.Mode.PAINT)
 	plugin._stroke.feed({"position": Vector3(2, 0, 0), "normal": Vector3.UP}, plane)
 	plugin.commit_stroke()

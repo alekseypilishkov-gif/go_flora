@@ -57,12 +57,12 @@ if not (scene_dir / "LICENSE").exists():
 guide = """# GO_FLORA — Stage 01 manual QA
 
 Open demo.tscn in Godot 4.7.2. Select Ground and press F to frame the surface, then select VegetationLayer.
-Use the GO_FLORA dock (it may share tabs with Inspector). Paint set A to the left of origin and B to the right.
+Use the GO_FLORA dock (Scene/Import tab group by default). Paint set A to the left of origin and B to the right.
 Defaults: radius 1 m, density 6, seed 42. A starts unlimited (0 m), B is 80 m.
 Paint/Erase: LMB drag; Single: one click; release commits one undo step; Esc cancels.
 Ctrl+Z / Ctrl+Shift+Z undo/redo. Navigate passes editor controls through.
 Save, close and reopen the actual editor to verify persistence.
-After painting set A, Edit Set in Inspector: change its distance to 20 m; keep B at 80 m.
+After painting set A, set Draw distance (m) in GO_FLORA to 20 m; keep B at 80 m. 0 means unlimited.
 Move the editor camera near/far. Record count must stay unchanged while old A cells hide, B remains visible.
 Runtime F6: key 1 near, key 2 far, WASD movement. This complements editor-camera acceptance.
 inspect_placements.gd is an optional read-only EditorScript snapshot (Script Editor > File > Run).
