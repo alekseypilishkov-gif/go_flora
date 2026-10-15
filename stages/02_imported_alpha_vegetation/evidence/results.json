@@ -13,7 +13,7 @@
   "INTERACTIVE_GUI_QA": "NOT_RUN",
   "clean_export": "NOT_RUN",
   "large_forest_GPU_FPS": "NOT_RUN",
-  "github_actions": "NOT_RUN until push",
+  "github_actions": "PASS all three workflows on 4186d6b0dfaad9185dac34c57b19a1d7eda9b6ce",
   "benchmarks": [
     {
       "batches": 26,
@@ -51,5 +51,17 @@
       "source": "real-glb",
       "static_memory_delta_bytes": 1269412
     }
+  ],
+  "source_commit": "4186d6b0dfaad9185dac34c57b19a1d7eda9b6ce",
+  "pull_request": "https://github.com/alekseypilishkov-gif/go_flora/pull/6",
+  "working_and_staged_whitespace": "PASS",
+  "committed_PR_base_whitespace": "PASS",
+  "repository_validation": "PASS",
+  "source_ZIP_identity": "PASS",
+  "clean_final_git_status": "FAIL pre-existing untracked owner WebP preserved",
+  "ci_runs": [
+    38686977548,
+    38686977629,
+    38686977542
   ]
 }

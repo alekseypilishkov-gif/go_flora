@@ -51,5 +51,6 @@
     "addons/go_flora/vegetation_layer_3d.gd.uid": "499fe59eb37cb7a96695c17dd85984c96be5642c5e961d1048ef6c5d62d3f1c6"
   },
   "format": "ZIP_STORED; sorted paths; fixed timestamp/Unix permissions",
-  "verification": "PASS CRC and every file SHA-256"
+  "verification": "PASS CRC and every file SHA-256",
+  "source_commit_verified": "4186d6b0dfaad9185dac34c57b19a1d7eda9b6ce"
 }

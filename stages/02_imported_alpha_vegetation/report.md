@@ -58,3 +58,24 @@ Engine **4.7.2.stable.official.ed1daf0bf**, полный commit `ed1daf0bf001b61
 В исходной рабочей папке был один чужой untracked WebP (141 254 байта). Он не читался как изображение, не добавлялся в PR, не перемещался и не удалялся. Поэтому буквальный gate «полностью пустой git status» ограничен этим ранее существовавшим файлом; изменения Stage 02 должны быть полностью committed/pushed. Итоги whitespace/repository/PR-base gates и CI фиксируются в отдельном evidence после commit/push.
 
 Работа останавливается на **одном PR к main** и этом отчёте для владельца. Общий PASS ручной приёмке не присвоен. Merge, release и Stage 03 не выполняются.
+
+## Зафиксированная поставка и PR
+
+[Draft PR #6](https://github.com/alekseypilishkov-gif/go_flora/pull/6), `codex/stage-02-imported-alpha` → `main`. Implementation/source commit: `4186d6b0dfaad9185dac34c57b19a1d7eda9b6ce`. Проверка Git blob SHA подтвердила все файлы ZIP и **89** исходных source/fixture/test hashes; это отдельный source identity gate, не вывод из одного имени версии. Метаданные после него меняют только отчёт/evidence.
+
+ZIP: `GO_FLORA_stage02_0.2.0-dev_a88c71c9.zip`, SHA-256 **`889d21cc229afeefc48336893928bfc77f8bdf7501870ae54e04f51345a1f664`**. [Manifest](evidence/package_manifest.json) содержит полный список и `source_commit_verified`. Локальный архив с adjacent `.json`/`.sha256` подготовлен в `.scratch/packages/` текущего этапа.
+
+Финальные native Stage 02: **87 core assertions + 62 Editor API assertions — PASS**. Итоговый один CPU-замер (headless, без FPS):
+
+| Источник | Records / part instances | Batches | Cache ms | Static memory delta, bytes |
+| --- | --- | --- | --- | --- |
+| Crossed card | 1 000 / 1 000 | 26 | 11,464 | 126 156 |
+| Crossed card | 5 000 / 5 000 | 91 | 53,945 | 718 024 |
+| GLB | 1 000 / 2 000 | 52 | 20,813 | 248 772 |
+| GLB | 5 000 / 10 000 | 182 | 94,393 | 1 269 412 |
+
+GitHub Actions на source commit: [repository static](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38686977548) **PASS**, [Stage 01 native](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38686977629) **PASS**, [Stage 02 native/package](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38686977542) **PASS**. Это Linux headless automation, не Linux GUI/export. [CI metadata](evidence/ci_summary.json), [CI artifact](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38686977542/artifacts/11950762113).
+
+[Quality gates](evidence/quality_gates.json): working/staged/committed PR-base whitespace, repository validation и source identity **PASS**. Первый staged whitespace дал FAIL из-за trailing spaces в stdout Godot: readable logs нормализованы, исходные bytes/content/hash сохранены в adjacent `.raw.json`. Полный `git status` **FAIL** только из-за ранее существовавшего чужого untracked WebP; task changes committed/pushed. Ничего постороннего ради пустого status не удалялось.
+
+**INTERACTIVE_GUI_QA: NOT_RUN; READY_FOR_MANUAL_QA.** Следующий шаг — ручная приёмка владельцем по manual_qa.md. PR остаётся draft, merge/release/Stage 03 не выполняются.
