@@ -4,7 +4,7 @@ Editor-first, terrain-independent 3D vegetation for **Godot 4.7.2**: reusable Me
 
 **Stage 02.3 / 0.2.3-dev: FINALIZED / OWNER GUI PASS.** [Issue #9](https://github.com/alekseypilishkov-gif/go_flora/issues/9) is closed after the owner accepted Continuous Erase, both palette removal choices, their Undo/Redo and retained-source save/reopen. See the [dated acceptance record](stages/02_imported_alpha_vegetation/integration/2026-10-15/owner_acceptance.md). [Implementation report and Explorer ZIP instructions](stages/02_imported_alpha_vegetation/updates/03_erase_palette_remove/report.md), [Stage 02.2 picker evidence](stages/02_imported_alpha_vegetation/updates/02_resource_picker_modal_fix/report.md) and [palette/dock update](stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/report.md) remain intact. Stage 01 was owner-accepted and merged in [PR #4](https://github.com/alekseypilishkov-gif/go_flora/pull/4) at `5c076153e1dea6363b885e82f4ef391808586348`.
 
-**Stage 02 overall: MANUAL ACCEPTANCE INCOMPLETE.** The owner explicitly authorized integration of PR #6 despite the remaining GLB/PackedScene, UV-atlas and broader integration GUI checks. These cases remain READY_FOR_MANUAL_QA; INTERACTIVE_GUI_QA: NOT_RUN applies only to unexecuted cases, not to the accepted Stage 02.3 scenarios. Historical automatic logs keep their original status and are not rewritten as physical GUI evidence.
+**Stage 02 overall: INTEGRATED, BUT MANUAL ACCEPTANCE INCOMPLETE.** [PR #6](https://github.com/alekseypilishkov-gif/go_flora/pull/6) merged at `b9672974bb3403b5c2326f507ddd76e7cf4158fd` by explicit owner authorization despite the remaining GLB/PackedScene, UV-atlas and broader integration GUI checks. These cases remain READY_FOR_MANUAL_QA; INTERACTIVE_GUI_QA: NOT_RUN applies only to unexecuted cases, not to the accepted Stage 02.3 scenarios. Historical automatic logs keep their original status and are not rewritten as physical GUI evidence.
 
 ## Install and use
 
@@ -23,6 +23,8 @@ Open `stages/02_imported_alpha_vegetation/demo/project.godot` in Godot. The orig
 Build the **plugin-only ZIP** with `python tools/package_stage02.py`. Save/close your editor before updating. The optional [update tool](tools/install_stage02.py) validates the archive, keeps addon backups and leaves scenes/project settings/layout untouched. Development/tests use isolated projects; **TEST_FLORA is not installed or modified automatically**.
 
 ## Development and scope
+
+Future [GO_FLORA Studio](docs/GO_FLORA_STUDIO.md), [Retro Texture Processor / Texture Lab](docs/RETRO_TEXTURE_PROCESSOR.md) and [Surface Material Painting DRAFT v0.1](docs/SURFACE_MATERIAL_PAINTING_DRAFT.md) are documented architectural plans, not implemented features. [Roadmap](docs/ROADMAP.md) preserves Stage 03 Tree Generator → Stage 04 Optimization → Stage 05 Release; Surface Painting remains a separate backlog without a final stage number.
 
 Follow [AGENTS.md](AGENTS.md), [CONTRIBUTING.md](CONTRIBUTING.md) and accepted [ADR A](docs/ARCHITECTURE_ADR_0001.md). Runtime code/data live in `addons/go_flora/`, tests in `tests/`, shared docs in `docs/`, new evidence in `stages/02_imported_alpha_vegetation/`. Earlier stage evidence is immutable. Source analysis, headless native tests, real GPU pixels and interactive owner review are separate gates.
 
