@@ -43,12 +43,14 @@ Godot Windows: `4.7.2.stable.official.ed1daf0bf`; SHA-256 исполняемог
 
 SHA-256: `42556f0fa6232f73acce7e8c353b851b27d94b7bf266a61b1a342c37549ff034`.
 
-Рядом `.json` manifest и `.sha256`; manifest перечисляет SHA каждого addon-файла. Source digest: `2e26e47a578175dd740aead8af649572d7d5b5a369cfc2e4a468a24382a044f0`. Архив содержит только `addons/go_flora/`, MIT-код/документацию/UID. Сторонних assets, tests, caches и зависимостей нет. `git_head_at_packaging` ранней сборки обозначает базу до commit; идентичность конкретных bytes доказывается полным manifest, затем проверяется по committed Git blobs.
+Рядом `.json` manifest и `.sha256`; manifest перечисляет SHA каждого addon-файла. Source digest: `2e26e47a578175dd740aead8af649572d7d5b5a369cfc2e4a468a24382a044f0`. Архив содержит только `addons/go_flora/`, MIT-код/документацию/UID. Сторонних assets, tests, caches и зависимостей нет. Исходники зафиксированы в `30f9feedeef795f929df3eaa2a4d7ed41210bf99`. Повторная сборка после commit сохранила те же ZIP bytes и SHA; [committed manifest](evidence/package/committed-manifest.json) содержит этот source HEAD. Проверка каждого из 55 Git blobs против ZIP прошла.
 
 Установка только владельцем через **Проводник Windows**, без команд: закрыть Godot, сохранить backup прежней папки addon вне проекта, извлечь ZIP во временную папку и скопировать оттуда `addons\go_flora` в `C:\Dev\TEST_FLORA\addons\go_flora` с заменой. Открыть прежнюю сцену и пройти чек-лист. Агент `TEST_FLORA` не читал и не изменял.
 
 ## Git и статус поставки
 
 Исходная база задачи — `f8917186ce7cdbfd1177a2a80610e500280d81d3`; база PR — `main` / `5c076153e1dea6363b885e82f4ef391808586348`. Работа продолжается в существующей ветке и обновляет Draft PR #6. Repository validation и whitespace gates выполняются перед commit; три workflow запускаются на push, окончательные ссылки и статус конкретного HEAD публикуются в PR #6. Локальные подробные проверки отделены от CI и ручной приёмки.
+
+На source commit `30f9feedeef795f929df3eaa2a4d7ed41210bf99` все три CI workflow **PASS**: [Repository static](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38718285058), [Stage 01](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38718285238), [Stage 02 / 02.1 / 02.2 / 02.3 и ZIP](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38718285257). [Снимок CI](evidence/ci/source-commit.json), [проверка committed blobs, предыдущих evidence и whitespace](evidence/gates/source-commit.json). Следующий коммит дополняет только отчёт и evidence; addon bytes и ZIP остаются прежними. Три проверки конечного delivery HEAD отдельно проверяются перед передачей и указываются в PR #6.
 
 Предыдущие stage evidence и история Git сохраняются. Известный прежний пользовательский untracked WebP остаётся вне коммитов; чистота tracked/staged изменений проверяется отдельно от этого исключения. Merge, release и Stage 03 не выполняются. `GAME_FLORA` не затрагивался.
