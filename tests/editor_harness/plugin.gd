@@ -47,8 +47,8 @@ func tab_group(node: Node) -> TabContainer:
 
 func check_dock(plugin: EditorPlugin) -> void:
 	var dock: Control = plugin.get("_dock_scroll")
-	var scenes := get_editor_interface().get_base_control().find_children("*", "SceneTreeDock", true, false)
-	check(scenes.size() == 1 and tab_group(dock) == tab_group(scenes[0]), "dock_shares_Scene_Import_tab_group")
+	# Issue #7 explicitly changes only this expected default location; bounds/history gates stay intact.
+	check(tab_group(dock) != null and tab_group(dock) == tab_group(get_editor_interface().get_inspector()), "dock_shares_Inspector_right_tab_group")
 	var group := tab_group(dock)
 	if group != null:
 		group.current_tab = group.get_tab_idx_from_control(dock.get_parent() if dock.get_parent() != group else dock)

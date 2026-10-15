@@ -21,13 +21,14 @@ var _has_last := false
 var _distance_to_stamp := 0.0
 var _sample_credit := 0.0
 var _erased: Dictionary = {}
+var _selected_source_id: String = ""
 
-func begin(data: GFVegetationLayerData, layer_transform: Transform3D, vegetation_set: GFVegetationSet, brush: GFBrush, cell_size: float, mode: Mode) -> bool:
+func begin(data: GFVegetationLayerData, layer_transform: Transform3D, vegetation_set: GFVegetationSet, brush: GFBrush, cell_size: float, mode: Mode, selected_source_id: String = "") -> bool:
 	diagnostic = data.diagnostic()
 	if diagnostic.is_empty():
 		diagnostic = brush.diagnostic()
 	if diagnostic.is_empty() and mode != Mode.ERASE:
-		diagnostic = vegetation_set.diagnostic()
+		diagnostic = vegetation_set.painting_diagnostic(selected_source_id)
 	if not diagnostic.is_empty():
 		return false
 	if not layer_transform.is_finite() or absf(layer_transform.basis.determinant()) < 0.00001:
@@ -42,6 +43,7 @@ func begin(data: GFVegetationLayerData, layer_transform: Transform3D, vegetation
 	_brush = brush.duplicate() as GFBrush
 	_cell_size = cell_size
 	_mode = mode
+	_selected_source_id = selected_source_id
 	delta.before_serial = data.next_stroke_serial
 	delta.after_serial = data.next_stroke_serial + 1
 	_stroke_id = "%s/stroke/%d" % [data.layer_id, data.next_stroke_serial]
@@ -122,7 +124,9 @@ func _stamp(position: Vector3, normal: Vector3, area: float, resolver: Callable)
 		var resolved: Dictionary = resolver.call(point, normal)
 		if resolved.is_empty() or not _brush.accepts_hit(resolved, _layer_transform):
 			continue
-		delta.added.append(GFPlacement.make_record(resolved, _layer_transform, _data.layer_id, _set, _brush, _stroke_id, index, _cell_size))
+		var record := GFPlacement.make_record(resolved, _layer_transform, _data.layer_id, _set, _brush, _stroke_id, index, _cell_size, _selected_source_id)
+		if record != null:
+			delta.added.append(record)
 
 func preview_removed_ids() -> Dictionary:
 	return _erased

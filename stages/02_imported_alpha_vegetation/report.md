@@ -79,3 +79,5 @@ GitHub Actions на source commit: [repository static](https://github.com/alekse
 [Quality gates](evidence/quality_gates.json): working/staged/committed PR-base whitespace, repository validation и source identity **PASS**. Первый staged whitespace дал FAIL из-за trailing spaces в stdout Godot: readable logs нормализованы, исходные bytes/content/hash сохранены в adjacent `.raw.json`. Полный `git status` **FAIL** только из-за ранее существовавшего чужого untracked WebP; task changes committed/pushed. Ничего постороннего ради пустого status не удалялось.
 
 **INTERACTIVE_GUI_QA: NOT_RUN; READY_FOR_MANUAL_QA.** Следующий шаг — ручная приёмка владельцем по manual_qa.md. PR остаётся draft, merge/release/Stage 03 не выполняются.
+
+Дополнение после ручной проверки владельца: [Stage 02.1 / Issue #7 — Palette & Dock UX, 0.2.1-dev](updates/01_palette_dock_ux/report.md). Исторические результаты 0.2.0-dev выше сохранены; новая палитра, правый dock, ZIP и повторные проверки находятся только в каталоге дополнения.

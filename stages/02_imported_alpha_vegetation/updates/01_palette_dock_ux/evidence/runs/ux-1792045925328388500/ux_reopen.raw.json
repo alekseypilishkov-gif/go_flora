@@ -1,0 +1,5 @@
+{
+  "encoding": "utf-8",
+  "sha256": "8042718fed82d724933ab96d4572de5f25f8ed3042974a4933aee520f27ae10d",
+  "content": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nSCRIPT ERROR: Parse Error: Cannot infer the type of \"scene\" variable because the value doesn't have a set type.\r\n   at: GDScript::reload (res://tests/test_stage021_reopen.gd:7)\r\nERROR: Failed to load script \"res://tests/test_stage021_reopen.gd\" with error \"Parse error\".\r\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\r\n"
+}

@@ -26,7 +26,9 @@ jobs:
       - name: GLB import, cards, fallback, persistence and native Editor API
         run: python tools/run_stage02_tests.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --phase stage02
       - name: Reproducible plugin ZIP and repeated installation on disposable project
-        run: python tests/test_stage02_package.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64
+        run: python tests/test_stage02_package.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --output stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/evidence/.scratch/package --package-output stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/.scratch/packages
+      - name: Stage 02.1 named palette, source modes, right dock, Inspector and Russian help
+        run: python tools/run_stage021_tests.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --phase ux
       - name: Stage 01 regressions last
         run: python tools/run_stage02_tests.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --phase final
       - name: Upload automatic evidence; GPU and interactive GUI are separate gates
@@ -38,4 +40,7 @@ jobs:
             stages/02_imported_alpha_vegetation/evidence/.scratch/**/*.log
             stages/02_imported_alpha_vegetation/evidence/.scratch/**/*.json
             stages/02_imported_alpha_vegetation/.scratch/packages/
+            stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/evidence/.scratch/**/*.log
+            stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/evidence/.scratch/**/*.json
+            stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/.scratch/packages/
           include-hidden-files: true

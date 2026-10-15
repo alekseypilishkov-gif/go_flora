@@ -1,0 +1,75 @@
+{
+  "checkpoint": "before implementation commit",
+  "head": "875e2ea6e587111a1476f17bbbeca1d18f5bdc99",
+  "probes": [
+    {
+      "case": "repository_validation",
+      "status": "PASS",
+      "command": [
+        "C:\\Users\\pial\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "tools/verify_repository.py"
+      ],
+      "exit_code": 0,
+      "log": "PASS static repository outputs, links, Python/JSON syntax and artifact isolation\n"
+    },
+    {
+      "case": "working_whitespace",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": ""
+    },
+    {
+      "case": "staged_whitespace",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": ""
+    },
+    {
+      "case": "committed_PR_base_whitespace",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "origin/main...HEAD"
+      ],
+      "exit_code": 0,
+      "log": ""
+    },
+    {
+      "case": "package_file_manifest_matches_working_addon",
+      "status": "PASS",
+      "files": 51,
+      "source_digest": "b4347c96783e36faec08c550a9d13937a0366540a1527d7a8fc18957c7e70fc2"
+    },
+    {
+      "case": "previous_stage_evidence_scenes_immutable",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--name-only",
+        "875e2ea",
+        "--",
+        "stages/00_source_audit",
+        "stages/01_painter_mvp",
+        "stages/02_imported_alpha_vegetation/evidence",
+        "stages/02_imported_alpha_vegetation/demo"
+      ],
+      "log": ""
+    }
+  ],
+  "full_git_status": "FAIL: pre-existing owner untracked WebP preserved; task changes not yet committed",
+  "INTERACTIVE_GUI_QA": "NOT_RUN"
+}

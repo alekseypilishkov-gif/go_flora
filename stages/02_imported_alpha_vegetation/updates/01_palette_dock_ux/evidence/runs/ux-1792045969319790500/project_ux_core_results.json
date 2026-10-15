@@ -1,0 +1,102 @@
+[
+  {
+    "id": "legacy_default_enabled_and_four_sources",
+    "status": "PASS"
+  },
+  {
+    "id": "mix_deterministic_before_change",
+    "status": "PASS"
+  },
+  {
+    "id": "one_thousand_legacy_weighted_choices_unchanged",
+    "status": "PASS"
+  },
+  {
+    "id": "disabled_cone_cube_mix_only_grass_flower",
+    "status": "PASS"
+  },
+  {
+    "id": "disable_preserves_weights_IDs_transforms_records",
+    "status": "PASS"
+  },
+  {
+    "id": "disabled_sources_existing_placements_still_rendered",
+    "status": "PASS"
+  },
+  {
+    "id": "reenable_restores_exact_seeded_mix",
+    "status": "FAIL"
+  },
+  {
+    "id": "selected_grass_mode_0",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_grass_mode_2",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_flower_mode_0",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_flower_mode_2",
+    "status": "PASS"
+  },
+  {
+    "id": "selection_never_rewrites_palette_weights_or_old_records",
+    "status": "PASS"
+  },
+  {
+    "id": "all_zero_mix_actionable_diagnostic_no_choice",
+    "status": "PASS"
+  },
+  {
+    "id": "noeligible_paint_no_records",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_enabled_zero_mix_weight_is_explicitly_allowed",
+    "status": "PASS"
+  },
+  {
+    "id": "disabled_selected_rejected",
+    "status": "PASS"
+  },
+  {
+    "id": "missing_selection_rejected",
+    "status": "PASS"
+  },
+  {
+    "id": "erase_independent_of_noeligible_and_invalid_selection",
+    "status": "PASS"
+  },
+  {
+    "id": "erase_delta_undo_exact_old_order_and_IDs",
+    "status": "PASS"
+  },
+  {
+    "id": "negative_weight_invalid",
+    "status": "PASS"
+  },
+  {
+    "id": "nonfinite_weight_invalid",
+    "status": "PASS"
+  },
+  {
+    "id": "save_enabled_state_additive_schema",
+    "status": "PASS"
+  },
+  {
+    "id": "reload_enabled_names_weights_stable_IDs",
+    "status": "PASS"
+  },
+  {
+    "id": "all_palette_edits_preserve_every_legacy_record",
+    "status": "PASS"
+  },
+  {
+    "id": "scene_save_with_disabled_sources",
+    "status": "PASS"
+  }
+]

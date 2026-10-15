@@ -1,5 +1,6 @@
 @tool
 extends ConfirmationDialog
+const Help = preload("res://addons/go_flora/editor/help_text.gd")
 
 signal source_saved(source: GFVegetationSource)
 var source := GFVegetationSource.new()
@@ -13,6 +14,7 @@ func setup(alpha: bool) -> void:
 	title = "Create alpha plant" if alpha else "Add Mesh / imported GLB / PackedScene"
 	size = Vector2i(470, 650)
 	get_ok_button().text = "Save Source…"
+	Help.apply(get_ok_button(), "save_source")
 	source.source_id = "source-%d-%d" % [Time.get_unix_time_from_system() * 1000, get_instance_id()]
 	var scroll := ScrollContainer.new()
 	scroll.custom_minimum_size = Vector2(430, 480)
@@ -26,6 +28,8 @@ func setup(alpha: bool) -> void:
 	fields.add_child(help)
 	var picker := EditorResourcePicker.new()
 	picker.base_type = "Texture2D" if alpha else "Mesh,PackedScene"
+	picker.name = "SourceAssetPicker"
+	Help.apply(picker, "texture" if alpha else "add_model")
 	fields.add_child(picker)
 	_preview = TextureRect.new()
 	_preview.custom_minimum_size = Vector2(220, 140)
@@ -36,6 +40,8 @@ func setup(alpha: bool) -> void:
 		source.kind = GFVegetationSource.Kind.ALPHA_CARD
 		source.alpha_card = GFAlphaCard.new()
 		var modes := OptionButton.new()
+		modes.name = "CardMode"
+		Help.apply(modes, "card_mode")
 		for name_value in ["Single upright card", "Two crossed cards", "Radial 3–4 cards"]:
 			modes.add_item(name_value)
 		modes.select(1)
@@ -46,7 +52,7 @@ func setup(alpha: bool) -> void:
 		for field in [["Width (m)", "width_m", 0.01, 1000, 0.05], ["Height (m)", "height_m", 0.01, 1000, 0.05],
 			["Radial count", "radial_count", 3, 4, 1], ["Splay (°)", "splay_degrees", -30, 30, 1],
 			["Alpha threshold", "alpha_threshold", 0.01, 0.99, 0.01], ["UV gutter inset (px)", "gutter_px", 0, 32, 0.5]]:
-			_add_number(fields, field[0], float(field[2]), float(field[3]), float(field[4]), float(source.alpha_card.get(field[1])), func(value: float) -> void:
+			_add_number(fields, field[0], float(field[2]), float(field[3]), float(field[4]), float(source.alpha_card.get(field[1])), field[1], func(value: float) -> void:
 				source.alpha_card.set(field[1], int(value) if field[1] == "radial_count" else value)
 				_refresh())
 		var atlas_help := Label.new()
@@ -54,7 +60,8 @@ func setup(alpha: bool) -> void:
 		atlas_help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		fields.add_child(atlas_help)
 		for index in 4:
-			_add_number(fields, ["Atlas X", "Atlas Y", "Atlas width", "Atlas height"][index], 0, 32768, 1, 0, func(value: float) -> void:
+			var key: String = ["Atlas X", "Atlas Y", "Atlas width", "Atlas height"][index]
+			_add_number(fields, key, 0, 32768, 1, 0, key, func(value: float) -> void:
 				var rect := source.alpha_card.atlas_region_px
 				if index < 2:
 					rect.position[index] = int(value)
@@ -89,13 +96,16 @@ func setup(alpha: bool) -> void:
 	_save.file_selected.connect(_save_source)
 	_refresh()
 
-func _add_number(fields: Control, label_text: String, minimum: float, maximum: float, step_value: float, value: float, callback: Callable) -> void:
+func _add_number(fields: Control, label_text: String, minimum: float, maximum: float, step_value: float, value: float, help_key: String, callback: Callable) -> void:
 	var row := HBoxContainer.new()
 	var label := Label.new()
 	label.text = label_text
+	Help.apply(label, help_key)
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(label)
 	var spin := SpinBox.new()
+	spin.name = help_key.validate_node_name()
+	Help.apply(spin, help_key)
 	spin.min_value = minimum
 	spin.max_value = maximum
 	spin.step = step_value

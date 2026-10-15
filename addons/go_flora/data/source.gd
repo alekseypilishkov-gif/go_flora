@@ -9,7 +9,10 @@ enum Kind { STATIC_MESH, SCENE_UNSUPPORTED, GENERATED_UNSUPPORTED, IMPORTED_SCEN
 	set(value):
 		source_id = value
 		emit_changed()
-@export var display_name: String = "Mesh source"
+@export var display_name: String = "Mesh source":
+	set(value):
+		display_name = value
+		emit_changed()
 @export var kind: Kind = Kind.STATIC_MESH:
 	set(value):
 		kind = value

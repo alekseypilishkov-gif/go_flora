@@ -10,7 +10,9 @@ static func cell_for(position: Vector3, cell_size: float) -> Vector2i:
 	return Vector2i(floori(position.x / cell_size), floori(position.z / cell_size))
 
 static func choose_source(vegetation_set: GFVegetationSet, unit: float) -> GFVegetationSource:
-	var ordered := vegetation_set.ordered_entries()
+	var ordered := vegetation_set.placement_entries()
+	if ordered.is_empty():
+		return null
 	var total := 0.0
 	for entry in ordered:
 		total += entry.weight
@@ -23,8 +25,10 @@ static func choose_source(vegetation_set: GFVegetationSet, unit: float) -> GFVeg
 			return entry.source
 	return ordered[-1].source
 
-static func make_record(hit: Dictionary, layer_transform: Transform3D, layer_id: String, vegetation_set: GFVegetationSet, brush: GFBrush, stroke_id: String, index: int, cell_size: float) -> GFInstanceRecord:
-	var source := choose_source(vegetation_set, random_unit(brush.seed, stroke_id, index, "source"))
+static func make_record(hit: Dictionary, layer_transform: Transform3D, layer_id: String, vegetation_set: GFVegetationSet, brush: GFBrush, stroke_id: String, index: int, cell_size: float, selected_source_id: String = "") -> GFInstanceRecord:
+	var source := vegetation_set.source_by_id(selected_source_id, true) if not selected_source_id.is_empty() else choose_source(vegetation_set, random_unit(brush.seed, stroke_id, index, "source"))
+	if source == null:
+		return null
 	var normal: Vector3 = hit.normal.normalized()
 	var alignment := Quaternion(Vector3.UP, normal)
 	var basis := Basis(Quaternion.IDENTITY.slerp(alignment, brush.align_normal))

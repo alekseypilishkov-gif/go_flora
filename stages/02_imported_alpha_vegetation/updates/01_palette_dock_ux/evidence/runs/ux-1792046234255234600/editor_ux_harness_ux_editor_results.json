@@ -1,0 +1,507 @@
+[
+  {
+    "id": "installed_enabled",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "fresh_default_right_Inspector_tab_group",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "bounded_minimum_260_by_120",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "four_owner_names_no_GFPaletteEntry_labels",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "all_rows_type_ID_tooltip_and_asset_preview",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "GPU_editor_capture_named_dock",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "click_grass_transient_selected_mode_no_history",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_begin_grass_0",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_commit_grass_0",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_one_native_undo_grass_0",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_native_redo_IDs_grass_0",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_begin_grass_2",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_commit_grass_2",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_one_native_undo_grass_2",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_native_redo_IDs_grass_2",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_begin_flower_0",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_commit_flower_0",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_one_native_undo_flower_0",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_native_redo_IDs_flower_0",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_begin_flower_2",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_commit_flower_2",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_one_native_undo_flower_2",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selected_native_redo_IDs_flower_2",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "selection_does_not_rewrite_mix_configuration",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "mix_source_selector_independent_of_Single_tool",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "disable_two_via_controls_keeps_old_records_weights",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "filtered_mix_begin",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "filtered_mix_only_enabled_sources",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "native_undo_enable_flag_scene_history",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "native_redo_enable_flag_records_unchanged",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "weight_zero_control_excludes_mix_only",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "weight_native_undo_refreshes_row",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "noeligible_mix_visible_actionable_diagnostic",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "erase_available_with_all_sources_disabled",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "disabled_selected_visible_diagnostic",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "resource_rename_refresh_and_long_text_stable_width",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "many_sources_scroll_without_resizing_dock",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "OpenSet_official_API_focuses_visible_Inspector_from_GOFLORA_tab",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "GPU_editor_capture_named_Inspector",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_set_Enabled_Density_Distance_click_help",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "official_EditorInspectorPlugin_one_named_entries_property",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Inspector_names_and_native_reusable_source_picker",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Inspector_weight_edits_sync_dock",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Inspector_weight_native_undo_sync_both_views",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Inspector_reference_assignment_keeps_records",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Inspector_reference_assignment_native_undo",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Inspector_append_existing_resource",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Inspector_append_native_undo",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "no_resource_name_persistence_hack",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "set_switch_OpenSet_uses_current_set",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "other_node_selection_OpenSet_keeps_active_set",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "return_set_restores_transient_selection_no_stale_rows",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_layer",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_set",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_refresh",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_mix",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_entry_enabled",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_weight",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_inspect_set",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_Paint",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_Erase",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_Single",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_radius_m",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_density_per_m2",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_spacing_ratio",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_seed",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_yaw_min_degrees",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_yaw_max_degrees",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_scale_min",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_scale_max",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_align_normal",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_slope_min_degrees",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_slope_max_degrees",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_height_min_m",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_height_max_m",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_height_layer_relative",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_collision_mask",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_ray_range_m",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_max_candidates",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_distance",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_target",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_tooltip_help",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "click_Help_opens_Russian_legend",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_Alpha_tooltip_texture",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_Alpha_tooltip_card_mode",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_Alpha_tooltip_width_m",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_Alpha_tooltip_height_m",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_Alpha_tooltip_radial_count",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_Alpha_tooltip_splay_degrees",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_Alpha_tooltip_alpha_threshold",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_Alpha_tooltip_gutter_px",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_Alpha_tooltip_Atlas X",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_Alpha_tooltip_Atlas Y",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_Alpha_tooltip_Atlas width",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_Alpha_tooltip_Atlas height",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Russian_Alpha_save_tooltip",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "native_editor_save_no_record_changes",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "plugin_disable_removes_dock_and_observers",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "plugin_reenable_single_instance",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "reenable_single_Inspector_palette_no_stale_callbacks",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "scene_switch_OpenSet_new_resource_resets_selection_preserves_scene_A",
+    "scope": "native Editor API; not interactive GUI",
+    "status": "PASS"
+  }
+]

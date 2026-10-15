@@ -1,0 +1,92 @@
+[
+  {
+    "case": "import",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\01_palette_dock_ux\\evidence\\.scratch\\gpu-final\\project",
+      "--headless",
+      "--editor",
+      "--import"
+    ]
+  },
+  {
+    "case": "mipmap_reimport",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\01_palette_dock_ux\\evidence\\.scratch\\gpu-final\\project",
+      "--headless",
+      "--editor",
+      "--import"
+    ]
+  },
+  {
+    "case": "gl_compatibility",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\01_palette_dock_ux\\evidence\\.scratch\\gpu-final\\project",
+      "--rendering-method",
+      "gl_compatibility",
+      "--position",
+      "-10000,-10000",
+      "--resolution",
+      "64x64",
+      "--script",
+      "tests/test_stage02_gpu.gd"
+    ]
+  },
+  {
+    "case": "mobile",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\01_palette_dock_ux\\evidence\\.scratch\\gpu-final\\project",
+      "--rendering-method",
+      "mobile",
+      "--position",
+      "-10000,-10000",
+      "--resolution",
+      "64x64",
+      "--script",
+      "tests/test_stage02_gpu.gd"
+    ]
+  },
+  {
+    "case": "forward_plus",
+    "status": "FAIL",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\01_palette_dock_ux\\evidence\\.scratch\\gpu-final\\project",
+      "--rendering-method",
+      "forward_plus",
+      "--position",
+      "-10000,-10000",
+      "--resolution",
+      "64x64",
+      "--script",
+      "tests/test_stage02_gpu.gd"
+    ]
+  }
+]

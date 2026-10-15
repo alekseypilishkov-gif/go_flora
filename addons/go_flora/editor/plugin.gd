@@ -2,6 +2,20 @@
 extends EditorPlugin
 
 enum Tool { NAVIGATION, PAINT, ERASE, SINGLE }
+enum SourceMode { MIX, SELECTED }
+const Help = preload("res://addons/go_flora/editor/help_text.gd")
+const Palette = preload("res://addons/go_flora/editor/palette_view.gd")
+const PaletteInspector = preload("res://addons/go_flora/editor/palette_inspector.gd")
+var source_mode: SourceMode = SourceMode.MIX
+var selected_source_id := ""
+var _selected_by_set: Dictionary = {}
+var _palette: VBoxContainer
+var _brush_sources: OptionButton
+var _palette_inspector: EditorInspectorPlugin
+var _palette_bindings: Array[Resource] = []
+var _palette_refresh_pending := false
+var _help_window: AcceptDialog
+var _source_diagnostic_cache := ""
 var active_layer: VegetationLayer3D
 var active_set: GFVegetationSet
 var brush := GFBrush.new()
@@ -14,7 +28,6 @@ var _set_distance: SpinBox
 var _observed_set: GFVegetationSet
 var _status: Label
 var _sources: Label
-var _source_previews: HFlowContainer
 var _counts: Label
 var _preview: GFBrushPreview
 var _layers: Array[VegetationLayer3D] = []
@@ -34,8 +47,18 @@ func _enter_tree() -> void:
 	scene_changed.connect(_on_scene_changed)
 	scene_closed.connect(_on_scene_closed)
 	get_editor_interface().get_resource_filesystem().resources_reimported.connect(_resources_reimported)
+	_palette_inspector = PaletteInspector.new()
+	_palette_inspector.controller = self
+	add_inspector_plugin(_palette_inspector)
 	_build_dock()
-	add_control_to_dock(DOCK_SLOT_LEFT_UR, _dock_scroll)
+	var shortcut := Shortcut.new()
+	var key := InputEventKey.new()
+	key.keycode = KEY_G
+	key.ctrl_pressed = true
+	key.alt_pressed = true
+	shortcut.events = [key]
+	add_control_to_dock(DOCK_SLOT_RIGHT_UL, _dock_scroll, shortcut)
+	add_tool_menu_item("GO_FLORA Help / Справка", _show_help)
 	call_deferred("_on_scene_changed", get_editor_interface().get_edited_scene_root())
 	set_process(true)
 	print("GO_FLORA_PLUGIN_ENABLED")
@@ -44,6 +67,11 @@ func _exit_tree() -> void:
 	cancel_stroke()
 	_remove_preview()
 	_observe_set(null)
+	_unwatch_palette()
+	remove_inspector_plugin(_palette_inspector)
+	remove_tool_menu_item("GO_FLORA Help / Справка")
+	if is_instance_valid(_help_window):
+		_help_window.queue_free()
 	if is_instance_valid(_creator):
 		_creator.queue_free()
 	if is_instance_valid(_source_details):
@@ -89,7 +117,9 @@ func _process(_delta: float) -> void:
 	if is_instance_valid(active_layer) and active_layer.layer_data != null:
 		_counts.text = "Saved records: %d%s\nCells / batches: %d" % [active_layer.layer_data.records.size(), " (pending stroke)" if _stroke != null else "", active_layer.batch_count()]
 		var reasons := active_layer.render_diagnostics
-		if not reasons.is_empty() and _stroke == null:
+		if not _source_diagnostic_cache.is_empty() and mode != Tool.ERASE and _stroke == null:
+			set_status(_source_diagnostic_cache)
+		elif not reasons.is_empty() and _stroke == null:
 			set_status(reasons[0])
 
 func set_status(message: String) -> void:
@@ -102,6 +132,9 @@ func _on_scene_changed(root: Node) -> void:
 	_scene_root = root
 	active_layer = null
 	active_set = null
+	selected_source_id = ""
+	source_mode = SourceMode.MIX
+	_selected_by_set.clear()
 	_refresh_layers()
 
 func _on_scene_closed(_path: String) -> void:
@@ -145,26 +178,8 @@ func _refresh_sets() -> void:
 		active_set = null
 	_ui_updating = false
 	_observe_set(active_set)
-	var names: PackedStringArray = []
-	if active_set != null:
-		for entry in active_set.entries:
-			if entry != null and entry.source != null:
-				names.append("%s (weight %s)" % [entry.source.display_name, entry.weight])
-	_sources.text = "Sources: " + ", ".join(names)
-	for child in _source_previews.get_children():
-		child.queue_free()
-	if active_set != null:
-		for entry in active_set.entries:
-			if entry != null and entry.source != null:
-				var picker := EditorResourcePicker.new()
-				picker.base_type = "Resource"
-				picker.edited_resource = entry.source.alpha_card.texture if entry.source.alpha_card != null else entry.source.asset
-				picker.editable = false
-				picker.custom_minimum_size = Vector2(96, 64)
-				picker.tooltip_text = entry.source.display_name
-				picker.resource_selected.connect(func(_resource: Resource, _inspect: bool) -> void:
-					get_editor_interface().edit_resource(entry.source))
-				_source_previews.add_child(picker)
+	selected_source_id = _selected_by_set.get(active_set.get_instance_id(), "") if active_set != null else ""
+	_sync_palette()
 
 func _build_dock() -> void:
 	# Limit the whole dock's minimum height, including wrapped labels/previews.
@@ -188,7 +203,7 @@ func _build_dock() -> void:
 	_layer_picker = OptionButton.new()
 	_layer_picker.fit_to_longest_item = false
 	_layer_picker.clip_text = true
-	_layer_picker.tooltip_text = "Active authored VegetationLayer3D"
+	Help.apply(_layer_picker, "layer")
 	_dock.add_child(_layer_picker)
 	_layer_picker.item_selected.connect(func(index: int) -> void:
 		if not _ui_updating:
@@ -198,12 +213,13 @@ func _build_dock() -> void:
 			_refresh_sets())
 	var refresh := Button.new()
 	refresh.text = "Refresh Layers / Sets"
+	Help.apply(refresh, "refresh")
 	refresh.pressed.connect(_refresh_layers)
 	_dock.add_child(refresh)
 	_set_picker = OptionButton.new()
 	_set_picker.fit_to_longest_item = false
 	_set_picker.clip_text = true
-	_set_picker.tooltip_text = "Paint/erase affects this set only"
+	Help.apply(_set_picker, "set")
 	_dock.add_child(_set_picker)
 	_set_picker.item_selected.connect(func(index: int) -> void:
 		if not _ui_updating:
@@ -219,7 +235,8 @@ func _build_dock() -> void:
 	_set_distance.max_value = 10000.0
 	_set_distance.allow_greater = true
 	_set_distance.step = 1.0
-	_set_distance.tooltip_text = "Active set only. 0 = unlimited; existing cells update without repaint."
+	Help.apply(_set_distance, "distance")
+	Help.apply(distance_label, "distance")
 	_set_distance.value_changed.connect(_set_distance_changed)
 	_dock.add_child(_set_distance)
 	var distance_help := Label.new()
@@ -227,27 +244,45 @@ func _build_dock() -> void:
 	distance_help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_dock.add_child(distance_help)
 	var edit_set := Button.new()
-	edit_set.text = "Edit Set in Inspector"
+	edit_set.name = "OpenSetInInspector"
+	edit_set.text = "Open Set in Inspector"
 	edit_set.clip_text = true
-	edit_set.tooltip_text = "Edit the active set's palette, enabled state and density in Inspector."
-	edit_set.pressed.connect(func() -> void:
-		if active_set != null:
-			get_editor_interface().edit_resource(active_set))
+	Help.apply(edit_set, "inspect_set")
+	edit_set.pressed.connect(_open_set_in_inspector)
 	_dock.add_child(edit_set)
 	_sources = Label.new()
 	_sources.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_dock.add_child(_sources)
-	_source_previews = HFlowContainer.new()
-	_dock.add_child(_source_previews)
+	var source_mode_label := Label.new()
+	source_mode_label.text = "Brush sources"
+	Help.apply(source_mode_label, "mix")
+	_dock.add_child(source_mode_label)
+	_brush_sources = OptionButton.new()
+	_brush_sources.name = "BrushSources"
+	_brush_sources.fit_to_longest_item = false
+	_brush_sources.clip_text = true
+	_brush_sources.add_item("Mix by weights")
+	_brush_sources.add_item("Selected source only")
+	Help.apply(_brush_sources, "mix")
+	_brush_sources.item_selected.connect(_choose_source_mode)
+	_dock.add_child(_brush_sources)
+	_palette = Palette.new()
+	_palette.name = "NamedPalette"
+	_palette.source_selected.connect(_select_palette_source)
+	_palette.inspect_source.connect(inspect_resource)
+	_palette.entry_edited.connect(func(entry: GFPaletteEntry, property: String, value: Variant) -> void: edit_palette_entry(active_set, entry, property, value))
+	_dock.add_child(_palette)
 	for action in [["Add Mesh / GLB / Scene…", false], ["Create Alpha Plant…", true]]:
 		var button := Button.new()
 		button.text = action[0]
 		button.clip_text = true
+		Help.apply(button, "add_alpha" if action[1] else "add_model")
 		button.pressed.connect(_create_source.bind(action[1]))
 		_dock.add_child(button)
 	var details := Button.new()
 	details.text = "Source diagnostics / revision…"
 	details.clip_text = true
+	Help.apply(details, "diagnostics")
 	details.pressed.connect(_show_source_details)
 	_dock.add_child(details)
 	var tools := GridContainer.new()
@@ -256,6 +291,7 @@ func _build_dock() -> void:
 	for i in 4:
 		var button := Button.new()
 		button.text = ["Navigate", "Paint", "Erase", "Single"][i]
+		Help.apply(button, button.text)
 		button.toggle_mode = true
 		button.button_group = group
 		button.button_pressed = i == 0
@@ -286,10 +322,13 @@ func _build_dock() -> void:
 		var row := HBoxContainer.new()
 		var label := Label.new()
 		label.text = field[0]
+		Help.apply(label, field[1])
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row.add_child(label)
 		var spin := SpinBox.new()
+		spin.name = field[1]
+		Help.apply(spin, field[1])
 		spin.min_value = field[2]
 		spin.max_value = field[3]
 		spin.step = field[4]
@@ -301,7 +340,7 @@ func _build_dock() -> void:
 	var height_space := CheckBox.new()
 	height_space.text = "Height relative to active layer"
 	height_space.clip_text = true
-	height_space.tooltip_text = height_space.text
+	Help.apply(height_space, "height_layer_relative")
 	height_space.toggled.connect(func(value: bool) -> void:
 		cancel_stroke()
 		brush.height_layer_relative = value)
@@ -310,7 +349,7 @@ func _build_dock() -> void:
 		var button := Button.new()
 		button.text = option
 		button.clip_text = true
-		button.tooltip_text = option
+		Help.apply(button, "target")
 		button.pressed.connect(_target_restriction.bind(option))
 		fields.add_child(button)
 	_counts = Label.new()
@@ -319,12 +358,169 @@ func _build_dock() -> void:
 	_status = Label.new()
 	_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_dock.add_child(_status)
-	var help := Label.new()
-	help.text = "LMB drag: stroke · LMB click: Single\nEsc: cancel · RMB/MMB/Alt/Ctrl: navigation\nDistance = cell visibility; 0 = unlimited; fade off"
-	help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	var help := Button.new()
+	help.name = "OpenHelp"
+	help.text = "Help / Справка"
+	Help.apply(help, "help")
+	help.pressed.connect(_show_help)
 	_dock.add_child(help)
 
+func _unwatch_palette() -> void:
+	for resource in _palette_bindings:
+		if is_instance_valid(resource) and resource.changed.is_connected(_palette_changed):
+			resource.changed.disconnect(_palette_changed)
+	_palette_bindings.clear()
+
+func _watch_palette() -> void:
+	_unwatch_palette()
+	if active_set == null:
+		return
+	for entry in active_set.entries:
+		if entry == null:
+			continue
+		for resource in [entry, entry.source, entry.source.alpha_card if entry.source != null else null]:
+			if resource != null and not _palette_bindings.has(resource):
+				resource.changed.connect(_palette_changed)
+				_palette_bindings.append(resource)
+
+func _palette_changed() -> void:
+	_sync_set_distance()
+	cancel_stroke()
+	if not _palette_refresh_pending:
+		_palette_refresh_pending = true
+		call_deferred("_sync_palette")
+
+func _sync_palette() -> void:
+	_palette_refresh_pending = false
+	if not is_instance_valid(_palette):
+		return
+	_watch_palette()
+	_palette.configure(active_set, selected_source_id)
+	_brush_sources.select(source_mode)
+	_sources.text = "Источники: %d · %s" % [active_set.entries.size() if active_set != null else 0, "MIX" if source_mode == SourceMode.MIX else "выбранное растение"]
+	_sync_set_distance()
+	if active_set != null and _set_picker.selected >= 0:
+		_set_picker.set_item_text(_set_picker.selected, active_set.display_name)
+	var reason := brush_source_diagnostic()
+	_source_diagnostic_cache = reason
+	if not reason.is_empty():
+		set_status(reason)
+
+func _select_palette_source(id: String) -> void:
+	cancel_stroke()
+	selected_source_id = id
+	if active_set != null:
+		_selected_by_set[active_set.get_instance_id()] = id
+	source_mode = SourceMode.SELECTED
+	_sync_palette()
+	if brush_source_diagnostic().is_empty():
+		set_status("Выбрано растение: %s. Для смеси верните Mix by weights." % active_set.source_by_id(id).display_name)
+
+func _choose_source_mode(value: int) -> void:
+	cancel_stroke()
+	source_mode = value as SourceMode
+	_sync_palette()
+	if brush_source_diagnostic().is_empty():
+		set_status("MIX: включённые источники по сохранённым весам." if source_mode == SourceMode.MIX else "Кисть использует только выбранное растение.")
+
+func brush_source_diagnostic() -> String:
+	if active_set == null:
+		return "Выберите слой и VegetationSet."
+	if source_mode == SourceMode.SELECTED and selected_source_id.is_empty():
+		return "Selected source: выберите включённое растение в именованной палитре."
+	return active_set.painting_diagnostic(selected_source_id if source_mode == SourceMode.SELECTED else "")
+
+func _context_for_set(vegetation_set: GFVegetationSet) -> Object:
+	if is_instance_valid(active_layer) and active_layer.layer_data != null and active_layer.layer_data.sets.has(vegetation_set):
+		return active_layer
+	for layer in _layers:
+		if is_instance_valid(layer) and layer.layer_data != null and layer.layer_data.sets.has(vegetation_set):
+			return layer
+	return vegetation_set
+
+func edit_palette_entry(vegetation_set: GFVegetationSet, entry: GFPaletteEntry, property: String, value: Variant) -> void:
+	if vegetation_set == null or entry == null or not vegetation_set.entries.has(entry) or property not in ["enabled", "weight", "source"] or entry.get(property) == value:
+		return
+	if property == "weight" and (not is_finite(float(value)) or float(value) < 0):
+		set_status("Вес должен быть конечным числом >= 0.")
+		return
+	cancel_stroke()
+	var history := get_undo_redo()
+	history.create_action("GO_FLORA Palette " + property, UndoRedo.MERGE_DISABLE, _context_for_set(vegetation_set))
+	history.add_do_property(entry, property, value)
+	history.add_undo_property(entry, property, entry.get(property))
+	history.commit_action()
+
+func assign_palette_source(vegetation_set: GFVegetationSet, index: int, source: GFVegetationSource) -> void:
+	if vegetation_set == null or index < 0 or index >= vegetation_set.entries.size():
+		return
+	if vegetation_set.entries[index] != null:
+		edit_palette_entry(vegetation_set, vegetation_set.entries[index], "source", source)
+		return
+	var entries := vegetation_set.entries.duplicate()
+	var entry := GFPaletteEntry.new()
+	entry.source = source
+	entries[index] = entry
+	_change_palette_entries(vegetation_set, entries)
+
+func append_palette_source(vegetation_set: GFVegetationSet, source: GFVegetationSource) -> void:
+	if vegetation_set == null or source == null:
+		return
+	var entries := vegetation_set.entries.duplicate()
+	var entry := GFPaletteEntry.new()
+	entry.source = source
+	entries.append(entry)
+	_change_palette_entries(vegetation_set, entries)
+
+func _change_palette_entries(vegetation_set: GFVegetationSet, entries: Array[GFPaletteEntry]) -> void:
+	cancel_stroke()
+	var history := get_undo_redo()
+	history.create_action("GO_FLORA Palette sources", UndoRedo.MERGE_DISABLE, _context_for_set(vegetation_set))
+	history.add_do_property(vegetation_set, "entries", entries)
+	history.add_undo_property(vegetation_set, "entries", vegetation_set.entries.duplicate())
+	history.commit_action()
+
+func inspect_resource(resource: Resource, property: String = "") -> void:
+	if resource != null:
+		get_editor_interface().inspect_object(resource, property, true)
+		# 4.7.2 inspect_object edits the resource but need not activate its tab.
+		# Find the public EditorDock type, with no names, indices or fixed hierarchy.
+		var container: Node = get_editor_interface().get_inspector()
+		while container != null:
+			if container is EditorDock:
+				container.make_visible()
+				break
+			container = container.get_parent()
+
+func _open_set_in_inspector() -> void:
+	if active_set == null:
+		set_status("Нет активного набора. Выберите слой и VegetationSet.")
+		return
+	inspect_resource(active_set, "entries")
+	set_status("Inspector: открыт набор %s (%s). Ctrl+Alt+G возвращает GO_FLORA." % [active_set.display_name, active_set.set_id])
+
+func _show_help() -> void:
+	for window in [_creator, _source_details, _help_window]:
+		if is_instance_valid(window):
+			window.hide()
+			window.queue_free()
+	_help_window = AcceptDialog.new()
+	_help_window.title = "GO_FLORA — справка"
+	var text := TextEdit.new()
+	text.editable = false
+	text.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
+	text.custom_minimum_size = Vector2(600, 420)
+	text.text = Help.legend()
+	_help_window.add_child(text)
+	get_editor_interface().get_base_control().add_child(_help_window)
+	_help_window.confirmed.connect(_help_window.queue_free)
+	_help_window.canceled.connect(_help_window.queue_free)
+	_help_window.popup_centered()
+
 func _show_source_details() -> void:
+	if is_instance_valid(_help_window):
+		_help_window.hide()
+		_help_window.queue_free()
 	if active_set == null or active_set.entries.is_empty():
 		set_status("Choose a set containing source entries.")
 		return
@@ -378,8 +574,11 @@ func _show_source_details() -> void:
 	_source_details.popup_centered()
 
 func _create_source(alpha: bool) -> void:
+	if is_instance_valid(_help_window):
+		_help_window.hide()
+		_help_window.queue_free()
 	if active_set == null or not is_instance_valid(active_layer):
-		set_status("Select a layer and set first. Use Edit Set in Inspector to create a set if needed.")
+		set_status("Сначала выберите слой и набор. Создайте GFVegetationSet в Layer Data → Sets, затем Refresh Layers / Sets.")
 		return
 	cancel_stroke()
 	if is_instance_valid(_source_details):
@@ -432,11 +631,11 @@ func _resources_reimported(paths: PackedStringArray) -> void:
 		layer.request_rebuild()
 
 func _observe_set(vegetation_set: GFVegetationSet) -> void:
-	if _observed_set != null and _observed_set.changed.is_connected(_sync_set_distance):
-		_observed_set.changed.disconnect(_sync_set_distance)
+	if _observed_set != null and _observed_set.changed.is_connected(_palette_changed):
+		_observed_set.changed.disconnect(_palette_changed)
 	_observed_set = vegetation_set
 	if _observed_set != null:
-		_observed_set.changed.connect(_sync_set_distance)
+		_observed_set.changed.connect(_palette_changed)
 	_sync_set_distance()
 
 func _sync_set_distance() -> void:
@@ -527,6 +726,8 @@ func _forward_3d_gui_input(camera: Camera3D, event: InputEvent) -> int:
 	var reason := active_layer.editing_diagnostic()
 	if reason.is_empty():
 		reason = brush.diagnostic()
+	if reason.is_empty() and mode != Tool.ERASE:
+		reason = _source_diagnostic_cache
 	if not reason.is_empty():
 		set_status(reason)
 		return AFTER_GUI_INPUT_PASS
@@ -543,7 +744,7 @@ func _forward_3d_gui_input(camera: Camera3D, event: InputEvent) -> int:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_stroke = GFStroke.new()
 		var stroke_mode := [GFStroke.Mode.PAINT, GFStroke.Mode.ERASE, GFStroke.Mode.SINGLE][mode - 1] as GFStroke.Mode
-		if not _stroke.begin(active_layer.layer_data, active_layer.global_transform, active_set, brush, active_layer.cell_size_m, stroke_mode):
+		if not _stroke.begin(active_layer.layer_data, active_layer.global_transform, active_set, brush, active_layer.cell_size_m, stroke_mode, selected_source_id if source_mode == SourceMode.SELECTED else ""):
 			set_status(_stroke.diagnostic)
 			_stroke = null
 			return AFTER_GUI_INPUT_PASS

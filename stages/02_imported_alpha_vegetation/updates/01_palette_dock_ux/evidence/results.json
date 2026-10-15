@@ -1,0 +1,39 @@
+{
+  "version": "0.2.1-dev",
+  "scope": "Issue #7; same Stage 02 branch and Draft PR #6",
+  "base_commit": "875e2ea6e587111a1476f17bbbeca1d18f5bdc99",
+  "engine": {
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "executable_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424"
+  },
+  "selected_runs": {
+    "baseline": "baseline-1792045111708956800",
+    "functional_final": "final-1792046413785363500",
+    "ux_headless": "ux-1792046987482101300",
+    "ux_GPU_Editor_API": "ux-1792046680052649600",
+    "alpha_GPU_pixels": "gpu-short-profile",
+    "package": "package-final"
+  },
+  "assertions": {
+    "stage01_core": 45,
+    "stage01_editor_api": 27,
+    "stage02_core": 87,
+    "stage02_editor_api": 62,
+    "ux_core": 28,
+    "ux_fresh_process_reopen": 1,
+    "ux_editor_headless": 99,
+    "ux_editor_GPU_including_2_captures": 101,
+    "alpha_GPU_pixels": 18
+  },
+  "package": {
+    "status": "PASS",
+    "archive": "GO_FLORA_stage02_0.2.1-dev_b4347c96.zip",
+    "sha256": "66f987e02d60fc02e618ecfe08915b678468b5b4bf3d2795436a630ac9fc5832",
+    "files": 51,
+    "three_installs_preserve_scene_config_layout_SHA": "PASS"
+  },
+  "INTERACTIVE_GUI_QA": "NOT_RUN",
+  "acceptance": "READY_FOR_MANUAL_QA",
+  "owner_project_read_or_written": false,
+  "stage03_merge_release_performed": false
+}

@@ -2,11 +2,13 @@
 
 Editor-first, terrain-independent 3D vegetation for **Godot 4.7.2**: reusable Mesh/GLB/PackedScene sources, PNG/WebP alpha plants, weighted palettes, stable placement records and spatial MultiMesh rendering.
 
-**Stage 02 / 0.2.0-dev: READY_FOR_MANUAL_QA. INTERACTIVE_GUI_QA: NOT_RUN.** [Issue #5](https://github.com/alekseypilishkov-gif/go_flora/issues/5) authorizes this stage. Stage 01 was owner-accepted and merged in [PR #4](https://github.com/alekseypilishkov-gif/go_flora/pull/4) at `5c076153e1dea6363b885e82f4ef391808586348`. Its historical reports retain their original statuses; unexecuted older manual/GPU/export cases are not retroactively marked PASS.
+**Stage 02.1 / 0.2.1-dev: READY_FOR_MANUAL_QA. INTERACTIVE_GUI_QA: NOT_RUN.** [Issue #7](https://github.com/alekseypilishkov-gif/go_flora/issues/7) authorizes the palette/dock update within [Stage 02 / Issue #5](https://github.com/alekseypilishkov-gif/go_flora/issues/5). [New Russian report and ZIP instructions](stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/report.md). Stage 01 was owner-accepted and merged in [PR #4](https://github.com/alekseypilishkov-gif/go_flora/pull/4) at `5c076153e1dea6363b885e82f4ef391808586348`. Its historical reports retain their original statuses; unexecuted older manual/GPU/export cases are not retroactively marked PASS.
 
 ## Install and use
 
 Copy `addons/go_flora/` into a Godot project and enable **GO_FLORA**. In the dock choose a layer/set, **Add Mesh / GLB / Scene…** or **Create Alpha Plant…**, save the reusable source `.tres`, and Paint / Erase / Single. Alpha-scissor, ground pivot, crossed/radial cards and pixel atlas regions are supported. Reviewed authored scenes have a constrained runtime instance fallback with inert editor preview. Read the [addon guide](addons/go_flora/README.md) and [source contracts](docs/STAGE_02_SOURCE_CONTRACTS.md).
+
+GO_FLORA defaults to the right Inspector group. Its named palette supports **Mix by weights / Selected source only**, enabled checkboxes, weights and scene Undo/Redo; disabling a source keeps all previous placements. Open Set in Inspector activates the correct resource/tab. Russian tooltips and click-open Help explain the controls. Saved custom dock layouts are respected; Ctrl+Alt+G shows GO_FLORA. See the [compatible data/UX addendum](docs/STAGE_02_1_PALETTE_UX.md).
 
 From the repository root, using the pinned local engine:
 
@@ -27,6 +29,7 @@ python tools/run_stage02_tests.py --godot .scratch/godot-portable/godot.exe --ph
 python tools/run_stage02_gpu.py --godot .scratch/godot-portable/godot.exe
 python tests/test_stage02_package.py --godot .scratch/godot-portable/godot.exe
 python tools/run_stage02_tests.py --godot .scratch/godot-portable/godot.exe --phase final
+python tools/run_stage021_tests.py --godot .scratch/godot-portable/godot.exe --phase ux
 python tools/verify_repository.py
 ```
 

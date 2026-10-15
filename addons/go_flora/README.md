@@ -1,4 +1,4 @@
-# GO_FLORA 0.2.0-dev
+# GO_FLORA 0.2.1-dev
 
 GDScript vegetation painter for Godot **4.7.2**, MIT. Stage 02 is **READY_FOR_MANUAL_QA**, **INTERACTIVE_GUI_QA: NOT_RUN**. Copy this directory to `res://addons/go_flora/`, then enable GO_FLORA in Project Settings → Plugins. No native dependency or Tree3D is required. The plugin-only ZIP contains no scenes, textures or models.
 
@@ -7,7 +7,15 @@ GDScript vegetation painter for Godot **4.7.2**, MIT. Stage 02 is **READY_FOR_MA
 1. Create/select a `VegetationLayer3D`. In its Layer Data → Sets, create a `GFVegetationSet`, assign a unique Set ID, then Refresh Layers / Sets in the dock.
 2. Import your project-local GLB/GLTF with Godot first. Click **Add Mesh / GLB / Scene…**, select the Mesh or PackedScene, and **Save Source…** as a project `.tres`. It is added to the active palette with weight 1. Static hierarchies keep every mesh, surface material and accumulated transform. Mesh Transform adjusts the authored pivot.
 3. For PNG/WebP, click **Create Alpha Plant…**. Choose the texture, single/crossed/radial mode, width, vertical height, optional ±30° splay, alpha threshold and atlas rectangle in **pixels from top left**. A zero rectangle uses the full image. Radial mode accepts 3 or 4 cards. Preview shows the chosen UV region; save the reusable `.tres`.
-4. Click a dock source preview to edit its source in Inspector. Edit Set in Inspector changes weights or adds an existing source `.tres` to another palette. Stable source IDs are generated once; do not change them after painting.
+4. The named palette shows each plant, preview, enabled checkbox and editable weight. Click a name/preview to choose **Selected source only** for Paint or Single; **Mix by weights** restores the existing weighted group. Click ↗ to inspect a source. **Open Set in Inspector** shows the active set and its named palette; existing source `.tres` references can be reused there. Stable source IDs are generated once; do not change them after painting.
+
+## Палитра и справка
+
+Флажок источника разрешает **новые** размещения: выключенные растения сохраняют положительный вес и все прежние записи/геометрию. Для MIX используются только включённые источники с весом > 0. Веса 3:1 означают относительную вероятность примерно 75%:25%, а не число объектов. В режиме Selected source only вес MIX не учитывается (включённый источник с весом 0 можно выбрать явно). Выключенный/отсутствующий/неподдерживаемый выбранный источник блокирует Paint/Single с диагностикой; Erase остаётся доступным. **Single** независимо от выбора источника размещает одну запись.
+
+Изменения флажка, веса и ссылок проходят через Undo/Redo сцены. Выбор растения/режима кисти временный: он не изменяет entries, IDs, веса или прежние размещения. Переименование обновляет подпись палитры; source_id остаётся прежним. У каждого растения есть подсказка типа/ID и ↗ для его Inspector. Нативные поля набора Enabled, Density Multiplier и Draw Distance остаются редактируемыми; кнопка справки рядом объясняет их действие.
+
+Основные поля кисти, палитры и Create Alpha Plant имеют русские всплывающие подсказки с единицами, defaults и примерами. **Help / Справка** открывает легенду по клику. **Ctrl+Alt+G** показывает GO_FLORA. Open Set in Inspector переключает на Inspector через публичный API Godot, даже когда палитра занимает ту же группу вкладок.
 
 Cards use ground pivot Y=0, owned mesh/material, double-sided **alpha-scissor**, linear filtering with mipmaps, clamp, default threshold 0.5. Texture originals are referenced and never rewritten. Set texture Import → Mipmaps → Generate when desired; supply extruded atlas gutters. UV Gutter is an inward pixel inset; 0.5 px avoids sampling the boundary, while stronger minification may require larger gutters (tested diagnostic atlas: 8 px at 3/12/24 m). A gutter cannot repair a tightly packed/poorly padded atlas. Width/height control aspect explicitly. Alpha-hash is not exposed: Compatibility has a historical failing pixel probe.
 
@@ -27,7 +35,7 @@ Choose layer/set, Paint/Erase/Single. LMB drag paints/erases; Single click adds 
 
 Records/IDs/transforms remain authoritative schema 1. One record may render several parts. Save the scene normally; caches are internal/unowned and rebuilt on reopen. Reimport changes derived assets without regenerating placement positions. Missing resources and future/corrupt schema report diagnostics and retain records. Erase still works when a palette source is unavailable. Source/set IDs must stay unique. Stage 01 enum values 0/1/2 keep their original meanings; old unsupported values are not automatically promoted.
 
-The dock keeps its accepted default Scene/Import slot and bounded 260×120 px minimum; saved custom arrangements are left to Godot. It does not write editor layout files. Work budget defaults to 2,000 samples/stamps (max 20,000); Erase also limits scanned records. Topology edits still rebuild static cells. Large-forest optimization, LOD and wind are outside Stage 02.
+The default dock slot is now **right, alongside Inspector**, with bounded 260×120 px minimum and scrolling. Godot restores saved custom arrangements. If an upgraded project restores the old left placement, drag the GO_FLORA tab to Inspector once; the plugin does not reset/write layout files. Work budget defaults to 2,000 samples/stamps (max 20,000); Erase also limits scanned records. Topology edits still rebuild static cells. Large-forest optimization, LOD and wind are outside Stage 02.
 
 ## Update safely
 

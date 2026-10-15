@@ -20,11 +20,15 @@ def digest(path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--godot", required=True, type=Path)
+    parser.add_argument("--output", type=Path, default=STAGE / "evidence/.scratch/package")
+    parser.add_argument("--package-output", type=Path, default=STAGE / ".scratch/packages")
     args = parser.parse_args()
-    output = STAGE / "evidence/.scratch/package"
+    output = args.output.resolve()
+    if not output.is_relative_to(ROOT) or ".scratch" not in output.parts:
+        raise SystemExit("Package test outputs must stay in a workspace .scratch directory")
     output.mkdir(parents=True, exist_ok=True)
-    archive, manifest = build(STAGE / ".scratch/packages")
-    second, other = build(STAGE / ".scratch/packages/repeat")
+    archive, manifest = build(args.package_output)
+    second, other = build(args.package_output / "repeat")
     assert archive.read_bytes() == second.read_bytes(), "ZIP is not byte-reproducible"
     print("PASS plugin-only reproducible ZIP CRC/SHA", flush=True)
     project = output / "project"

@@ -25,9 +25,9 @@ def prepare(project):
     return project
 
 
-def run_case(godot, project, output, name, flags, marker):
+def run_case(godot, project, output, name, flags, marker, profile_path=None):
     output.mkdir(parents=True, exist_ok=True)
-    profile = output / ".scratch/profile"
+    profile = profile_path or output / ".scratch/profile"
     profile.mkdir(parents=True, exist_ok=True)
     env = os.environ.copy()
     if os.name == "nt":
@@ -46,7 +46,7 @@ def run_case(godot, project, output, name, flags, marker):
                     break
         log = (output / f"{name}.log").read_text(encoding="utf-8", errors="replace")
         failed = process.returncode != 0 or any(s in log for s in ["FAIL ", "ERROR:", "SCRIPT ERROR"]) or marker not in log
-        row = dict(case=name, status="FAIL" if failed else "PASS", exit_code=process.returncode, command=command)
+        row = dict(case=name, status="FAIL" if failed else "PASS", exit_code=process.returncode, command=command, isolated_profile=str(profile))
     except (subprocess.TimeoutExpired, OSError) as error:
         log = str(error)
         row = dict(case=name, status="FAIL", command=command)
