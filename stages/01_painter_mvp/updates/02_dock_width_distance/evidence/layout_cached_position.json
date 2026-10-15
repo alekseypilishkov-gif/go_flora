@@ -1,0 +1,102 @@
+{
+	"disabled": {
+		"base": {
+			"class": "Panel",
+			"minimum": "(0.0, 0.0)",
+			"name": "@Panel@14",
+			"rect": "[P: (0.0, 0.0), S: (1024.0, 600.0)]",
+			"size": "(1024.0, 600.0)"
+		},
+		"filesystem": {
+			"class": "FileSystemDock",
+			"minimum": "(148.0, 94.0)",
+			"name": "FileSystem",
+			"rect": "[P: (10.0, 359.0), S: (158.0, 231.0)]",
+			"size": "(158.0, 231.0)"
+		}
+	},
+	"enabled": {
+		"base": {
+			"class": "Panel",
+			"minimum": "(0.0, 0.0)",
+			"name": "@Panel@14",
+			"rect": "[P: (0.0, 0.0), S: (1024.0, 600.0)]",
+			"size": "(1024.0, 600.0)"
+		},
+		"dock_ancestors": [
+			{
+				"class": "ScrollContainer",
+				"minimum": "(260.0, 120.0)",
+				"name": "GO_FLORA",
+				"rect": "[P: (889.0, 44.0), S: (260.0, 120.0)]",
+				"size": "(260.0, 120.0)"
+			},
+			{
+				"class": "EditorDock",
+				"minimum": "(260.0, 120.0)",
+				"name": "@EditorDock@19921",
+				"rect": "[P: (889.0, 44.0), S: (260.0, 120.0)]",
+				"size": "(260.0, 120.0)"
+			},
+			{
+				"class": "SideDockTabContainer",
+				"minimum": "(272.0, 169.0)",
+				"name": "DockSlotRightUL",
+				"rect": "[P: (889.0, 44.0), S: (272.0, 552.0)]",
+				"size": "(272.0, 552.0)"
+			},
+			{
+				"class": "DockSplitContainer",
+				"minimum": "(272.0, 169.0)",
+				"name": "DockVSplitRightL",
+				"rect": "[P: (889.0, 44.0), S: (272.0, 552.0)]",
+				"size": "(272.0, 552.0)"
+			},
+			{
+				"class": "DockSplitContainer",
+				"minimum": "(1157.0, 265.0)",
+				"name": "DockHSplitMain",
+				"rect": "[P: (4.0, 44.0), S: (1157.0, 552.0)]",
+				"size": "(1157.0, 552.0)"
+			},
+			{
+				"class": "DockSplitContainer",
+				"minimum": "(1157.0, 265.0)",
+				"name": "DockVSplitMain",
+				"rect": "[P: (4.0, 44.0), S: (1157.0, 552.0)]",
+				"size": "(1157.0, 552.0)"
+			},
+			{
+				"class": "VBoxContainer",
+				"minimum": "(1157.0, 305.0)",
+				"name": "@VBoxContainer@15",
+				"rect": "[P: (4.0, 4.0), S: (1157.0, 592.0)]",
+				"size": "(1157.0, 592.0)"
+			},
+			{
+				"class": "Panel",
+				"minimum": "(0.0, 0.0)",
+				"name": "@Panel@14",
+				"rect": "[P: (0.0, 0.0), S: (1024.0, 600.0)]",
+				"size": "(1024.0, 600.0)"
+			}
+		],
+		"dock_children": [
+			{
+				"class": "VBoxContainer",
+				"minimum": "(157.0, 12843.0)",
+				"name": "Content",
+				"rect": "[P: (889.0, 44.0), S: (157.0, 10953.0)]",
+				"size": "(157.0, 10953.0)"
+			}
+		],
+		"filesystem": {
+			"class": "FileSystemDock",
+			"minimum": "(148.0, 94.0)",
+			"name": "FileSystem",
+			"rect": "[P: (10.0, 359.0), S: (158.0, 231.0)]",
+			"size": "(158.0, 231.0)"
+		}
+	},
+	"scope": "Headless native Control geometry; not real GUI acceptance"
+}

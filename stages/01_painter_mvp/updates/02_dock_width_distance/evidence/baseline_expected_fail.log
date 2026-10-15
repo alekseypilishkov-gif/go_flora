@@ -1,0 +1,79 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started Project initialization (5 steps)
+[   0% ] first_scan_filesystem | Scanning file structure...
+[  16% ] first_scan_filesystem | Loading global class names...
+[  33% ] first_scan_filesystem | Verifying GDExtensions...
+[  50% ] first_scan_filesystem | Creating autoload scripts...
+[  66% ] first_scan_filesystem | Initializing plugins...
+GO_FLORA_PLUGIN_ENABLED
+[  83% ] first_scan_filesystem | Starting file scan...
+[ DONE ] first_scan_filesystem
+
+[   0% ] update_scripts_classes | Started Registering global classes... (20 steps)
+[   0% ] update_scripts_classes | GFPlacement
+[   4% ] update_scripts_classes | GFRecordDelta
+[   9% ] update_scripts_classes | GFStroke
+[  14% ] update_scripts_classes | GFBrush
+[  19% ] update_scripts_classes | GFInstanceRecord
+[  23% ] update_scripts_classes | GFVegetationLayerData
+[  28% ] update_scripts_classes | GFPaletteEntry
+[  33% ] update_scripts_classes | GFVegetationSource
+[  38% ] update_scripts_classes | GFVegetationSet
+[  42% ] update_scripts_classes | GFBrushPreview
+[  47% ] update_scripts_classes |
+[  52% ] update_scripts_classes | GFSurfaceTarget
+[  57% ] update_scripts_classes | GFCellRenderer
+[  61% ] update_scripts_classes | VegetationLayer3D
+[  66% ] update_scripts_classes |
+[  71% ] update_scripts_classes |
+[  76% ] update_scripts_classes |
+[  80% ] update_scripts_classes |
+[  85% ] update_scripts_classes |
+[  90% ] update_scripts_classes |
+[ DONE ] update_scripts_classes
+
+[   0% ] loading_editor_layout | Started Loading editor (5 steps)
+[   0% ] loading_editor_layout | Loading editor layout...
+[  16% ] loading_editor_layout | Loading docks...
+[ DONE ] loading_editor_layout
+
+PASS EDITOR_API installed_enabled_actual_addon
+PASS EDITOR_API dock_minimum_height_fits_editor
+PASS EDITOR_API filesystem_dock_stays_inside_editor_vertical_bounds
+FAIL EDITOR_API dock_shares_Scene_Import_tab_group
+DOCK_WIDTH {"minimum":451.0,"status":"Eligible surface","width":451.0}
+DOCK_WIDTH {"minimum":451.0,"status":"Pending: 20000 added / 20000 erased · 20000 samples · release to commit, Esc to cancel","width":451.0}
+DOCK_WIDTH {"minimum":451.0,"status":"A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic ","width":451.0}
+FAIL EDITOR_API dynamic_status_and_counts_do_not_resize_dock
+PASS EDITOR_API pending_no_persistent_mutation
+GO_FLORA_PENDING_CLEARED
+PASS EDITOR_API cancel_no_undo_action
+GO_FLORA_PENDING_CLEARED
+PASS EDITOR_API application_focus_loss_cancels_pending_API_only
+GO_FLORA_PENDING_CLEARED
+PASS EDITOR_API outside_viewport_release_cancels_pending_API_only
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=1 removed=0 records=1 set=set-a
+PASS EDITOR_API single_commit_exactly_one
+PASS EDITOR_API one_scene_history_undo
+PASS EDITOR_API scene_redo_exact_id
+FAIL EDITOR_API active_set_distance_visible_in_dock
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=42 removed=0 records=43 set=set-a
+PASS EDITOR_API multi_sample_paint_one_native_undo_step
+PASS EDITOR_API native_paint_redo_restores_exact_ID_sequence
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=0 removed=28 records=15 set=set-a
+PASS EDITOR_API native_erase_commits_record_delta
+PASS EDITOR_API native_erase_one_undo_restores_exact_order
+GO_FLORA_PENDING_CLEARED
+PASS EDITOR_API scene_switch_cancels_pending
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=1 removed=0 records=1 set=set-a
+PASS EDITOR_API distinct_scene_history_ids
+PASS EDITOR_API undo_B_does_not_edit_A
+PASS EDITOR_API disable_preserves_data_removes_editor_state
+GO_FLORA_PLUGIN_ENABLED
+PASS EDITOR_API reenable_one_plugin_no_parse_errors_data_rendered
+NOT_RUN INTERACTIVE_GUI_QA these Editor API checks do not inject real mouse strokes
