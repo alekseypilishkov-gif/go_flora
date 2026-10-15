@@ -1,0 +1,44 @@
+[
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "origin/main"
+    ],
+    "code": 0,
+    "stdout": "5c076153e1dea6363b885e82f4ef391808586348\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "main"
+    ],
+    "code": 0,
+    "stdout": "8cbac98f0705a16f5746baa07f37ec2b2bae75b6\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain=v1",
+      "--untracked-files=all"
+    ],
+    "code": 0,
+    "stdout": "?? \"\\320\\230\\320\\267\\320\\276\\320\\261\\321\\200\\320\\260\\320\\266\\320\\265\\320\\275\\320\\270\\320\\265 ChatGPT 15 \\320\\276\\320\\272\\321\\202. 2026 \\320\\263., 08_28_48.webp\"\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "log",
+      "--format=%H %s",
+      "origin/main..HEAD"
+    ],
+    "code": 0,
+    "stdout": "53ef07b76578f508a7fafb332a949f25ca90189c Record Stage 02.3 source CI and verified ZIP identity\n30f9feedeef795f929df3eaa2a4d7ed41210bf99 Fix continuous Erase and safe palette source removal (0.2.3-dev)\nf8917186ce7cdbfd1177a2a80610e500280d81d3 Record Stage 02.2 CI, package identity and delivery gates\nc0fd5a5323b203cd8666156ef59076688da18281 Fix native resource picker modal lifecycle for Stage 02.2\n1c61bf1fcd059cfb4d559eeabac806c684ecfddb docs: record Stage 02.1 CI and verified update package\n3578b2d1ebaf6e0ea18e6790f333632325f46f7f feat: add Stage 02.1 named palette and right Inspector dock UX\n875e2ea6e587111a1476f17bbbeca1d18f5bdc99 docs(stage02): pin shipped source and record successful CI gates\n4186d6b0dfaad9185dac34c57b19a1d7eda9b6ce feat(stage02): import multi-part plants and create alpha vegetation\n",
+    "stderr": ""
+  }
+]

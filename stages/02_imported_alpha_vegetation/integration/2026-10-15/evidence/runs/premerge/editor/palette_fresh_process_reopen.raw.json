@@ -1,0 +1,4 @@
+{
+  "raw_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nPASS STAGE023_FRESH_SOURCE_RECORD_RESOLUTION {\"batches\":1,\"diagnostics\":[],\"record\":\"native-0\",\"set\":\"set-a\",\"source\":\"primitive-cone-v1\"}\r\nNOT_RUN STAGE023_FRESH_GPU headless\r\nPASS STAGE023_REOPEN_COMPLETE\r\n",
+  "readable_log": "trailing whitespace normalized"
+}

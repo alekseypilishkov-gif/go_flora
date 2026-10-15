@@ -1,5 +1,7 @@
 # GO_FLORA 02.3 — Continuous Erase и безопасная палитра
 
+Актуализация 15 октября 2026: **Stage 02.3 — FINALIZED / OWNER GUI PASS**, Issue #9 CLOSED. Владелец отдельно принял Continuous Erase, оба варианта удаления, Undo/Redo каждого и save/reopen после безопасного удаления, без ошибок в проверенных сценариях. [Подробная запись владельца и границы приёмки](../../integration/2026-10-15/owner_acceptance.md). Общий Stage 02 ещё не полностью принят. Следующий текст и исходные автоматические логи сохраняют состояние на момент первоначальной поставки; их NOT_RUN не отменяет последующую owner GUI acceptance.
+
 Дата: 15 октября 2026. Задача: [Issue #9](https://github.com/alekseypilishkov-gif/go_flora/issues/9), существующая ветка `codex/stage-02-imported-alpha`, [Draft PR #6](https://github.com/alekseypilishkov-gif/go_flora/pull/6). Версия **0.2.3-dev**. **READY_FOR_MANUAL_QA; INTERACTIVE_GUI_QA: NOT_RUN.** Физическая приёмка владельцем ещё необходима.
 
 ## Что изменилось

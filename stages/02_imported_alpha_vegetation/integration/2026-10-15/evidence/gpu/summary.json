@@ -1,0 +1,97 @@
+[
+  {
+    "case": "import",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\integration\\2026-10-15\\.scratch\\gpu\\project",
+      "--headless",
+      "--editor",
+      "--import"
+    ],
+    "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\gpu-profiles\\ba1420a63a81"
+  },
+  {
+    "case": "mipmap_reimport",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\integration\\2026-10-15\\.scratch\\gpu\\project",
+      "--headless",
+      "--editor",
+      "--import"
+    ],
+    "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\gpu-profiles\\ba1420a63a81"
+  },
+  {
+    "case": "gl_compatibility",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\integration\\2026-10-15\\.scratch\\gpu\\project",
+      "--rendering-method",
+      "gl_compatibility",
+      "--position",
+      "-10000,-10000",
+      "--resolution",
+      "64x64",
+      "--script",
+      "tests/test_stage02_gpu.gd"
+    ],
+    "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\gpu-profiles\\ba1420a63a81"
+  },
+  {
+    "case": "mobile",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\integration\\2026-10-15\\.scratch\\gpu\\project",
+      "--rendering-method",
+      "mobile",
+      "--position",
+      "-10000,-10000",
+      "--resolution",
+      "64x64",
+      "--script",
+      "tests/test_stage02_gpu.gd"
+    ],
+    "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\gpu-profiles\\ba1420a63a81"
+  },
+  {
+    "case": "forward_plus",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\integration\\2026-10-15\\.scratch\\gpu\\project",
+      "--rendering-method",
+      "forward_plus",
+      "--position",
+      "-10000,-10000",
+      "--resolution",
+      "64x64",
+      "--script",
+      "tests/test_stage02_gpu.gd"
+    ],
+    "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\gpu-profiles\\ba1420a63a81"
+  }
+]

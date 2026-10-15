@@ -1,0 +1,4 @@
+{
+  "raw_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nPASS ERASE_PROFILE {\"CPU_usec\":256,\"budget_exhausted\":false,\"candidates\":1,\"records\":1,\"removed\":1}\r\nPASS ERASE_PROFILE {\"CPU_usec\":4964,\"budget_exhausted\":false,\"candidates\":1891,\"records\":1000,\"removed\":1000}\r\nPASS ERASE_PROFILE {\"CPU_usec\":11184,\"budget_exhausted\":false,\"candidates\":3882,\"records\":2001,\"removed\":2001}\r\nPASS ERASE_PROFILE {\"CPU_usec\":28862,\"budget_exhausted\":false,\"candidates\":9851,\"records\":5000,\"removed\":5000}\r\nPASS ERASE_PROFILE {\"CPU_usec\":71557,\"budget_exhausted\":false,\"candidates\":23781,\"records\":12000,\"removed\":12000}\r\nPASS ERASE_PROFILE_COMPLETE\r\n",
+  "readable_log": "trailing whitespace normalized"
+}
