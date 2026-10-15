@@ -1,0 +1,34 @@
+Captured tool-output excerpts (not regenerated probes). Final results are separate.
+
+FAIL initial setup: git fetch origin
+error: cannot open '.git/FETCH_HEAD': Permission denied
+FAIL initial setup: git switch -c codex/stage-02-imported-alpha origin/main
+fatal: Unable to create 'C:/Dev/GO_FLORA/.git/index.lock': Permission denied
+Then PASS with authorized Git escalation: fetch origin and create requested branch from 5c07615.
+
+FAIL runtime source resolver on PrimitiveMesh (before ArrayMesh type guard):
+Command: .scratch/godot-portable/godot.exe --language en --path stages/02_imported_alpha_vegetation/evidence/.scratch/stage02/project --headless --script tests/test_stage02.gd
+SCRIPT ERROR: Invalid call. Nonexistent function 'get_blend_shape_count' in base 'BoxMesh'.
+at: _classify (res://addons/go_flora/sources/source_resolver.gd:140)
+FAIL PackedScene_all_static_parts Source has no eligible mesh surfaces.
+SCRIPT ERROR: Out of bounds get index '0' (on base: 'Array[GFSourcePart]')
+The early runner subsequently timed out; timeout logs and summary are retained.
+
+FAIL first demo save (before output directory creation):
+Command: .scratch/godot-portable/godot.exe --language en --path stages/02_imported_alpha_vegetation/evidence/.scratch/demo_build/project --headless --script tests/create_stage02_demo.gd
+ERROR: Cannot save file 'res://.scratch/stage02_demo.tscn'.
+at: save (scene/resources/resource_format_text.cpp:1768)
+FAIL STAGE02_DEMO 137 saved logical placements
+Then PASS after creating res://.scratch; no evidence is claimed for the failed save.
+
+FAIL auxiliary environment probe (not a product check): Get-CimInstance Win32_Process -Filter "name='godot.exe'"
+Get-CimInstance: Клиенту не удалось получить доступ к ресурсу CIM.
+No process outside the isolated test projects was stopped.
+
+FAIL system Python alias probe: python --version
+WindowsApps/python.exe could not start. All product tests instead used the bundled Python path recorded in this session.
+
+FAIL last UI development import before correcting AcceptDialog property name:
+Identifier "hide_on_ok" not declared in the current scope.
+Correct API is dialog_hide_on_ok; the native source creator probe requires it to remain false so the save dialog can stay open.
+Exact raw failed import logs/commands are retained in the archived stage02-verified attempt.

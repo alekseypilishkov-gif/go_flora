@@ -19,3 +19,7 @@
 Layer/render scripts do not reference EditorPlugin or other editor-only classes; editor controls live under `editor/`. Mesh resource changes rebuild caches without changing stable record transforms. Existing source asset/revision edits deliberately resolve to that source's current Mesh; preserving historical provider variants is deferred. Do not change stable IDs after placement or manually edit internal records.
 
 Native core/physics/resource/history test results are in the [Stage 01 report](../stages/01_painter_mvp/report.md). Interactive acceptance remains NOT_RUN until the owner completes the [manual script](../stages/01_painter_mvp/manual_qa.md).
+
+## Stage 02 addendum (2026-10-15)
+
+Stage 01 was owner-accepted/merged via PR #4 at `5c076153e1dea6363b885e82f4ef391808586348`; the historical table/results above describe its original slice. Stage 02 adds explicit multi-part scene resolution, alpha-card resources and constrained reviewed fallback; see [Stage 02 contracts](STAGE_02_SOURCE_CONTRACTS.md). Record/layer schema, enum values 0/1/2, IDs, transforms, RNG and palette/distance semantics stay intact. Source fields/kinds are additive. No automatic migration/reinterpretation or destructive rewrite occurs. Earlier NOT_RUN evidence remains unchanged.

@@ -24,6 +24,8 @@ var _stroke_transform: Transform3D
 var _scene_root: Node
 var _ui_updating := false
 var _last_hit: Dictionary = {}
+var _creator: ConfirmationDialog
+var _source_details: AcceptDialog
 
 func _enter_tree() -> void:
 	add_to_group("go_flora_editor_plugin")
@@ -31,6 +33,7 @@ func _enter_tree() -> void:
 	set_process_input(true)
 	scene_changed.connect(_on_scene_changed)
 	scene_closed.connect(_on_scene_closed)
+	get_editor_interface().get_resource_filesystem().resources_reimported.connect(_resources_reimported)
 	_build_dock()
 	add_control_to_dock(DOCK_SLOT_LEFT_UR, _dock_scroll)
 	call_deferred("_on_scene_changed", get_editor_interface().get_edited_scene_root())
@@ -41,6 +44,10 @@ func _exit_tree() -> void:
 	cancel_stroke()
 	_remove_preview()
 	_observe_set(null)
+	if is_instance_valid(_creator):
+		_creator.queue_free()
+	if is_instance_valid(_source_details):
+		_source_details.queue_free()
 	if is_instance_valid(_dock_scroll):
 		remove_control_from_docks(_dock_scroll)
 		_dock_scroll.queue_free()
@@ -148,13 +155,15 @@ func _refresh_sets() -> void:
 		child.queue_free()
 	if active_set != null:
 		for entry in active_set.entries:
-			if entry != null and entry.source != null and entry.source.asset is Mesh:
+			if entry != null and entry.source != null:
 				var picker := EditorResourcePicker.new()
-				picker.base_type = "Mesh"
-				picker.edited_resource = entry.source.asset
+				picker.base_type = "Resource"
+				picker.edited_resource = entry.source.alpha_card.texture if entry.source.alpha_card != null else entry.source.asset
 				picker.editable = false
 				picker.custom_minimum_size = Vector2(96, 64)
 				picker.tooltip_text = entry.source.display_name
+				picker.resource_selected.connect(func(_resource: Resource, _inspect: bool) -> void:
+					get_editor_interface().edit_resource(entry.source))
 				_source_previews.add_child(picker)
 
 func _build_dock() -> void:
@@ -173,7 +182,7 @@ func _build_dock() -> void:
 	_dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_dock_scroll.add_child(_dock)
 	var title := Label.new()
-	title.text = "GO_FLORA · Static mesh painter"
+	title.text = "GO_FLORA · Vegetation painter"
 	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_dock.add_child(title)
 	_layer_picker = OptionButton.new()
@@ -230,6 +239,17 @@ func _build_dock() -> void:
 	_dock.add_child(_sources)
 	_source_previews = HFlowContainer.new()
 	_dock.add_child(_source_previews)
+	for action in [["Add Mesh / GLB / Scene…", false], ["Create Alpha Plant…", true]]:
+		var button := Button.new()
+		button.text = action[0]
+		button.clip_text = true
+		button.pressed.connect(_create_source.bind(action[1]))
+		_dock.add_child(button)
+	var details := Button.new()
+	details.text = "Source diagnostics / revision…"
+	details.clip_text = true
+	details.pressed.connect(_show_source_details)
+	_dock.add_child(details)
 	var tools := GridContainer.new()
 	tools.columns = 2
 	var group := ButtonGroup.new()
@@ -303,6 +323,113 @@ func _build_dock() -> void:
 	help.text = "LMB drag: stroke · LMB click: Single\nEsc: cancel · RMB/MMB/Alt/Ctrl: navigation\nDistance = cell visibility; 0 = unlimited; fade off"
 	help.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_dock.add_child(help)
+
+func _show_source_details() -> void:
+	if active_set == null or active_set.entries.is_empty():
+		set_status("Choose a set containing source entries.")
+		return
+	if is_instance_valid(_creator):
+		_creator.hide()
+		_creator.queue_free()
+	if is_instance_valid(_source_details):
+		_source_details.hide()
+		_source_details.queue_free()
+	_source_details = AcceptDialog.new()
+	_source_details.title = "Source diagnostics / review revision"
+	var fields := VBoxContainer.new()
+	fields.custom_minimum_size = Vector2(560, 360)
+	_source_details.add_child(fields)
+	var picker := OptionButton.new()
+	picker.fit_to_longest_item = false
+	var sources: Array[GFVegetationSource] = []
+	for entry in active_set.entries:
+		if entry != null and entry.source != null:
+			sources.append(entry.source)
+			picker.add_item(entry.source.display_name)
+	fields.add_child(picker)
+	var text := TextEdit.new()
+	text.editable = false
+	text.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
+	text.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	fields.add_child(text)
+	var refresh := func(_index: int = 0) -> void:
+		if sources.is_empty():
+			return
+		var result := sources[picker.selected].resolve()
+		text.text = "Status: %s\nProvider: %s\nRevision: %s\nCapabilities: %s\nReferences: %s\n\n%s" % [GFSourceResolution.Status.keys()[result.status], result.provider,
+			result.revision, JSON.stringify(result.capabilities), str(result.references), "\n".join(result.diagnostics)]
+	picker.item_selected.connect(refresh)
+	var copy := Button.new()
+	copy.text = "Copy revision for reviewed fallback"
+	copy.pressed.connect(func() -> void:
+		if not sources.is_empty():
+			DisplayServer.clipboard_set(sources[picker.selected].resolve().revision))
+	fields.add_child(copy)
+	var inspect := Button.new()
+	inspect.text = "Edit selected Source in Inspector"
+	inspect.pressed.connect(func() -> void:
+		if not sources.is_empty():
+			get_editor_interface().edit_resource(sources[picker.selected]))
+	fields.add_child(inspect)
+	get_editor_interface().get_base_control().add_child(_source_details)
+	_source_details.confirmed.connect(_source_details.queue_free)
+	_source_details.canceled.connect(_source_details.queue_free)
+	refresh.call()
+	_source_details.popup_centered()
+
+func _create_source(alpha: bool) -> void:
+	if active_set == null or not is_instance_valid(active_layer):
+		set_status("Select a layer and set first. Use Edit Set in Inspector to create a set if needed.")
+		return
+	cancel_stroke()
+	if is_instance_valid(_source_details):
+		_source_details.hide()
+		_source_details.queue_free()
+	if is_instance_valid(_creator):
+		_creator.hide()
+		_creator.queue_free()
+	_creator = preload("res://addons/go_flora/editor/source_creator.gd").new()
+	get_editor_interface().get_base_control().add_child(_creator)
+	_creator.setup(alpha)
+	_creator.source_saved.connect(_add_created_source.bind(active_layer, active_set))
+	_creator.popup_centered()
+
+func _add_created_source(source: GFVegetationSource, layer: VegetationLayer3D, vegetation_set: GFVegetationSet) -> void:
+	get_editor_interface().get_resource_filesystem().scan()
+	if not is_instance_valid(layer) or layer != active_layer or vegetation_set != active_set:
+		set_status("Source saved. Scene/set changed; add the .tres through the Set Inspector.")
+		return
+	var entry := GFPaletteEntry.new()
+	entry.source = source
+	var entries := vegetation_set.entries.duplicate()
+	entries.append(entry)
+	var history := get_undo_redo()
+	history.create_action("GO_FLORA Add plant source", UndoRedo.MERGE_DISABLE, layer)
+	history.add_do_property(vegetation_set, "entries", entries)
+	history.add_undo_property(vegetation_set, "entries", vegetation_set.entries.duplicate())
+	history.add_do_method(self, "_refresh_sets")
+	history.add_undo_method(self, "_refresh_sets")
+	history.commit_action()
+	get_editor_interface().edit_resource(source)
+	set_status("Source saved and added. Edit weight in Set Inspector; Paint / Single are ready.")
+
+func _resources_reimported(paths: PackedStringArray) -> void:
+	cancel_stroke()
+	for layer in _layers:
+		if not is_instance_valid(layer) or layer.layer_data == null:
+			continue
+		for vegetation_set in layer.layer_data.sets:
+			if vegetation_set == null:
+				continue
+			for entry in vegetation_set.entries:
+				if entry == null or entry.source == null:
+					continue
+				var source := entry.source
+				if source.asset != null and source.asset.resource_path in paths:
+					source.asset = ResourceLoader.load(source.asset.resource_path, "", ResourceLoader.CACHE_MODE_REPLACE)
+				if source.alpha_card != null and source.alpha_card.texture != null and source.alpha_card.texture.resource_path in paths:
+					source.alpha_card.texture = ResourceLoader.load(source.alpha_card.texture.resource_path, "", ResourceLoader.CACHE_MODE_REPLACE) as Texture2D
+		layer.request_rebuild()
 
 func _observe_set(vegetation_set: GFVegetationSet) -> void:
 	if _observed_set != null and _observed_set.changed.is_connected(_sync_set_distance):

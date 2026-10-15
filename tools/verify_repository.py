@@ -15,6 +15,12 @@ REQUIRED = ["LICENSE", "README.md", "AGENTS.md", "CONTRIBUTING.md", "docs/PRODUC
             "stages/01_painter_mvp/demo/project.godot", "stages/01_painter_mvp/demo/demo.tscn",
             "stages/01_painter_mvp/demo/README.md", "tests/test_stage01.gd", "tests/test_stage01_reopen.gd",
             "tests/editor_harness/plugin.gd", "stages/01_painter_mvp/evidence/results.json"]
+REQUIRED += ["docs/STAGE_02_SOURCE_CONTRACTS.md", "addons/go_flora/sources/source_resolver.gd",
+             "addons/go_flora/data/alpha_card.gd", "stages/02_imported_alpha_vegetation/report.md",
+             "stages/02_imported_alpha_vegetation/manual_qa.md", "stages/02_imported_alpha_vegetation/demo/demo.tscn",
+             "stages/02_imported_alpha_vegetation/demo/fixtures/original_plant.glb",
+             "stages/02_imported_alpha_vegetation/evidence/results.json", "tests/test_stage02.gd",
+             "tests/editor_stage02_harness/plugin.gd", "tools/package_stage02.py", "tools/install_stage02.py"]
 errors = []
 for path in REQUIRED:
     if not (ROOT / path).is_file():

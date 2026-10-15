@@ -1,32 +1,33 @@
 # GO_FLORA
 
-An editor-first, terrain-independent 3D vegetation workflow for Godot: reusable plant sources, weighted palettes, editable placement records, and spatially batched rendering.
+Editor-first, terrain-independent 3D vegetation for **Godot 4.7.2**: reusable Mesh/GLB/PackedScene sources, PNG/WebP alpha plants, weighted palettes, stable placement records and spatial MultiMesh rendering.
 
-**Status: Stage 01 — READY_FOR_MANUAL_QA.** Stage 00 is accepted and merged. The initial installable Foliage Painter supports existing static Mesh sources; automated checks passed on Godot 4.7.2. Real mouse/navigation/visual acceptance is **INTERACTIVE_GUI_QA: NOT_RUN**, reserved for the owner. A vegetation generator and later stages have not been implemented.
+**Stage 02 / 0.2.0-dev: READY_FOR_MANUAL_QA. INTERACTIVE_GUI_QA: NOT_RUN.** [Issue #5](https://github.com/alekseypilishkov-gif/go_flora/issues/5) authorizes this stage. Stage 01 was owner-accepted and merged in [PR #4](https://github.com/alekseypilishkov-gif/go_flora/pull/4) at `5c076153e1dea6363b885e82f4ef391808586348`. Its historical reports retain their original statuses; unexecuted older manual/GPU/export cases are not retroactively marked PASS.
 
-## Install and try
+## Install and use
 
-Copy `addons/go_flora/` into a Godot 4.7.2 project's `res://addons/go_flora/`, then enable **GO_FLORA** in Project Settings → Plugins. Follow the [addon guide](addons/go_flora/README.md) to configure a layer, weighted sets and Mesh sources. No native extension or Tree3D dependency is required.
+Copy `addons/go_flora/` into a Godot project and enable **GO_FLORA**. In the dock choose a layer/set, **Add Mesh / GLB / Scene…** or **Create Alpha Plant…**, save the reusable source `.tres`, and Paint / Erase / Single. Alpha-scissor, ground pivot, crossed/radial cards and pixel atlas regions are supported. Reviewed authored scenes have a constrained runtime instance fallback with inert editor preview. Read the [addon guide](addons/go_flora/README.md) and [source contracts](docs/STAGE_02_SOURCE_CONTRACTS.md).
 
-For the original two-set sample, run `python tools/prepare_stage01.py` from the repository root, then open `stages/01_painter_mvp/demo/project.godot` in Godot 4.7.2. Read the [demo guide](stages/01_painter_mvp/demo/README.md), [manual acceptance script](stages/01_painter_mvp/manual_qa.md) and [Russian Stage 01 report](stages/01_painter_mvp/report.md). [PR #4](https://github.com/alekseypilishkov-gif/go_flora/pull/4) is open for owner acceptance; no automatic merge.
+From the repository root, using the pinned local engine:
 
-Version **0.1.2-dev** places GO_FLORA with Scene/Import by default, bounds its minimum width so changing counters/status cannot widen the editor split, and exposes **Draw distance (m)** directly below the set selector with scene Undo/Redo. The owner has confirmed first interactive painting; full manual acceptance and this layout retest remain pending. See the [width/distance update report](stages/01_painter_mvp/updates/02_dock_width_distance/report.md) and the [earlier dock/package fix](stages/01_painter_mvp/updates/01_dock_package/report.md).
+```text
+python tools/prepare_stage02.py --godot .scratch/godot-portable/godot.exe
+```
 
-For a separate existing test project, build the plugin-only ZIP with `python tools/package_stage01.py`; save your scene, close Godot, then extract its `addons/go_flora/` at the project root. Godot may remember the old dock position: drag the GO_FLORA tab into Scene/Import once if necessary. The optional `tools/install_stage01_test_project.py --project <project> --archive <ZIP>` also creates the original test scene on first installation, enables the addon, backs up configuration and preserves existing QA scene files on later updates.
+Open `stages/02_imported_alpha_vegetation/demo/project.godot` in Godot. The original [demo](stages/02_imported_alpha_vegetation/demo/README.md) contains a real two-mesh/three-surface GLB, PNG/WebP grass, flowers/atlas, an authored script/collider scene, 137 saved placements and ordinary/tilted collision surfaces. [Russian report](stages/02_imported_alpha_vegetation/report.md), [evidence](stages/02_imported_alpha_vegetation/evidence/README.md), [owner manual QA](stages/02_imported_alpha_vegetation/manual_qa.md).
 
-## Repository layout
+Build the **plugin-only ZIP** with `python tools/package_stage02.py`. Save/close your editor before updating. The optional [update tool](tools/install_stage02.py) validates the archive, keeps addon backups and leaves scenes/project settings/layout untouched. Development/tests use isolated projects; **TEST_FLORA is not installed or modified automatically**.
 
-- `docs/`: product vision, architecture decisions, licensing, and roadmap.
-- `stages/00_source_audit/`: research, evidence, disposable probes, and the Stage 01 proposal.
-- `stages/01_painter_mvp/`: painter demo, isolated evidence, manual QA and implementation report.
-- `addons/go_flora/`: initial GDScript EditorPlugin, typed data resources and disposable spatial render caches.
-- `tests/`: deterministic core, fresh-process scene reopen and native headless Editor API checks; these do not prove interactive GUI behavior.
-- `tools/`: small repository validation utilities.
+## Development and scope
 
-## Development
+Follow [AGENTS.md](AGENTS.md), [CONTRIBUTING.md](CONTRIBUTING.md) and accepted [ADR A](docs/ARCHITECTURE_ADR_0001.md). Runtime code/data live in `addons/go_flora/`, tests in `tests/`, shared docs in `docs/`, new evidence in `stages/02_imported_alpha_vegetation/`. Earlier stage evidence is immutable. Source analysis, headless native tests, real GPU pixels and interactive owner review are separate gates.
 
-Read [AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md). Work on a stage branch, record exact test commands and limitations, and submit a PR. Owner approval is required for merging, third-party integration, and later release work.
+```text
+python tools/run_stage02_tests.py --godot .scratch/godot-portable/godot.exe --phase stage02
+python tools/run_stage02_gpu.py --godot .scratch/godot-portable/godot.exe
+python tests/test_stage02_package.py --godot .scratch/godot-portable/godot.exe
+python tools/run_stage02_tests.py --godot .scratch/godot-portable/godot.exe --phase final
+python tools/verify_repository.py
+```
 
-Current scope and acceptance: [Issue #3](https://github.com/alekseypilishkov-gif/go_flora/issues/3); historical research scope: [Issue #1](https://github.com/alekseypilishkov-gif/go_flora/issues/1). Original GO_FLORA code and documentation are licensed under [MIT](LICENSE), approved by the owner on 2026-10-14. The installable addon includes a copy of this license. Third-party components retain their own licenses and notices; see the [licensing inventory](docs/LICENSING_DECISION.md). No third-party assets or native libraries are distributed here.
-
-Stage 00 results: [Russian report](stages/00_source_audit/report.md), [architecture proposal](docs/ARCHITECTURE_ADR_0001.md), [evidence and reproduction](stages/00_source_audit/evidence/README.md), and [PR #2](https://github.com/alekseypilishkov-gif/go_flora/pull/2). Audited engine baseline: Godot 4.7.2; broader compatibility is not yet verified.
+Stage 02 stops at a scoped PR for owner review. Stage 03, Tree3D, LOD/wind/large forests, merge and public release require separate decisions. Original code, documentation and fixtures use the approved [MIT LICENSE](LICENSE); [third-party conditions](docs/LICENSING_DECISION.md) remain separate. No third-party art, code or native libraries are bundled. Historical reports: [Stage 00](stages/00_source_audit/report.md), [Stage 01](stages/01_painter_mvp/report.md), [accepted dock/distance baseline](stages/01_painter_mvp/updates/02_dock_width_distance/report.md).

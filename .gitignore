@@ -32,3 +32,7 @@ __pycache__/
 
 # Owner's local acceptance scene; preserve it without shipping it in the addon.
 /stages/01_painter_mvp/demo/qa_owner.tscn
+
+# Stage 02 demo uses the root addon; editor acceptance copies stay local.
+/stages/02_imported_alpha_vegetation/demo/addons/
+/stages/02_imported_alpha_vegetation/demo/qa_owner.tscn

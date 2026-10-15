@@ -15,6 +15,8 @@ extends Node3D
 var render_diagnostics: PackedStringArray = []
 var batches_by_set: Dictionary = {}
 var _cache_root: Node3D
+var _scene_root: Node3D
+var _scene_cache: Dictionary = {}
 var _bindings: Array[Dictionary] = []
 var _palette_signature: String = ""
 var _rebuild_pending := false
@@ -87,6 +89,9 @@ func _bind_resources() -> void:
 					continue
 				_bind(entry.source, _on_asset_changed)
 				_bind(entry.source.asset, _on_asset_changed)
+				_bind(entry.source.alpha_card, _on_asset_changed)
+				if entry.source.alpha_card != null:
+					_bind(entry.source.alpha_card.texture, _on_asset_changed)
 				for material in entry.source.surface_materials:
 					_bind(material, _on_asset_changed)
 	_palette_signature = _signature()
@@ -96,6 +101,12 @@ func _on_data_changed() -> void:
 	request_rebuild()
 
 func _on_asset_changed() -> void:
+	if layer_data != null:
+		for vegetation_set in layer_data.sets:
+			if vegetation_set != null:
+				for entry in vegetation_set.entries:
+					if entry != null and entry.source != null:
+						entry.source.invalidate()
 	_bind_resources()
 	request_rebuild()
 
@@ -122,6 +133,10 @@ func rebuild_now() -> void:
 		_cache_root.name = "_GO_FLORA_RenderCache"
 		_cache_root.set_meta("go_flora_owned", true)
 		add_child(_cache_root, false, Node.INTERNAL_MODE_BACK)
+	if not is_instance_valid(_scene_root):
+		_scene_root = Node3D.new()
+		_scene_root.name = "_GO_FLORA_SceneCache"
+		add_child(_scene_root, false, Node.INTERNAL_MODE_BACK)
 	for child in _cache_root.get_children():
 		child.free()
 	batches_by_set.clear()
@@ -129,13 +144,17 @@ func rebuild_now() -> void:
 	var reason := editing_diagnostic()
 	if not reason.is_empty():
 		render_diagnostics.append(reason)
+		for instance in _scene_cache.values():
+			if is_instance_valid(instance):
+				instance.free()
+		_scene_cache.clear()
 	else:
 		var rendered: Array[GFInstanceRecord] = []
 		for record in layer_data.records:
 			if not _preview_removed.has(record.record_id):
 				rendered.append(record)
 		rendered.append_array(_preview_added)
-		var result := GFCellRenderer.build(rendered, layer_data.sets, cell_size_m, _cache_root)
+		var result := GFCellRenderer.build(rendered, layer_data.sets, cell_size_m, _cache_root, _scene_root, _scene_cache)
 		batches_by_set = result.by_set
 		render_diagnostics = result.diagnostics
 	if Engine.is_editor_hint():

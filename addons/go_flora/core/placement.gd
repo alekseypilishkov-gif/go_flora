@@ -36,7 +36,7 @@ static func make_record(hit: Dictionary, layer_transform: Transform3D, layer_id:
 	record.layer_id = layer_id
 	record.set_id = vegetation_set.set_id
 	record.source_id = source.source_id
-	record.source_revision = source.variant_revision
+	record.source_revision = source.placement_revision()
 	record.stroke_id = stroke_id
 	record.seed = brush.seed
 	record.candidate_index = index
