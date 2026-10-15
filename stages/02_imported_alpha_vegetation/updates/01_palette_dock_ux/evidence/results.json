@@ -35,5 +35,7 @@
   "INTERACTIVE_GUI_QA": "NOT_RUN",
   "acceptance": "READY_FOR_MANUAL_QA",
   "owner_project_read_or_written": false,
-  "stage03_merge_release_performed": false
+  "stage03_merge_release_performed": false,
+  "source_commit": "3578b2d1ebaf6e0ea18e6790f333632325f46f7f",
+  "all_selected_probes_status": "PASS"
 }

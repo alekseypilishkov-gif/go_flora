@@ -1,6 +1,6 @@
 {
-  "checkpoint": "before implementation commit",
-  "head": "875e2ea6e587111a1476f17bbbeca1d18f5bdc99",
+  "checkpoint": "after implementation commit; before evidence-only follow-up",
+  "source_commit": "3578b2d1ebaf6e0ea18e6790f333632325f46f7f",
   "probes": [
     {
       "case": "repository_validation",
@@ -48,10 +48,19 @@
       "log": ""
     },
     {
-      "case": "package_file_manifest_matches_working_addon",
+      "case": "all_51_package_files_match_committed_Git_blobs_and_working_tree",
       "status": "PASS",
-      "files": 51,
-      "source_digest": "b4347c96783e36faec08c550a9d13937a0366540a1527d7a8fc18957c7e70fc2"
+      "command": [
+        "git",
+        "show",
+        "HEAD:<each manifest path>"
+      ],
+      "mismatches": []
+    },
+    {
+      "case": "runtime_tested_GDScript_matches_delivered_addon",
+      "status": "PASS",
+      "mismatches": []
     },
     {
       "case": "previous_stage_evidence_scenes_immutable",
@@ -70,6 +79,17 @@
       "log": ""
     }
   ],
-  "full_git_status": "FAIL: pre-existing owner untracked WebP preserved; task changes not yet committed",
+  "full_git_status": {
+    "status": "FAIL",
+    "command": [
+      "git",
+      "-c",
+      "core.quotepath=false",
+      "status",
+      "--short"
+    ],
+    "log": " M stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/evidence/package_manifest.json\n?? \"Изображение ChatGPT 15 окт. 2026 г., 08_28_48.webp\"\n",
+    "reason": "Pre-existing owner untracked WebP preserved; current manifest metadata is the only task follow-up"
+  },
   "INTERACTIVE_GUI_QA": "NOT_RUN"
 }
