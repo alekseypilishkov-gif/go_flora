@@ -4,7 +4,7 @@
   "archive": "GO_FLORA_stage02_0.2.2-dev_0b52bc6d.zip",
   "sha256": "2cc3e987af9c8c1fdeef10b1815defaba933173ac0f24157390b3de125e0f059",
   "source_digest": "0b52bc6d93c450d4a23fc27f608977372825ae49d0bb476848d482917e632165",
-  "git_head_at_packaging": "1c61bf1fcd059cfb4d559eeabac806c684ecfddb",
+  "git_head_at_packaging": "c0fd5a5323b203cd8666156ef59076688da18281",
   "files": {
     "addons/go_flora/core/placement.gd": "fa167dc5992c68294bbc6efebe787742c7c70ad20b188bacb781435e39fb1fe0",
     "addons/go_flora/core/placement.gd.uid": "c90b74f62b265a49b1189ca8a459a4a16fa0066e2e1c6fcee55b76fcdd21faae",

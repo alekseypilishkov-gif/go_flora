@@ -28,7 +28,7 @@ Engine **4.7.2.stable.official.ed1daf0bf**, Windows executable SHA-256 `ab1824f8
 | Новая матрица 6 assets × Quick Load/Load → Save/Cancel/Undo/Redo | PASS; реальные native обработчики, поиск/выбор строки/подтверждение, без прямой подстановки texture в source |
 | Новый headless Editor API suite | **PASS: 274 assertions** |
 | Тот же suite на RTX 5060 Ti с Windows-окнами + 3 кадра их viewport | **PASS: 277 assertions** |
-| Новый save/reopen в отдельном процессе | PASS: 12 .tres, unique IDs, texture/model refs, dimensions/UV, 14 palette entries, прежние records/transforms/normals/revisions и schema 1 |
+| Новый save/reopen в отдельном процессе | PASS: 12 .tres, unique IDs, texture/model refs, dimensions, 14 palette entries, прежние records/transforms/normals/revisions и schema 1; UV отдельно проверен reload .tres после Save |
 | Stage 01 core + native Editor API + fresh-process reopen | **PASS: 45 + 27**, прежние cases неизменны |
 | Stage 02 core + native Editor API + fresh-process reopen | **PASS: 87 + 62**, прежние cases неизменны |
 | Stage 02.1 core + native Editor API + fresh-process reopen | **PASS: 28 + 99**, прежние cases неизменны |
@@ -57,6 +57,8 @@ SHA-256: `2cc3e987af9c8c1fdeef10b1815defaba933173ac0f24157390b3de125e0f059`. Р�
 
 Установку выполняет владелец **через Проводник Windows**: сохранить сцены, закрыть Godot, сделать backup прежнего addon **вне TEST_FLORA**, «Извлечь всё» во временную папку, затем скопировать извлечённую `addons\go_flora` в **`C:\Dev\TEST_FLORA\addons\go_flora`**. Итоговый plugin.cfg должен лежать непосредственно в этой папке, без двойного уровня addons. [Подробные шаги установки и GUI re-test](manual_qa.md). PowerShell для владельца не требуется. Агент TEST_FLORA и Blender GAME_FLORA не читал, не изменял и ZIP туда не устанавливал.
 
-[Quality gates](evidence/quality_gates.json), [CI](evidence/ci_summary.json) фиксируются для отправленного source HEAD. Полностью пустой git status остаётся FAIL только из-за прежнего пользовательского untracked WebP; этот файл сохранён вне коммитов. Изменения задачи должны быть committed/pushed, tracked/staged status отдельно проверяется чистым.
+[Source commit c0fd5a5323b203cd8666156ef59076688da18281](https://github.com/alekseypilishkov-gif/go_flora/commit/c0fd5a5323b203cd8666156ef59076688da18281) отправлен в ту же ветку. На нём **PASS все три GitHub Actions**: [repository static](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38706448844), [Stage 01](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38706448833), [Stage 02, включая 02.1/02.2 и ZIP](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38706448831). [CI metadata/artifact digest](evidence/ci_summary.json). ZIP пересобран после source commit: SHA не изменился, все 53 Git blobs совпадают с manifest.
+
+[Quality gates](evidence/quality_gates.json): repository validation, working/staged/PR-base whitespace, неизменность прежних stage evidence/scenes/tests/ADR, core/data/rendering, SHA runtime GDScript в финальных headless/GPU/regression копиях — **PASS**. Tracked/staged status после source commit чист. Полностью пустой git status — **FAIL** только из-за прежнего пользовательского untracked WebP, сохранённого вне коммитов. [Первичная сборка отчёта](evidence/quality_gates_preliminary.json) сохраняет FAIL двух тогда ещё отсутствовавших ссылок quality/CI; после создания файлов validator PASS. Последующий коммит дополняет только отчёт/evidence; проверки его конечного HEAD фиксируются отдельно в PR #6.
 
 Остановиться для ручной приёмки владельца. **PR #6 остаётся Draft; merge/release/Stage 03 не выполняются.**
