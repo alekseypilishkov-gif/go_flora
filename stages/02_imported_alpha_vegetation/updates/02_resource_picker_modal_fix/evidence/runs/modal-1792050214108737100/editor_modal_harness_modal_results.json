@@ -1,0 +1,17 @@
+[
+  {
+    "id": "installed_enabled",
+    "scope": "native editor API, not mouse GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "native_ResourcePicker_menu_found",
+    "scope": "native editor API, not mouse GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "creator_nonexclusive_native_QuickLoad_opens",
+    "scope": "native editor API, not mouse GUI",
+    "status": "PASS"
+  }
+]

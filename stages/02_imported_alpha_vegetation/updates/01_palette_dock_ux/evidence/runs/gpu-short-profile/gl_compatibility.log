@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 616.56 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Ti
+
+PASS GPU_ALPHA_SCISSOR {"filter":"linear_with_mipmaps","gutter_inset_px":8,"id":"gl_compatibility_png_3m","mipmaps":false,"opaque":"(0.0, 1.0, 0.0, 1.0)","opaque_pixel":"(94, 128)","status":"PASS","transparent_background":"(0.6, 0.0, 0.098, 1.0)","transparent_pixel":"(161, 128)"}
+PASS GPU_ALPHA_SCISSOR {"filter":"linear_with_mipmaps","gutter_inset_px":8,"id":"gl_compatibility_png_12m","mipmaps":false,"opaque":"(0.0, 1.0, 0.0, 1.0)","opaque_pixel":"(119, 128)","status":"PASS","transparent_background":"(0.6, 0.0, 0.098, 1.0)","transparent_pixel":"(136, 128)"}
+PASS GPU_ALPHA_SCISSOR {"filter":"linear_with_mipmaps","gutter_inset_px":8,"id":"gl_compatibility_png_24m","mipmaps":false,"opaque":"(0.0, 1.0, 0.0, 1.0)","opaque_pixel":"(123, 128)","status":"PASS","transparent_background":"(0.6, 0.0, 0.098, 1.0)","transparent_pixel":"(132, 128)"}
+PASS GPU_ALPHA_SCISSOR {"filter":"linear_with_mipmaps","gutter_inset_px":8,"id":"gl_compatibility_webp_3m","mipmaps":false,"opaque":"(0.0, 1.0, 0.0, 1.0)","opaque_pixel":"(94, 128)","status":"PASS","transparent_background":"(0.6, 0.0, 0.098, 1.0)","transparent_pixel":"(161, 128)"}
+PASS GPU_ALPHA_SCISSOR {"filter":"linear_with_mipmaps","gutter_inset_px":8,"id":"gl_compatibility_webp_12m","mipmaps":false,"opaque":"(0.0, 1.0, 0.0, 1.0)","opaque_pixel":"(119, 128)","status":"PASS","transparent_background":"(0.6, 0.0, 0.098, 1.0)","transparent_pixel":"(136, 128)"}
+PASS GPU_ALPHA_SCISSOR {"filter":"linear_with_mipmaps","gutter_inset_px":8,"id":"gl_compatibility_webp_24m","mipmaps":false,"opaque":"(0.0, 1.0, 0.0, 1.0)","opaque_pixel":"(123, 128)","status":"PASS","transparent_background":"(0.6, 0.0, 0.098, 1.0)","transparent_pixel":"(132, 128)"}
+PASS GPU_COMPLETE

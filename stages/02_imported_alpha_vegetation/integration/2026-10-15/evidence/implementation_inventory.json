@@ -1,0 +1,21 @@
+{
+  "source": "53ef07b76578f508a7fafb332a949f25ca90189c",
+  "base": "5c076153e1dea6363b885e82f4ef391808586348",
+  "scope": "source inspection only; runtime evidence is in separate runs",
+  "status": "PASS",
+  "expected_paths": [
+    "addons/go_flora/sources/source_resolver.gd",
+    "addons/go_flora/data/alpha_card.gd",
+    "addons/go_flora/editor/palette_view.gd",
+    "addons/go_flora/editor/source_asset_picker.gd",
+    "addons/go_flora/core/erase_query.gd",
+    "docs/STAGE_02_SOURCE_CONTRACTS.md",
+    "docs/STAGE_02_1_PALETTE_UX.md",
+    "docs/STAGE_02_3_ERASE_PALETTE.md",
+    "tests/test_stage02.gd",
+    "tests/editor_modal_harness/plugin.gd",
+    "tests/test_stage023.gd"
+  ],
+  "total_changed_files": 1283,
+  "forbidden_files": []
+}

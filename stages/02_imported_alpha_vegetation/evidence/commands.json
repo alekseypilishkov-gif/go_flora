@@ -1,0 +1,489 @@
+[
+  {
+    "case": "version",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\baseline\\project",
+      "--headless",
+      "--version"
+    ],
+    "phase": "baseline"
+  },
+  {
+    "case": "import",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\baseline\\project",
+      "--headless",
+      "--editor",
+      "--import"
+    ],
+    "phase": "baseline"
+  },
+  {
+    "case": "stage01_core",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\baseline\\project",
+      "--headless",
+      "--script",
+      "tests/test_stage01.gd"
+    ],
+    "phase": "baseline"
+  },
+  {
+    "case": "stage01_reopen",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\baseline\\project",
+      "--headless",
+      "--script",
+      "tests/test_stage01_reopen.gd"
+    ],
+    "phase": "baseline"
+  },
+  {
+    "case": "stage01_editor_import",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\baseline\\editor",
+      "--headless",
+      "--editor",
+      "--import"
+    ],
+    "phase": "baseline"
+  },
+  {
+    "case": "stage01_editor_api",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\baseline\\editor",
+      "--headless",
+      "--editor",
+      "demo.tscn"
+    ],
+    "phase": "baseline"
+  },
+  {
+    "case": "version",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\stage02-verified\\project",
+      "--headless",
+      "--version"
+    ],
+    "phase": "stage02-verified"
+  },
+  {
+    "case": "import",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\stage02-verified\\project",
+      "--headless",
+      "--editor",
+      "--import"
+    ],
+    "phase": "stage02-verified"
+  },
+  {
+    "case": "stage02_core",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\stage02-verified\\project",
+      "--headless",
+      "--script",
+      "tests/test_stage02.gd"
+    ],
+    "phase": "stage02-verified"
+  },
+  {
+    "case": "stage02_reopen",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\stage02-verified\\project",
+      "--headless",
+      "--script",
+      "tests/test_stage02_reopen.gd"
+    ],
+    "phase": "stage02-verified"
+  },
+  {
+    "case": "stage01_editor_import",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\stage02-verified\\editor",
+      "--headless",
+      "--editor",
+      "--import"
+    ],
+    "phase": "stage02-verified"
+  },
+  {
+    "case": "editor_stage02_harness",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\stage02-verified\\editor",
+      "--headless",
+      "--editor",
+      "demo.tscn"
+    ],
+    "phase": "stage02-verified"
+  },
+  {
+    "case": "version",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\final\\project",
+      "--headless",
+      "--version"
+    ],
+    "phase": "final"
+  },
+  {
+    "case": "import",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\final\\project",
+      "--headless",
+      "--editor",
+      "--import"
+    ],
+    "phase": "final"
+  },
+  {
+    "case": "stage01_core",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\final\\project",
+      "--headless",
+      "--script",
+      "tests/test_stage01.gd"
+    ],
+    "phase": "final"
+  },
+  {
+    "case": "stage01_reopen",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\final\\project",
+      "--headless",
+      "--script",
+      "tests/test_stage01_reopen.gd"
+    ],
+    "phase": "final"
+  },
+  {
+    "case": "stage01_editor_import",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\final\\editor",
+      "--headless",
+      "--editor",
+      "--import"
+    ],
+    "phase": "final"
+  },
+  {
+    "case": "editor_harness",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\final\\editor",
+      "--headless",
+      "--editor",
+      "demo.tscn"
+    ],
+    "phase": "final"
+  },
+  {
+    "case": "import",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\gpu\\project",
+      "--headless",
+      "--editor",
+      "--import"
+    ],
+    "phase": "gpu"
+  },
+  {
+    "case": "mipmap_reimport",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\gpu\\project",
+      "--headless",
+      "--editor",
+      "--import"
+    ],
+    "phase": "gpu"
+  },
+  {
+    "case": "gl_compatibility",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\gpu\\project",
+      "--rendering-method",
+      "gl_compatibility",
+      "--position",
+      "-10000,-10000",
+      "--resolution",
+      "64x64",
+      "--script",
+      "tests/test_stage02_gpu.gd"
+    ],
+    "phase": "gpu"
+  },
+  {
+    "case": "mobile",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\gpu\\project",
+      "--rendering-method",
+      "mobile",
+      "--position",
+      "-10000,-10000",
+      "--resolution",
+      "64x64",
+      "--script",
+      "tests/test_stage02_gpu.gd"
+    ],
+    "phase": "gpu"
+  },
+  {
+    "case": "forward_plus",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\gpu\\project",
+      "--rendering-method",
+      "forward_plus",
+      "--position",
+      "-10000,-10000",
+      "--resolution",
+      "64x64",
+      "--script",
+      "tests/test_stage02_gpu.gd"
+    ],
+    "phase": "gpu"
+  },
+  {
+    "case": "import",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\demo_gpu\\project",
+      "--headless",
+      "--editor",
+      "--import"
+    ],
+    "phase": "demo_gpu"
+  },
+  {
+    "case": "capture",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\demo_gpu\\project",
+      "--rendering-method",
+      "gl_compatibility",
+      "--position",
+      "-10000,-10000",
+      "--resolution",
+      "1280x720",
+      "--script",
+      "tests/capture_stage02_demo.gd"
+    ],
+    "phase": "demo_gpu"
+  },
+  {
+    "case": "reproducible_ZIP_CRC_SHA",
+    "status": "PASS",
+    "phase": "package"
+  },
+  {
+    "case": "three_installs_preserve_scene_config_layout_SHA",
+    "status": "PASS",
+    "hashes": {
+      "project.godot": "0f6ed40d3d97694ec085fa08fac1c056c0405ca62fbe143a732393c6e16fa2bf",
+      "demo.tscn": "31d27bb8009e81009501d2ff4a9cbd8198cfe2dab5d733a4d386648b97919633",
+      "existing_stage01.tscn": "6d3da559edfab4bb37071f94b0db561d5b0cc72d7fdf4817eca03bbaa94bf6ea",
+      ".godot\\editor\\editor_layout.cfg": "9f8934e2e62c4ed02156972af7a6da3ccb7caf2b2e3ef30192522797c332ea61"
+    },
+    "phase": "package"
+  },
+  {
+    "case": "ZIP_path_traversal_refused",
+    "status": "PASS",
+    "phase": "package"
+  },
+  {
+    "case": "standalone_import",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\package\\project",
+      "--headless",
+      "--editor",
+      "--import"
+    ],
+    "phase": "package"
+  },
+  {
+    "case": "stage02_runtime",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\package\\project",
+      "--headless",
+      "--quit-after",
+      "15"
+    ],
+    "phase": "package"
+  },
+  {
+    "case": "stage01_runtime",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\package\\project",
+      "--headless",
+      "existing_stage01.tscn",
+      "--quit-after",
+      "15"
+    ],
+    "phase": "package"
+  }
+]

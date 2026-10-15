@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 616.56 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Ti
+
+PASS DEMO_GPU 137 records, original GLB + alpha plants, actual viewport capture; interactive GUI NOT_RUN
+GPU_ADAPTER NVIDIA GeForce RTX 5060 Ti opengl3

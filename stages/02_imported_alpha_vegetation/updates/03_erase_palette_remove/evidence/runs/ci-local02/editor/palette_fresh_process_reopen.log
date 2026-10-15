@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS STAGE023_FRESH_SOURCE_RECORD_RESOLUTION {"batches":1,"diagnostics":[],"record":"native-0","set":"set-a","source":"primitive-cone-v1"}
+NOT_RUN STAGE023_FRESH_GPU headless
+PASS STAGE023_REOPEN_COMPLETE

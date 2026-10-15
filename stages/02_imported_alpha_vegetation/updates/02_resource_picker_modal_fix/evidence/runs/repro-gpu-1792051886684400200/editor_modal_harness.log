@@ -1,0 +1,15 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 616.56 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Ti
+
+GO_FLORA_PLUGIN_ENABLED
+PASS STAGE022_EDITOR installed_enabled
+WINDOW_STATE creator=/root/@EditorNode@19513/@Panel@14/@ConfirmationDialog@19984 exclusive=true transient=true embedded=false
+PASS STAGE022_EDITOR native_ResourcePicker_menu_found
+ERROR: Attempting to make child window exclusive, but the parent window already has another exclusive child. This window: /root/@EditorNode@19513/@Panel@14/@EditorQuickOpenDialog@19428, parent window: /root, current exclusive child window: /root/@EditorNode@19513/@Panel@14/@ConfirmationDialog@19984
+   at: _set_transient_exclusive_child (scene/main/window.cpp:1160)
+   GDScript backtrace (most recent call first):
+       [0] quick_load (res://tests/editor_modal_harness/plugin.gd:50)
+       [1] open_menu (res://tests/editor_modal_harness/plugin.gd:38)
+       [2] frames (res://tests/editor_modal_harness/plugin.gd:13)
+WINDOW_STATE quick=/root/@EditorNode@19513/@Panel@14/@EditorQuickOpenDialog@19428 visible=true exclusive=true
+REPRO STAGE022_COMPLETE

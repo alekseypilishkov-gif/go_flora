@@ -1,0 +1,81 @@
+{
+  "runs": [
+    {
+      "run": "baseline-1792045111708956800",
+      "status": "PASS",
+      "summary": "evidence/runs/baseline-1792045111708956800/summary.json"
+    },
+    {
+      "run": "final-1792045514322298500",
+      "status": "PASS",
+      "summary": "evidence/runs/final-1792045514322298500/summary.json"
+    },
+    {
+      "run": "final-1792046413785363500",
+      "status": "PASS",
+      "summary": "evidence/runs/final-1792046413785363500/summary.json"
+    },
+    {
+      "run": "gpu-final",
+      "status": "FAIL",
+      "summary": "evidence/runs/gpu-final/summary.json"
+    },
+    {
+      "run": "gpu-short-profile",
+      "status": "PASS",
+      "summary": "evidence/runs/gpu-short-profile/summary.json"
+    },
+    {
+      "run": "package-final",
+      "status": "PASS",
+      "summary": "evidence/runs/package-final/summary.json"
+    },
+    {
+      "run": "ux-1792045925328388500",
+      "status": "FAIL",
+      "summary": "evidence/runs/ux-1792045925328388500/summary.json"
+    },
+    {
+      "run": "ux-1792045969319790500",
+      "status": "FAIL",
+      "summary": "evidence/runs/ux-1792045969319790500/summary.json"
+    },
+    {
+      "run": "ux-1792046016936343600",
+      "status": "FAIL",
+      "summary": "evidence/runs/ux-1792046016936343600/summary.json"
+    },
+    {
+      "run": "ux-1792046115860595500",
+      "status": "PASS",
+      "summary": "evidence/runs/ux-1792046115860595500/summary.json"
+    },
+    {
+      "run": "ux-1792046234255234600",
+      "status": "PASS",
+      "summary": "evidence/runs/ux-1792046234255234600/summary.json"
+    },
+    {
+      "run": "ux-1792046434773866500",
+      "status": "PASS",
+      "summary": "evidence/runs/ux-1792046434773866500/summary.json"
+    },
+    {
+      "run": "ux-1792046552340248800",
+      "status": "FAIL",
+      "summary": "evidence/runs/ux-1792046552340248800/summary.json"
+    },
+    {
+      "run": "ux-1792046680052649600",
+      "status": "PASS",
+      "summary": "evidence/runs/ux-1792046680052649600/summary.json"
+    },
+    {
+      "run": "ux-1792046987482101300",
+      "status": "PASS",
+      "summary": "evidence/runs/ux-1792046987482101300/summary.json"
+    }
+  ],
+  "INTERACTIVE_GUI_QA": "NOT_RUN",
+  "READY_FOR_MANUAL_QA": true
+}

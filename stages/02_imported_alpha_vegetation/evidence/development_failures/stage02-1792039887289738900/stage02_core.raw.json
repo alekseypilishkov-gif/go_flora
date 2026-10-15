@@ -1,0 +1,5 @@
+{
+  "encoding": "utf-8",
+  "sha256": "886a33555ca5bbcf1405d4c4927317ab726e1470cf9de50ed7dae7b069af38c8",
+  "content": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nSCRIPT ERROR: Parse Error: The variable type is being inferred from a Variant value, so it will be typed as Variant. (Warning treated as error.)\r\n   at: GDScript::reload (res://tests/test_stage02.gd:84)\r\nERROR: Failed to load script \"res://tests/test_stage02.gd\" with error \"Parse error\".\r\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\r\n"
+}

@@ -20,8 +20,18 @@ func apply_to(data: GFVegetationLayerData, reverse: bool) -> void:
 		if not exclude.has(record.record_id):
 			records.append(record)
 	if reverse:
+		# Merge ascending original indices in linear time, including dense erases.
+		var restored: Array[GFInstanceRecord] = []
+		var cursor := 0
 		for i in removed.size():
-			records.insert(mini(removed_indices[i], records.size()), removed[i])
+			while restored.size() < removed_indices[i] and cursor < records.size():
+				restored.append(records[cursor])
+				cursor += 1
+			restored.append(removed[i])
+		while cursor < records.size():
+			restored.append(records[cursor])
+			cursor += 1
+		records = restored
 	else:
 		for record in added:
 			records.append(record)

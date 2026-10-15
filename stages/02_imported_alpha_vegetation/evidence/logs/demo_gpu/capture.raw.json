@@ -1,0 +1,5 @@
+{
+  "encoding": "utf-8",
+  "sha256": "04b28d609f2225fb25c1c066a1d7b81f917c8c1f6f58e29e8f7513d892f31dee",
+  "content": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\nOpenGL API 3.3.0 NVIDIA 616.56 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Ti\r\n\r\nPASS DEMO_GPU 137 records, original GLB + alpha plants, actual viewport capture; interactive GUI NOT_RUN\r\nGPU_ADAPTER NVIDIA GeForce RTX 5060 Ti opengl3\r\n"
+}

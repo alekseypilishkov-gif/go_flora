@@ -15,11 +15,14 @@ extends Node3D
 var render_diagnostics: PackedStringArray = []
 var batches_by_set: Dictionary = {}
 var _cache_root: Node3D
+var _scene_root: Node3D
+var _scene_cache: Dictionary = {}
 var _bindings: Array[Dictionary] = []
 var _palette_signature: String = ""
 var _rebuild_pending := false
 var _preview_added: Array[GFInstanceRecord] = []
 var _preview_removed: Dictionary = {}
+var _preview_slots: Dictionary = {}
 
 func _enter_tree() -> void:
 	call_deferred("_initialize_layer")
@@ -71,6 +74,8 @@ func _signature() -> String:
 			for entry in vegetation_set.entries:
 				if entry != null:
 					values.append([entry.get_instance_id(), entry.source.get_instance_id() if entry.source != null else 0])
+			for source in vegetation_set.render_only_sources:
+				values.append(["render_only", source.get_instance_id() if source != null else 0])
 	return JSON.stringify(values)
 
 func _bind_resources() -> void:
@@ -83,11 +88,13 @@ func _bind_resources() -> void:
 			_bind(vegetation_set, _on_set_changed)
 			for entry in vegetation_set.entries:
 				_bind(entry, _on_asset_changed)
-				if entry == null or entry.source == null:
-					continue
-				_bind(entry.source, _on_asset_changed)
-				_bind(entry.source.asset, _on_asset_changed)
-				for material in entry.source.surface_materials:
+			for source in vegetation_set.rendering_sources():
+				_bind(source, _on_asset_changed)
+				_bind(source.asset, _on_asset_changed)
+				_bind(source.alpha_card, _on_asset_changed)
+				if source.alpha_card != null:
+					_bind(source.alpha_card.texture, _on_asset_changed)
+				for material in source.surface_materials:
 					_bind(material, _on_asset_changed)
 	_palette_signature = _signature()
 
@@ -96,6 +103,11 @@ func _on_data_changed() -> void:
 	request_rebuild()
 
 func _on_asset_changed() -> void:
+	if layer_data != null:
+		for vegetation_set in layer_data.sets:
+			if vegetation_set != null:
+				for source in vegetation_set.rendering_sources():
+					source.invalidate()
 	_bind_resources()
 	request_rebuild()
 
@@ -115,6 +127,7 @@ func request_rebuild() -> void:
 
 func rebuild_now() -> void:
 	_rebuild_pending = false
+	_preview_slots.clear()
 	if not is_inside_tree():
 		return
 	if not is_instance_valid(_cache_root):
@@ -122,6 +135,10 @@ func rebuild_now() -> void:
 		_cache_root.name = "_GO_FLORA_RenderCache"
 		_cache_root.set_meta("go_flora_owned", true)
 		add_child(_cache_root, false, Node.INTERNAL_MODE_BACK)
+	if not is_instance_valid(_scene_root):
+		_scene_root = Node3D.new()
+		_scene_root.name = "_GO_FLORA_SceneCache"
+		add_child(_scene_root, false, Node.INTERNAL_MODE_BACK)
 	for child in _cache_root.get_children():
 		child.free()
 	batches_by_set.clear()
@@ -129,24 +146,43 @@ func rebuild_now() -> void:
 	var reason := editing_diagnostic()
 	if not reason.is_empty():
 		render_diagnostics.append(reason)
+		for instance in _scene_cache.values():
+			if is_instance_valid(instance):
+				instance.free()
+		_scene_cache.clear()
 	else:
 		var rendered: Array[GFInstanceRecord] = []
 		for record in layer_data.records:
 			if not _preview_removed.has(record.record_id):
 				rendered.append(record)
 		rendered.append_array(_preview_added)
-		var result := GFCellRenderer.build(rendered, layer_data.sets, cell_size_m, _cache_root)
+		var result := GFCellRenderer.build(rendered, layer_data.sets, cell_size_m, _cache_root, _scene_root, _scene_cache)
 		batches_by_set = result.by_set
+		_preview_slots = result.record_slots
 		render_diagnostics = result.diagnostics
 	if Engine.is_editor_hint():
 		update_configuration_warnings()
 
 func set_stroke_preview(added: Array[GFInstanceRecord], removed: Dictionary) -> void:
+	# Erase changes only instance visibility. Reuse existing MultiMeshes while
+	# dragging instead of rescanning/recreating every batch for every work slice.
+	if added.is_empty() and not removed.is_empty():
+		for id in removed:
+			if _preview_removed.has(id):
+				continue
+			for slot in _preview_slots.get(id, []):
+				if is_instance_valid(slot[0]):
+					slot[0].multimesh.set_instance_transform(slot[1], Transform3D(Basis.from_scale(Vector3.ZERO), Vector3.ZERO))
+			_preview_removed[id] = true
+		return
+	if added.is_empty() and removed.is_empty() and _preview_added.is_empty() and _preview_removed.is_empty():
+		return
 	_preview_added = added.duplicate()
 	_preview_removed = removed.duplicate()
 	request_rebuild()
 
 func cancel_stroke_preview() -> void:
+	_preview_slots.clear()
 	_preview_added.clear()
 	_preview_removed.clear()
 	request_rebuild()

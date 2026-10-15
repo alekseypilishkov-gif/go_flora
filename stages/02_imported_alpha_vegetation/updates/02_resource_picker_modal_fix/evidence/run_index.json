@@ -1,0 +1,108 @@
+{
+  "runs": [
+    {
+      "run": "alpha-gpu-final",
+      "status": "PASS",
+      "summary": "evidence/runs/alpha-gpu-final/summary.json",
+      "legacy_reproduction": null
+    },
+    {
+      "run": "modal-1792050214108737100",
+      "status": "PASS",
+      "summary": "evidence/runs/modal-1792050214108737100/summary.json",
+      "legacy_reproduction": null
+    },
+    {
+      "run": "modal-1792050829848036800",
+      "status": "FAIL",
+      "summary": "evidence/runs/modal-1792050829848036800/summary.json",
+      "legacy_reproduction": null
+    },
+    {
+      "run": "modal-1792050858155825200",
+      "status": "FAIL",
+      "summary": "evidence/runs/modal-1792050858155825200/summary.json",
+      "legacy_reproduction": null
+    },
+    {
+      "run": "modal-1792050971490543500",
+      "status": "FAIL",
+      "summary": "evidence/runs/modal-1792050971490543500/summary.json",
+      "legacy_reproduction": null
+    },
+    {
+      "run": "modal-1792051164236304200",
+      "status": "FAIL",
+      "summary": "evidence/runs/modal-1792051164236304200/summary.json",
+      "legacy_reproduction": null
+    },
+    {
+      "run": "modal-1792051338407899500",
+      "status": "PASS",
+      "summary": "evidence/runs/modal-1792051338407899500/summary.json",
+      "legacy_reproduction": null
+    },
+    {
+      "run": "modal-1792052470956064500",
+      "status": "PASS",
+      "summary": "evidence/runs/modal-1792052470956064500/summary.json",
+      "legacy_reproduction": null
+    },
+    {
+      "run": "modal-gpu-1792051463219647500",
+      "status": "FAIL",
+      "summary": "evidence/runs/modal-gpu-1792051463219647500/summary.json",
+      "legacy_reproduction": null
+    },
+    {
+      "run": "modal-gpu-1792051640806027400",
+      "status": "FAIL",
+      "summary": "evidence/runs/modal-gpu-1792051640806027400/summary.json",
+      "legacy_reproduction": null
+    },
+    {
+      "run": "modal-gpu-1792051775923188700",
+      "status": "PASS",
+      "summary": "evidence/runs/modal-gpu-1792051775923188700/summary.json",
+      "legacy_reproduction": null
+    },
+    {
+      "run": "modal-gpu-1792051973339810800",
+      "status": "FAIL",
+      "summary": "evidence/runs/modal-gpu-1792051973339810800/summary.json",
+      "legacy_reproduction": null
+    },
+    {
+      "run": "modal-gpu-1792052252492895900",
+      "status": "PASS",
+      "summary": "evidence/runs/modal-gpu-1792052252492895900/summary.json",
+      "legacy_reproduction": null
+    },
+    {
+      "run": "package-final",
+      "status": "PASS",
+      "summary": "evidence/runs/package-final/summary.json",
+      "legacy_reproduction": null
+    },
+    {
+      "run": "regression-1792051391635731900",
+      "status": "PASS",
+      "summary": "evidence/runs/regression-1792051391635731900/summary.json",
+      "legacy_reproduction": null
+    },
+    {
+      "run": "repro-1792050104651450100",
+      "status": "FAIL",
+      "summary": "evidence/runs/repro-1792050104651450100/summary.json",
+      "legacy_reproduction": "PASS"
+    },
+    {
+      "run": "repro-gpu-1792051886684400200",
+      "status": "FAIL",
+      "summary": "evidence/runs/repro-gpu-1792051886684400200/summary.json",
+      "legacy_reproduction": "PASS"
+    }
+  ],
+  "OWNER_REPORTED_GUI_FAIL": "0.2.1-dev PNG Quick Load, Issue #8",
+  "INTERACTIVE_GUI_QA": "NOT_RUN"
+}

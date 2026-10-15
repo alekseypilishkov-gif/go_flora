@@ -1,0 +1,67 @@
+{
+  "status": "READY_FOR_MANUAL_QA",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "stage01_first": "PASS",
+  "stage01_last": "PASS",
+  "stage02_core_assertions": 87,
+  "stage02_editor_assertions": 62,
+  "gpu_scissor": "PASS Compatibility / Mobile / Forward+; 18 PNG/WebP near/far pixel checks",
+  "package": "PASS CRC/SHA/reproducible/three installs",
+  "owner_project_modified": false,
+  "previous_stage_evidence": "PASS unchanged",
+  "INTERACTIVE_GUI_QA": "NOT_RUN",
+  "clean_export": "NOT_RUN",
+  "large_forest_GPU_FPS": "NOT_RUN",
+  "github_actions": "PASS all three workflows on 4186d6b0dfaad9185dac34c57b19a1d7eda9b6ce",
+  "benchmarks": [
+    {
+      "batches": 26,
+      "cache_ms": 11.464,
+      "parts_per_record": 1,
+      "records": 1000,
+      "scope": "headless CPU cache construction, not GPU/FPS",
+      "source": "card-grass.png1",
+      "static_memory_delta_bytes": 126156
+    },
+    {
+      "batches": 91,
+      "cache_ms": 53.945,
+      "parts_per_record": 1,
+      "records": 5000,
+      "scope": "headless CPU cache construction, not GPU/FPS",
+      "source": "card-grass.png1",
+      "static_memory_delta_bytes": 718024
+    },
+    {
+      "batches": 52,
+      "cache_ms": 20.813,
+      "parts_per_record": 2,
+      "records": 1000,
+      "scope": "headless CPU cache construction, not GPU/FPS",
+      "source": "real-glb",
+      "static_memory_delta_bytes": 248772
+    },
+    {
+      "batches": 182,
+      "cache_ms": 94.393,
+      "parts_per_record": 2,
+      "records": 5000,
+      "scope": "headless CPU cache construction, not GPU/FPS",
+      "source": "real-glb",
+      "static_memory_delta_bytes": 1269412
+    }
+  ],
+  "source_commit": "4186d6b0dfaad9185dac34c57b19a1d7eda9b6ce",
+  "pull_request": "https://github.com/alekseypilishkov-gif/go_flora/pull/6",
+  "working_and_staged_whitespace": "PASS",
+  "committed_PR_base_whitespace": "PASS",
+  "repository_validation": "PASS",
+  "source_ZIP_identity": "PASS",
+  "clean_final_git_status": "FAIL pre-existing untracked owner WebP preserved",
+  "ci_runs": [
+    38686977548,
+    38686977629,
+    38686977542
+  ]
+}

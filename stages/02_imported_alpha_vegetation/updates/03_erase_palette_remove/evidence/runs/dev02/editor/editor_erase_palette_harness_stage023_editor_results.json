@@ -1,0 +1,165 @@
+{
+	"checks": [
+		{
+			"detail": "",
+			"id": "plugin_enabled",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "release_waits_for_complete_queue_no_partial_commit",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "valid_release_survives_deferred_outside_release_guard",
+			"status": "PASS"
+		},
+		{
+			"detail": "19",
+			"id": "stationary_held_click_drains_5000_automatic_frames",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "one_native_undo_exact_records_order",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "one_native_redo_complete",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "Escape_drops_all_pending_work_no_undo",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "outside_viewport_release_cancels",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "same_data_mutation_cancels_frozen_index",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "scene_switch_isolation",
+			"status": "PASS"
+		},
+		{
+			"detail": "(0.0, 1.0, 0.0, 1.0)",
+			"id": "actual_GPU_before_removal_green_instance",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "dock_visible_remove_button",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "safe_confirmation_count_nonexclusive",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "plain_remove_row_archive_keeps_records",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "removed_selected_source_explicit_block_no_wrong_paint",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "retained_source_resolves_no_lost_batches_no_missing_diagnostics",
+			"status": "PASS"
+		},
+		{
+			"detail": "(0.0, 1.0, 0.0, 1.0)",
+			"id": "actual_GPU_retained_source_same_pixel",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "palette_undo_exact_entry_order_weight_enabled",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "redo_refreshes_row_keeps_batches",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "readd_same_ID_unarchives_atomically",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "duplicate_ID_readd_refused",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "readd_undo_restores_render_only",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "archive_saved_in_scene_no_schema_migration",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "archived_revision_observed_rebuilds",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "Inspector_visible_remove_controls",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "zero_placements_remove_immediate",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "zero_placements_undo_exact_order",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "destructive_separate_explicit_exact_count_confirmation",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "confirmed_delete_all_placements_preserves_serial",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "destructive_one_native_undo_restores_same_record",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "destructive_redo",
+			"status": "PASS"
+		},
+		{
+			"detail": "",
+			"id": "stale_count_confirmation_refused",
+			"status": "PASS"
+		}
+	],
+	"scope": "native EditorUndoRedoManager + actual rendered viewport pixels; physical mouse NOT_RUN"
+}

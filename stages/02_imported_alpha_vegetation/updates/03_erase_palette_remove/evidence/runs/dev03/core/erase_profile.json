@@ -1,0 +1,40 @@
+{
+	"rows": [
+		{
+			"CPU_usec": 4008,
+			"budget_exhausted": false,
+			"candidates": 1,
+			"records": 1,
+			"removed": 1
+		},
+		{
+			"CPU_usec": 8276,
+			"budget_exhausted": false,
+			"candidates": 1891,
+			"records": 1000,
+			"removed": 1000
+		},
+		{
+			"CPU_usec": 15169,
+			"budget_exhausted": false,
+			"candidates": 3882,
+			"records": 2001,
+			"removed": 2001
+		},
+		{
+			"CPU_usec": 32731,
+			"budget_exhausted": false,
+			"candidates": 9851,
+			"records": 5000,
+			"removed": 5000
+		},
+		{
+			"CPU_usec": 78181,
+			"budget_exhausted": false,
+			"candidates": 23781,
+			"records": 12000,
+			"removed": 12000
+		}
+	],
+	"scope": "CPU total for 61 inputs; not FPS; PASS means probe executed, compare removed counts"
+}

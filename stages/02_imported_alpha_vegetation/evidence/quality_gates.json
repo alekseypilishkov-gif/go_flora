@@ -1,0 +1,76 @@
+{
+  "source_commit": "4186d6b0dfaad9185dac34c57b19a1d7eda9b6ce",
+  "probes": [
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "origin/main...HEAD"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\pial\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "tools/verify_repository.py"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "log": "PASS static repository outputs, links, Python/JSON syntax and artifact isolation\n"
+    },
+    {
+      "command": [
+        "git",
+        "show",
+        "4186d6b0dfaad9185dac34c57b19a1d7eda9b6ce:<each addon manifest file>"
+      ],
+      "status": "PASS",
+      "log": "[]",
+      "scope": "committed source bytes match shipped ZIP file hashes"
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--porcelain"
+      ],
+      "status": "FAIL",
+      "log": "?? \"\\320\\230\\320\\267\\320\\276\\320\\261\\321\\200\\320\\260\\320\\266\\320\\265\\320\\275\\320\\270\\320\\265 ChatGPT 15 \\320\\276\\320\\272\\321\\202. 2026 \\320\\263., 08_28_48.webp\"\n",
+      "reason": "Pre-existing untracked owner WebP preserved; no Stage 02 delta remains before writing this evidence"
+    },
+    {
+      "command": [
+        "git",
+        "show",
+        "4186d6b0dfaad9185dac34c57b19a1d7eda9b6ce:<each source_hashes file>"
+      ],
+      "status": "PASS",
+      "log": "89 committed inputs match",
+      "scope": "source/fixture/test identity"
+    }
+  ]
+}

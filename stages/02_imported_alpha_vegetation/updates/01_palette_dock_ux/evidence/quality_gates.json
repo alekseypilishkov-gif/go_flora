@@ -1,0 +1,95 @@
+{
+  "checkpoint": "after implementation commit; before evidence-only follow-up",
+  "source_commit": "3578b2d1ebaf6e0ea18e6790f333632325f46f7f",
+  "probes": [
+    {
+      "case": "repository_validation",
+      "status": "PASS",
+      "command": [
+        "C:\\Users\\pial\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "tools/verify_repository.py"
+      ],
+      "exit_code": 0,
+      "log": "PASS static repository outputs, links, Python/JSON syntax and artifact isolation\n"
+    },
+    {
+      "case": "working_whitespace",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": ""
+    },
+    {
+      "case": "staged_whitespace",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": ""
+    },
+    {
+      "case": "committed_PR_base_whitespace",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "origin/main...HEAD"
+      ],
+      "exit_code": 0,
+      "log": ""
+    },
+    {
+      "case": "all_51_package_files_match_committed_Git_blobs_and_working_tree",
+      "status": "PASS",
+      "command": [
+        "git",
+        "show",
+        "HEAD:<each manifest path>"
+      ],
+      "mismatches": []
+    },
+    {
+      "case": "runtime_tested_GDScript_matches_delivered_addon",
+      "status": "PASS",
+      "mismatches": []
+    },
+    {
+      "case": "previous_stage_evidence_scenes_immutable",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--name-only",
+        "875e2ea",
+        "--",
+        "stages/00_source_audit",
+        "stages/01_painter_mvp",
+        "stages/02_imported_alpha_vegetation/evidence",
+        "stages/02_imported_alpha_vegetation/demo"
+      ],
+      "log": ""
+    }
+  ],
+  "full_git_status": {
+    "status": "FAIL",
+    "command": [
+      "git",
+      "-c",
+      "core.quotepath=false",
+      "status",
+      "--short"
+    ],
+    "log": " M stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/evidence/package_manifest.json\n?? \"Изображение ChatGPT 15 окт. 2026 г., 08_28_48.webp\"\n",
+    "reason": "Pre-existing owner untracked WebP preserved; current manifest metadata is the only task follow-up"
+  },
+  "INTERACTIVE_GUI_QA": "NOT_RUN"
+}

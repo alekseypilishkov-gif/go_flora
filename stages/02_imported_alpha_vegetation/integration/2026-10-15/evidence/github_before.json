@@ -1,0 +1,44 @@
+{
+  "repository": "alekseypilishkov-gif/go_flora",
+  "initial_origin_main": "5c076153e1dea6363b885e82f4ef391808586348",
+  "initial_local_main": "8cbac98f0705a16f5746baa07f37ec2b2bae75b6",
+  "pr": 6,
+  "head": "53ef07b76578f508a7fafb332a949f25ca90189c",
+  "mergeable": true,
+  "draft": true,
+  "workflow_runs": [
+    {
+      "id": 38718815460,
+      "name": "Stage 01 Godot automatic checks",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 27,
+      "jobs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/38718815460/jobs",
+      "logs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/38718815460/logs",
+      "workflow_id": 384294000
+    },
+    {
+      "id": 38718815412,
+      "name": "Repository static checks",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 33,
+      "jobs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/38718815412/jobs",
+      "logs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/38718815412/logs",
+      "workflow_id": 384156721
+    },
+    {
+      "id": 38718815466,
+      "name": "Stage 02 imported assets automatic checks",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 16,
+      "jobs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/38718815466/jobs",
+      "logs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/38718815466/logs",
+      "workflow_id": 385149788
+    }
+  ],
+  "owner_gui": "Stage 02.3 FINALIZED / OWNER GUI PASS; overall Stage 02 manual acceptance incomplete",
+  "merge_authorization": "Direct owner Git Integration & Merge task in current chat, 2026-10-15",
+  "scope": "read-only GitHub snapshot before status documentation commit"
+}

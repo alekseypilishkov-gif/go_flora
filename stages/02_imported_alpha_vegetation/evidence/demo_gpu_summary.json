@@ -1,0 +1,37 @@
+[
+  {
+    "case": "import",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\demo_gpu\\project",
+      "--headless",
+      "--editor",
+      "--import"
+    ]
+  },
+  {
+    "case": "capture",
+    "status": "PASS",
+    "exit_code": 0,
+    "command": [
+      "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+      "--language",
+      "en",
+      "--path",
+      "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\evidence\\.scratch\\demo_gpu\\project",
+      "--rendering-method",
+      "gl_compatibility",
+      "--position",
+      "-10000,-10000",
+      "--resolution",
+      "1280x720",
+      "--script",
+      "tests/capture_stage02_demo.gd"
+    ]
+  }
+]

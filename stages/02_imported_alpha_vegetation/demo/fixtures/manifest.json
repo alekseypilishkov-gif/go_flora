@@ -1,0 +1,17 @@
+{
+  "license": "MIT, root LICENSE",
+  "provenance": "Original GO_FLORA mathematical fixtures; no third-party art",
+  "files": {
+    "atlas.png": "d70279f38296cbcd5e9a04c9bf8b1f803c30cfbd035650e28deb4c809f3fda2a",
+    "authored_plant.tscn": "eee11902085aa7497e15fcc3c2e60d223032ade840370a70ee4da92fc836fa6c",
+    "flower.png": "1264db5ae427d8b5665839e2684402253aa578e513ac16cf4613e792f38e08f9",
+    "grass.png": "6514fbb4c6008f691ecb824f36bab2f59b3e8eb4408d840a557582e5610af9ac",
+    "grass.webp": "5467534322731ae2819bc569d86f601aa3c6926acc3b205ba105062b544263c4",
+    "original_plant.glb": "f636e94b0f40e4c3435fab40b4e44db9f9e5e729414306465c47c542fe6ed333",
+    "pixel_atlas.png": "25de807c3f2bd74dc48a3bae83c1bdd90a71aad00469ebb468138e8927702781",
+    "pixel_atlas.webp": "f563199139a542e79bcddee71aa19aa164f5fde1625b1a474b6989dfd6ae5c64",
+    "safe_behavior.gd": "0ef50845f8d7be827ec2de0fea3bc084cec3f1e6a4b6d1eb12c487c74672c220",
+    "stage01_saved.tscn": "6d3da559edfab4bb37071f94b0db561d5b0cc72d7fdf4817eca03bbaa94bf6ea",
+    "static_plant.tscn": "9153d8c7fefe52f9480500cfe28fed8e5673dbc76b2fd1a529955c0bd4e9bc40"
+  }
+}

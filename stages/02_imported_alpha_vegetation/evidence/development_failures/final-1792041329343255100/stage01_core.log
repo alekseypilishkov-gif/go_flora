@@ -1,0 +1,49 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS determinism_same_seed_path
+PASS distance_sampling_event_rate_independent
+PASS different_seed_varies_records
+PASS candidate_rejection_keeps_other_choices
+PASS weighted_palette {"primitive-box-v1":264,"primitive-cone-v1":760}
+PASS invalid_weight_rejected_-1.0
+PASS invalid_weight_rejected_nan
+PASS invalid_weight_rejected_inf
+PASS all_zero_weights_rejected
+PASS zero_density_no_records
+PASS negative_density_rejected
+PASS nan_density_rejected
+PASS zero_sources_diagnostic
+PASS bounded_stroke_work
+PASS negative_cells_floor
+PASS nonuniform_rotated_layer_coordinates_and_normals
+PASS layer_motion_preserves_logical_local_transform
+PASS real_physics_ground_raycast
+PASS collision_mask_filter
+PASS visual_only_not_collision_target
+PASS rotated_scaled_surface_raycast
+PASS slope_filter
+PASS world_height_filter
+PASS layer_relative_height_with_nonuniform_transform
+PASS include_target_filter
+PASS exclude_target_filter
+PASS effective_material_does_not_mutate_original
+PASS pending_paint_does_not_mutate_data
+PASS pending_preview_uses_disposable_cache
+PASS cancel_discards_preview
+PASS paint_one_undo_step
+PASS redo_exact_ids_transforms
+PASS erase_selected_set_only
+PASS erase_undo_restores_order_and_exact_records
+PASS single_exactly_one
+PASS single_target_exit_reentry_still_one_per_click
+PASS distance_propagates_existing_A_batches_B_untouched_no_repaint
+PASS distance_zero_unlimited
+PASS cells_independently_visible
+PASS missing_source_preserves_data_with_diagnostic
+PASS unsupported_scene_not_flattened_or_deleted
+PASS future_schema_read_only_preserves_data
+PASS repeated_delta_rebuild_no_duplicate_records_or_nodes
+PASS scene_saved_for_fresh_process
+PASS stable_ID_pairs_do_not_alias_source_resolution
+BENCH {"batches":51,"display_driver":"headless","nodes":53,"rebuild_ms":150.369,"records":1024,"renderer":"gl_compatibility","scope":"CPU cache construction, not GPU/FPS"}
+BENCH {"batches":182,"display_driver":"headless","nodes":184,"rebuild_ms":241.995,"records":5000,"renderer":"gl_compatibility","scope":"CPU cache construction, not GPU/FPS"}

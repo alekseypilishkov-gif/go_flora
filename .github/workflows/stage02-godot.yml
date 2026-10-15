@@ -1,0 +1,57 @@
+name: Stage 02 imported assets automatic checks
+on:
+  pull_request:
+  push:
+    branches: [main, 'codex/**']
+permissions:
+  contents: read
+jobs:
+  isolated-native:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download pinned Godot 4.7.2
+        shell: bash
+        run: |
+          mkdir -p .scratch/ci-godot
+          curl --fail --location --retry 3 --output .scratch/ci-godot/godot.zip https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
+          echo 'cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4  .scratch/ci-godot/godot.zip' | sha256sum --check
+          unzip -q .scratch/ci-godot/godot.zip -d .scratch/ci-godot
+          chmod +x .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64
+      - name: Stage 01 regressions before Stage 02 probes
+        run: python tools/run_stage02_tests.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --phase baseline
+      - name: GLB import, cards, fallback, persistence and native Editor API
+        run: python tools/run_stage02_tests.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --phase stage02
+      - name: Reproducible plugin ZIP and repeated installation on disposable project
+        run: python tests/test_stage02_package.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --output stages/02_imported_alpha_vegetation/updates/03_erase_palette_remove/evidence/.scratch/package --package-output stages/02_imported_alpha_vegetation/updates/03_erase_palette_remove/.scratch/packages
+      - name: Stage 02.1 named palette, source modes, right dock, Inspector and Russian help
+        run: python tools/run_stage021_tests.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --phase ux
+      - name: Stage 02.2 native Quick Load and Load, Save, Cancel, context and reopen
+        run: python tools/run_stage022_tests.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --phase modal
+      - name: Stage 01 regressions last
+        run: python tools/run_stage02_tests.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --phase final
+      - name: Stage 02.3 continuous erase, source archive and native scene Undo
+        run: |
+          python tools/run_stage023_tests.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --phase core --label ci
+          python tools/run_stage023_tests.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --phase editor --headless-editor --label ci
+      - name: Upload automatic evidence; GPU and interactive GUI are separate gates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage02-automatic
+          path: |
+            stages/02_imported_alpha_vegetation/evidence/.scratch/**/*.log
+            stages/02_imported_alpha_vegetation/evidence/.scratch/**/*.json
+            stages/02_imported_alpha_vegetation/.scratch/packages/
+            stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/evidence/.scratch/**/*.log
+            stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/evidence/.scratch/**/*.json
+            stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/.scratch/packages/
+            stages/02_imported_alpha_vegetation/updates/02_resource_picker_modal_fix/evidence/.scratch/**/*.log
+            stages/02_imported_alpha_vegetation/updates/02_resource_picker_modal_fix/evidence/.scratch/**/*.json
+            stages/02_imported_alpha_vegetation/updates/02_resource_picker_modal_fix/.scratch/packages/
+            stages/02_imported_alpha_vegetation/updates/03_erase_palette_remove/evidence/
+            stages/02_imported_alpha_vegetation/updates/03_erase_palette_remove/.scratch/packages/
+          include-hidden-files: true

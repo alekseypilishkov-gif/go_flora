@@ -1,0 +1,73 @@
+{
+  "probes": [
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\pial\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "tools/verify_repository.py"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "PASS static repository outputs, links, Python/JSON syntax and artifact isolation\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\pial\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "tools/verify_stage023_delivery.py",
+        "--committed"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"archive\": \"stages\\\\02_imported_alpha_vegetation\\\\updates\\\\03_erase_palette_remove\\\\.scratch\\\\packages\\\\GO_FLORA_stage02_0.2.3-dev_2e26e47a.zip\",\n  \"sha256\": \"42556f0fa6232f73acce7e8c353b851b27d94b7bf266a61b1a342c37549ff034\",\n  \"files\": 55,\n  \"git_head\": \"30f9feedeef795f929df3eaa2a4d7ed41210bf99\",\n  \"committed_blobs\": \"PASS\",\n  \"historical_evidence\": \"PASS\",\n  \"INTERACTIVE_GUI_QA\": \"NOT_RUN\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "origin/main...HEAD"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--porcelain",
+        "--untracked-files=no"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "INTERACTIVE_GUI_QA": "NOT_RUN"
+}

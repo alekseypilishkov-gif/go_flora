@@ -1,0 +1,163 @@
+{
+  "probes": [
+    {
+      "case": "reproducible_ZIP_CRC_SHA",
+      "status": "PASS"
+    },
+    {
+      "case": "three_installs_preserve_scene_config_layout_SHA",
+      "status": "PASS",
+      "hashes": {
+        "project.godot": "0f6ed40d3d97694ec085fa08fac1c056c0405ca62fbe143a732393c6e16fa2bf",
+        "demo.tscn": "31d27bb8009e81009501d2ff4a9cbd8198cfe2dab5d733a4d386648b97919633",
+        "existing_stage01.tscn": "6d3da559edfab4bb37071f94b0db561d5b0cc72d7fdf4817eca03bbaa94bf6ea",
+        ".godot\\editor\\editor_layout.cfg": "9f8934e2e62c4ed02156972af7a6da3ccb7caf2b2e3ef30192522797c332ea61"
+      }
+    },
+    {
+      "case": "ZIP_path_traversal_refused",
+      "status": "PASS"
+    },
+    {
+      "case": "standalone_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\03_erase_palette_remove\\evidence\\.scratch\\package-delivery\\project",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\03_erase_palette_remove\\evidence\\.scratch\\package-delivery\\.scratch\\profile"
+    },
+    {
+      "case": "stage02_runtime",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\03_erase_palette_remove\\evidence\\.scratch\\package-delivery\\project",
+        "--headless",
+        "--quit-after",
+        "15"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\03_erase_palette_remove\\evidence\\.scratch\\package-delivery\\.scratch\\profile"
+    },
+    {
+      "case": "stage01_runtime",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\03_erase_palette_remove\\evidence\\.scratch\\package-delivery\\project",
+        "--headless",
+        "existing_stage01.tscn",
+        "--quit-after",
+        "15"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\03_erase_palette_remove\\evidence\\.scratch\\package-delivery\\.scratch\\profile"
+    }
+  ],
+  "installations": [
+    {
+      "status": "PASS",
+      "version": "0.2.3-dev",
+      "archive_sha256": "42556f0fa6232f73acce7e8c353b851b27d94b7bf266a61b1a342c37549ff034",
+      "backup": null,
+      "scenes_and_project_settings": "untouched"
+    },
+    {
+      "status": "PASS",
+      "version": "0.2.3-dev",
+      "archive_sha256": "42556f0fa6232f73acce7e8c353b851b27d94b7bf266a61b1a342c37549ff034",
+      "backup": "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\03_erase_palette_remove\\evidence\\.scratch\\package-delivery\\project\\.scratch\\go_flora_updates\\20261015T095835398364Z\\previous\\go_flora",
+      "scenes_and_project_settings": "untouched"
+    },
+    {
+      "status": "PASS",
+      "version": "0.2.3-dev",
+      "archive_sha256": "42556f0fa6232f73acce7e8c353b851b27d94b7bf266a61b1a342c37549ff034",
+      "backup": "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\03_erase_palette_remove\\evidence\\.scratch\\package-delivery\\project\\.scratch\\go_flora_updates\\20261015T095835544877Z\\previous\\go_flora",
+      "scenes_and_project_settings": "untouched"
+    }
+  ],
+  "manifest": {
+    "scope": "plugin-only local update; not a release",
+    "version": "0.2.3-dev",
+    "archive": "GO_FLORA_stage02_0.2.3-dev_2e26e47a.zip",
+    "sha256": "42556f0fa6232f73acce7e8c353b851b27d94b7bf266a61b1a342c37549ff034",
+    "source_digest": "2e26e47a578175dd740aead8af649572d7d5b5a369cfc2e4a468a24382a044f0",
+    "git_head_at_packaging": "f8917186ce7cdbfd1177a2a80610e500280d81d3",
+    "files": {
+      "addons/go_flora/core/erase_query.gd": "84a53d6c3abfdaadb171d5dcb51d2b22cd1af1038dd42e84ac8526f1adb8e310",
+      "addons/go_flora/core/erase_query.gd.uid": "f23b3ccfe740391c32563bf07baccab5e168a558bf19c79316f8b41bec1c2bd1",
+      "addons/go_flora/core/placement.gd": "fa167dc5992c68294bbc6efebe787742c7c70ad20b188bacb781435e39fb1fe0",
+      "addons/go_flora/core/placement.gd.uid": "c90b74f62b265a49b1189ca8a459a4a16fa0066e2e1c6fcee55b76fcdd21faae",
+      "addons/go_flora/core/record_delta.gd": "c4f633c8577cede30cfa3f1e961b640c5765dcffec636ec5ced45fe6337e8bcf",
+      "addons/go_flora/core/record_delta.gd.uid": "412a136ad8d99c72a604e81ce2ff1ab6faa87df8a814d023d8a992a5eb311b89",
+      "addons/go_flora/core/stroke.gd": "6987c01d54b43aa9ea0c46fed35552ecb001cd9defe04f6dbf66b7c0d95df490",
+      "addons/go_flora/core/stroke.gd.uid": "c961e76c2b7e2f02e70f9f63e001c7afb2c6dd7766a12e992fd6245e619932e3",
+      "addons/go_flora/data/alpha_card.gd": "d0aea3fc20dd02cc61fc1af120b93a90ff0150dfb62b9b4aaded99b5eef83219",
+      "addons/go_flora/data/alpha_card.gd.uid": "50edf2dd770cb1dd68c541508963451a3685f8f2bf9e6b03cdc88c48ec517ad2",
+      "addons/go_flora/data/brush.gd": "5d9e2a06f57e3d3f5e41b6ed44c93ce07208915da5e53b99a6eaca38b9ad3132",
+      "addons/go_flora/data/brush.gd.uid": "f754ead8594784a6606f12d033553eb361f4e9f8f1758894f7f1e61958046552",
+      "addons/go_flora/data/instance_record.gd": "21e7be76d4a535a5c2b1903d39975d0dbf37c44e3a123b4aab70ed8ef085bf90",
+      "addons/go_flora/data/instance_record.gd.uid": "cd2932ccba77b76181eca893c2e91a8998c930bc013a8c758e3456cab1ca5d71",
+      "addons/go_flora/data/layer_data.gd": "c64e13426f980dec29f515ac7ee74c43aace49237fef9ab02cac1520c337953d",
+      "addons/go_flora/data/layer_data.gd.uid": "2129dc94bdae83d41c6f376d3b7cf3ea43720e71a59ad91d77b83d4f17167e92",
+      "addons/go_flora/data/palette_entry.gd": "b763227bba25ce0cc58d7ec54e59e3fff653c821b87b5f0d4d84bb8261900bd1",
+      "addons/go_flora/data/palette_entry.gd.uid": "146599fb7921ebc5303bfd58796e387e9d0eb254ec54da48e78fa13d6959ba89",
+      "addons/go_flora/data/source.gd": "96d199b5e99915c68506689c3185134edb5a865a6a8d8c9f0df68ef22efc23e5",
+      "addons/go_flora/data/source.gd.uid": "39d31da879127dd34630c6154a8834cc88c1ad82d400773ff88c0c454d02daff",
+      "addons/go_flora/data/vegetation_set.gd": "e1ded608df6266d85fd4b2493c8b96121d0650f1929d2441c91df4dce6dd76db",
+      "addons/go_flora/data/vegetation_set.gd.uid": "82bfbdcdb0d36790e1e10c5126213f61bcee7d2f1056f4cf4fe55dea598b4d9a",
+      "addons/go_flora/editor/brush_preview.gd": "874f2b8df3a3a9b8425a75ff8bf106ad651d3f61c0b542cea9302313d99e676a",
+      "addons/go_flora/editor/brush_preview.gd.uid": "aaa6283bf90e623ed73cc95cd57cd9ee0163d81d7aee067ba0a3b7792cb20698",
+      "addons/go_flora/editor/help_text.gd": "302e4cd9c1e54c930048257de31edf27a4c65bf8ccb7846c6e1fa4bbf21eb828",
+      "addons/go_flora/editor/help_text.gd.uid": "469ae1dc63d7eb9e101a7fbda34ee914ae5fa64a9001728a8ce892ad366d9fc8",
+      "addons/go_flora/editor/palette_inspector.gd": "370c7e0108ec227d3f48efe2583bcaa1c21d2d247ca1c2638f200697f5e6ce23",
+      "addons/go_flora/editor/palette_inspector.gd.uid": "f86b51770472135995f7683c4973ffb81c976e0db7f4c354606bf26eded7fd15",
+      "addons/go_flora/editor/palette_property.gd": "ba8866524663cd177bf24474622b839dad4d6b67138e231458e295467fa9bb03",
+      "addons/go_flora/editor/palette_property.gd.uid": "97e5341190403f0017010ec9ebba5e7af6cd69ac0e3050942efa559d21d52a9e",
+      "addons/go_flora/editor/palette_view.gd": "4b55c10eabe9aadbf972351b91a930127e25b3cfe3d778cece0b89f75f48390a",
+      "addons/go_flora/editor/palette_view.gd.uid": "dfa709615b39571f20479a2b2320be4d46a6f77c6002abffc552b40b67dfdfdd",
+      "addons/go_flora/editor/plugin.gd": "bb9fd77ac1b62ca697b239b837e6fc1587b071fe46e5b7f0c40e8b5b29157fcf",
+      "addons/go_flora/editor/plugin.gd.uid": "b411922f2db0c9a81ce8a9b3d474e93263565b904b913964d63571f281638fcc",
+      "addons/go_flora/editor/source_asset_picker.gd": "667d5c6393fbf2e2a47c5d4ecf2eeb39b1ea1a3b3b554cc4848b192f200bf3f6",
+      "addons/go_flora/editor/source_asset_picker.gd.uid": "555a9fc6fafe54ece32bf70fc5ac29e63d021d9f13879cd80cb1fad570c4fd85",
+      "addons/go_flora/editor/source_creator.gd": "37821250253d8e2b86320f7dfc1dc7f2acdbb7da8b1f96f596c7a55f3f1396b9",
+      "addons/go_flora/editor/source_creator.gd.uid": "c486cf0b697b57a4515811902830c32439dee04e99cad4542b9605aafab63c6e",
+      "addons/go_flora/editor/surface_target.gd": "3b89d5b1a8a02081a242af37de369619db76821615fd90fc4f85a4deb82243d2",
+      "addons/go_flora/editor/surface_target.gd.uid": "ee8aa60f5d213592b863a6fe583ca8f35fcadd9325a0d010b65d0add817c89ef",
+      "addons/go_flora/LICENSE": "3b8fe1744f724586fd47684b7002d90c27a894baacb8275c8297eac9e3d8b227",
+      "addons/go_flora/plugin.cfg": "bbf59815412c2368e114b438c9ecf57cc3f1db2030f6cb5450d7b633585327ef",
+      "addons/go_flora/README.md": "a7f2044df6179072a4ded2e9099326bf8e31ef0f08ab3fa993b9199318bd14cd",
+      "addons/go_flora/rendering/cell_renderer.gd": "66a77efa3c1501560e1629832b646ce616da95a16deb500ce07bd2509535d294",
+      "addons/go_flora/rendering/cell_renderer.gd.uid": "2bea040137defae2e5af4e6bcab81b234d4ede9618587b6b14953c1f9afc052a",
+      "addons/go_flora/sources/alpha_card_builder.gd": "9c019312d48ad1503ea77f5697974617e295f4c72a9895e7a554149a561ebad1",
+      "addons/go_flora/sources/alpha_card_builder.gd.uid": "68ed8197c22732d8275b1caecfc65a21220d97fbae4027537b5b49bc2bcc7d4f",
+      "addons/go_flora/sources/source_part.gd": "c9264666fcc795f6387706e8a1f89401d102be3be13eb6e204ba6b2fbd0c70ce",
+      "addons/go_flora/sources/source_part.gd.uid": "f6b8fc235555ac95bc264387db639371427bea9b616f41a7c94ed207caf0eb23",
+      "addons/go_flora/sources/source_resolution.gd": "bc41a8299f13dd7c96263e4a55a7deb2d21510dcf7395697f874234d5e6fa59d",
+      "addons/go_flora/sources/source_resolution.gd.uid": "045d7e70fce4f21f9ea7f0b2c1f9fb330d838c19d0a199dbe297639d740f8397",
+      "addons/go_flora/sources/source_resolver.gd": "de2d065b65844d984624f6bce897b5408e09eaf4c0bc4edf2318074419e3e014",
+      "addons/go_flora/sources/source_resolver.gd.uid": "e0a5eac5228f6f07f146479d88bf37398b0b3c42eb55fe83e9ca96753d3fa5c5",
+      "addons/go_flora/vegetation_layer_3d.gd": "7d4255a7e9acad48097608c763e0f006ae0bd6fed25a9e7cba1972a2cf4732c0",
+      "addons/go_flora/vegetation_layer_3d.gd.uid": "499fe59eb37cb7a96695c17dd85984c96be5642c5e961d1048ef6c5d62d3f1c6"
+    },
+    "format": "ZIP_STORED; sorted paths; fixed timestamp/Unix permissions",
+    "verification": "PASS CRC and every file SHA-256"
+  },
+  "owner_project_modified": false,
+  "INTERACTIVE_GUI_QA": "NOT_RUN"
+}
