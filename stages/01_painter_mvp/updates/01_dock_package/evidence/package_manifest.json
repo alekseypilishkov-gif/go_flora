@@ -1,7 +1,7 @@
 {
   "scope": "Local addon package, not a published release",
   "version": "0.1.1-dev",
-  "git_head_at_packaging": "5550ad57f09c2954727c95d6e8282337b85d87c5",
+  "git_head_at_packaging": "73cad0427c6037141102bfcf254343cb9c16be2e",
   "source_digest": "25317a9da95b1aeddc3a0d522a28cbd550cbeb818fd18c449fe42c1d2a1ad038",
   "sha256": "478debec228a1e3104a5aaf6881ed57ed986120876b025caa70a995938e34b36",
   "archive": "GO_FLORA_stage01_0.1.1-dev_25317a9d.zip",

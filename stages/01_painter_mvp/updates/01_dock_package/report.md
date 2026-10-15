@@ -20,6 +20,8 @@ Native headless Editor Control geometry воспроизвела причину:
 
 Файл: `stages/01_painter_mvp/.scratch/packages/GO_FLORA_stage01_0.1.1-dev_25317a9d.zip`. Архив и sidecar metadata остаются ignored build outputs; это **не публикация release**. [Манифест содержимого](evidence/package_manifest.json). Сборка воспроизводима: фиксированные ZIP timestamps/порядок, CRC и SHA-256 каждого member проверяются после упаковки.
 
+Две локальные Windows-сборки дали одинаковый SHA выше. У ZIP, созданного Linux CI, контейнерный SHA другой: `53861a7ef3c634bca6c45b2151fe067ec2d176d66ff0d91617b28ab3eba307cc`. Для каждого архива используйте его собственные sidecar SHA/manifest; битовая идентичность ZIP между ОС не заявляется. CI отдельно проверил извлечённые файлы и standalone import/runtime smoke.
+
 В указанный владельцем проект установлен этот ZIP и создана `res://go_flora_stage01_demo/demo.tscn`: два original primitive Mesh, два набора, Ground и наклонная/масштабированная collision surface, жёлтая поверхность без collision. Большая Label3D-подсказка из старой demo убрана, чтобы не заслонять поверхность при стандартном ракурсе редактора. A изначально имеет unlimited distance=0, B=80; после рисования проверяются A=20/B=80. Runtime камеры 1/2 находятся примерно в 10,5/44,8 м от origin. Цвет Mesh не идентифицирует набор — рисуйте A и B в разных местах.
 
 Конфигурация существующего проекта сохранена: Forward Plus, D3D12, Jolt, name/icon/stretch не менялись. Добавлено включение addon и main scene, поскольку ранее main scene отсутствовала. Перед установкой исходный `project.godot` скопирован в workspace backup; [установленные пути, хеши и backup](evidence/owner_project_installation.json). Кэши/раскладка внешнего проекта не редактировались и реальный GUI редактор агентом не управлялся.
@@ -38,9 +40,11 @@ Native headless Editor Control geometry воспроизвела причину:
 | Повторное обновление сохраняет QA-сцену | PASS | `tests/test_stage01_package.py` сравнил хеш сцены с маркером до/после повторной установки; отдельный ZIP import/runtime smoke также PASS |
 | Установка во внешний проект | PASS | Сравнение всех installed addon file hashes с манифестом; source settings сохранены |
 | Actual mouse / GUI layout retest / visible distance | NOT_RUN | Владелец продолжит ручную приёмку в TEST_FLORA |
-| GitHub Actions новой версии | NOT_RUN до push | Workflow расширен упаковкой ZIP и standalone-проверкой; окончательный статус будет добавлен после выполнения |
+| GitHub Actions новой версии | PASS | Commit `73cad0427c6037141102bfcf254343cb9c16be2e`: [static checks](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38678737057) и [Godot + ZIP checks](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38678737014), все steps success. Linux automation не означает GUI/export acceptance |
 
 Все новые статусы отдельно отражены в [results.json](evidence/results.json). Исходный отчёт/evidence Stage 01 остаются историей версии 0.1.0-dev; Stage 00 не изменён. Логи этой поставки нормализуют ANSI/trailing whitespace без изменения статусов и измерений. Новые CPU cache timings — только headless CPU measurements в core_results; GPU/FPS и взаимодействие с GUI не проверены.
+
+Fix/package implementation commit: [`73cad0427c6037141102bfcf254343cb9c16be2e`](https://github.com/alekseypilishkov-gif/go_flora/commit/73cad0427c6037141102bfcf254343cb9c16be2e). [CI metadata](evidence/ci_summary.json), [artifact с логами и plugin ZIP](https://github.com/alekseypilishkov-gif/go_flora/actions/runs/38678737014/artifacts/11947771763). Последующее изменение документации фиксирует эти результаты; реальные GUI-действия остаются NOT_RUN.
 
 ## Воспроизведение
 

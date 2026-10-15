@@ -1,0 +1,180 @@
+{
+  "status": "PASS",
+  "tested_commit": "73cad0427c6037141102bfcf254343cb9c16be2e",
+  "scope": "GitHub Actions native/headless/package automation; GUI owner acceptance NOT_RUN",
+  "jobs": [
+    {
+      "id": 116238187356,
+      "name": "godot-automatic",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 38678737014,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Download pinned Godot 4.7.2 runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run python tools/prepare_stage01.py",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Headless core, fresh process, native Editor API (not GUI acceptance)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Build local addon ZIP (no release publication)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Standalone ZIP import, scene smoke and update preservation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Upload automatic evidence including failures",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        }
+      ]
+    },
+    {
+      "id": 116238187438,
+      "name": "repository-checks",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 38678737057,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python tools/verify_repository.py",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Static whitespace gate regression",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Static whitespace check of committed changes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        }
+      ]
+    }
+  ],
+  "artifact": {
+    "id": 11947771763,
+    "name": "stage01-godot-automatic",
+    "size_in_bytes": 30050,
+    "url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/artifacts/11947771763",
+    "archive_download_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/artifacts/11947771763/zip",
+    "expired": false,
+    "created_at": "2026-10-15T03:55:23Z",
+    "expires_at": "2027-01-13T03:55:05Z",
+    "updated_at": "2026-10-15T03:55:23Z",
+    "digest": "sha256:e71abdfdec26b51ffe32863f9ffbcb03a8a3ade8eefbdd9bf41a100f5944d306",
+    "workflow_run": {
+      "id": 38678737014,
+      "repository_id": 1418626687,
+      "head_repository_id": 1418626687,
+      "head_branch": "codex/stage-01-painter-mvp",
+      "head_sha": "73cad0427c6037141102bfcf254343cb9c16be2e"
+    }
+  },
+  "observed_log_lines": [
+    "2026-10-15T03:55:19.9939584Z   \"archive\": \"/home/runner/work/go_flora/go_flora/stages/01_painter_mvp/.scratch/packages/GO_FLORA_stage01_0.1.1-dev_25317a9d.zip\",",
+    "2026-10-15T03:55:19.9940254Z   \"sha256\": \"53861a7ef3c634bca6c45b2151fe067ec2d176d66ff0d91617b28ab3eba307cc\",",
+    "2026-10-15T03:55:19.9940748Z   \"files\": 31,",
+    "2026-10-15T03:55:20.1146145Z PASS package_install_and_update_preserves_owner_scene",
+    "2026-10-15T03:55:22.3429268Z package_editor_import PASS",
+    "2026-10-15T03:55:22.5888215Z package_scene_smoke PASS"
+  ]
+}
