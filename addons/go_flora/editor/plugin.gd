@@ -6,6 +6,8 @@ enum SourceMode { MIX, SELECTED }
 const Help = preload("res://addons/go_flora/editor/help_text.gd")
 const Palette = preload("res://addons/go_flora/editor/palette_view.gd")
 const PaletteInspector = preload("res://addons/go_flora/editor/palette_inspector.gd")
+const SOURCE_DIAGNOSTICS_PREFERRED_SIZE := Vector2i(680, 620)
+const SOURCE_DIAGNOSTICS_VIEWPORT_MARGIN := Vector2i(48, 64)
 var source_mode: SourceMode = SourceMode.MIX
 var selected_source_id := ""
 var _selected_by_set: Dictionary = {}
@@ -677,6 +679,21 @@ func _source_diagnostics_guidance(source: GFVegetationSource, result: GFSourceRe
 				return "Статический Source готов к использованию. Scene Fallback для него не требуется."
 			return "Source пока не готов. Проверьте техническую диагностику и устраните указанную проблему; Scene Fallback не предлагается автоматически."
 
+func _source_diagnostics_popup_size_for_viewport(viewport_size: Vector2i) -> Vector2i:
+	# Use editor viewport coordinates, so the cap follows the current OS DPI scale.
+	var available := viewport_size - SOURCE_DIAGNOSTICS_VIEWPORT_MARGIN
+	return Vector2i(
+		mini(SOURCE_DIAGNOSTICS_PREFERRED_SIZE.x, maxi(1, available.x)),
+		mini(SOURCE_DIAGNOSTICS_PREFERRED_SIZE.y, maxi(1, available.y)))
+
+func _source_diagnostics_popup_size() -> Vector2i:
+	var viewport_size := Vector2i(get_editor_interface().get_base_control().get_viewport_rect().size)
+	if viewport_size.x <= 0 or viewport_size.y <= 0:
+		viewport_size = DisplayServer.screen_get_usable_rect().size
+	if viewport_size.x <= 0 or viewport_size.y <= 0:
+		viewport_size = SOURCE_DIAGNOSTICS_PREFERRED_SIZE + SOURCE_DIAGNOSTICS_VIEWPORT_MARGIN
+	return _source_diagnostics_popup_size_for_viewport(viewport_size)
+
 func _show_source_details() -> void:
 	_close_palette_removal()
 	cancel_stroke()
@@ -694,7 +711,6 @@ func _show_source_details() -> void:
 	_source_details.title = "Source diagnostics / review revision"
 	var fields := VBoxContainer.new()
 	fields.name = "SourceDiagnosticsFields"
-	fields.custom_minimum_size = Vector2(560, 420)
 	_source_details.add_child(fields)
 	var picker := OptionButton.new()
 	picker.name = "SourceDiagnosticsPicker"
@@ -705,33 +721,48 @@ func _show_source_details() -> void:
 			sources.append(entry.source)
 			picker.add_item(entry.source.display_name)
 	fields.add_child(picker)
+	var guidance_scroll := ScrollContainer.new()
+	guidance_scroll.name = "SourceDiagnosticsGuidanceScroll"
+	guidance_scroll.custom_minimum_size = Vector2(0, 150)
+	guidance_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	guidance_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	guidance_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+	fields.add_child(guidance_scroll)
 	var guidance := Label.new()
 	guidance.name = "SourceDiagnosticsGuidance"
 	guidance.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	guidance.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	fields.add_child(guidance)
+	guidance_scroll.add_child(guidance)
 	var details_toggle := Button.new()
 	details_toggle.name = "SourceDiagnosticsTechnicalToggle"
 	details_toggle.text = "Технические сведения"
 	details_toggle.toggle_mode = true
-	details_toggle.button_pressed = true
+	details_toggle.button_pressed = false
 	fields.add_child(details_toggle)
 	var text := TextEdit.new()
 	text.name = "SourceDiagnosticsTechnicalDetails"
 	text.editable = false
 	text.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
-	text.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	text.custom_minimum_size = Vector2(0, 112)
+	text.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	text.visible = false
 	fields.add_child(text)
 	details_toggle.toggled.connect(func(visible: bool) -> void:
 		text.visible = visible)
+	var actions := HBoxContainer.new()
+	actions.name = "SourceDiagnosticsActions"
+	actions.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	fields.add_child(actions)
 	var copy := Button.new()
 	copy.name = "SourceDiagnosticsCopyRevision"
 	copy.text = "Copy revision for reviewed fallback"
-	fields.add_child(copy)
+	copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	actions.add_child(copy)
 	var inspect := Button.new()
 	inspect.name = "SourceDiagnosticsEditSource"
 	inspect.text = "Edit selected Source in Inspector"
-	fields.add_child(inspect)
+	inspect.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	actions.add_child(inspect)
 	var refresh := func(_index: int = 0) -> void:
 		if sources.is_empty():
 			return
@@ -756,7 +787,7 @@ func _show_source_details() -> void:
 	_source_details.confirmed.connect(_source_details.queue_free)
 	_source_details.canceled.connect(_source_details.queue_free)
 	refresh.call()
-	_source_details.popup_centered()
+	_source_details.popup_centered(_source_diagnostics_popup_size())
 
 func _create_source(alpha: bool) -> void:
 	_close_palette_removal()
