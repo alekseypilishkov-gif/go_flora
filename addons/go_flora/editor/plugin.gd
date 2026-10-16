@@ -8,6 +8,8 @@ const Palette = preload("res://addons/go_flora/editor/palette_view.gd")
 const PaletteInspector = preload("res://addons/go_flora/editor/palette_inspector.gd")
 const SOURCE_DIAGNOSTICS_PREFERRED_SIZE := Vector2i(680, 620)
 const SOURCE_DIAGNOSTICS_VIEWPORT_MARGIN := Vector2i(48, 64)
+const SOURCE_DIAGNOSTICS_GUIDANCE_MAX_FRACTION := 0.38
+const SOURCE_DIAGNOSTICS_GUIDANCE_MIN_HEIGHT := 24.0
 var source_mode: SourceMode = SourceMode.MIX
 var selected_source_id := ""
 var _selected_by_set: Dictionary = {}
@@ -694,6 +696,13 @@ func _source_diagnostics_popup_size() -> Vector2i:
 		viewport_size = SOURCE_DIAGNOSTICS_PREFERRED_SIZE + SOURCE_DIAGNOSTICS_VIEWPORT_MARGIN
 	return _source_diagnostics_popup_size_for_viewport(viewport_size)
 
+func _source_diagnostics_guidance_height(guidance: Label, content_width: float, dialog_height: float) -> float:
+	guidance.size.x = maxf(1.0, content_width)
+	var line_count := maxi(1, guidance.get_line_count())
+	var content_height := maxf(SOURCE_DIAGNOSTICS_GUIDANCE_MIN_HEIGHT, float(line_count) * guidance.get_line_height())
+	var capped_height := maxf(SOURCE_DIAGNOSTICS_GUIDANCE_MIN_HEIGHT, dialog_height * SOURCE_DIAGNOSTICS_GUIDANCE_MAX_FRACTION)
+	return minf(content_height, capped_height)
+
 func _show_source_details() -> void:
 	_close_palette_removal()
 	cancel_stroke()
@@ -711,6 +720,7 @@ func _show_source_details() -> void:
 	_source_details.title = "Source diagnostics / review revision"
 	var fields := VBoxContainer.new()
 	fields.name = "SourceDiagnosticsFields"
+	fields.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_source_details.add_child(fields)
 	var picker := OptionButton.new()
 	picker.name = "SourceDiagnosticsPicker"
@@ -723,8 +733,7 @@ func _show_source_details() -> void:
 	fields.add_child(picker)
 	var guidance_scroll := ScrollContainer.new()
 	guidance_scroll.name = "SourceDiagnosticsGuidanceScroll"
-	guidance_scroll.custom_minimum_size = Vector2(0, 150)
-	guidance_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	guidance_scroll.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	guidance_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	guidance_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
 	fields.add_child(guidance_scroll)
@@ -743,12 +752,13 @@ func _show_source_details() -> void:
 	text.name = "SourceDiagnosticsTechnicalDetails"
 	text.editable = false
 	text.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
-	text.custom_minimum_size = Vector2(0, 112)
-	text.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	text.custom_minimum_size = Vector2(0, 96)
+	text.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	text.visible = false
 	fields.add_child(text)
 	details_toggle.toggled.connect(func(visible: bool) -> void:
-		text.visible = visible)
+		text.visible = visible
+		fields.queue_sort())
 	var actions := HBoxContainer.new()
 	actions.name = "SourceDiagnosticsActions"
 	actions.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -763,6 +773,15 @@ func _show_source_details() -> void:
 	inspect.text = "Edit selected Source in Inspector"
 	inspect.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	actions.add_child(inspect)
+	var update_guidance_layout := func() -> void:
+		if not is_instance_valid(_source_details):
+			return
+		var ok_button := _source_details.get_ok_button()
+		var content_height := ok_button.position.y - fields.position.y - 8.0
+		if content_height > 0.0:
+			fields.size.y = content_height
+		guidance_scroll.custom_minimum_size.y = _source_diagnostics_guidance_height(guidance, guidance_scroll.size.x, _source_details.size.y)
+		fields.queue_sort()
 	var refresh := func(_index: int = 0) -> void:
 		if sources.is_empty():
 			return
@@ -776,6 +795,7 @@ func _show_source_details() -> void:
 		# Retain the selected immutable value on the Control for Editor API tests;
 		# headless display servers intentionally do not expose a system clipboard.
 		copy.set_meta("go_flora_selected_revision", result.revision)
+		update_guidance_layout.call_deferred()
 	picker.item_selected.connect(refresh)
 	copy.pressed.connect(func() -> void:
 		if not sources.is_empty():
@@ -788,6 +808,7 @@ func _show_source_details() -> void:
 	_source_details.canceled.connect(_source_details.queue_free)
 	refresh.call()
 	_source_details.popup_centered(_source_diagnostics_popup_size())
+	update_guidance_layout.call_deferred()
 
 func _create_source(alpha: bool) -> void:
 	_close_palette_removal()

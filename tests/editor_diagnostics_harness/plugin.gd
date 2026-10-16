@@ -46,6 +46,9 @@ func rect_inside(parent: Control, child: Control) -> bool:
 	var child_end := child.position + child.size
 	return child.position.x >= 0 and child.position.y >= 0 and child_end.x <= parent.size.x and child_end.y <= parent.size.y
 
+func immediately_after(previous: Control, following: Control) -> bool:
+	return following.position.y >= previous.position.y + previous.size.y and following.position.y - (previous.position.y + previous.size.y) <= 12.0
+
 func run() -> void:
 	DirAccess.make_dir_recursive_absolute("res://.scratch")
 	var scene: Node
@@ -103,23 +106,36 @@ func run() -> void:
 		var ok_button := dialog.get_ok_button()
 		check(ok_button != null and ok_button.visible and ok_button.position.y + ok_button.size.y <= dialog.size.y, "layout_ok_reachable")
 		check(not details.visible and guidance_scroll.vertical_scroll_mode == ScrollContainer.SCROLL_MODE_AUTO, "layout_scroll_body_and_collapsed_technical_default")
+		var layout_test_size: Vector2i = plugin._source_diagnostics_popup_size_for_viewport(Vector2i(1280, 720))
+		dialog.size = layout_test_size
+		picker.item_selected.emit(0)
+		await frames(6)
+		check(dialog.size == layout_test_size, "layout_1280x720_virtual_window_size")
 		assert_guidance(guidance, copy, "Статический Source готов", false, "static_ready_no_fallback_steps")
+		check(guidance_scroll.size_flags_vertical == Control.SIZE_SHRINK_BEGIN and immediately_after(guidance_scroll, toggle), "layout_static_guidance_is_content_sized_and_toggle_adjacent")
 		picker.select(1)
 		picker.item_selected.emit(1)
-		await frames()
+		await frames(6)
 		assert_guidance(guidance, copy, "1. Изучите PackedScene", true, "review_required_steps_and_copy")
+		check(guidance_scroll.size.y <= dialog.size.y * 0.38 + 1.0 and immediately_after(guidance_scroll, toggle), "layout_long_review_guidance_capped_and_toggle_adjacent")
 		copy.pressed.emit()
 		check(str(copy.get_meta("go_flora_selected_revision", "")) == review.resolve().revision, "copy_uses_currently_selected_review_source")
 		picker.select(2)
 		picker.item_selected.emit(2)
-		await frames()
+		await frames(6)
 		assert_guidance(guidance, copy, "Сцена изменилась", true, "revision_mismatch_current_and_prior_revision")
 		check(guidance.text.contains(mismatch.reviewed_scene_revision) and guidance.text.contains(mismatch.resolve().revision), "revision_mismatch_revisions_shown")
-		check(guidance.size.x <= guidance_scroll.size.x and rect_inside(fields, actions), "layout_mismatch_sha_wraps_and_actions_reachable")
+		var long_guidance_height := guidance_scroll.size.y
+		check(guidance.size.x <= guidance_scroll.size.x and guidance_scroll.size.y <= dialog.size.y * 0.38 + 1.0 and immediately_after(guidance_scroll, toggle) and rect_inside(fields, actions), "layout_mismatch_sha_wraps_and_actions_reachable")
+		toggle.button_pressed = true
+		toggle.toggled.emit(true)
+		await frames()
+		check(details.visible and details.size.y > 112 and rect_inside(fields, actions), "layout_long_guidance_expanded_details_use_remaining_space")
 		picker.select(3)
 		picker.item_selected.emit(3)
-		await frames()
+		await frames(6)
 		assert_guidance(guidance, copy, "инертный Mesh preview", true, "reviewed_ready_inert_preview_runtime_instance")
+		check(guidance_scroll.size.y < long_guidance_height and immediately_after(guidance_scroll, toggle) and details.visible and details.size.y > 112, "layout_short_guidance_expanded_details_use_remaining_space")
 		picker.select(4)
 		picker.item_selected.emit(4)
 		await frames()
@@ -132,7 +148,7 @@ func run() -> void:
 		toggle.button_pressed = true
 		toggle.toggled.emit(true)
 		await frames()
-		check(details.visible and details.size.y <= 112 and rect_inside(fields, actions), "layout_technical_details_bounded_when_expanded")
+		check(details.visible and details.size.y > 112 and immediately_after(guidance_scroll, toggle) and rect_inside(fields, actions), "layout_technical_details_expand_into_remaining_space")
 		picker.select(1)
 		picker.item_selected.emit(1)
 		inspect.pressed.emit()
