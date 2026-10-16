@@ -1,0 +1,15 @@
+{
+  "base": "fecf4fc9dd3e04aa79bf0d7b390dc24b3ab6511b",
+  "head": "56d39c35e0d85f75c05ba9c35644c60c59f92eaa",
+  "probes": [
+    {"command": "git diff --check", "status": "PASS", "log": "no output"},
+    {"command": "git diff --cached --check", "status": "PASS", "log": "no output"},
+    {"command": "git diff --check fecf4fc9dd3e04aa79bf0d7b390dc24b3ab6511b...HEAD", "status": "PASS", "log": "no output"},
+    {"command": "C:/Users/pial/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe tools/verify_repository.py", "status": "PASS", "log": "PASS static repository outputs, links, Python/JSON syntax and artifact isolation"},
+    {"command": "git diff --exit-code 81e4b07e12ae0fea70af16f68dbd30d0bb4aa629...HEAD -- addons/go_flora", "status": "PASS", "log": "no output; packaged addon bytes equal current HEAD"},
+    {"command": "git status --porcelain --untracked-files=no", "status": "PASS", "log": "empty; tracked worktree clean"},
+    {"command": "git status --short", "status": "PASS_WITH_PRESERVED_USER_FILE", "log": "one pre-existing untracked ChatGPT WebP; not inspected or changed"}
+  ],
+  "INTERACTIVE_GUI_QA": "NOT_RUN",
+  "CI": "NOT_RUN before push/PR"
+}
