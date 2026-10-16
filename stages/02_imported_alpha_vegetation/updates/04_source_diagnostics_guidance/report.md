@@ -38,3 +38,7 @@ SHA-256: `3b018796a87abc632df574ef8c759a6e2afc04492d045ab4f47941834833d204`.
 ## Ограничения
 
 Три CI workflow ещё не запускались для будущего PR head и потому имеют статус **NOT_RUN** в этом отчёте. Физические mouse/navigation/save проверки выполняет только владелец в своей копии TEST_FLORA; агент её не читал и не изменял. Инструкция: [manual_qa.md](manual_qa.md).
+
+## GUI-13.1 layout follow-up
+
+Owner обнаружил historical GUI-13.1 FAIL после этого исходного delivery: окно Source Diagnostics выходило за рабочую область. Точечное исправление, новое automated evidence и актуальный package описаны в [layout_fix.md](layout_fix.md). Этот follow-up заменяет ZIP выше для ручной установки; interactive GUI QA вновь остаётся **NOT_RUN** до подтверждения владельца.
