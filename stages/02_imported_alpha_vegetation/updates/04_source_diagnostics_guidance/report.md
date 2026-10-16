@@ -42,3 +42,7 @@ SHA-256: `3b018796a87abc632df574ef8c759a6e2afc04492d045ab4f47941834833d204`.
 ## GUI-13.1 layout follow-up
 
 Owner обнаружил historical GUI-13.1 FAIL после этого исходного delivery: окно Source Diagnostics выходило за рабочую область. Точечное исправление, новое automated evidence и актуальный package описаны в [layout_fix.md](layout_fix.md). Этот follow-up заменяет ZIP выше для ручной установки; interactive GUI QA вновь остаётся **NOT_RUN** до подтверждения владельца.
+
+## GUI-13.3 adaptive layout follow-up
+
+После owner GUI-13.3 PASS запрошено эргономическое уточнение: content-sized guidance, toggle непосредственно после него и expanded Technical Details на оставшейся высоте. Реализация, evidence и новый ZIP описаны в [layout_refinement.md](layout_refinement.md). Этот ZIP заменяет предыдущий layout-fix archive для следующей owner QA; merge по-прежнему не разрешён.
