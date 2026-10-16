@@ -1,3 +1,6 @@
 * text=auto eol=lf
 *.png binary
 *.webp binary
+
+# Preserve terminal padding only in generated Issue #13 evidence logs.
+stages/02_imported_alpha_vegetation/updates/04_source_diagnostics_guidance/evidence/runs/**/*.log -whitespace

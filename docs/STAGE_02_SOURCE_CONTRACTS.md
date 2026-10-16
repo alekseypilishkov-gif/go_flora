@@ -24,6 +24,12 @@ Editor: inert mesh preview only, no script execution or authored physics bodies.
 
 `enabled`/record-hidden/distance change visual GeometryInstances only. Script processing and collision layers are not toggled. Invisible plants can still cost CPU/physics. Renderer-owned visibility/ranges are the supported visual policy, not a general behavior scheduler. Complex scripts creating/removing/reconfiguring geometry dynamically are not validated examples. The original example proves ready/process/signal/group behavior and a real collider, not every possible gameplay script.
 
+## Diagnostic contract
+
+`GFSourceResolution` also exposes non-persistent UI classification for Source Diagnostics. It does not replace `status`, does not alter source revision/fingerprinting, and is never saved in `GFVegetationSource`, records or scenes. `diagnostic_state` is one of `STANDARD`, `REVIEW_REQUIRED`, `REVISION_MISMATCH`, `REVIEWED_READY`, or `HARD_UNSUPPORTED`; `blocking_reason` is a typed category from the concrete resolver branch. The Editor uses these fields, never a substring from free-form diagnostics, to choose user guidance.
+
+`REVIEW_REQUIRED` is emitted only after the inspected PackedScene has passed the existing fallback allowlist but lacks a current opt-in review. `REVISION_MISMATCH` takes priority when a non-empty saved review differs from the current computed revision. `REVIEWED_READY` is emitted only after the original `allow_scene_fallback` and exact-revision checks already succeeded. Unsupported node/property/render/mesh features, nested or inherited structures and `@tool` scripts are `HARD_UNSUPPORTED`; an unclassified scene failure remains fail-closed. This diagnostic classification is explanatory only: it cannot enable fallback, instantiate a scene in the editor preview, or weaken any resolver branch.
+
 ## Alpha cards
 
 `GFAlphaCard` references project PNG/WebP Texture2D, single/crossed/radial mode, bounded 3–4 radial count, width/vertical height, splay ±30°, pixel region, inward gutter and threshold. Zero region means full image. Invalid bounds/dimensions/gutters/opaque images are rejected. Mesh/material are shared deterministic derived resources; no new random mesh per placement. No vertex colors are written. Width/height control aspect explicitly.

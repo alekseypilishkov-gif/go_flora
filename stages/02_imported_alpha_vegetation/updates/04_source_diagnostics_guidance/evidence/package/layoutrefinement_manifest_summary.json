@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scope": "plugin-only local update; not a release",
+  "version": "0.2.4-dev",
+  "archive": "GO_FLORA_stage02_0.2.4-dev_a0f7ea1c.zip",
+  "sha256": "22a3a2957f0bfcb6ade623c3aa4c369d1b4b23f715c561ce2e5e8ed8d9a551b4",
+  "source_digest": "a0f7ea1c5e1dd53a67708b40350f6b354099080c57e626e8510097e704675a9e",
+  "git_head_at_packaging": "3d9bf1970f09395bc2c01921b09c1f421a0995cd",
+  "file_count": 55,
+  "verification": "PASS CRC and every file SHA-256; full per-file manifest is adjacent to the ZIP in .scratch/packages"
+}
