@@ -660,6 +660,23 @@ func _show_help() -> void:
 	_help_window.canceled.connect(_help_window.queue_free)
 	_help_window.popup_centered()
 
+func _source_diagnostics_guidance(source: GFVegetationSource, result: GFSourceResolution) -> String:
+	# Do not infer safety from result.diagnostics. The resolver classifies the
+	# state before this UI is built, so a new/unknown failure remains fail-closed.
+	match result.diagnostic_state:
+		GFSourceResolution.DiagnosticState.REVIEW_REQUIRED:
+			return "Для этой PackedScene требуется ручная проверка: найдены игровые компоненты или авторская семантика.\n\n1. Изучите PackedScene, скрипты и зависимости.\n2. Нажмите «Copy revision for reviewed fallback».\n3. Нажмите «Edit selected Source in Inspector».\n4. Вставьте скопированную строку в «Reviewed Scene Revision».\n5. Включите «Allow Scene Fallback».\n6. Вернитесь сюда и убедитесь, что Status: READY и scene_instances: true."
+		GFSourceResolution.DiagnosticState.REVISION_MISMATCH:
+			return "Сцена изменилась: прежнее разрешение больше не действует, поэтому Scene Fallback заблокирован.\n\nРанее одобренная ревизия: %s\nТекущая ревизия: %s\n\nПовторно изучите PackedScene, скрипты и зависимости до копирования нового fingerprint. Затем скопируйте revision, откройте Source в Inspector, замените «Reviewed Scene Revision», включите «Allow Scene Fallback» и снова проверьте READY." % [source.reviewed_scene_revision if not source.reviewed_scene_revision.is_empty() else "(нет сохранённой)", result.revision]
+		GFSourceResolution.DiagnosticState.REVIEWED_READY:
+			return "Текущая ревизия сцены разрешена для Scene Fallback. В Editor показывается инертный Mesh preview: скрипты и коллайдеры не запускаются. В Runtime создаётся полноценный Scene Instance с авторскими скриптами и коллайдерами; он дороже MultiMesh."
+		GFSourceResolution.DiagnosticState.HARD_UNSUPPORTED:
+			return "Scene Fallback заблокирован: обнаружена функциональность вне поддерживаемого allowlist. Категория отказа: %s.\n\nКопирование revision не снимает это ограничение. Исправьте или исключите несовместимый компонент и повторно проверьте Source; fallback не включается автоматически." % result.blocking_reason_label()
+		_:
+			if result.status == GFSourceResolution.Status.READY:
+				return "Статический Source готов к использованию. Scene Fallback для него не требуется."
+			return "Source пока не готов. Проверьте техническую диагностику и устраните указанную проблему; Scene Fallback не предлагается автоматически."
+
 func _show_source_details() -> void:
 	_close_palette_removal()
 	cancel_stroke()
@@ -676,9 +693,11 @@ func _show_source_details() -> void:
 	_source_details = AcceptDialog.new()
 	_source_details.title = "Source diagnostics / review revision"
 	var fields := VBoxContainer.new()
-	fields.custom_minimum_size = Vector2(560, 360)
+	fields.name = "SourceDiagnosticsFields"
+	fields.custom_minimum_size = Vector2(560, 420)
 	_source_details.add_child(fields)
 	var picker := OptionButton.new()
+	picker.name = "SourceDiagnosticsPicker"
 	picker.fit_to_longest_item = false
 	var sources: Array[GFVegetationSource] = []
 	for entry in active_set.entries:
@@ -686,30 +705,53 @@ func _show_source_details() -> void:
 			sources.append(entry.source)
 			picker.add_item(entry.source.display_name)
 	fields.add_child(picker)
+	var guidance := Label.new()
+	guidance.name = "SourceDiagnosticsGuidance"
+	guidance.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	guidance.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	fields.add_child(guidance)
+	var details_toggle := Button.new()
+	details_toggle.name = "SourceDiagnosticsTechnicalToggle"
+	details_toggle.text = "Технические сведения"
+	details_toggle.toggle_mode = true
+	details_toggle.button_pressed = true
+	fields.add_child(details_toggle)
 	var text := TextEdit.new()
+	text.name = "SourceDiagnosticsTechnicalDetails"
 	text.editable = false
 	text.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
 	text.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	fields.add_child(text)
+	details_toggle.toggled.connect(func(visible: bool) -> void:
+		text.visible = visible)
+	var copy := Button.new()
+	copy.name = "SourceDiagnosticsCopyRevision"
+	copy.text = "Copy revision for reviewed fallback"
+	fields.add_child(copy)
+	var inspect := Button.new()
+	inspect.name = "SourceDiagnosticsEditSource"
+	inspect.text = "Edit selected Source in Inspector"
+	fields.add_child(inspect)
 	var refresh := func(_index: int = 0) -> void:
 		if sources.is_empty():
 			return
-		var result := sources[picker.selected].resolve()
-		text.text = "Status: %s\nProvider: %s\nRevision: %s\nCapabilities: %s\nReferences: %s\n\n%s" % [GFSourceResolution.Status.keys()[result.status], result.provider,
+		var source := sources[picker.selected]
+		var result := source.resolve()
+		guidance.text = _source_diagnostics_guidance(source, result)
+		text.text = "Status: %s\nDiagnostic state: %s\nBlocking reason: %s\nProvider: %s\nRevision: %s\nCapabilities: %s\nReferences: %s\n\n%s" % [GFSourceResolution.Status.keys()[result.status],
+			GFSourceResolution.DiagnosticState.keys()[result.diagnostic_state], result.blocking_reason_label(), result.provider,
 			result.revision, JSON.stringify(result.capabilities), str(result.references), "\n".join(result.diagnostics)]
+		copy.visible = result.diagnostic_state in [GFSourceResolution.DiagnosticState.REVIEW_REQUIRED, GFSourceResolution.DiagnosticState.REVISION_MISMATCH, GFSourceResolution.DiagnosticState.REVIEWED_READY]
+		# Retain the selected immutable value on the Control for Editor API tests;
+		# headless display servers intentionally do not expose a system clipboard.
+		copy.set_meta("go_flora_selected_revision", result.revision)
 	picker.item_selected.connect(refresh)
-	var copy := Button.new()
-	copy.text = "Copy revision for reviewed fallback"
 	copy.pressed.connect(func() -> void:
 		if not sources.is_empty():
 			DisplayServer.clipboard_set(sources[picker.selected].resolve().revision))
-	fields.add_child(copy)
-	var inspect := Button.new()
-	inspect.text = "Edit selected Source in Inspector"
 	inspect.pressed.connect(func() -> void:
 		if not sources.is_empty():
 			get_editor_interface().edit_resource(sources[picker.selected]))
-	fields.add_child(inspect)
 	get_editor_interface().get_base_control().add_child(_source_details)
 	_source_details.confirmed.connect(_source_details.queue_free)
 	_source_details.canceled.connect(_source_details.queue_free)

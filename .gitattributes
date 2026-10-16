@@ -1,3 +1,3 @@
-* text=auto eol=lf
-*.png binary
-*.webp binary
+# Godot's native test output includes significant terminal padding. Preserve raw
+# evidence exactly while keeping normal source files under diff --check.
+stages/02_imported_alpha_vegetation/updates/04_source_diagnostics_guidance/evidence/runs/** -whitespace
