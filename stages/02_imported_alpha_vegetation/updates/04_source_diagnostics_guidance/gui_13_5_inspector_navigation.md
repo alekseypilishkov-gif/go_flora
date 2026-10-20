@@ -48,7 +48,7 @@ Godot: 4.7.2.stable.official.ed1daf0bf. SHA-256 локального бинар�
 
 ## CI и поставка
 
-В Stage 02 workflow добавлен запуск Issue #13 suite, поэтому новый navigation regression выполняется в CI. Три workflow — Repository static checks, Stage 01 Godot automatic checks, Stage 02 imported assets automatic checks — запускаются на push. Их финальное состояние проверяется на опубликованном HEAD перед завершением задания; ссылки и SHA сообщаются в delivery.
+В Stage 02 workflow добавлен запуск Issue #13 suite, поэтому новый navigation regression выполняется в CI. Первый Linux прогон выявил отсутствие pinned baseline при стандартном shallow checkout: git ls-tree завершился до Godot-проб. Для Resolver parity добавлен fetch-depth: 0; addon не изменён. [CI bootstrap failure](evidence/runs/gui135-ci-bootstrap/summary.json), [точный лог](evidence/runs/gui135-ci-bootstrap/failure.log). Три workflow — Repository static checks, Stage 01 Godot automatic checks, Stage 02 imported assets automatic checks — запускаются на push. Их финальное состояние проверяется на опубликованном HEAD перед завершением задания; ссылки и SHA сообщаются в delivery.
 
 После commit/push исправления **9b8cbbae1b1f5dc4985779d95ad3c0658d1b494f** сформирован plugin-only ZIP:
 

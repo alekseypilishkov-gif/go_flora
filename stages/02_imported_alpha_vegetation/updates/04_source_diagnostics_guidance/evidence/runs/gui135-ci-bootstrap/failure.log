@@ -1,0 +1,29 @@
+##[group]Run python tools/run_issue13_tests.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --label ci
+2026-10-20T04:26:59.0943268Z [36;1mpython tools/run_issue13_tests.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --label ci[0m
+2026-10-20T04:26:59.0976204Z shell: /usr/bin/bash -e {0}
+2026-10-20T04:26:59.0976548Z env:
+2026-10-20T04:26:59.0976996Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-20T04:26:59.0977524Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-20T04:26:59.0978088Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-20T04:26:59.0978527Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-20T04:26:59.0978946Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-20T04:26:59.0979414Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-20T04:26:59.0979793Z ##[endgroup]
+2026-10-20T04:26:59.1461934Z fatal: not a tree object
+2026-10-20T04:26:59.1464061Z Traceback (most recent call last):
+2026-10-20T04:26:59.1470912Z   File "/home/runner/work/go_flora/go_flora/tools/run_issue13_tests.py", line 119, in <module>
+2026-10-20T04:26:59.1471754Z     raise SystemExit(main())
+2026-10-20T04:26:59.1472171Z                      ^^^^^^
+2026-10-20T04:26:59.1472618Z   File "/home/runner/work/go_flora/go_flora/tools/run_issue13_tests.py", line 56, in main
+2026-10-20T04:26:59.1473071Z     replace_addon_with_base(baseline)
+2026-10-20T04:26:59.1473633Z   File "/home/runner/work/go_flora/go_flora/tools/run_issue13_tests.py", line 22, in replace_addon_with_base
+2026-10-20T04:26:59.1474368Z     names = subprocess.check_output(
+2026-10-20T04:26:59.1474715Z             ^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-20T04:26:59.1475204Z   File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/subprocess.py", line 466, in check_output
+2026-10-20T04:26:59.1475744Z     return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+2026-10-20T04:26:59.1476175Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-20T04:26:59.1476643Z   File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/subprocess.py", line 571, in run
+2026-10-20T04:26:59.1627094Z     raise CalledProcessError(retcode, process.args,
+2026-10-20T04:26:59.1628766Z subprocess.CalledProcessError: Command '['git', 'ls-tree', '-r', '--name-only', 'fecf4fc9dd3e04aa79bf0d7b390dc24b3ab6511b', '--', 'addons/go_flora']' returned non-zero exit status 128.
+2026-10-20T04:26:59.1686419Z ##[error]Process completed with exit code 1.
+2026-10-20T04:26:59.1760962Z
