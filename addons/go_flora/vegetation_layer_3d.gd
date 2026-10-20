@@ -13,6 +13,7 @@ extends Node3D
 		cell_size_m = clampf(value, 0.25, 1000.0) if is_finite(value) else 8.0
 		request_rebuild()
 var render_diagnostics: PackedStringArray = []
+var configuration_warnings: PackedStringArray = []
 var batches_by_set: Dictionary = {}
 var _cache_root: Node3D
 var _scene_root: Node3D
@@ -47,7 +48,7 @@ func editing_diagnostic() -> String:
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var reason := editing_diagnostic()
-	return PackedStringArray([reason]) if not reason.is_empty() else render_diagnostics
+	return PackedStringArray([reason]) if not reason.is_empty() else configuration_warnings
 
 func _unbind_resources() -> void:
 	for binding in _bindings:
@@ -143,6 +144,7 @@ func rebuild_now() -> void:
 		child.free()
 	batches_by_set.clear()
 	render_diagnostics.clear()
+	configuration_warnings.clear()
 	var reason := editing_diagnostic()
 	if not reason.is_empty():
 		render_diagnostics.append(reason)
@@ -160,6 +162,7 @@ func rebuild_now() -> void:
 		batches_by_set = result.by_set
 		_preview_slots = result.record_slots
 		render_diagnostics = result.diagnostics
+		configuration_warnings = result.configuration_warnings
 	if Engine.is_editor_hint():
 		update_configuration_warnings()
 

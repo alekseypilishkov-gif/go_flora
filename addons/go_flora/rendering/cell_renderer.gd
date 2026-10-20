@@ -6,6 +6,7 @@ static func build(records: Array[GFInstanceRecord], sets: Array[GFVegetationSet]
 	var sources: Dictionary = {}
 	var set_map: Dictionary = {}
 	var diagnostics: PackedStringArray = []
+	var configuration_issues: Dictionary = {}
 	for vegetation_set in sets:
 		if vegetation_set == null:
 			continue
@@ -24,6 +25,10 @@ static func build(records: Array[GFInstanceRecord], sets: Array[GFVegetationSet]
 		var source_key := JSON.stringify([record.set_id, record.source_id])
 		if not set_map.has(record.set_id) or not sources.has(source_key) or sources[source_key].resolution.status != GFSourceResolution.Status.READY:
 			diagnostics.append("Record %s: missing/unsupported set or source '%s'; logical record retained." % [record.record_id.left(8), source_key])
+			var problem := GFConfigurationWarnings.Problem.MISSING_SET if not set_map.has(record.set_id) else (
+				GFConfigurationWarnings.Problem.MISSING_SOURCE if not sources.has(source_key) else GFConfigurationWarnings.Problem.SOURCE_NOT_READY)
+			var failed: Dictionary = sources.get(source_key, {})
+			GFConfigurationWarnings.record_issue(configuration_issues, record, failed.get("source"), failed.get("resolution"), problem)
 			continue
 		var resolved: Dictionary = sources[source_key]
 		var source: GFVegetationSource = resolved.source
@@ -36,6 +41,7 @@ static func build(records: Array[GFInstanceRecord], sets: Array[GFVegetationSet]
 				instance = resolution.scene.instantiate() as Node3D
 				if instance == null:
 					diagnostics.append("Fallback root must be Node3D: " + source.source_id)
+					GFConfigurationWarnings.record_issue(configuration_issues, record, source, resolution, GFConfigurationWarnings.Problem.FALLBACK_ROOT_INVALID)
 					continue
 				instance.set_meta("go_flora_owned", true)
 				instance.set_meta("record_id", record.record_id)
@@ -107,7 +113,8 @@ static func build(records: Array[GFInstanceRecord], sets: Array[GFVegetationSet]
 			by_set[group.set_id] = []
 		by_set[group.set_id].append(batch)
 	apply_visibility(by_set, sets)
-	return {"by_set": by_set, "diagnostics": diagnostics, "record_slots": record_slots}
+	return {"by_set": by_set, "diagnostics": diagnostics, "record_slots": record_slots,
+		"configuration_warnings": GFConfigurationWarnings.format(configuration_issues)}
 
 static func apply_visibility(by_set: Dictionary, sets: Array[GFVegetationSet]) -> void:
 	for vegetation_set in sets:

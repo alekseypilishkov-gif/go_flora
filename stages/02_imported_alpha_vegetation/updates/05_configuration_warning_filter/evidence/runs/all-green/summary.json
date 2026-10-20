@@ -1,0 +1,397 @@
+{
+  "base": "ce3391049e4427625c70b6ffe145b2aaa7ab91dc",
+  "phase": "all",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "probes": [
+    {
+      "case": "version",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\candidate",
+        "--headless",
+        "--version"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\version"
+    },
+    {
+      "case": "import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\candidate",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\import"
+    },
+    {
+      "case": "warnings_core",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_issue16_warnings.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\warnings_core"
+    },
+    {
+      "case": "warnings_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_issue16_reopen.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\warnings_reopen"
+    },
+    {
+      "case": "baseline_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\baseline",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\baseline_import"
+    },
+    {
+      "case": "renderer_baseline",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\baseline",
+        "--headless",
+        "--script",
+        "tests/test_issue16_render_parity.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\renderer_baseline"
+    },
+    {
+      "case": "renderer_candidate",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_issue16_render_parity.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\renderer_candidate"
+    },
+    {
+      "case": "renderer_legacy_contract_parity",
+      "status": "PASS",
+      "base": "ce3391049e4427625c70b6ffe145b2aaa7ab91dc"
+    },
+    {
+      "case": "warnings_editor_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\warnings_editor",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\warnings_editor_import"
+    },
+    {
+      "case": "warnings_editor",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\warnings_editor",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\warnings_editor"
+    },
+    {
+      "case": "diagnostics_editor_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\diagnostics_editor",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\diagnostics_editor_import"
+    },
+    {
+      "case": "diagnostics_editor",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\diagnostics_editor",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\diagnostics_editor"
+    },
+    {
+      "case": "modal_editor_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\modal_editor",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\modal_editor_import"
+    },
+    {
+      "case": "modal_editor",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\modal_editor",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\modal_editor"
+    },
+    {
+      "case": "erase_palette_editor_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\erase_palette_editor",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\erase_palette_editor_import"
+    },
+    {
+      "case": "erase_palette_editor",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\erase_palette_editor",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\erase_palette_editor"
+    },
+    {
+      "case": "stage01",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage01.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\stage01"
+    },
+    {
+      "case": "stage01_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage01_reopen.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\stage01_reopen"
+    },
+    {
+      "case": "stage02",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage02.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\stage02"
+    },
+    {
+      "case": "stage02_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage02_reopen.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\stage02_reopen"
+    },
+    {
+      "case": "stage021",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage021.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\stage021"
+    },
+    {
+      "case": "stage021_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage021_reopen.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\stage021_reopen"
+    },
+    {
+      "case": "stage023",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage023.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\stage023"
+    },
+    {
+      "case": "stage023_catalog",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage023_catalog.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\stage023_catalog"
+    },
+    {
+      "case": "diagnostic_states",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_issue13_diagnostics.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\all-green-1792477447302852800\\profiles\\diagnostic_states"
+    }
+  ],
+  "INTERACTIVE_GUI_QA": "NOT_RUN",
+  "scope": "isolated headless/native Editor API; no TEST_FLORA"
+}

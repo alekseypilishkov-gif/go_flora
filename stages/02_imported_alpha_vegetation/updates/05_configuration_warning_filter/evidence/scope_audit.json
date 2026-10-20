@@ -1,0 +1,222 @@
+{
+  "status": "PASS",
+  "kind": "SOURCE_INSPECTION_AND_BYTE_HASHES",
+  "base": "ce3391049e4427625c70b6ffe145b2aaa7ab91dc",
+  "commands": [
+    [
+      "git",
+      "ls-tree",
+      "-r",
+      "--name-only",
+      "ce3391049e4427625c70b6ffe145b2aaa7ab91dc",
+      "--",
+      "addons/go_flora/data",
+      "addons/go_flora/sources",
+      "addons/go_flora/core"
+    ],
+    [
+      "git",
+      "show",
+      "ce3391049e4427625c70b6ffe145b2aaa7ab91dc:<path>"
+    ],
+    [
+      "git",
+      "diff",
+      "--name-only",
+      "ce3391049e4427625c70b6ffe145b2aaa7ab91dc"
+    ]
+  ],
+  "tracked_diff_paths": [
+    ".gitattributes",
+    ".github/workflows/stage02-godot.yml",
+    "addons/go_flora/editor/plugin.gd",
+    "addons/go_flora/plugin.cfg",
+    "addons/go_flora/rendering/cell_renderer.gd",
+    "addons/go_flora/vegetation_layer_3d.gd"
+  ],
+  "protected_files": [
+    {
+      "path": "addons/go_flora/core/erase_query.gd",
+      "base_sha256": "84a53d6c3abfdaadb171d5dcb51d2b22cd1af1038dd42e84ac8526f1adb8e310",
+      "current_sha256": "84a53d6c3abfdaadb171d5dcb51d2b22cd1af1038dd42e84ac8526f1adb8e310",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/core/erase_query.gd.uid",
+      "base_sha256": "f23b3ccfe740391c32563bf07baccab5e168a558bf19c79316f8b41bec1c2bd1",
+      "current_sha256": "f23b3ccfe740391c32563bf07baccab5e168a558bf19c79316f8b41bec1c2bd1",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/core/placement.gd",
+      "base_sha256": "fa167dc5992c68294bbc6efebe787742c7c70ad20b188bacb781435e39fb1fe0",
+      "current_sha256": "fa167dc5992c68294bbc6efebe787742c7c70ad20b188bacb781435e39fb1fe0",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/core/placement.gd.uid",
+      "base_sha256": "c90b74f62b265a49b1189ca8a459a4a16fa0066e2e1c6fcee55b76fcdd21faae",
+      "current_sha256": "c90b74f62b265a49b1189ca8a459a4a16fa0066e2e1c6fcee55b76fcdd21faae",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/core/record_delta.gd",
+      "base_sha256": "c4f633c8577cede30cfa3f1e961b640c5765dcffec636ec5ced45fe6337e8bcf",
+      "current_sha256": "c4f633c8577cede30cfa3f1e961b640c5765dcffec636ec5ced45fe6337e8bcf",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/core/record_delta.gd.uid",
+      "base_sha256": "412a136ad8d99c72a604e81ce2ff1ab6faa87df8a814d023d8a992a5eb311b89",
+      "current_sha256": "412a136ad8d99c72a604e81ce2ff1ab6faa87df8a814d023d8a992a5eb311b89",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/core/stroke.gd",
+      "base_sha256": "6987c01d54b43aa9ea0c46fed35552ecb001cd9defe04f6dbf66b7c0d95df490",
+      "current_sha256": "6987c01d54b43aa9ea0c46fed35552ecb001cd9defe04f6dbf66b7c0d95df490",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/core/stroke.gd.uid",
+      "base_sha256": "c961e76c2b7e2f02e70f9f63e001c7afb2c6dd7766a12e992fd6245e619932e3",
+      "current_sha256": "c961e76c2b7e2f02e70f9f63e001c7afb2c6dd7766a12e992fd6245e619932e3",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/data/alpha_card.gd",
+      "base_sha256": "d0aea3fc20dd02cc61fc1af120b93a90ff0150dfb62b9b4aaded99b5eef83219",
+      "current_sha256": "d0aea3fc20dd02cc61fc1af120b93a90ff0150dfb62b9b4aaded99b5eef83219",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/data/alpha_card.gd.uid",
+      "base_sha256": "50edf2dd770cb1dd68c541508963451a3685f8f2bf9e6b03cdc88c48ec517ad2",
+      "current_sha256": "50edf2dd770cb1dd68c541508963451a3685f8f2bf9e6b03cdc88c48ec517ad2",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/data/brush.gd",
+      "base_sha256": "5d9e2a06f57e3d3f5e41b6ed44c93ce07208915da5e53b99a6eaca38b9ad3132",
+      "current_sha256": "5d9e2a06f57e3d3f5e41b6ed44c93ce07208915da5e53b99a6eaca38b9ad3132",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/data/brush.gd.uid",
+      "base_sha256": "f754ead8594784a6606f12d033553eb361f4e9f8f1758894f7f1e61958046552",
+      "current_sha256": "f754ead8594784a6606f12d033553eb361f4e9f8f1758894f7f1e61958046552",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/data/instance_record.gd",
+      "base_sha256": "21e7be76d4a535a5c2b1903d39975d0dbf37c44e3a123b4aab70ed8ef085bf90",
+      "current_sha256": "21e7be76d4a535a5c2b1903d39975d0dbf37c44e3a123b4aab70ed8ef085bf90",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/data/instance_record.gd.uid",
+      "base_sha256": "cd2932ccba77b76181eca893c2e91a8998c930bc013a8c758e3456cab1ca5d71",
+      "current_sha256": "cd2932ccba77b76181eca893c2e91a8998c930bc013a8c758e3456cab1ca5d71",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/data/layer_data.gd",
+      "base_sha256": "c64e13426f980dec29f515ac7ee74c43aace49237fef9ab02cac1520c337953d",
+      "current_sha256": "c64e13426f980dec29f515ac7ee74c43aace49237fef9ab02cac1520c337953d",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/data/layer_data.gd.uid",
+      "base_sha256": "2129dc94bdae83d41c6f376d3b7cf3ea43720e71a59ad91d77b83d4f17167e92",
+      "current_sha256": "2129dc94bdae83d41c6f376d3b7cf3ea43720e71a59ad91d77b83d4f17167e92",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/data/palette_entry.gd",
+      "base_sha256": "b763227bba25ce0cc58d7ec54e59e3fff653c821b87b5f0d4d84bb8261900bd1",
+      "current_sha256": "b763227bba25ce0cc58d7ec54e59e3fff653c821b87b5f0d4d84bb8261900bd1",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/data/palette_entry.gd.uid",
+      "base_sha256": "146599fb7921ebc5303bfd58796e387e9d0eb254ec54da48e78fa13d6959ba89",
+      "current_sha256": "146599fb7921ebc5303bfd58796e387e9d0eb254ec54da48e78fa13d6959ba89",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/data/source.gd",
+      "base_sha256": "96d199b5e99915c68506689c3185134edb5a865a6a8d8c9f0df68ef22efc23e5",
+      "current_sha256": "96d199b5e99915c68506689c3185134edb5a865a6a8d8c9f0df68ef22efc23e5",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/data/source.gd.uid",
+      "base_sha256": "39d31da879127dd34630c6154a8834cc88c1ad82d400773ff88c0c454d02daff",
+      "current_sha256": "39d31da879127dd34630c6154a8834cc88c1ad82d400773ff88c0c454d02daff",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/data/vegetation_set.gd",
+      "base_sha256": "e1ded608df6266d85fd4b2493c8b96121d0650f1929d2441c91df4dce6dd76db",
+      "current_sha256": "e1ded608df6266d85fd4b2493c8b96121d0650f1929d2441c91df4dce6dd76db",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/data/vegetation_set.gd.uid",
+      "base_sha256": "82bfbdcdb0d36790e1e10c5126213f61bcee7d2f1056f4cf4fe55dea598b4d9a",
+      "current_sha256": "82bfbdcdb0d36790e1e10c5126213f61bcee7d2f1056f4cf4fe55dea598b4d9a",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/sources/alpha_card_builder.gd",
+      "base_sha256": "9c019312d48ad1503ea77f5697974617e295f4c72a9895e7a554149a561ebad1",
+      "current_sha256": "9c019312d48ad1503ea77f5697974617e295f4c72a9895e7a554149a561ebad1",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/sources/alpha_card_builder.gd.uid",
+      "base_sha256": "68ed8197c22732d8275b1caecfc65a21220d97fbae4027537b5b49bc2bcc7d4f",
+      "current_sha256": "68ed8197c22732d8275b1caecfc65a21220d97fbae4027537b5b49bc2bcc7d4f",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/sources/source_part.gd",
+      "base_sha256": "c9264666fcc795f6387706e8a1f89401d102be3be13eb6e204ba6b2fbd0c70ce",
+      "current_sha256": "c9264666fcc795f6387706e8a1f89401d102be3be13eb6e204ba6b2fbd0c70ce",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/sources/source_part.gd.uid",
+      "base_sha256": "f6b8fc235555ac95bc264387db639371427bea9b616f41a7c94ed207caf0eb23",
+      "current_sha256": "f6b8fc235555ac95bc264387db639371427bea9b616f41a7c94ed207caf0eb23",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/sources/source_resolution.gd",
+      "base_sha256": "39ebc23212c41c24c6236243d06ef6976f66a01872e86b11d7e3c5d1fabb0303",
+      "current_sha256": "39ebc23212c41c24c6236243d06ef6976f66a01872e86b11d7e3c5d1fabb0303",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/sources/source_resolution.gd.uid",
+      "base_sha256": "045d7e70fce4f21f9ea7f0b2c1f9fb330d838c19d0a199dbe297639d740f8397",
+      "current_sha256": "045d7e70fce4f21f9ea7f0b2c1f9fb330d838c19d0a199dbe297639d740f8397",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/sources/source_resolver.gd",
+      "base_sha256": "c525cc78f0c55e47ed66daae4d37a4f18a8135a8392b52ac964e76a6fceefa0c",
+      "current_sha256": "c525cc78f0c55e47ed66daae4d37a4f18a8135a8392b52ac964e76a6fceefa0c",
+      "unchanged": true
+    },
+    {
+      "path": "addons/go_flora/sources/source_resolver.gd.uid",
+      "base_sha256": "e0a5eac5228f6f07f146479d88bf37398b0b3c42eb55fe83e9ca96753d3fa5c5",
+      "current_sha256": "e0a5eac5228f6f07f146479d88bf37398b0b3c42eb55fe83e9ca96753d3fa5c5",
+      "unchanged": true
+    }
+  ],
+  "owner_project": "TEST_FLORA not opened or modified",
+  "previous_stage_evidence": "No tracked changes",
+  "preexisting_untracked_image": "Preserved outside this issue scope"
+}

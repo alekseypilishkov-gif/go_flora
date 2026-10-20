@@ -1,0 +1,115 @@
+{
+  "python_executable": "C:/Users/pial/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+  "probes": [
+    {
+      "name": "core-initial",
+      "command": [
+        "python",
+        "tools/run_issue16_tests.py",
+        "--godot",
+        ".scratch/godot-portable/godot.exe",
+        "--label",
+        "core-initial",
+        "--phase",
+        "core"
+      ],
+      "status": "FAIL",
+      "exit_code": 1
+    },
+    {
+      "name": "core-diagnose",
+      "command": [
+        "python",
+        "tools/run_issue16_tests.py",
+        "--godot",
+        ".scratch/godot-portable/godot.exe",
+        "--label",
+        "core-diagnose",
+        "--phase",
+        "core"
+      ],
+      "status": "FAIL",
+      "exit_code": 1
+    },
+    {
+      "name": "targeted-initial",
+      "command": [
+        "python",
+        "tools/run_issue16_tests.py",
+        "--godot",
+        ".scratch/godot-portable/godot.exe",
+        "--label",
+        "targeted-initial",
+        "--phase",
+        "targeted"
+      ],
+      "status": "FAIL",
+      "exit_code": 1
+    },
+    {
+      "name": "all-green",
+      "command": [
+        "python",
+        "tools/run_issue16_tests.py",
+        "--godot",
+        ".scratch/godot-portable/godot.exe",
+        "--label",
+        "all-green",
+        "--phase",
+        "all"
+      ],
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "red-confirmed",
+      "command": [
+        "python",
+        ".scratch/issue16_red.py"
+      ],
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "repository-validation",
+      "command": [
+        "python",
+        "tools/verify_repository.py"
+      ],
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "working-whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "bash-whitespace-regression",
+      "command": [
+        "python",
+        "stages/00_source_audit/evidence/whitespace_probe.py",
+        "--bash",
+        "C:/Progra~1/Git/bin/bash.exe"
+      ],
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "staged-whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "status": "PASS",
+      "exit_code": 0
+    }
+  ]
+}

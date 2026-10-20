@@ -1,0 +1,91 @@
+{
+  "batches": [
+    {
+      "bounds": "[P: (-0.635428, -0.51, -0.635428), S: (1.270857, 1.02, 1.270857)]",
+      "cell": "(0, 0)",
+      "distance": 0.0,
+      "part": "mesh",
+      "position": "(0.0, 0.0, 0.0)",
+      "records": [
+        "parity-record-0"
+      ],
+      "set": "set-a",
+      "surfaces": 1,
+      "transforms": [
+        "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+      ],
+      "visible": true
+    },
+    {
+      "bounds": "[P: (-0.635428, -0.51, -0.635428), S: (1.270857, 1.02, 1.270857)]",
+      "cell": "(1, 0)",
+      "distance": 25.0,
+      "part": "mesh",
+      "position": "(8.0, 0.0, 0.0)",
+      "records": [
+        "parity-record-4"
+      ],
+      "set": "set-b",
+      "surfaces": 1,
+      "transforms": [
+        "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+      ],
+      "visible": true
+    },
+    {
+      "bounds": "[P: (1.919559, 0.09, -0.495567), S: (0.483913, 0.82, 0.681858)]",
+      "cell": "(0, 0)",
+      "distance": 0.0,
+      "part": "./Pivot/One",
+      "position": "(0.0, 0.0, 0.0)",
+      "records": [
+        "parity-record-1"
+      ],
+      "set": "set-a",
+      "surfaces": 1,
+      "transforms": [
+        "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+      ],
+      "visible": true
+    },
+    {
+      "bounds": "[P: (2.274183, 0.09, 0.650837), S: (0.483913, 0.82, 0.681858)]",
+      "cell": "(0, 0)",
+      "distance": 0.0,
+      "part": "./Pivot/Two",
+      "position": "(0.0, 0.0, 0.0)",
+      "records": [
+        "parity-record-1"
+      ],
+      "set": "set-a",
+      "surfaces": 1,
+      "transforms": [
+        "[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]"
+      ],
+      "visible": true
+    }
+  ],
+  "diagnostics": [
+    "Scene semantics: .: authored groups; .: script; ./Collider: StaticBody3D; ./Collider/Shape: CollisionShape3D; authored signal connections",
+    "Reviewed scene fallback: runtime instances preserve scripts/colliders; expensive, not MultiMesh. Editor uses inert mesh preview only.",
+    "Source 'unavailable': static Mesh is missing or has the wrong resource type.",
+    "Scene semantics: .: authored groups; .: script; ./Collider: StaticBody3D; ./Collider/Shape: CollisionShape3D; authored signal connections",
+    "Review scene and scripts, then enable fallback and set Reviewed Scene Revision to 'static-v1:4186c5b970b4b05bda0202c019b054d662a4416448c7e15c3fe5b3f1c163bed8'. Revision changes require review again.",
+    "Record parity-r: missing/unsupported set or source '[\"set-a\",\"unavailable\"]'; logical record retained."
+  ],
+  "record_slots": [
+    "parity-record-0",
+    "parity-record-1",
+    "parity-record-4"
+  ],
+  "records": 5,
+  "scenes": [
+    {
+      "colliders": 1,
+      "meshes": 1,
+      "ready": true,
+      "record": "parity-record-2",
+      "transform": "[X: (0.955337, 0.0, -0.29552), Y: (0.0, 1.0, 0.0), Z: (0.29552, 0.0, 0.955337), O: (4.0, 0.0, 0.0)]"
+    }
+  ]
+}

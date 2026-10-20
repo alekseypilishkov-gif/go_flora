@@ -1,0 +1,98 @@
+[
+  {
+    "id": "A_empty_layer_archives_no_warning",
+    "status": "FAIL"
+  },
+  {
+    "id": "A_full_debug_and_archive_preserved",
+    "status": "PASS"
+  },
+  {
+    "id": "B_reviewed_runtime_scene_no_INFO_warning",
+    "status": "FAIL"
+  },
+  {
+    "id": "B_source_details_and_records_preserved",
+    "status": "PASS"
+  },
+  {
+    "id": "C_unused_hard_and_review_archives_do_not_affect_valid_record",
+    "status": "FAIL"
+  },
+  {
+    "id": "C_archive_never_deleted_or_paintable",
+    "status": "PASS"
+  },
+  {
+    "id": "D_one_warning_per_Source_Set_not_per_record",
+    "status": "FAIL"
+  },
+  {
+    "id": "D_unavailable_identity_category_count",
+    "status": "FAIL"
+  },
+  {
+    "id": "D_all_failure_categories_visible",
+    "status": "FAIL"
+  },
+  {
+    "id": "E_Mix_blocked_Selected_ready_allowed",
+    "status": "PASS"
+  },
+  {
+    "id": "E_Painter_failure_does_not_mark_whole_empty_layer_broken",
+    "status": "FAIL"
+  },
+  {
+    "id": "E_zero_weight_excludes_unreviewed_from_Mix",
+    "status": "PASS"
+  },
+  {
+    "id": "E_disabled_source_excluded_from_Mix",
+    "status": "PASS"
+  },
+  {
+    "id": "E_empty_palette_not_a_global_warning",
+    "status": "PASS"
+  },
+  {
+    "id": "F_20000_records_shared_source_aggregated_per_set",
+    "status": "FAIL"
+  },
+  {
+    "id": "F_long_names_bounded_records_unchanged",
+    "status": "PASS"
+  },
+  {
+    "id": "F_source_group_cap_reports_omitted_counts",
+    "status": "FAIL"
+  },
+  {
+    "id": "typed_status_does_not_trust_benign_diagnostic_text",
+    "status": "PASS"
+  },
+  {
+    "id": "typed_READY_does_not_parse_failure_words",
+    "status": "FAIL"
+  },
+  {
+    "id": "corrupted_duplicate_records_not_hidden",
+    "status": "PASS"
+  },
+  {
+    "id": "future_schema_not_hidden_records_retained",
+    "status": "PASS"
+  },
+  {
+    "id": "corrupt_transform_not_hidden",
+    "status": "PASS"
+  },
+  {
+    "id": "save_disposable_scene",
+    "status": "PASS"
+  },
+  {
+    "id": "warnings_channel_not_serialized",
+    "status": "PASS"
+  }
+]
