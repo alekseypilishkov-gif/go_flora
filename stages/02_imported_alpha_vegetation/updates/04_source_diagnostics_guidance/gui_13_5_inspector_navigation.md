@@ -44,13 +44,21 @@ Godot: 4.7.2.stable.official.ed1daf0bf. SHA-256 локального бинар�
 
 Первая red-попытка также выявила ошибку самой проверки: var_to_str(Source) захватывал изменяемый lazy resolver cache. Snapshot теста ограничен экспортированными Source-полями; повторный red на прежнем коде оставил ровно 9 ожидаемых navigation failures. Обе попытки сохранены отдельно, старые evidence не перезаписаны: [первая попытка](evidence/runs/gui135-red/summary.json), [подтверждённая регрессия](evidence/runs/gui135-red-confirmed/summary.json).
 
-Локальная Bash whitespace-проба: первая попытка FAIL из-за отсутствия bash в PATH; повтор с явным Git Bash заблокирован ограничением MSYS NtCreateDirectoryObject (0xC0000022). Эти ошибки окружения сохранены в evidence/gui135. Прямые git diff whitespace checks и Linux CI проверяются отдельно.
+Локальная Bash whitespace-проба: первая попытка FAIL из-за отсутствия bash в PATH; повтор с явным Git Bash заблокирован ограничением MSYS NtCreateDirectoryObject (0xC0000022). Эти ошибки окружения сохранены в evidence/gui135. Повтор штатной пробы вне sandbox — PASS, все 5 cases; [результат](evidence/gui135/whitespace_regression_pass.json). Прямые working/staged и committed PR-base diff whitespace checks — PASS; [gates кодового commit](evidence/gui135/code_commit_gates.json).
 
 ## CI и поставка
 
 В Stage 02 workflow добавлен запуск Issue #13 suite, поэтому новый navigation regression выполняется в CI. Три workflow — Repository static checks, Stage 01 Godot automatic checks, Stage 02 imported assets automatic checks — запускаются на push. Их финальное состояние проверяется на опубликованном HEAD перед завершением задания; ссылки и SHA сообщаются в delivery.
 
-Новый plugin-only ZIP с SHA-256 и manifest будет сформирован после commit/push исправления. Версия остаётся 0.2.4-dev; уникальная сборка определяется source digest и checksum. Установка в TEST_FLORA остаётся ручной задачей владельца. PR #14 должен остаться открытым; merge/release не выполняются.
+После commit/push исправления **9b8cbbae1b1f5dc4985779d95ad3c0658d1b494f** сформирован plugin-only ZIP:
+
+- Файл: `.scratch/packages/GO_FLORA_stage02_0.2.4-dev_571da0b2.zip` относительно каталога этого update.
+- SHA-256: `7906d2ae7b5195b6cd0f066da5a2ece829f23a022ba82782f69619cc98905667`.
+- 55 файлов только в addons/go_flora; **0.2.4-dev**; ZIP не содержит scenes, fixtures, tests, caches и исполняемых зависимостей.
+- [Полный manifest](evidence/package/gui135_manifest.json), [SHA-256](evidence/package/gui135_archive.sha256).
+- [Package validation](evidence/gui135/package_validation.json): PASS CRC/SHA, побайтная воспроизводимость, три установки с сохранением scene/config/layout checksum, запрет traversal, standalone import и runtime Stage 01/02. [Import log](evidence/runs/gui135-package/standalone_import.log), [Stage 02](evidence/runs/gui135-package/stage02_runtime.log), [Stage 01](evidence/runs/gui135-package/stage01_runtime.log).
+
+Package manifest привязан к кодовому commit 9b8cbba. Последующая доставка меняет только documentation/evidence; addon blobs проверяются по manifest на финальном HEAD. Установка в TEST_FLORA остаётся ручной задачей владельца. PR #14 остаётся открытым; merge/release не выполняются.
 
 ## Owner GUI retest
 
