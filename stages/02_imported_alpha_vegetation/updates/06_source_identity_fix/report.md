@@ -80,6 +80,8 @@ GPU-проба использовала GL compatibility, NVIDIA GeForce RTX 506
 
 Первый delivery whitespace gate отклонил два сырых runtime-лога из-за пустой строки stdout в EOF ([summary](evidence/runs/delivery-gates-initial/summary.json)). Правило сохранения terminal whitespace ограничено generated .log текущего Stage B evidence, включая package logs; исходный stdout сохранён, проверки кода/документации не отключены.
 
+Static CI на delivery commit 353933d нашёл ссылку на локальный ZIP в игнорируемом .scratch, отсутствующем в чистом clone ([лог](evidence/ci-delivery-initial/failure.log)). Путь в delivery.md теперь указан текстом; manifest остаётся tracked. Валидатор не изменялся. После документационной правки CI запускаются на новом HEAD.
+
 ## Поставка и приёмка
 
 Проверки репозитория, упаковки, CI и SHA поставки фиксируются в [delivery.md](delivery.md). Пакет содержит только addons/go_flora, без тестовых сцен и пользовательских ресурсов. Один проект/сцена владельца: C:\Dev\TEST_FLORA и res://go_flora_stage01_demo/demo.tscn. Инструкция: [manual_qa.md](manual_qa.md); границы: [known_limitations.md](known_limitations.md).

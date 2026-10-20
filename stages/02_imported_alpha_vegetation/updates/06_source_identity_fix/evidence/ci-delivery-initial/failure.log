@@ -1,0 +1,175 @@
+﻿2026-10-20T12:06:32.1867039Z Current runner version: '2.337.0'
+2026-10-20T12:06:32.1891131Z ##[group]Runner Image Provisioner
+2026-10-20T12:06:32.1892099Z Hosted Compute Agent
+2026-10-20T12:06:32.1892645Z Version: 20261015.610
+2026-10-20T12:06:32.1893254Z Commit: 267fdb4e8bbec4ab5ea31367f3a00d5c480c7656
+2026-10-20T12:06:32.1893941Z Build Date: 2026-10-14T17:06:54Z
+2026-10-20T12:06:32.1894583Z Worker ID: {cf93805f-7c69-402d-955b-0e993ef4036a}
+2026-10-20T12:06:32.1895277Z Region: centralus
+2026-10-20T12:06:32.1895788Z Cloud: Azure
+2026-10-20T12:06:32.1896316Z ##[endgroup]
+2026-10-20T12:06:32.1898140Z ##[group]Operating System
+2026-10-20T12:06:32.1898759Z Ubuntu
+2026-10-20T12:06:32.1899348Z 24.04.5
+2026-10-20T12:06:32.1899831Z LTS
+2026-10-20T12:06:32.1900574Z ##[endgroup]
+2026-10-20T12:06:32.1901141Z ##[group]Runner Image
+2026-10-20T12:06:32.1901700Z Image: ubuntu-24.04
+2026-10-20T12:06:32.1902267Z Version: 20261018.339.1
+2026-10-20T12:06:32.1903430Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261018.339/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-20T12:06:32.1904874Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261018.339
+2026-10-20T12:06:32.1905784Z ##[endgroup]
+2026-10-20T12:06:32.1906870Z ##[group]GITHUB_TOKEN Permissions
+2026-10-20T12:06:32.1909095Z Contents: read
+2026-10-20T12:06:32.1909722Z Metadata: read
+2026-10-20T12:06:32.1910567Z ##[endgroup]
+2026-10-20T12:06:32.1912659Z Secret source: Actions
+2026-10-20T12:06:32.1913542Z Cache mode: write
+2026-10-20T12:06:32.1914380Z Prepare workflow directory
+2026-10-20T12:06:32.2209582Z Prepare all required actions
+2026-10-20T12:06:32.2254299Z Getting action download info
+2026-10-20T12:06:32.4837440Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-20T12:06:32.5895398Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-20T12:06:32.7727396Z Complete job name: repository-checks
+2026-10-20T12:06:32.8408196Z ##[group]Run actions/checkout@v4
+2026-10-20T12:06:32.8409061Z with:
+2026-10-20T12:06:32.8409632Z   fetch-depth: 0
+2026-10-20T12:06:32.8410443Z   ref: 353933d32471504d677e4337c9b5abb804bcf38c
+2026-10-20T12:06:32.8411112Z   repository: alekseypilishkov-gif/go_flora
+2026-10-20T12:06:32.8415365Z   token: ***
+2026-10-20T12:06:32.8415958Z   ssh-strict: true
+2026-10-20T12:06:32.8416704Z   ssh-user: git
+2026-10-20T12:06:32.8417483Z   persist-credentials: true
+2026-10-20T12:06:32.8418223Z   clean: true
+2026-10-20T12:06:32.8419009Z   sparse-checkout-cone-mode: true
+2026-10-20T12:06:32.8419679Z   fetch-tags: false
+2026-10-20T12:06:32.8420613Z   show-progress: true
+2026-10-20T12:06:32.8421478Z   lfs: false
+2026-10-20T12:06:32.8422149Z   submodules: false
+2026-10-20T12:06:32.8422809Z   set-safe-directory: true
+2026-10-20T12:06:32.8423607Z   allow-unsafe-pr-checkout: false
+2026-10-20T12:06:32.8424795Z ##[endgroup]
+2026-10-20T12:06:32.9389267Z Syncing repository: alekseypilishkov-gif/go_flora
+2026-10-20T12:06:32.9391815Z ##[group]Getting Git version info
+2026-10-20T12:06:32.9392555Z Working directory is '/home/runner/work/go_flora/go_flora'
+2026-10-20T12:06:32.9393683Z [command]/usr/bin/git version
+2026-10-20T12:06:32.9477483Z git version 2.55.0
+2026-10-20T12:06:32.9495901Z ##[endgroup]
+2026-10-20T12:06:32.9512474Z Temporarily overriding HOME='/home/runner/work/_temp/2a5556e6-c3b9-4fa9-a5ff-f5410fde786d' before making global git config changes
+2026-10-20T12:06:32.9514751Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T12:06:32.9517622Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/go_flora/go_flora
+2026-10-20T12:06:32.9567624Z Deleting the contents of '/home/runner/work/go_flora/go_flora'
+2026-10-20T12:06:32.9572038Z ##[group]Initializing the repository
+2026-10-20T12:06:32.9582628Z [command]/usr/bin/git init /home/runner/work/go_flora/go_flora
+2026-10-20T12:06:32.9691580Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-20T12:06:32.9693431Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-20T12:06:32.9694776Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-20T12:06:32.9695926Z hint: call:
+2026-10-20T12:06:32.9696630Z hint:
+2026-10-20T12:06:32.9697485Z hint: 	git config --global init.defaultBranch <name>
+2026-10-20T12:06:32.9698413Z hint:
+2026-10-20T12:06:32.9699322Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-20T12:06:32.9700970Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-20T12:06:32.9702076Z hint:
+2026-10-20T12:06:32.9702827Z hint: 	git branch -m <name>
+2026-10-20T12:06:32.9703530Z hint:
+2026-10-20T12:06:32.9704532Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-20T12:06:32.9706061Z Initialized empty Git repository in /home/runner/work/go_flora/go_flora/.git/
+2026-10-20T12:06:32.9711263Z [command]/usr/bin/git remote add origin https://github.com/alekseypilishkov-gif/go_flora
+2026-10-20T12:06:32.9758089Z ##[endgroup]
+2026-10-20T12:06:32.9759158Z ##[group]Disabling automatic garbage collection
+2026-10-20T12:06:32.9760540Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-20T12:06:32.9786606Z ##[endgroup]
+2026-10-20T12:06:32.9787884Z ##[group]Setting up auth
+2026-10-20T12:06:32.9791913Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T12:06:32.9819263Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-20T12:06:33.0163002Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T12:06:33.0195925Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-20T12:06:33.0388223Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T12:06:33.0416050Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T12:06:33.0592113Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-20T12:06:33.0625090Z ##[endgroup]
+2026-10-20T12:06:33.0626105Z ##[group]Fetching the repository
+2026-10-20T12:06:33.0633870Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-10-20T12:06:33.7950312Z From https://github.com/alekseypilishkov-gif/go_flora
+2026-10-20T12:06:33.7952291Z  * [new branch]      codex/docs-studio-surface-architecture -> origin/codex/docs-studio-surface-architecture
+2026-10-20T12:06:33.7956394Z  * [new branch]      codex/issue-13-source-diagnostics-guidance -> origin/codex/issue-13-source-diagnostics-guidance
+2026-10-20T12:06:33.7959040Z  * [new branch]      codex/issue-16-warning-filter -> origin/codex/issue-16-warning-filter
+2026-10-20T12:06:33.7961220Z  * [new branch]      codex/issue-18-source-identity -> origin/codex/issue-18-source-identity
+2026-10-20T12:06:33.7962983Z  * [new branch]      codex/stage-00-foundation -> origin/codex/stage-00-foundation
+2026-10-20T12:06:33.7965020Z  * [new branch]      codex/stage-01-painter-mvp -> origin/codex/stage-01-painter-mvp
+2026-10-20T12:06:33.7967414Z  * [new branch]      codex/stage-02-imported-alpha -> origin/codex/stage-02-imported-alpha
+2026-10-20T12:06:33.7969322Z  * [new branch]      main       -> origin/main
+2026-10-20T12:06:33.7972917Z [command]/usr/bin/git rev-parse --verify --quiet 353933d32471504d677e4337c9b5abb804bcf38c^{object}
+2026-10-20T12:06:33.8000347Z 353933d32471504d677e4337c9b5abb804bcf38c
+2026-10-20T12:06:33.8005155Z ##[endgroup]
+2026-10-20T12:06:33.8007138Z ##[group]Determining the checkout info
+2026-10-20T12:06:33.8009526Z ##[endgroup]
+2026-10-20T12:06:33.8011065Z [command]/usr/bin/git sparse-checkout disable
+2026-10-20T12:06:33.8066969Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-20T12:06:33.8096072Z ##[group]Checking out the ref
+2026-10-20T12:06:33.8100618Z [command]/usr/bin/git checkout --progress --force 353933d32471504d677e4337c9b5abb804bcf38c
+2026-10-20T12:06:33.8969575Z Note: switching to '353933d32471504d677e4337c9b5abb804bcf38c'.
+2026-10-20T12:06:33.8971370Z 
+2026-10-20T12:06:33.8972104Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-20T12:06:33.8973876Z changes and commit them, and you can discard any commits you make in this
+2026-10-20T12:06:33.8975745Z state without impacting any branches by switching back to a branch.
+2026-10-20T12:06:33.8977018Z 
+2026-10-20T12:06:33.8978037Z If you want to create a new branch to retain commits you create, you may
+2026-10-20T12:06:33.8980272Z do so (now or later) by using -c with the switch command. Example:
+2026-10-20T12:06:33.8981734Z 
+2026-10-20T12:06:33.8982300Z   git switch -c <new-branch-name>
+2026-10-20T12:06:33.8983247Z 
+2026-10-20T12:06:33.8983902Z Or undo this operation with:
+2026-10-20T12:06:33.8984780Z 
+2026-10-20T12:06:33.8985344Z   git switch -
+2026-10-20T12:06:33.8986123Z 
+2026-10-20T12:06:33.8987309Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-20T12:06:33.8988769Z 
+2026-10-20T12:06:33.8990059Z HEAD is now at 353933d Record Issue 18 delivery evidence and isolate test expectation snapshots
+2026-10-20T12:06:33.8995730Z ##[endgroup]
+2026-10-20T12:06:33.9026325Z [command]/usr/bin/git log -1 --format=%H
+2026-10-20T12:06:33.9049902Z 353933d32471504d677e4337c9b5abb804bcf38c
+2026-10-20T12:06:33.9400398Z ##[group]Run actions/setup-python@v5
+2026-10-20T12:06:33.9401644Z with:
+2026-10-20T12:06:33.9402616Z   python-version: 3.12
+2026-10-20T12:06:33.9403657Z   check-latest: false
+2026-10-20T12:06:33.9412012Z   token: ***
+2026-10-20T12:06:33.9413040Z   update-environment: true
+2026-10-20T12:06:33.9414609Z   allow-prereleases: false
+2026-10-20T12:06:33.9415746Z   freethreaded: false
+2026-10-20T12:06:33.9416761Z ##[endgroup]
+2026-10-20T12:06:34.0661169Z ##[group]Installed versions
+2026-10-20T12:06:34.0752329Z (node:2107) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-20T12:06:34.0755772Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-20T12:06:34.0758101Z Successfully set up CPython (3.12.15)
+2026-10-20T12:06:34.0760899Z ##[endgroup]
+2026-10-20T12:06:34.0925407Z ##[group]Run python tools/verify_repository.py
+2026-10-20T12:06:34.0926977Z [36;1mpython tools/verify_repository.py[0m
+2026-10-20T12:06:34.1096754Z shell: /usr/bin/bash -e {0}
+2026-10-20T12:06:34.1097855Z env:
+2026-10-20T12:06:34.1099034Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-20T12:06:34.1100982Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-20T12:06:34.1102656Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-20T12:06:34.1104209Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-20T12:06:34.1105737Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-20T12:06:34.1107329Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-20T12:06:34.1108689Z ##[endgroup]
+2026-10-20T12:06:34.3269306Z Broken local link: stages/02_imported_alpha_vegetation/updates/06_source_identity_fix/delivery.md -> .scratch/packages/GO_FLORA_stage02_0.2.6-dev_59ce80ed.zip
+2026-10-20T12:06:34.3341870Z ##[error]Process completed with exit code 1.
+2026-10-20T12:06:34.3682963Z Post job cleanup.
+2026-10-20T12:06:34.4515570Z [command]/usr/bin/git version
+2026-10-20T12:06:34.4557813Z git version 2.55.0
+2026-10-20T12:06:34.4599172Z Temporarily overriding HOME='/home/runner/work/_temp/c654a61c-89cb-4851-bc08-65e969b1d6ff' before making global git config changes
+2026-10-20T12:06:34.4602137Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-20T12:06:34.4605042Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/go_flora/go_flora
+2026-10-20T12:06:34.4642743Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-20T12:06:34.4674800Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-20T12:06:34.4880785Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-20T12:06:34.4903839Z http.https://github.com/.extraheader
+2026-10-20T12:06:34.4916199Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-20T12:06:34.4951149Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-20T12:06:34.5176244Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-20T12:06:34.5205939Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-20T12:06:34.5558166Z Cleaning up orphan processes
+2026-10-20T12:06:34.5915875Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

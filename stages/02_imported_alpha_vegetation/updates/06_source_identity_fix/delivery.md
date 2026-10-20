@@ -6,7 +6,7 @@
 
 ## ZIP и идентичность
 
-- [Plugin-only ZIP](.scratch/packages/GO_FLORA_stage02_0.2.6-dev_59ce80ed.zip), 59 файлов только addons/go_flora.
+- Plugin-only ZIP: `.scratch/packages/GO_FLORA_stage02_0.2.6-dev_59ce80ed.zip` (локальный артефакт; прямую ссылку владелец получает в итоговом сообщении), 59 файлов только addons/go_flora.
 - [Полный per-file SHA-256 manifest](evidence/package-green/GO_FLORA_stage02_0.2.6-dev_59ce80ed.json).
 - [SHA-256 file](evidence/package-green/GO_FLORA_stage02_0.2.6-dev_59ce80ed.sha256).
 - SHA-256: **ffa98da66f21bc8368824f2e9a49de0ee0eff6b3e11da29925d9aa49354ce289**.

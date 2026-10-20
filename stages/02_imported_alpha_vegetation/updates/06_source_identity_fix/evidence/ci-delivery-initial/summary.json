@@ -1,0 +1,9 @@
+{
+  "commit": "353933d32471504d677e4337c9b5abb804bcf38c",
+  "status": "FAIL",
+  "case": "Repository static checks",
+  "run_id": 39419776377,
+  "job_id": 118617530219,
+  "reason": "Broken local Markdown link to ignored local ZIP; package is intentionally absent from clean clone",
+  "resolution": "Local artifact location written as code text; manifest remains tracked and linked. No validator relaxation."
+}
