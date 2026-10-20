@@ -1,0 +1,21 @@
+2026-10-20T06:37:20.8313885Z ##[group]Run python tools/run_issue16_tests.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --label ci --phase targeted
+2026-10-20T06:37:20.8314834Z [36;1mpython tools/run_issue16_tests.py --godot .scratch/ci-godot/Godot_v4.7.2-stable_linux.x86_64 --label ci --phase targeted[0m
+2026-10-20T06:37:20.8376612Z shell: /usr/bin/bash -e {0}
+2026-10-20T06:37:20.8376856Z env:
+2026-10-20T06:37:20.8377118Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-20T06:37:20.8377551Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+2026-10-20T06:37:20.8377991Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-20T06:37:20.8378368Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-20T06:37:20.8378744Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+2026-10-20T06:37:20.8379125Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+2026-10-20T06:37:20.8379449Z ##[endgroup]
+2026-10-20T06:37:20.9986980Z version PASS
+2026-10-20T06:37:23.9086906Z import PASS
+2026-10-20T06:37:24.7120456Z warnings_core PASS
+2026-10-20T06:37:25.0142593Z warnings_reopen PASS
+2026-10-20T06:37:28.0370025Z baseline_import PASS
+2026-10-20T06:37:28.3389311Z renderer_baseline PASS
+2026-10-20T06:37:28.6408674Z renderer_candidate PASS
+2026-10-20T06:37:31.5675351Z warnings_editor_import PASS
+2026-10-20T06:37:35.9829431Z warnings_editor PASS
+2026-10-20T06:37:36.0943111Z RESULT stages/02_imported_alpha_vegetation/updates/05_configuration_warning_filter/evidence/runs/ci

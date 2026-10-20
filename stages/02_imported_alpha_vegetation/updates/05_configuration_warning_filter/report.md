@@ -44,12 +44,12 @@ python tools/run_issue16_tests.py --godot .scratch/godot-portable/godot.exe --la
 
 **PASS renderer parity:** сравнение с pinned ce33910 по MultiMesh transforms/parts/bounds/visibility, Runtime Scene Instances и коллайдерам, record slots, полным legacy diagnostics и количеству records. [База](evidence/runs/all-green/renderer_baseline.json), [кандидат](evidence/runs/all-green/renderer_candidate.json). Равенство снимков доказывает проверенный контракт на этих fixtures; это не доказательство GPU-производительности.
 
-**RED CONFIRMED:** [тот же core на pinned ce33910](evidence/runs/red-baseline/summary.json) вернул ожидаемый FAIL по A/B/C/D/E/F и READY INFO; ID/records/archive safety checks проходили. Базовый addon извлечён git show в disposable копию, ветка PR #14 не менялась.
+**RED CONFIRMED:** [тот же core на pinned ce33910](evidence/runs/red-baseline/summary.json) вернул ожидаемый FAIL по A/B/C/D/E/F и READY INFO; ID/records/archive safety checks проходили. Базовый addon извлечён git show в disposable копию, ветка PR #14 не менялась. [Точный текст выполненной one-shot пробы](evidence/runs/red-baseline/executed_probe.txt); повторный запуск требует нового output label, поскольку evidence неизменяемы.
 
 Сохранены и неуспешные подготовительные прогоны: core-initial/core-diagnose — FAIL из-за сравнения int с JSON float в проверке reopen; targeted-initial — FAIL из-за ERROR Inconsistent undo history в тестовом harness после прямого clear_history(). Исправлены проверки теста и очистка через EditorUndoRedoManager; all-green прошёл без этих ошибок. Логи и точные команды каждого запуска находятся в evidence/runs/; [реестр команд](evidence/probe_registry.json).
 
 ## Поставка и оставшаяся проверка
 
-Сведения о commit, трёх CI, ZIP, SHA-256 и manifest добавляются в [delivery.md](delivery.md) после проверки CI. Установка в TEST_FLORA автоматически не выполняется. Дальнейшие ручные шаги — [manual_qa.md](manual_qa.md), границы доказательств — [known_limitations.md](known_limitations.md).
+Три CI code commit завершились SUCCESS; после них собран plugin-only ZIP 0.2.5-dev и пройдены 6/6 package probes. Commit, CI links, ZIP, полный SHA-256 и manifest — в [delivery.md](delivery.md). Установка в TEST_FLORA автоматически не выполняется. Дальнейшие ручные шаги — [manual_qa.md](manual_qa.md), границы доказательств — [known_limitations.md](known_limitations.md).
 
 **INTERACTIVE_GUI_QA: NOT_RUN. READY_FOR_MANUAL_QA.** Merge/release/Stage 03 не выполняются.

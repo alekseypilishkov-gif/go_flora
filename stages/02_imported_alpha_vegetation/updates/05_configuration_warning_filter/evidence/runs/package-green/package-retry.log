@@ -1,0 +1,5 @@
+PASS plugin-only reproducible ZIP CRC/SHA
+PASS three installs preserve Stage 01 + Stage 02 scenes/config/layout SHA and keep backups
+standalone_import PASS
+stage02_runtime PASS
+stage01_runtime PASS

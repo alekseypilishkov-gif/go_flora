@@ -1,0 +1,23 @@
+import json, shutil, subprocess, sys, time
+from pathlib import Path
+sys.path.insert(0,'tools')
+from run_stage02_tests import ROOT, prepare, run_case
+base='ce3391049e4427625c70b6ffe145b2aaa7ab91dc'
+output=ROOT/'stages/02_imported_alpha_vegetation/updates/05_configuration_warning_filter/evidence/runs/red-baseline'
+if output.exists(): raise RuntimeError('immutable evidence')
+project=prepare(ROOT/'.scratch/qa016'/('red-'+str(time.time_ns())))
+shutil.rmtree(project/'addons/go_flora')
+for name in subprocess.check_output(['git','ls-tree','-r','--name-only',base,'--','addons/go_flora'],cwd=ROOT,text=True).splitlines():
+ path=project/name
+ path.parent.mkdir(parents=True,exist_ok=True)
+ path.write_bytes(subprocess.check_output(['git','show',base+':'+name],cwd=ROOT))
+godot=ROOT/'.scratch/godot-portable/godot.exe'
+rows=[run_case(godot,project,output,'import',['--headless','--editor','--import'],'GO_FLORA_PLUGIN_ENABLED')]
+rows.append(run_case(godot,project,output,'warnings_core',['--headless','--script','tests/test_issue16_warnings.gd'],'PASS ISSUE16_CORE_COMPLETE'))
+checks=json.loads((project/'.scratch/issue16_core.json').read_text())
+failed=[r['id'] for r in checks if r['status']=='FAIL']
+confirmed=rows[0]['status']=='PASS' and rows[1]['status']=='FAIL' and 'A_empty_layer_archives_no_warning' in failed and 'F_20000_records_shared_source_aggregated_per_set' in failed
+shutil.copyfile(project/'.scratch/issue16_core.json',output/'core_results.json')
+(output/'summary.json').write_text(json.dumps(dict(base=base,probes=rows,expected_red_confirmed=confirmed,failures=failed,INTERACTIVE_GUI_QA='NOT_RUN'),indent=2)+'\n')
+print('PASS original warning regression reproduced' if confirmed else 'FAIL unexpected red probe')
+raise SystemExit(0 if confirmed else 1)

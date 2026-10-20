@@ -110,6 +110,69 @@
       ],
       "status": "PASS",
       "exit_code": 0
+    },
+    {
+      "name": "package-build",
+      "command": [
+        "python",
+        "tools/package_stage02.py",
+        "--output",
+        "stages/02_imported_alpha_vegetation/updates/05_configuration_warning_filter/.scratch/packages"
+      ],
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "package-test-tool-interrupted",
+      "command": [
+        "python",
+        "tests/test_stage02_package.py",
+        "--godot",
+        ".scratch/godot-portable/godot.exe",
+        "--output",
+        "stages/02_imported_alpha_vegetation/updates/05_configuration_warning_filter/.scratch/package-test",
+        "--package-output",
+        "stages/02_imported_alpha_vegetation/updates/05_configuration_warning_filter/.scratch/package-test/packages"
+      ],
+      "status": "FAIL",
+      "exit_code": null,
+      "reason": "Orchestrating tool timed out after 1000ms; no completed package test summary. Partial disposable project retained; result is not a product failure."
+    },
+    {
+      "name": "package-retry",
+      "command": [
+        "python",
+        "tests/test_stage02_package.py",
+        "--godot",
+        ".scratch/godot-portable/godot.exe",
+        "--output",
+        "stages/02_imported_alpha_vegetation/updates/05_configuration_warning_filter/.scratch/package-retry",
+        "--package-output",
+        "stages/02_imported_alpha_vegetation/updates/05_configuration_warning_filter/.scratch/package-retry/packages"
+      ],
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "name": "committed-whitespace-code",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "ce3391049e4427625c70b6ffe145b2aaa7ab91dc...HEAD"
+      ],
+      "status": "PASS",
+      "exit_code": 0,
+      "head": "40123ebc7a78e5c6b42afa7cce8bb4137f3ab1ae"
+    },
+    {
+      "name": "repository-delivery",
+      "command": [
+        "python",
+        "tools/verify_repository.py"
+      ],
+      "status": "PASS",
+      "exit_code": 0
     }
   ]
 }
