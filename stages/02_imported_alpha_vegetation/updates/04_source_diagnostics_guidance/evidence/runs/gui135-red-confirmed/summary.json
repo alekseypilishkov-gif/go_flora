@@ -1,0 +1,50 @@
+{
+  "base": "eaa43d991d88c8459c4e276a1b412bb28fd3d735",
+  "probes": [
+    {
+      "case": "import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa013\\gui135-red-confirmed-1792470081831331400",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\04_source_diagnostics_guidance\\evidence\\runs\\gui135-red-confirmed\\.scratch\\profile"
+    },
+    {
+      "case": "editor_navigation",
+      "status": "FAIL",
+      "exit_code": 1,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa013\\gui135-red-confirmed-1792470081831331400",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\04_source_diagnostics_guidance\\evidence\\runs\\gui135-red-confirmed\\.scratch\\profile"
+    }
+  ],
+  "failures": [
+    "navigation_dialog_dismissed_immediately_1",
+    "navigation_dialog_freed_no_modal_left_1",
+    "navigation_Inspector_automatically_visible_1",
+    "navigation_dialog_dismissed_immediately_0",
+    "navigation_dialog_freed_no_modal_left_0",
+    "navigation_Inspector_automatically_visible_0",
+    "navigation_dialog_dismissed_immediately_1",
+    "navigation_dialog_freed_no_modal_left_1",
+    "navigation_Inspector_automatically_visible_1"
+  ],
+  "expected_red_confirmed": true,
+  "INTERACTIVE_GUI_QA": "NOT_RUN"
+}

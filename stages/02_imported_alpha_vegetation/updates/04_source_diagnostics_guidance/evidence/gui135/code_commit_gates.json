@@ -1,0 +1,23 @@
+{
+  "head": "9b8cbbae1b1f5dc4985779d95ad3c0658d1b494f",
+  "checks": [
+    {
+      "command": "git diff --check",
+      "status": "PASS",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --cached --check",
+      "status": "PASS",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check fecf4fc9dd3e04aa79bf0d7b390dc24b3ab6511b...HEAD",
+      "status": "PASS",
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+	{
+		"capabilities": {
+			"editor_inert_preview": false,
+			"scene_instances": false,
+			"static_parts": true
+		},
+		"id": "static",
+		"parts": 2,
+		"revision": "static-v1:f362a321cc533176d220622dc6917519e393cb5825a0eafb4a9eccd47eee37ff",
+		"scene": false,
+		"status": 0
+	},
+	{
+		"capabilities": {
+			"editor_inert_preview": false,
+			"scene_instances": false,
+			"static_parts": false
+		},
+		"id": "review",
+		"parts": 1,
+		"revision": "static-v1:4186c5b970b4b05bda0202c019b054d662a4416448c7e15c3fe5b3f1c163bed8",
+		"scene": false,
+		"status": 2
+	},
+	{
+		"capabilities": {
+			"editor_inert_preview": true,
+			"scene_instances": true,
+			"static_parts": false
+		},
+		"id": "reviewed",
+		"parts": 1,
+		"revision": "static-v1:4186c5b970b4b05bda0202c019b054d662a4416448c7e15c3fe5b3f1c163bed8",
+		"scene": true,
+		"status": 0
+	},
+	{
+		"capabilities": {
+			"editor_inert_preview": false,
+			"scene_instances": false,
+			"static_parts": false
+		},
+		"id": "hard",
+		"parts": 0,
+		"revision": "static-v1:-9223372007612086812",
+		"scene": false,
+		"status": 2
+	},
+	{
+		"capabilities": {
+			"editor_inert_preview": false,
+			"scene_instances": false,
+			"static_parts": false
+		},
+		"id": "unavailable",
+		"parts": 0,
+		"revision": "static-v1",
+		"scene": false,
+		"status": 1
+	}
+]

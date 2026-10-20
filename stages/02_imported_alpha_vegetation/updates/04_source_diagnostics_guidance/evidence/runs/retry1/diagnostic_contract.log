@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS diagnostic_standard_static_ready
+PASS diagnostic_review_required
+PASS diagnostic_revision_mismatch
+PASS diagnostic_reviewed_ready
+PASS diagnostic_hard_unsupported_node Scene semantics: ./@AnimationPlayer@2: AnimationPlayer; Unsupported scene features; fallback allowlist is Node3D/MeshInstance3D/StaticBody3D/CollisionShape3D and reviewed non-tool scripts. Not instantiated.
+PASS diagnostic_hard_tool_script Scene semantics: ./@MeshInstance3D@3: script; Unsupported scene features; fallback allowlist is Node3D/MeshInstance3D/StaticBody3D/CollisionShape3D and reviewed non-tool scripts. Not instantiated.
+FAIL diagnostic_hard_nested_scene Source has no eligible mesh surfaces.
+PASS diagnostic_hard_unsupported_property Scene semantics: ./@MeshInstance3D@6: authored hidden node; Unsupported scene features; fallback allowlist is Node3D/MeshInstance3D/StaticBody3D/CollisionShape3D and reviewed non-tool scripts. Not instantiated.
+PASS diagnostic_unavailable_no_review
+PASS diagnostic_error_no_review
+FAIL ISSUE13_DIAGNOSTICS_COMPLETE

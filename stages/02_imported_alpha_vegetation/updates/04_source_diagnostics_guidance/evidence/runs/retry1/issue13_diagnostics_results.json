@@ -1,0 +1,52 @@
+[
+	{
+		"detail": "",
+		"id": "diagnostic_standard_static_ready",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"id": "diagnostic_review_required",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"id": "diagnostic_revision_mismatch",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"id": "diagnostic_reviewed_ready",
+		"status": "PASS"
+	},
+	{
+		"detail": "Scene semantics: ./@AnimationPlayer@2: AnimationPlayer; Unsupported scene features; fallback allowlist is Node3D/MeshInstance3D/StaticBody3D/CollisionShape3D and reviewed non-tool scripts. Not instantiated.",
+		"id": "diagnostic_hard_unsupported_node",
+		"status": "PASS"
+	},
+	{
+		"detail": "Scene semantics: ./@MeshInstance3D@3: script; Unsupported scene features; fallback allowlist is Node3D/MeshInstance3D/StaticBody3D/CollisionShape3D and reviewed non-tool scripts. Not instantiated.",
+		"id": "diagnostic_hard_tool_script",
+		"status": "PASS"
+	},
+	{
+		"detail": "Source has no eligible mesh surfaces.",
+		"id": "diagnostic_hard_nested_scene",
+		"status": "FAIL"
+	},
+	{
+		"detail": "Scene semantics: ./@MeshInstance3D@6: authored hidden node; Unsupported scene features; fallback allowlist is Node3D/MeshInstance3D/StaticBody3D/CollisionShape3D and reviewed non-tool scripts. Not instantiated.",
+		"id": "diagnostic_hard_unsupported_property",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"id": "diagnostic_unavailable_no_review",
+		"status": "PASS"
+	},
+	{
+		"detail": "",
+		"id": "diagnostic_error_no_review",
+		"status": "PASS"
+	}
+]

@@ -1,0 +1,44 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS STAGE023 begin_1 
+PASS STAGE023 dense_single_click_complete_1 
+PASS STAGE023 apply_1 
+PASS STAGE023 exact_ID_order_reference_serial_undo_1 
+PASS STAGE023 redo_1 
+PASS STAGE023 begin_1000 
+PASS STAGE023 dense_single_click_complete_1000 
+PASS STAGE023 apply_1000 
+PASS STAGE023 exact_ID_order_reference_serial_undo_1000 
+PASS STAGE023 redo_1000 
+PASS STAGE023 begin_2001 
+PASS STAGE023 dense_single_click_complete_2001 
+PASS STAGE023 apply_2001 
+PASS STAGE023 exact_ID_order_reference_serial_undo_2001 
+PASS STAGE023 redo_2001 
+PASS STAGE023 begin_5000 
+PASS STAGE023 dense_single_click_complete_5000 
+PASS STAGE023 apply_5000 
+PASS STAGE023 exact_ID_order_reference_serial_undo_5000 
+PASS STAGE023 redo_5000 
+PASS STAGE023 begin_12000 
+PASS STAGE023 dense_single_click_complete_12000 
+PASS STAGE023 apply_12000 
+PASS STAGE023 exact_ID_order_reference_serial_undo_12000 
+PASS STAGE023 redo_12000 
+PASS STAGE023 fast_sweep_stationary_other_set_prefix_locked_complete 
+PASS STAGE023 spatial_queries_less_than_two_full_scans_for_450m_sweep 15600
+PASS STAGE023 other_sets_locked_untouched 
+PASS STAGE023 interleaved_original_order_restore 
+PASS STAGE023 reverse_record_order_does_not_omit_hits 
+PASS STAGE023 reverse_order_exact_undo_restoration 
+PASS STAGE023 ineligible_surface_break_never_bridges_gap 
+PASS STAGE023 rotated_nonuniform_scaled_layer_exact_world_sphere 
+PASS STAGE023 pending_index_does_not_mutate_saved_records 
+PASS STAGE023 cancel_discards_every_pending_delete 
+PASS STAGE023 tiny_brush_long_sparse_diagonal_bounded_ticks_0 1
+PASS STAGE023 sparse_diagonal_complete_0 
+PASS STAGE023 tiny_brush_long_sparse_diagonal_bounded_ticks_1 1
+PASS STAGE023 sparse_diagonal_complete_1 
+PASS STAGE023 tiny_brush_long_sparse_diagonal_bounded_ticks_10 1
+PASS STAGE023 sparse_diagonal_complete_10 
+PASS STAGE023_CORE_COMPLETE

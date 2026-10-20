@@ -1,0 +1,39 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+GO_FLORA_PLUGIN_ENABLED
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+PASS ISSUE13_EDITOR installed_enabled
+PASS ISSUE13_EDITOR diagnostics_controls_present
+PASS ISSUE13_EDITOR static_ready_no_fallback_steps
+PASS ISSUE13_EDITOR review_required_steps_and_copy
+ERROR: Clipboard is not supported by this display server.
+   at: clipboard_get (servers/display/display_server.cpp:548)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/editor_diagnostics_harness/plugin.gd:95)
+       [1] frames (res://tests/editor_diagnostics_harness/plugin.gd:12)
+FAIL ISSUE13_EDITOR copy_uses_currently_selected_review_source
+PASS ISSUE13_EDITOR revision_mismatch_current_and_prior_revision
+PASS ISSUE13_EDITOR revision_mismatch_revisions_shown
+PASS ISSUE13_EDITOR reviewed_ready_inert_preview_runtime_instance
+PASS ISSUE13_EDITOR hard_unsupported_no_false_copy_remedy
+PASS ISSUE13_EDITOR typed_state_and_reason_in_technical_details
+PASS ISSUE13_EDITOR technical_details_collapsible
+PASS ISSUE13_EDITOR inspector_uses_currently_selected_source
+SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+   at: run (res://tests/editor_diagnostics_harness/plugin.gd:129)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/editor_diagnostics_harness/plugin.gd:129)
+       [1] frames (res://tests/editor_diagnostics_harness/plugin.gd:12)

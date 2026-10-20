@@ -1,0 +1,281 @@
+{
+  "code_commit": "9b8cbbae1b1f5dc4985779d95ad3c0658d1b494f",
+  "status": "PASS",
+  "files": [
+    {
+      "path": "addons/go_flora/core/erase_query.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/core/erase_query.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/core/placement.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/core/placement.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/core/record_delta.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/core/record_delta.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/core/stroke.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/core/stroke.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/data/alpha_card.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/data/alpha_card.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/data/brush.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/data/brush.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/data/instance_record.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/data/instance_record.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/data/layer_data.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/data/layer_data.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/data/palette_entry.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/data/palette_entry.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/data/source.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/data/source.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/data/vegetation_set.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/data/vegetation_set.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/brush_preview.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/brush_preview.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/help_text.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/help_text.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/palette_inspector.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/palette_inspector.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/palette_property.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/palette_property.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/palette_view.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/palette_view.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/plugin.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/plugin.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/source_asset_picker.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/source_asset_picker.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/source_creator.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/source_creator.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/surface_target.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/editor/surface_target.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/LICENSE",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/plugin.cfg",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/README.md",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/rendering/cell_renderer.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/rendering/cell_renderer.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/sources/alpha_card_builder.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/sources/alpha_card_builder.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/sources/source_part.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/sources/source_part.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/sources/source_resolution.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/sources/source_resolution.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/sources/source_resolver.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/sources/source_resolver.gd.uid",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/vegetation_layer_3d.gd",
+      "git": true,
+      "working": true
+    },
+    {
+      "path": "addons/go_flora/vegetation_layer_3d.gd.uid",
+      "git": true,
+      "working": true
+    }
+  ]
+}

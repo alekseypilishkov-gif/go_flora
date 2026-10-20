@@ -1,0 +1,277 @@
+[
+	{
+		"id": "installed_enabled",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "diagnostics_controls_present",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "layout_popup_cap_1280x720",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "layout_popup_cap_1366x768",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "layout_popup_cap_1920x1080",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "layout_window_uses_viewport_cap",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "layout_fixed_controls_inside_dialog_body",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "layout_ok_reachable",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "layout_scroll_body_and_collapsed_technical_default",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "layout_1280x720_virtual_window_size",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "static_ready_no_fallback_steps",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "layout_static_guidance_is_content_sized_and_toggle_adjacent",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "review_required_steps_and_copy",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "layout_long_review_guidance_capped_and_toggle_adjacent",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "copy_uses_currently_selected_review_source",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "revision_mismatch_current_and_prior_revision",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "revision_mismatch_revisions_shown",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "layout_mismatch_sha_wraps_and_actions_reachable",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "layout_long_guidance_expanded_details_use_remaining_space",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "reviewed_ready_inert_preview_runtime_instance",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "layout_short_guidance_expanded_details_use_remaining_space",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "hard_unsupported_no_false_copy_remedy",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "typed_state_and_reason_in_technical_details",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "technical_details_collapsible",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "layout_technical_details_expand_into_remaining_space",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "inspector_uses_currently_selected_source",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_public_editor_docks_found",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_same_name_distinct_objects_and_ids",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_return_to_GOFLORA_1",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_reopened_duplicate_name_selector_1",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_copy_binding_before_inspect_1",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_dialog_dismissed_immediately_1",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "FAIL"
+	},
+	{
+		"id": "navigation_dialog_freed_no_modal_left_1",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "FAIL"
+	},
+	{
+		"id": "navigation_exact_selected_object_and_id_1",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_Inspector_automatically_visible_1",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "FAIL"
+	},
+	{
+		"id": "navigation_return_to_GOFLORA_0",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_reopened_duplicate_name_selector_0",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_copy_binding_before_inspect_0",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_dialog_dismissed_immediately_0",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "FAIL"
+	},
+	{
+		"id": "navigation_dialog_freed_no_modal_left_0",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "FAIL"
+	},
+	{
+		"id": "navigation_exact_selected_object_and_id_0",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_Inspector_automatically_visible_0",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "FAIL"
+	},
+	{
+		"id": "navigation_return_to_GOFLORA_1",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_reopened_duplicate_name_selector_1",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_copy_binding_before_inspect_1",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_dialog_dismissed_immediately_1",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "FAIL"
+	},
+	{
+		"id": "navigation_dialog_freed_no_modal_left_1",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "FAIL"
+	},
+	{
+		"id": "navigation_exact_selected_object_and_id_1",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_Inspector_automatically_visible_1",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "FAIL"
+	},
+	{
+		"id": "navigation_return_to_GOFLORA_after_cycles",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_reopen_canceled_frees_dialog",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_reopen_confirmed_frees_dialog",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_dock_topology_unchanged",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_source_data_unchanged",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	},
+	{
+		"id": "navigation_records_unchanged",
+		"scope": "native Editor API, not mouse GUI",
+		"status": "PASS"
+	}
+]
