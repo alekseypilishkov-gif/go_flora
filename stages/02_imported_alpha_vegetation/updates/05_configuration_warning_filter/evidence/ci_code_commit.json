@@ -1,0 +1,40 @@
+{
+  "source_commit": "40123ebc7a78e5c6b42afa7cce8bb4137f3ab1ae",
+  "checked_at": "2026-10-20T06:42:32.507Z",
+  "workflows": [
+    {
+      "id": 39381212132,
+      "name": "Repository static checks",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 55,
+      "jobs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/39381212132/jobs",
+      "logs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/39381212132/logs",
+      "workflow_id": 384156721,
+      "url": "https://github.com/alekseypilishkov-gif/go_flora/actions/runs/39381212132"
+    },
+    {
+      "id": 39381212127,
+      "name": "Stage 01 Godot automatic checks",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 49,
+      "jobs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/39381212127/jobs",
+      "logs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/39381212127/logs",
+      "workflow_id": 384294000,
+      "url": "https://github.com/alekseypilishkov-gif/go_flora/actions/runs/39381212127"
+    },
+    {
+      "id": 39381212169,
+      "name": "Stage 02 imported assets automatic checks",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 38,
+      "jobs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/39381212169/jobs",
+      "logs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/39381212169/logs",
+      "workflow_id": 385149788,
+      "url": "https://github.com/alekseypilishkov-gif/go_flora/actions/runs/39381212169"
+    }
+  ],
+  "status": "PASS"
+}

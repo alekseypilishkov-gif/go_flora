@@ -129,7 +129,7 @@ func _process(_delta: float) -> void:
 		active_set = null
 	if is_instance_valid(active_layer) and active_layer.layer_data != null:
 		_counts.text = "Saved records: %d%s\nCells / batches: %d" % [active_layer.layer_data.records.size(), " (pending stroke)" if _stroke != null else "", active_layer.batch_count()]
-		var reasons := active_layer.render_diagnostics
+		var reasons := active_layer.configuration_warnings
 		if not _source_diagnostic_cache.is_empty() and mode != Tool.ERASE and _stroke == null:
 			set_status(_source_diagnostic_cache)
 		elif not reasons.is_empty() and _stroke == null:
@@ -424,9 +424,12 @@ func _sync_palette() -> void:
 	if active_set != null and _set_picker.selected >= 0:
 		_set_picker.set_item_text(_set_picker.selected, active_set.display_name)
 	var reason := brush_source_diagnostic()
-	_source_diagnostic_cache = reason
+	var was_blocked := not _source_diagnostic_cache.is_empty()
+	_source_diagnostic_cache = GFConfigurationWarnings.painter_context(active_set, source_mode == SourceMode.MIX, selected_source_id, reason)
 	if not reason.is_empty():
-		set_status(reason)
+		set_status(_source_diagnostic_cache)
+	elif was_blocked:
+		set_status("MIX by weights: источники готовы." if source_mode == SourceMode.MIX else "Selected Source: источник готов.")
 
 func _select_palette_source(id: String) -> void:
 	cancel_stroke()

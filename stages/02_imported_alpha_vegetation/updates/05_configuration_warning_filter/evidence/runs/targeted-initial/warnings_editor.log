@@ -1,0 +1,66 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+GO_FLORA_PLUGIN_ENABLED
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+PASS ISSUE16_EDITOR installed
+PASS ISSUE16_EDITOR A_C_no_node_warning_unused_archive_or_empty_records
+PASS ISSUE16_EDITOR E_Mix_only_context_and_bounded_status
+PASS ISSUE16_EDITOR E_Selected_ready_not_globally_blocked
+PASS ISSUE16_EDITOR E_weight_zero_clears_stale_status_without_restart
+PASS ISSUE16_EDITOR E_weight_restores_Mix_warning
+PASS ISSUE16_EDITOR E_disabled_clears_status
+PASS ISSUE16_EDITOR D_record_failure_appears_live
+ERROR: Inconsistent undo history.
+   at: is_history_unsaved (editor/editor_undo_redo_manager.cpp:406)
+PASS ISSUE16_EDITOR palette_remove_confirmation
+PASS ISSUE16_EDITOR remove_keeps_archive_records_and_real_warning
+PASS ISSUE16_EDITOR Undo_restores_same_entry_warning
+PASS ISSUE16_EDITOR Redo_keeps_exact_record_archive
+PASS ISSUE16_EDITOR B_live_review_ready_removes_INFO_warning_keeps_preview_and_details
+PASS ISSUE16_EDITOR revision_change_restores_real_warning
+PASS ISSUE16_EDITOR review_changes_preserve_ID_transform
+PASS ISSUE16_EDITOR reimport_before_ready
+WARNING: Loaded resource as image file, this will not work on export: 'res://fixtures/grass.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/editor_warnings_harness/plugin.gd:126)
+       [1] frames (res://tests/editor_warnings_harness/plugin.gd:8)
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (1 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | grass.png[39m[0m
+[  50% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (1 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+PASS ISSUE16_EDITOR actual_reimport_invalid_atlas_restores_record_and_Mix_warning
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (1 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | grass.png[39m[0m
+[  50% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (1 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+PASS ISSUE16_EDITOR actual_reimport_repair_clears_warnings
+PASS ISSUE16_EDITOR reimport_all_records_and_other_set_archive_preserved
+PASS ISSUE16_EDITOR_COMPLETE

@@ -1,0 +1,51 @@
+{
+  "base": "ce3391049e4427625c70b6ffe145b2aaa7ab91dc",
+  "probes": [
+    {
+      "case": "import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\red-1792477597064726100",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\05_configuration_warning_filter\\evidence\\runs\\red-baseline\\.scratch\\profile"
+    },
+    {
+      "case": "warnings_core",
+      "status": "FAIL",
+      "exit_code": 1,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Dev\\GO_FLORA\\.scratch\\qa016\\red-1792477597064726100",
+        "--headless",
+        "--script",
+        "tests/test_issue16_warnings.gd"
+      ],
+      "isolated_profile": "C:\\Dev\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\05_configuration_warning_filter\\evidence\\runs\\red-baseline\\.scratch\\profile"
+    }
+  ],
+  "expected_red_confirmed": true,
+  "failures": [
+    "A_empty_layer_archives_no_warning",
+    "B_reviewed_runtime_scene_no_INFO_warning",
+    "C_unused_hard_and_review_archives_do_not_affect_valid_record",
+    "D_one_warning_per_Source_Set_not_per_record",
+    "D_unavailable_identity_category_count",
+    "D_all_failure_categories_visible",
+    "E_Painter_failure_does_not_mark_whole_empty_layer_broken",
+    "F_20000_records_shared_source_aggregated_per_set",
+    "F_source_group_cap_reports_omitted_counts",
+    "typed_READY_does_not_parse_failure_words"
+  ],
+  "INTERACTIVE_GUI_QA": "NOT_RUN"
+}

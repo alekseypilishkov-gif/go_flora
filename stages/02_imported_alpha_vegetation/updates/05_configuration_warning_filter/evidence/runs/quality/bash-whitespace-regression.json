@@ -1,0 +1,40 @@
+{
+  "workflow": ".github/workflows/foundation.yml",
+  "executed_bash": "comparison_base=\"${PR_BASE_SHA:-refs/remotes/origin/main}\"\ngit rev-parse --verify \"${comparison_base}^{commit}\"\ngit diff --check \"${comparison_base}...HEAD\"\n",
+  "cases": [
+    {
+      "case": "old gate misses committed whitespace in clean working tree",
+      "observed_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "PR base catches committed whitespace",
+      "status": "PASS",
+      "expected_exit": 2,
+      "observed_exit": 2,
+      "output": "03e7d7b76ee97ef7ed539bd83a81eb2a8f1b62e2\nsample.txt:1: trailing whitespace.\n+committed trailing space \n"
+    },
+    {
+      "case": "push origin/main fallback catches committed whitespace",
+      "status": "PASS",
+      "expected_exit": 2,
+      "observed_exit": 2,
+      "output": "03e7d7b76ee97ef7ed539bd83a81eb2a8f1b62e2\nsample.txt:1: trailing whitespace.\n+committed trailing space \n"
+    },
+    {
+      "case": "PR base accepts clean committed diff",
+      "status": "PASS",
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "output": "03e7d7b76ee97ef7ed539bd83a81eb2a8f1b62e2\n"
+    },
+    {
+      "case": "push origin/main fallback accepts clean committed diff",
+      "status": "PASS",
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "output": "03e7d7b76ee97ef7ed539bd83a81eb2a8f1b62e2\n"
+    }
+  ],
+  "scope": "static Git gate regression; no Godot runtime test"
+}
