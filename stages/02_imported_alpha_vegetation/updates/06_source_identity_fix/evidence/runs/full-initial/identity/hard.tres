@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GFVegetationSource" format=3 uid="uid://dnkumenowmrrx"]
+
+[ext_resource type="PackedScene" uid="uid://31qdppfdrkmy" path="res://identity/hard_asset.tscn" id="1_vsv60"]
+[ext_resource type="Script" uid="uid://bv87vsx5r0213" path="res://addons/go_flora/data/source.gd" id="2_b4jxd"]
+
+[resource]
+resource_name = "Authored hard"
+script = ExtResource("2_b4jxd")
+source_id = "new-hard"
+display_name = "updated new-hard"
+kind = 3
+asset = ExtResource("1_vsv60")
+mesh_transform = Transform3D(0.7710167, 0, 0.21338515, 0, 1.2, 0, -0.24005829, 0, 0.86739373, 0.1, 0.2, 0.3)

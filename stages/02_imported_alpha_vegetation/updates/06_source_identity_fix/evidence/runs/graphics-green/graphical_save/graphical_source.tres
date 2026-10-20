@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GFVegetationSource" format=3 uid="uid://dlq2vptoassvd"]
+
+[ext_resource type="Script" uid="uid://bv87vsx5r0213" path="res://addons/go_flora/data/source.gd" id="1_s03sn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_276ux"]
+
+[resource]
+script = ExtResource("1_s03sn")
+source_id = "source-1792496829866-1562579638509"
+asset = SubResource("BoxMesh_276ux")

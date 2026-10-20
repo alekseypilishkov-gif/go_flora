@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="GFVegetationSource" format=3 uid="uid://bqwl8jliuvam8"]
+
+[ext_resource type="Script" uid="uid://wctj6t1868o0" path="res://addons/go_flora/data/alpha_card.gd" id="1_mw5pd"]
+[ext_resource type="Texture2D" uid="uid://opld6ocs4x8f" path="res://fixtures/flower.png" id="2_i87ap"]
+[ext_resource type="Script" uid="uid://bv87vsx5r0213" path="res://addons/go_flora/data/source.gd" id="3_yp50q"]
+
+[sub_resource type="Resource" id="Resource_66cio"]
+script = ExtResource("1_mw5pd")
+texture = ExtResource("2_i87ap")
+width_m = 0.86
+height_m = 1.36
+splay_degrees = 12.0
+alpha_threshold = 0.65
+
+[resource]
+script = ExtResource("3_yp50q")
+source_id = "source-1792496876856-1698139547447"
+display_name = "flower"
+kind = 4
+alpha_card = SubResource("Resource_66cio")

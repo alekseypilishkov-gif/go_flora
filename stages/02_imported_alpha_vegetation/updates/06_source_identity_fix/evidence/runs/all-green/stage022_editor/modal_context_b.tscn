@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://tmceswtgwyvi"]
+
+[ext_resource type="Script" uid="uid://b3usf0s7vay34" path="res://addons/go_flora/vegetation_layer_3d.gd" id="1_wdh2q"]
+[ext_resource type="Script" uid="uid://c87lvab8bo1nl" path="res://addons/go_flora/data/instance_record.gd" id="2_d28wq"]
+[ext_resource type="Script" uid="uid://rdt7t3u0kc6o" path="res://addons/go_flora/data/layer_data.gd" id="3_70qgg"]
+[ext_resource type="Script" uid="uid://d1h11t2tx63a4" path="res://addons/go_flora/data/vegetation_set.gd" id="4_qxj6e"]
+[ext_resource type="Script" uid="uid://d0ke7qyjm8ffo" path="res://addons/go_flora/data/palette_entry.gd" id="5_7cb5n"]
+[ext_resource type="Script" uid="uid://bv87vsx5r0213" path="res://addons/go_flora/data/source.gd" id="6_3nrvh"]
+[ext_resource type="Resource" uid="uid://b7bv5e64nkvd5" path="res://.scratch/grass.png_Quick_Load.tres" id="7_k1f8i"]
+[ext_resource type="Resource" uid="uid://brphp2qisvfke" path="res://.scratch/grass.png_Load.tres" id="8_miuc0"]
+[ext_resource type="Resource" uid="uid://bqwl8jliuvam8" path="res://.scratch/flower.png_Quick_Load.tres" id="9_77aor"]
+[ext_resource type="Resource" uid="uid://dmp2857kp27ud" path="res://.scratch/flower.png_Load.tres" id="10_2u0ha"]
+[ext_resource type="Resource" uid="uid://h0ojbilds2mn" path="res://.scratch/grass.webp_Quick_Load.tres" id="11_77wia"]
+[ext_resource type="Resource" uid="uid://c5808ibfojcll" path="res://.scratch/grass.webp_Load.tres" id="12_equf2"]
+[ext_resource type="Resource" uid="uid://cm5spdq8rjta0" path="res://.scratch/atlas.png_Quick_Load.tres" id="13_atsk7"]
+[ext_resource type="Resource" uid="uid://deksb5ucbt7vy" path="res://.scratch/atlas.png_Load.tres" id="14_vrd6q"]
+[ext_resource type="Resource" uid="uid://cxfjv1wwc48cu" path="res://.scratch/original_plant.glb_Quick_Load.tres" id="15_vhowj"]
+[ext_resource type="Resource" uid="uid://dv30vuhl08iiw" path="res://.scratch/original_plant.glb_Load.tres" id="16_nh2c8"]
+[ext_resource type="Resource" uid="uid://cb8461wd2lki1" path="res://.scratch/static_plant.tscn_Quick_Load.tres" id="17_o0myy"]
+[ext_resource type="Resource" uid="uid://bvwigs6ofu322" path="res://.scratch/static_plant.tscn_Load.tres" id="18_r3dmu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tql22"]
+albedo_color = Color(0.12, 0.65, 0.32, 1)
+roughness = 0.9
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jbdfk"]
+material = SubResource("StandardMaterial3D_tql22")
+top_radius = 0.0
+bottom_radius = 0.45
+height = 1.5
+radial_segments = 8
+
+[sub_resource type="Resource" id="Resource_4gl14"]
+script = ExtResource("6_3nrvh")
+source_id = "primitive-cone-v1"
+display_name = "Green cone bush"
+asset = SubResource("CylinderMesh_jbdfk")
+mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[sub_resource type="Resource" id="Resource_5g7v7"]
+script = ExtResource("5_7cb5n")
+source = SubResource("Resource_4gl14")
+weight = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1g04"]
+albedo_color = Color(0.95, 0.42, 0.09, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_y4qkf"]
+material = SubResource("StandardMaterial3D_i1g04")
+size = Vector3(0.65, 0.8, 0.65)
+
+[sub_resource type="Resource" id="Resource_oncxo"]
+script = ExtResource("6_3nrvh")
+source_id = "primitive-box-v1"
+display_name = "Orange block shrub"
+asset = SubResource("BoxMesh_y4qkf")
+mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[sub_resource type="Resource" id="Resource_hu8bq"]
+script = ExtResource("5_7cb5n")
+source = SubResource("Resource_oncxo")
+
+[sub_resource type="Resource" id="Resource_7cb2u"]
+script = ExtResource("5_7cb5n")
+source = ExtResource("7_k1f8i")
+
+[sub_resource type="Resource" id="Resource_x3lmr"]
+script = ExtResource("5_7cb5n")
+source = ExtResource("8_miuc0")
+
+[sub_resource type="Resource" id="Resource_wlnpr"]
+script = ExtResource("5_7cb5n")
+source = ExtResource("9_77aor")
+
+[sub_resource type="Resource" id="Resource_hrnvy"]
+script = ExtResource("5_7cb5n")
+source = ExtResource("10_2u0ha")
+
+[sub_resource type="Resource" id="Resource_t8yvf"]
+script = ExtResource("5_7cb5n")
+source = ExtResource("11_77wia")
+
+[sub_resource type="Resource" id="Resource_o4jkf"]
+script = ExtResource("5_7cb5n")
+source = ExtResource("12_equf2")
+
+[sub_resource type="Resource" id="Resource_gq2eh"]
+script = ExtResource("5_7cb5n")
+source = ExtResource("13_atsk7")
+
+[sub_resource type="Resource" id="Resource_hv6xe"]
+script = ExtResource("5_7cb5n")
+source = ExtResource("14_vrd6q")
+
+[sub_resource type="Resource" id="Resource_pm8l2"]
+script = ExtResource("5_7cb5n")
+source = ExtResource("15_vhowj")
+
+[sub_resource type="Resource" id="Resource_ovc7v"]
+script = ExtResource("5_7cb5n")
+source = ExtResource("16_nh2c8")
+
+[sub_resource type="Resource" id="Resource_kaont"]
+script = ExtResource("5_7cb5n")
+source = ExtResource("17_o0myy")
+
+[sub_resource type="Resource" id="Resource_112sa"]
+script = ExtResource("5_7cb5n")
+source = ExtResource("18_r3dmu")
+
+[sub_resource type="Resource" id="Resource_l07pr"]
+script = ExtResource("4_qxj6e")
+set_id = "set-a"
+display_name = "A · near vegetation"
+entries = Array[ExtResource("5_7cb5n")]([SubResource("Resource_5g7v7"), SubResource("Resource_hu8bq"), SubResource("Resource_7cb2u"), SubResource("Resource_x3lmr"), SubResource("Resource_wlnpr"), SubResource("Resource_hrnvy"), SubResource("Resource_t8yvf"), SubResource("Resource_o4jkf"), SubResource("Resource_gq2eh"), SubResource("Resource_hv6xe"), SubResource("Resource_pm8l2"), SubResource("Resource_ovc7v"), SubResource("Resource_kaont"), SubResource("Resource_112sa")])
+draw_distance_m = 10.0
+
+[sub_resource type="Resource" id="Resource_vtas4"]
+script = ExtResource("5_7cb5n")
+source = SubResource("Resource_oncxo")
+weight = 3.0
+
+[sub_resource type="Resource" id="Resource_bej8n"]
+script = ExtResource("5_7cb5n")
+source = SubResource("Resource_4gl14")
+
+[sub_resource type="Resource" id="Resource_npcgs"]
+script = ExtResource("4_qxj6e")
+set_id = "set-b"
+display_name = "B · far vegetation"
+entries = Array[ExtResource("5_7cb5n")]([SubResource("Resource_vtas4"), SubResource("Resource_bej8n")])
+draw_distance_m = 80.0
+
+[sub_resource type="Resource" id="Resource_mahuj"]
+resource_local_to_scene = true
+script = ExtResource("3_70qgg")
+layer_id = "modal-context-b"
+sets = Array[ExtResource("4_qxj6e")]([SubResource("Resource_l07pr"), SubResource("Resource_npcgs")])
+
+[node name="ModalContextB" type="Node3D" unique_id=1239602003]
+
+[node name="VegetationLayer" type="Node3D" parent="." unique_id=1946442365]
+script = ExtResource("1_wdh2q")
+layer_data = SubResource("Resource_mahuj")

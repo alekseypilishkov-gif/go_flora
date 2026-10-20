@@ -11,6 +11,7 @@ var _closing := false
 var _saving := false
 var _saved := false
 var _native_popup: WeakRef
+const Persistence = preload("res://addons/go_flora/editor/source_persistence.gd")
 
 func setup(alpha: bool) -> void:
 	# EditorResourcePicker Quick Load is an editor-root exclusive window.
@@ -231,22 +232,41 @@ func _refresh() -> void:
 func _save_source(path: String) -> void:
 	if _closing or _saved:
 		return
-	if not GFSourceResolver.project_path(path) or path.get_extension() != "tres":
-		_info.text = "Выберите путь Source .tres внутри проекта."
+	var destination_error := Persistence.destination_error(path)
+	if not destination_error.is_empty():
+		_info.text = destination_error
 		_save_cancelled()
 		return
 	_refresh()
 	if get_ok_button().disabled:
 		_save_cancelled()
 		return
-	var error := ResourceSaver.save(source, path)
+	if source.schema_version != 1 or source.resource_local_to_scene:
+		_info.text = "Новый Source должен иметь schema 1 и resource_local_to_scene=false."
+		_save_cancelled()
+		return
+	var expected := Persistence.snapshot(source)
+	var error := _write_source(path)
 	if error != OK:
 		_info.text = "Cannot save source: %s (error %d). Choose a writable project path." % [path, error]
+		_save_cancelled()
+		return
+	var persisted := _load_persisted_source(path)
+	var validation_error := Persistence.validation_error(expected, persisted, path)
+	if not validation_error.is_empty():
+		_info.text = "Файл записан: %s. Source не добавлен: %s. Файл сохранён; выберите другое имя или проверьте его отдельно." % [path, validation_error]
 		_save_cancelled()
 		return
 	_saved = true
 	_saving = false
 	_save.hide()
 	hide()
-	source_saved.emit(source)
+	source_saved.emit(persisted)
 	close_creator()
+
+# Kept separate for deterministic save/reload failure probes in disposable projects.
+func _write_source(path: String) -> Error:
+	return ResourceSaver.save(source, path)
+
+func _load_persisted_source(path: String) -> Resource:
+	return ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_REUSE)

@@ -1,0 +1,190 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+GO_FLORA_PLUGIN_ENABLED
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+PASS STAGE02_EDITOR installed_enabled
+PASS STAGE02_EDITOR paint_begin_original_plant.glb
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=18 removed=0 records=18 set=set-a
+PASS STAGE02_EDITOR native_paint_one_undo_original_plant.glb
+PASS STAGE02_EDITOR native_paint_redo_exact_IDs_original_plant.glb
+PASS STAGE02_EDITOR single_begin_original_plant.glb
+PASS STAGE02_EDITOR inert_editor_preview_original_plant.glb
+GO_FLORA_PENDING_CLEARED
+PASS STAGE02_EDITOR cancel_removes_all_parts_original_plant.glb
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=1 removed=0 records=1 set=set-a
+PASS STAGE02_EDITOR single_one_record_original_plant.glb
+PASS STAGE02_EDITOR native_undo_all_parts_original_plant.glb
+PASS STAGE02_EDITOR native_redo_ID_original_plant.glb
+PASS STAGE02_EDITOR existing_distance_A_B_stable_original_plant.glb
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=0 removed=1 records=0 set=set-a
+PASS STAGE02_EDITOR native_erase_all_parts_original_plant.glb
+PASS STAGE02_EDITOR native_erase_undo_original_plant.glb
+PASS STAGE02_EDITOR reimport_callback_records_retained_original_plant.glb
+PASS STAGE02_EDITOR paint_begin_static_plant.tscn
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=18 removed=0 records=18 set=set-a
+PASS STAGE02_EDITOR native_paint_one_undo_static_plant.tscn
+PASS STAGE02_EDITOR native_paint_redo_exact_IDs_static_plant.tscn
+PASS STAGE02_EDITOR single_begin_static_plant.tscn
+PASS STAGE02_EDITOR inert_editor_preview_static_plant.tscn
+GO_FLORA_PENDING_CLEARED
+PASS STAGE02_EDITOR cancel_removes_all_parts_static_plant.tscn
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=1 removed=0 records=1 set=set-a
+PASS STAGE02_EDITOR single_one_record_static_plant.tscn
+PASS STAGE02_EDITOR native_undo_all_parts_static_plant.tscn
+PASS STAGE02_EDITOR native_redo_ID_static_plant.tscn
+PASS STAGE02_EDITOR existing_distance_A_B_stable_static_plant.tscn
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=0 removed=1 records=0 set=set-a
+PASS STAGE02_EDITOR native_erase_all_parts_static_plant.tscn
+PASS STAGE02_EDITOR native_erase_undo_static_plant.tscn
+PASS STAGE02_EDITOR reimport_callback_records_retained_static_plant.tscn
+PASS STAGE02_EDITOR paint_begin_authored_plant.tscn
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=18 removed=0 records=18 set=set-a
+PASS STAGE02_EDITOR native_paint_one_undo_authored_plant.tscn
+PASS STAGE02_EDITOR native_paint_redo_exact_IDs_authored_plant.tscn
+PASS STAGE02_EDITOR single_begin_authored_plant.tscn
+PASS STAGE02_EDITOR inert_editor_preview_authored_plant.tscn
+GO_FLORA_PENDING_CLEARED
+PASS STAGE02_EDITOR cancel_removes_all_parts_authored_plant.tscn
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=1 removed=0 records=1 set=set-a
+PASS STAGE02_EDITOR single_one_record_authored_plant.tscn
+PASS STAGE02_EDITOR native_undo_all_parts_authored_plant.tscn
+PASS STAGE02_EDITOR native_redo_ID_authored_plant.tscn
+PASS STAGE02_EDITOR existing_distance_A_B_stable_authored_plant.tscn
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=0 removed=1 records=0 set=set-a
+PASS STAGE02_EDITOR native_erase_all_parts_authored_plant.tscn
+PASS STAGE02_EDITOR native_erase_undo_authored_plant.tscn
+PASS STAGE02_EDITOR reimport_callback_records_retained_authored_plant.tscn
+PASS STAGE02_EDITOR paint_begin_editor-card
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=18 removed=0 records=18 set=set-a
+PASS STAGE02_EDITOR native_paint_one_undo_editor-card
+PASS STAGE02_EDITOR native_paint_redo_exact_IDs_editor-card
+PASS STAGE02_EDITOR single_begin_editor-card
+PASS STAGE02_EDITOR inert_editor_preview_editor-card
+GO_FLORA_PENDING_CLEARED
+PASS STAGE02_EDITOR cancel_removes_all_parts_editor-card
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=1 removed=0 records=1 set=set-a
+PASS STAGE02_EDITOR single_one_record_editor-card
+PASS STAGE02_EDITOR native_undo_all_parts_editor-card
+PASS STAGE02_EDITOR native_redo_ID_editor-card
+PASS STAGE02_EDITOR existing_distance_A_B_stable_editor-card
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=0 removed=1 records=0 set=set-a
+PASS STAGE02_EDITOR native_erase_all_parts_editor-card
+PASS STAGE02_EDITOR native_erase_undo_editor-card
+PASS STAGE02_EDITOR reimport_callback_records_retained_editor-card
+WARNING: Loaded resource as image file, this will not work on export: 'res://fixtures/grass.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/editor_stage02_harness/plugin.gd:122)
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (1 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | grass.png[39m[0m
+[  50% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (1 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+PASS STAGE02_EDITOR actual_PNG_file_reimport_invalidates_card_keeps_ID
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (1 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | grass.png[39m[0m
+[  50% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (1 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (1 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mpreload_reimporting_scene[22m | Started Preparing scenes for reload (1 steps)[39m[0m
+[   0% ] [90m[1mpreload_reimporting_scene[22m | Analyzing scene demo[39m[0m
+[  50% ] [90m[1mpreload_reimporting_scene[22m | Preparation done.[39m[0m
+[92m[ DONE ][39m [1mpreload_reimporting_scene[22m
+[0m
+[   0% ] [90m[1mreimport[22m | original_plant.glb[39m[0m
+[   0% ] [90m[1mimport[22m | Started Import Scene (104 steps)[39m[0m
+[   0% ] [90m[1mimport[22m | Importing Scene...[39m[0m
+[   1% ] [90m[1mimport[22m | Running Custom Script...[39m[0m
+[  99% ] [90m[1mimport[22m | Saving...[39m[0m
+[92m[ DONE ][39m [1mimport[22m
+[0m
+[  50% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (1 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+PASS STAGE02_EDITOR actual_GLB_file_reimport_new_revision_positions_retained
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (1 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mpreload_reimporting_scene[22m | Started Preparing scenes for reload (1 steps)[39m[0m
+[   0% ] [90m[1mpreload_reimporting_scene[22m | Analyzing scene demo[39m[0m
+[  50% ] [90m[1mpreload_reimporting_scene[22m | Preparation done.[39m[0m
+[92m[ DONE ][39m [1mpreload_reimporting_scene[22m
+[0m
+[   0% ] [90m[1mreimport[22m | original_plant.glb[39m[0m
+[   0% ] [90m[1mimport[22m | Started Import Scene (104 steps)[39m[0m
+[   0% ] [90m[1mimport[22m | Importing Scene...[39m[0m
+[   1% ] [90m[1mimport[22m | Running Custom Script...[39m[0m
+[  99% ] [90m[1mimport[22m | Saving...[39m[0m
+[92m[ DONE ][39m [1mimport[22m
+[0m
+[  50% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (1 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+PASS STAGE02_EDITOR deleted_scene_file_actionable_diagnostic
+PASS STAGE02_EDITOR deleted_texture_file_records_retained
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (1 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | grass.png[39m[0m
+[  50% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (1 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+PASS STAGE02_EDITOR source_diagnostics_selectable_revision
+PASS STAGE02_EDITOR creator_WebP_UV_preview_validation
+PASS STAGE02_EDITOR creator_saved_reusable_source_added_palette
+PASS STAGE02_EDITOR creator_add_palette_scene_undo
+PASS STAGE02_EDITOR creator_add_palette_scene_redo
+NOT_RUN INTERACTIVE_GUI_QA
+PASS STAGE02_EDITOR_COMPLETE

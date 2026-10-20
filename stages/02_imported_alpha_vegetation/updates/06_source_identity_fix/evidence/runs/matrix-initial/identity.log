@@ -1,0 +1,92 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+GO_FLORA_PLUGIN_ENABLED
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+PASS ISSUE18 Creator_canonical_mesh
+PASS ISSUE18 all_persisted_fields_mesh
+PASS ISSUE18 palette_and_Inspector_exact_mesh
+PASS ISSUE18 Creator_canonical_mesh-second
+PASS ISSUE18 all_persisted_fields_mesh-second
+PASS ISSUE18 palette_and_Inspector_exact_mesh-second
+PASS ISSUE18 Creator_canonical_glb
+PASS ISSUE18 all_persisted_fields_glb
+PASS ISSUE18 palette_and_Inspector_exact_glb
+PASS ISSUE18 Creator_canonical_packed
+PASS ISSUE18 all_persisted_fields_packed
+PASS ISSUE18 palette_and_Inspector_exact_packed
+PASS ISSUE18 Creator_canonical_png
+PASS ISSUE18 all_persisted_fields_png
+PASS ISSUE18 palette_and_Inspector_exact_png
+PASS ISSUE18 Creator_canonical_webp
+PASS ISSUE18 all_persisted_fields_webp
+PASS ISSUE18 palette_and_Inspector_exact_webp
+PASS ISSUE18 Creator_canonical_review-required
+PASS ISSUE18 all_persisted_fields_review-required
+PASS ISSUE18 palette_and_Inspector_exact_review-required
+PASS ISSUE18 Creator_canonical_reviewed
+PASS ISSUE18 all_persisted_fields_reviewed
+PASS ISSUE18 palette_and_Inspector_exact_reviewed
+PASS ISSUE18 same_display_name_distinct_objects_and_ids
+PASS ISSUE18 append_Undo_records_unchanged
+PASS ISSUE18 append_Redo_same_canonical
+PASS ISSUE18 removal_keeps_external_archive_and_records
+PASS ISSUE18 removal_Undo_same_source
+PASS ISSUE18 Save_Dialog_Cancel_restores_draft
+PASS ISSUE18 close_cancel_no_publish_or_orphan_Save
+PASS ISSUE18 close_esc_no_publish_or_orphan_Save
+PASS ISSUE18 close_x_no_publish_or_orphan_Save
+PASS ISSUE18 occupied_or_invalid_path_refused
+PASS ISSUE18 occupied_or_invalid_path_refused
+PASS ISSUE18 occupied_or_invalid_path_refused
+PASS ISSUE18 occupied_or_invalid_path_refused
+PASS ISSUE18 occupied_or_invalid_path_refused
+PASS ISSUE18 occupied_or_invalid_path_refused
+PASS ISSUE18 occupied_or_invalid_path_refused
+PASS ISSUE18 occupied_or_invalid_path_refused
+PASS ISSUE18 fault_save-error_no_publish_file_retained
+PASS ISSUE18 fault_null_no_publish_file_retained
+PASS ISSUE18 fault_wrong-type_no_publish_file_retained
+PASS ISSUE18 fault_uncached_no_publish_file_retained
+PASS ISSUE18 fault_schema_no_publish_file_retained
+PASS ISSUE18 fault_id_no_publish_file_retained
+PASS ISSUE18 fault_kind_no_publish_file_retained
+PASS ISSUE18 fault_display_no_publish_file_retained
+PASS ISSUE18 fault_name_no_publish_file_retained
+PASS ISSUE18 fault_variant_no_publish_file_retained
+PASS ISSUE18 fault_transform_no_publish_file_retained
+PASS ISSUE18 fault_material_no_publish_file_retained
+PASS ISSUE18 fault_mesh_no_publish_file_retained
+PASS ISSUE18 fault_asset_no_publish_file_retained
+PASS ISSUE18 fault_card_no_publish_file_retained
+PASS ISSUE18 fault_texture_no_publish_file_retained
+PASS ISSUE18 fault_allow_no_publish_file_retained
+PASS ISSUE18 fault_review_no_publish_file_retained
+PASS ISSUE18 fault_local_no_publish_file_retained
+PASS ISSUE18 fault_path_no_publish_file_retained
+ERROR: Cannot save file 'res://identity/missing_directory/error.tres'.
+   at: save (scene/resources/resource_format_text.cpp:1768)
+   GDScript backtrace (most recent call first):
+       [0] _write_source (res://addons/go_flora/editor/source_creator.gd:269)
+       [1] _write_source (res://tests/editor_identity_harness/injected.gd:7)
+       [2] _save_source (res://addons/go_flora/editor/source_creator.gd:249)
+       [3] run (res://tests/editor_identity_harness/plugin.gd:152)
+       [4] frames (res://tests/editor_identity_harness/plugin.gd:14)
+PASS ISSUE18 actual_Save_Error_no_publish
+FAIL ISSUE18 context_set_saved_not_added_elsewhere
+PASS ISSUE18 context_layer_saved_not_added_elsewhere
+PASS ISSUE18 legacy_no_migration_review_transfer_or_record_change
+PASS ISSUE18 two_scenes_saved
+ISSUE18_CANONICAL_COMPLETE

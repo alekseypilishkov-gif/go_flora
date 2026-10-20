@@ -1,0 +1,60 @@
+{
+  "probes": [
+    {
+      "case": "version",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\matrix-initial-1792496086393544900\\candidate",
+        "--headless",
+        "--version"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\matrix-initial-1792496086393544900\\profiles\\version",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "identity_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\matrix-initial-1792496086393544900\\identity",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\matrix-initial-1792496086393544900\\profiles\\identity_import",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "identity",
+      "status": "FAIL",
+      "exit_code": 1,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\matrix-initial-1792496086393544900\\identity",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\matrix-initial-1792496086393544900\\profiles\\identity",
+      "unexpected_errors": [],
+      "expected_error": "Cannot save file 'res://identity/missing_directory/error.tres'"
+    }
+  ],
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "INTERACTIVE_GUI_QA": "NOT_RUN",
+  "scope": "Isolated automatic headless/native Editor API; graphics is a separate renderer gate"
+}

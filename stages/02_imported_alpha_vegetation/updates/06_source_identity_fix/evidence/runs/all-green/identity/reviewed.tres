@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GFVegetationSource" format=3 uid="uid://c4fajwbnho78j"]
+
+[ext_resource type="PackedScene" path="res://fixtures/authored_plant.tscn" id="1_mriou"]
+[ext_resource type="Script" uid="uid://bv87vsx5r0213" path="res://addons/go_flora/data/source.gd" id="2_2iqsc"]
+
+[resource]
+resource_name = "Authored reviewed"
+script = ExtResource("2_2iqsc")
+source_id = "new-reviewed"
+display_name = "updated new-reviewed"
+kind = 3
+asset = ExtResource("1_mriou")
+mesh_transform = Transform3D(0.7710167, 0, 0.21338515, 0, 1.2, 0, -0.24005829, 0, 0.86739373, 0.1, 0.2, 0.3)
+allow_scene_fallback = true
+reviewed_scene_revision = "static-v1:4186c5b970b4b05bda0202c019b054d662a4416448c7e15c3fe5b3f1c163bed8"

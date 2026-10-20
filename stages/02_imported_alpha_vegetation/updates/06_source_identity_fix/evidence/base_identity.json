@@ -1,0 +1,10 @@
+{
+  "base": "d911087157ecaa9e3ab2b92d95049f2999aebab1",
+  "branch": "codex/issue-18-source-identity",
+  "original_checkout": "C:/Dev/GO_FLORA",
+  "worktree": "C:/Users/pial/.codex/worktrees/issue-18-source-identity/GO_FLORA",
+  "original_head": "3d043d3ee48578501a2249c13db331b43aee9c37",
+  "source_version": "0.2.5-dev",
+  "new_version": "0.2.6-dev",
+  "stage_a_report_sha256": "e1e2018c050887fe100db57d53c99e40a7372a49b4f252c7352f33f356fd787a"
+}

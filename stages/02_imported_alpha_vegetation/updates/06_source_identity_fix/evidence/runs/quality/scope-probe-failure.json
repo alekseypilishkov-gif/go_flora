@@ -1,0 +1,12 @@
+{
+  "case": "git-show-by-path-protected-file-comparison",
+  "status": "FAIL",
+  "command": [
+    "git",
+    "show",
+    "d911087157ecaa9e3ab2b92d95049f2999aebab1:stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/evidence/runs/baseline-1792045111708956800/editor_stage02_harness_editor_stage02_results.json"
+  ],
+  "exit_code": 128,
+  "stderr": "fatal: failed to stat 'd911087157ecaa9e3ab2b92d95049f2999aebab1:stages/02_imported_alpha_vegetation/updates/01_palette_dock_ux/evidence/runs/baseline-1792045111708956800/editor_stage02_harness_editor_stage02_results.json': Filename too long",
+  "resolution": "git ls-tree pinned main and raw Git blob hashes; no path-based git show; see ../quality-final/summary.json"
+}

@@ -1,0 +1,97 @@
+[
+  {
+    "id": "installed",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "A_C_no_node_warning_unused_archive_or_empty_records",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "E_Mix_only_context_and_bounded_status",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "E_Selected_ready_not_globally_blocked",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "E_weight_zero_clears_stale_status_without_restart",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "E_weight_restores_Mix_warning",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "E_disabled_clears_status",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "D_record_failure_appears_live",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "palette_remove_confirmation",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "remove_keeps_archive_records_and_real_warning",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Undo_restores_same_entry_warning",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "Redo_keeps_exact_record_archive",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "B_live_review_ready_removes_INFO_warning_keeps_preview_and_details",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "revision_change_restores_real_warning",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "review_changes_preserve_ID_transform",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "reimport_before_ready",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "actual_reimport_invalid_atlas_restores_record_and_Mix_warning",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "actual_reimport_repair_clears_warnings",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  },
+  {
+    "id": "reimport_all_records_and_other_set_archive_preserved",
+    "scope": "native Editor API; not physical GUI",
+    "status": "PASS"
+  }
+]

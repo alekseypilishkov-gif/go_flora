@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GFVegetationSource" format=3 uid="uid://cb8461wd2lki1"]
+
+[ext_resource type="PackedScene" uid="uid://dyvsqva08fsmv" path="res://fixtures/static_plant.tscn" id="1_kbqe6"]
+[ext_resource type="Script" uid="uid://bv87vsx5r0213" path="res://addons/go_flora/data/source.gd" id="2_rd4hh"]
+
+[resource]
+script = ExtResource("2_rd4hh")
+source_id = "source-1792496883238-2242476321546"
+display_name = "static_plant"
+kind = 3
+asset = ExtResource("1_kbqe6")

@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://7hrq3wyyuvny"]
+
+[ext_resource type="Script" uid="uid://b3usf0s7vay34" path="res://addons/go_flora/vegetation_layer_3d.gd" id="1_v52sk"]
+[ext_resource type="Script" uid="uid://c87lvab8bo1nl" path="res://addons/go_flora/data/instance_record.gd" id="2_aa82a"]
+[ext_resource type="Script" uid="uid://rdt7t3u0kc6o" path="res://addons/go_flora/data/layer_data.gd" id="3_kbw11"]
+[ext_resource type="Script" uid="uid://d1h11t2tx63a4" path="res://addons/go_flora/data/vegetation_set.gd" id="4_7yrx2"]
+[ext_resource type="Script" uid="uid://d0ke7qyjm8ffo" path="res://addons/go_flora/data/palette_entry.gd" id="5_71h15"]
+[ext_resource type="Script" uid="uid://bv87vsx5r0213" path="res://addons/go_flora/data/source.gd" id="6_c3hka"]
+
+[sub_resource type="Resource" id="Resource_lmjdx"]
+script = ExtResource("2_aa82a")
+record_id = "native-0"
+source_id = "primitive-cone-v1"
+set_id = "set-a"
+layer_id = "demo-layer"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1g04"]
+albedo_color = Color(0.95, 0.42, 0.09, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_y4qkf"]
+material = SubResource("StandardMaterial3D_i1g04")
+size = Vector3(0.65, 0.8, 0.65)
+
+[sub_resource type="Resource" id="Resource_oncxo"]
+script = ExtResource("6_c3hka")
+source_id = "primitive-box-v1"
+display_name = "Orange block shrub"
+asset = SubResource("BoxMesh_y4qkf")
+mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[sub_resource type="Resource" id="Resource_hu8bq"]
+script = ExtResource("5_71h15")
+source = SubResource("Resource_oncxo")
+
+[sub_resource type="BoxMesh" id="BoxMesh_wiute"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1n3g"]
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Resource" id="Resource_4gl14"]
+script = ExtResource("6_c3hka")
+source_id = "primitive-cone-v1"
+display_name = "Green cone bush"
+asset = SubResource("BoxMesh_wiute")
+surface_materials = Array[Material]([SubResource("StandardMaterial3D_b1n3g")])
+mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[sub_resource type="Resource" id="Resource_l07pr"]
+script = ExtResource("4_7yrx2")
+set_id = "set-a"
+display_name = "A · near vegetation"
+entries = Array[ExtResource("5_71h15")]([SubResource("Resource_hu8bq")])
+render_only_sources = Array[ExtResource("6_c3hka")]([SubResource("Resource_4gl14")])
+draw_distance_m = 10.0
+
+[sub_resource type="Resource" id="Resource_vtas4"]
+script = ExtResource("5_71h15")
+source = SubResource("Resource_oncxo")
+weight = 3.0
+
+[sub_resource type="Resource" id="Resource_bej8n"]
+script = ExtResource("5_71h15")
+source = SubResource("Resource_4gl14")
+
+[sub_resource type="Resource" id="Resource_npcgs"]
+script = ExtResource("4_7yrx2")
+set_id = "set-b"
+display_name = "B · far vegetation"
+entries = Array[ExtResource("5_71h15")]([SubResource("Resource_vtas4"), SubResource("Resource_bej8n")])
+draw_distance_m = 80.0
+
+[sub_resource type="Resource" id="Resource_ob8ie"]
+resource_local_to_scene = true
+script = ExtResource("3_kbw11")
+layer_id = "demo-layer"
+sets = Array[ExtResource("4_7yrx2")]([SubResource("Resource_l07pr"), SubResource("Resource_npcgs")])
+records = Array[ExtResource("2_aa82a")]([SubResource("Resource_lmjdx")])
+
+[node name="" type="Node3D" unique_id=1870636596]
+
+[node name="VegetationLayer" type="Node3D" parent="." unique_id=1551667193]
+script = ExtResource("1_v52sk")
+layer_data = SubResource("Resource_ob8ie")

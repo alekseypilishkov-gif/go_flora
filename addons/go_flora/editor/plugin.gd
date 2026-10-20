@@ -852,7 +852,7 @@ func _source_ui_open() -> bool:
 func _add_created_source(source: GFVegetationSource, layer: VegetationLayer3D, vegetation_set: GFVegetationSet) -> void:
 	get_editor_interface().get_resource_filesystem().scan()
 	if not is_instance_valid(layer) or layer != active_layer or vegetation_set != active_set:
-		set_status("Source saved. Scene/set changed; add the .tres through the Set Inspector.")
+		set_status("Source saved: %s. Scene/set changed; add the .tres through the Set Inspector." % source.resource_path)
 		return
 	if vegetation_set.source_by_id(source.source_id) != null:
 		set_status("Этот Source уже есть в активной палитре; повторное добавление пропущено.")

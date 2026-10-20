@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="GFVegetationSource" format=3 uid="uid://c5808ibfojcll"]
+
+[ext_resource type="Script" uid="uid://wctj6t1868o0" path="res://addons/go_flora/data/alpha_card.gd" id="1_mvfx5"]
+[ext_resource type="Texture2D" uid="uid://consdm8kgtbfu" path="res://fixtures/grass.webp" id="2_pca77"]
+[ext_resource type="Script" uid="uid://bv87vsx5r0213" path="res://addons/go_flora/data/source.gd" id="3_y6c6w"]
+
+[sub_resource type="Resource" id="Resource_a4lu8"]
+script = ExtResource("1_mvfx5")
+texture = ExtResource("2_pca77")
+width_m = 0.86
+height_m = 1.36
+splay_degrees = 12.0
+alpha_threshold = 0.65
+
+[resource]
+script = ExtResource("3_y6c6w")
+source_id = "source-1792496516172-1888258959980"
+display_name = "grass"
+kind = 4
+alpha_card = SubResource("Resource_a4lu8")

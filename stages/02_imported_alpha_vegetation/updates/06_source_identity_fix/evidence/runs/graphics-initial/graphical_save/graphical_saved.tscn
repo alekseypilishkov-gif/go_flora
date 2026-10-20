@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://c56ngqrwqrogy"]
+
+[ext_resource type="Script" uid="uid://b3usf0s7vay34" path="res://addons/go_flora/vegetation_layer_3d.gd" id="1_ap0u0"]
+[ext_resource type="Script" uid="uid://c87lvab8bo1nl" path="res://addons/go_flora/data/instance_record.gd" id="2_rqwdo"]
+[ext_resource type="Script" uid="uid://rdt7t3u0kc6o" path="res://addons/go_flora/data/layer_data.gd" id="3_nh6ky"]
+[ext_resource type="Script" uid="uid://d1h11t2tx63a4" path="res://addons/go_flora/data/vegetation_set.gd" id="4_ol0gp"]
+[ext_resource type="Script" uid="uid://d0ke7qyjm8ffo" path="res://addons/go_flora/data/palette_entry.gd" id="5_7vbn2"]
+[ext_resource type="Script" uid="uid://bv87vsx5r0213" path="res://addons/go_flora/data/source.gd" id="6_rok74"]
+[ext_resource type="Resource" uid="uid://dlq2vptoassvd" path="res://identity/graphical_source.tres" id="7_pfljk"]
+[ext_resource type="Script" uid="uid://ecftshkstf8l" path="res://runtime_camera.gd" id="8_yhww2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tql22"]
+albedo_color = Color(0.12, 0.65, 0.32, 1)
+roughness = 0.9
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jbdfk"]
+material = SubResource("StandardMaterial3D_tql22")
+top_radius = 0.0
+bottom_radius = 0.45
+height = 1.5
+radial_segments = 8
+
+[sub_resource type="Resource" id="Resource_4gl14"]
+script = ExtResource("6_rok74")
+source_id = "primitive-cone-v1"
+display_name = "Green cone bush"
+asset = SubResource("CylinderMesh_jbdfk")
+mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[sub_resource type="Resource" id="Resource_5g7v7"]
+script = ExtResource("5_7vbn2")
+source = SubResource("Resource_4gl14")
+weight = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1g04"]
+albedo_color = Color(0.95, 0.42, 0.09, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_y4qkf"]
+material = SubResource("StandardMaterial3D_i1g04")
+size = Vector3(0.65, 0.8, 0.65)
+
+[sub_resource type="Resource" id="Resource_oncxo"]
+script = ExtResource("6_rok74")
+source_id = "primitive-box-v1"
+display_name = "Orange block shrub"
+asset = SubResource("BoxMesh_y4qkf")
+mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[sub_resource type="Resource" id="Resource_hu8bq"]
+script = ExtResource("5_7vbn2")
+source = SubResource("Resource_oncxo")
+
+[sub_resource type="Resource" id="Resource_eomro"]
+script = ExtResource("5_7vbn2")
+source = ExtResource("7_pfljk")
+
+[sub_resource type="Resource" id="Resource_l07pr"]
+script = ExtResource("4_ol0gp")
+set_id = "set-a"
+display_name = "A · near vegetation"
+entries = Array[ExtResource("5_7vbn2")]([SubResource("Resource_5g7v7"), SubResource("Resource_hu8bq"), SubResource("Resource_eomro")])
+draw_distance_m = 10.0
+
+[sub_resource type="Resource" id="Resource_vtas4"]
+script = ExtResource("5_7vbn2")
+source = SubResource("Resource_oncxo")
+weight = 3.0
+
+[sub_resource type="Resource" id="Resource_bej8n"]
+script = ExtResource("5_7vbn2")
+source = SubResource("Resource_4gl14")
+
+[sub_resource type="Resource" id="Resource_npcgs"]
+script = ExtResource("4_ol0gp")
+set_id = "set-b"
+display_name = "B · far vegetation"
+entries = Array[ExtResource("5_7vbn2")]([SubResource("Resource_vtas4"), SubResource("Resource_bej8n")])
+draw_distance_m = 80.0
+
+[sub_resource type="Resource" id="Resource_ob8ie"]
+resource_local_to_scene = true
+script = ExtResource("3_nh6ky")
+layer_id = "demo-layer"
+sets = Array[ExtResource("4_ol0gp")]([SubResource("Resource_l07pr"), SubResource("Resource_npcgs")])
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wavrw"]
+albedo_color = Color(0.24, 0.3, 0.37, 1)
+roughness = 0.9
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hhe36"]
+material = SubResource("StandardMaterial3D_wavrw")
+size = Vector2(18, 18)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0gupw"]
+size = Vector3(18, 0.2, 18)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pryqw"]
+albedo_color = Color(0.25, 0.45, 0.65, 1)
+roughness = 0.9
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_18kiu"]
+material = SubResource("StandardMaterial3D_pryqw")
+size = Vector2(5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dci70"]
+size = Vector3(5, 0.2, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kf85k"]
+albedo_color = Color(0.85, 0.72, 0.18, 1)
+roughness = 0.9
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cul78"]
+material = SubResource("StandardMaterial3D_kf85k")
+size = Vector2(3, 3)
+
+[sub_resource type="Environment" id="Environment_xms7c"]
+background_mode = 1
+background_color = Color(0.08, 0.11, 0.16, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.8, 0.85, 1, 1)
+ambient_light_energy = 0.5
+
+[node name="GOFloraDemo" type="Node3D" unique_id=174186488]
+
+[node name="VegetationLayer" type="Node3D" parent="." unique_id=1069935032]
+script = ExtResource("1_ap0u0")
+layer_data = SubResource("Resource_ob8ie")
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=469816850]
+
+[node name="SurfaceMesh" type="MeshInstance3D" parent="Ground" unique_id=830097492]
+mesh = SubResource("PlaneMesh_hhe36")
+
+[node name="SurfaceCollision" type="CollisionShape3D" parent="Ground" unique_id=790858391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_0gupw")
+
+[node name="RotatedScaledSurface" type="StaticBody3D" parent="." unique_id=144228065]
+transform = Transform3D(1.1904737, -0.2807541, 0.20253058, 0.47634667, 0.8162304, -0.16632937, -0.21416412, 0.2548432, 0.7558544, 5, 1.5, -3)
+
+[node name="SurfaceMesh" type="MeshInstance3D" parent="RotatedScaledSurface" unique_id=770280468]
+mesh = SubResource("PlaneMesh_18kiu")
+
+[node name="SurfaceCollision" type="CollisionShape3D" parent="RotatedScaledSurface" unique_id=1505890217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_dci70")
+
+[node name="VisualOnly_NoCollision" type="Node3D" parent="." unique_id=2093361108]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1, 3)
+
+[node name="SurfaceMesh" type="MeshInstance3D" parent="VisualOnly_NoCollision" unique_id=199777979]
+mesh = SubResource("PlaneMesh_cul78")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1004755871]
+transform = Transform3D(0.81915206, 0.46984634, -0.32898995, 0, 0.57357645, 0.81915206, 0.57357645, -0.6710101, 0.46984634, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1145517935]
+transform = Transform3D(0.7525767, -0.3236808, 0.57346237, 0, 0.8708555, 0.49153915, -0.6585046, -0.3699209, 0.65538555, 14, 12, 16)
+current = true
+script = ExtResource("8_yhww2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1309094110]
+environment = SubResource("Environment_xms7c")
+
+[node name="SurfaceLegend" type="Label3D" parent="." unique_id=1228323724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -7)
+pixel_size = 0.015
+text = "GO_FLORA Stage 01
+Ground + tilted blue surface: collision
+Yellow platform: visual only
+Select VegetationLayer; use GO_FLORA dock"
+font_size = 40

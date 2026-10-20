@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="GFVegetationSource" format=3 uid="uid://vcc3xkhdgokl"]
+
+[ext_resource type="Script" uid="uid://wctj6t1868o0" path="res://addons/go_flora/data/alpha_card.gd" id="1_ds4u3"]
+[ext_resource type="Texture2D" uid="uid://df2hhx11wl4wb" path="res://fixtures/grass.png" id="2_08eqw"]
+[ext_resource type="Script" uid="uid://bv87vsx5r0213" path="res://addons/go_flora/data/source.gd" id="3_y8fys"]
+
+[sub_resource type="Resource" id="Resource_utdsd"]
+script = ExtResource("1_ds4u3")
+texture = ExtResource("2_08eqw")
+mode = 2
+radial_count = 4
+width_m = 0.73
+height_m = 1.23
+splay_degrees = 7.5
+atlas_region_px = Rect2i(0, 0, 128, 128)
+alpha_threshold = 0.43
+
+[resource]
+resource_name = "Authored png"
+script = ExtResource("3_y8fys")
+source_id = "new-png"
+display_name = "updated new-png"
+kind = 4
+mesh_transform = Transform3D(0.7710167, 0, 0.21338515, 0, 1.2, 0, -0.24005829, 0, 0.86739373, 0.1, 0.2, 0.3)
+alpha_card = SubResource("Resource_utdsd")

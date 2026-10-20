@@ -1,0 +1,9 @@
+{
+  "checked": 2478,
+  "changed": [],
+  "missing": [],
+  "original_head": "3d043d3ee48578501a2249c13db331b43aee9c37",
+  "original_branch": "codex/issue-16-warning-filter",
+  "baseline": "original_checkout_baseline.json",
+  "scope": "2478 pre-existing tracked/untracked file hashes; Git object/ref fetch excluded; TEST_FLORA never accessed by Stage B"
+}

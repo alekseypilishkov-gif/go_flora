@@ -47,3 +47,11 @@ Resource/card/texture changes and Godot `resources_reimported` invalidate/reload
 Native headless, Editor API, actual GPU pixels and owner GUI are recorded separately. A frozen pre-Stage-02 scene saved from accepted main is compared with its original JSON (transform tolerance 1e-5). Schema is not relaxed to pass tests. Stage 01 tests are unchanged and run before/after. ZIP tests use disposable projects and compare scene/config/layout SHA. Clean export/new machines/other GPU hardware and full interactive GUI remain NOT_RUN.
 
 Primary API references: [SceneState](https://docs.godotengine.org/en/stable/classes/class_scenestate.html), [BaseMaterial3D](https://docs.godotengine.org/en/stable/classes/class_basematerial3d.html), [MultiMesh](https://docs.godotengine.org/en/stable/classes/class_multimesh.html). API reading is source analysis; executed 4.7.2 probes are runtime evidence.
+
+## New Source Creator persistence (Issue #18)
+
+Creator accepts only unused normalized project-local .tres paths, rejecting disk and resource-cache occupancy before writing. After saving, it loads with CACHE_MODE_REUSE and validates type, schema 1, external path/cache binding, non-local Source lifetime and the serialized storage graph (external asset references by path/class, inline resources by stored properties). Only the validated persisted GFVegetationSource is published to the existing palette/Inspector flow.
+
+Overwrite is not an edit operation. Failures never publish; a file already written before failed reload/validation stays on disk with a path-specific message. Scene/set context changes do not append into another set. The preflight is not an atomic lock against external concurrent writers; crash recovery is not implemented.
+
+This applies only to new Creator creations. Existing embedded Sources, IDs, approvals, records, schemas, archives and resolver/rendering rules are unchanged. No relink/deduplication by ID/name, cache takeover or migration is performed.

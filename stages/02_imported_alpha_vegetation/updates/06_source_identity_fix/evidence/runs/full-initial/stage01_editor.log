@@ -1,0 +1,61 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+GO_FLORA_PLUGIN_ENABLED
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+PASS EDITOR_API installed_enabled_actual_addon
+PASS EDITOR_API dock_minimum_height_fits_editor
+PASS EDITOR_API filesystem_dock_stays_inside_editor_vertical_bounds
+PASS EDITOR_API dock_shares_Inspector_right_tab_group
+DOCK_WIDTH {"minimum":260.0,"status":"Eligible surface","width":260.0}
+DOCK_WIDTH {"minimum":260.0,"status":"Pending: 20000 added / 20000 erased · 20000 samples · release to commit, Esc to cancel","width":260.0}
+DOCK_WIDTH {"minimum":260.0,"status":"A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic A very long missing source diagnostic ","width":260.0}
+PASS EDITOR_API dynamic_status_and_counts_do_not_resize_dock
+PASS EDITOR_API pending_no_persistent_mutation
+GO_FLORA_PENDING_CLEARED
+PASS EDITOR_API cancel_no_undo_action
+GO_FLORA_PENDING_CLEARED
+PASS EDITOR_API application_focus_loss_cancels_pending_API_only
+GO_FLORA_PENDING_CLEARED
+PASS EDITOR_API outside_viewport_release_cancels_pending_API_only
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=1 removed=0 records=1 set=set-a
+PASS EDITOR_API single_commit_exactly_one
+PASS EDITOR_API one_scene_history_undo
+PASS EDITOR_API scene_redo_exact_id
+PASS EDITOR_API active_set_distance_visible_in_dock
+PASS EDITOR_API dock_distance_updates_A_without_record_or_B_changes
+PASS EDITOR_API dock_distance_reuses_existing_batches
+PASS EDITOR_API dock_distance_native_undo_syncs_control
+PASS EDITOR_API dock_distance_native_redo_syncs_control
+PASS EDITOR_API distance_control_tracks_selected_set
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=42 removed=0 records=43 set=set-a
+PASS EDITOR_API multi_sample_paint_one_native_undo_step
+PASS EDITOR_API native_paint_redo_restores_exact_ID_sequence
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=0 removed=28 records=15 set=set-a
+PASS EDITOR_API native_erase_commits_record_delta
+PASS EDITOR_API native_erase_one_undo_restores_exact_order
+GO_FLORA_PENDING_CLEARED
+PASS EDITOR_API scene_switch_cancels_pending
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=1 removed=0 records=1 set=set-a
+PASS EDITOR_API distinct_scene_history_ids
+PASS EDITOR_API undo_B_does_not_edit_A
+PASS EDITOR_API disable_preserves_data_removes_editor_state
+GO_FLORA_PLUGIN_ENABLED
+PASS EDITOR_API reenable_one_plugin_no_parse_errors_data_rendered
+NOT_RUN INTERACTIVE_GUI_QA these Editor API checks do not inject real mouse strokes
