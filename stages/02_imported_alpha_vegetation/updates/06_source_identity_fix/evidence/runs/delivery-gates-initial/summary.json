@@ -1,0 +1,47 @@
+{
+  "probes": [
+    {
+      "case": "working-whitespace",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "staged-whitespace",
+      "status": "FAIL",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 2
+    },
+    {
+      "case": "prospective-PR-whitespace",
+      "status": "FAIL",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check",
+        "d911087157ecaa9e3ab2b92d95049f2999aebab1"
+      ],
+      "exit_code": 2
+    },
+    {
+      "case": "repository",
+      "status": "PASS",
+      "command": [
+        "C:\\Users\\pial\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "tools/verify_repository.py"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

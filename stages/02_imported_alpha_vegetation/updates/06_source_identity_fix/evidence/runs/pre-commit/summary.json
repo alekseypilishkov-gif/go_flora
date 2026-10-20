@@ -1,0 +1,35 @@
+{
+  "probes": [
+    {
+      "case": "working-whitespace",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "staged-whitespace",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "repository",
+      "status": "PASS",
+      "command": [
+        "C:\\Users\\pial\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "tools/verify_repository.py"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

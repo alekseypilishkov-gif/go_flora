@@ -1,0 +1,842 @@
+[
+  {
+    "facts": {
+      "emitted_is_draft": false,
+      "path": "res://identity/mesh.tres"
+    },
+    "id": "Creator_canonical_mesh",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "actual": {
+        "allow": false,
+        "asset_class": "BoxMesh",
+        "asset_external_path": "",
+        "card": {},
+        "id": "new-mesh",
+        "kind": 0,
+        "material_color": "(0.2, 0.7, 0.3, 1.0)",
+        "mesh_size": "(0.7, 1.3, 0.8)",
+        "name": "authored_plant",
+        "resource_name": "Authored mesh",
+        "review": "",
+        "roughness": "0.41999998688698",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      },
+      "expected": {
+        "allow": false,
+        "asset_class": "BoxMesh",
+        "asset_external_path": "",
+        "card": {},
+        "id": "new-mesh",
+        "kind": 0,
+        "material_color": "(0.2, 0.7, 0.3, 1.0)",
+        "mesh_size": "(0.7, 1.3, 0.8)",
+        "name": "updated new-mesh",
+        "resource_name": "Authored mesh",
+        "review": "",
+        "roughness": "0.41999998688698",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      }
+    },
+    "id": "all_persisted_fields_mesh",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "palette_and_Inspector_exact_mesh",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "emitted_is_draft": false,
+      "path": "res://identity/mesh-second.tres"
+    },
+    "id": "Creator_canonical_mesh-second",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "actual": {
+        "allow": false,
+        "asset_class": "BoxMesh",
+        "asset_external_path": "",
+        "card": {},
+        "id": "new-mesh-second",
+        "kind": 0,
+        "material_color": "(0.2, 0.7, 0.3, 1.0)",
+        "mesh_size": "(0.7, 1.3, 0.8)",
+        "name": "authored_plant",
+        "resource_name": "Authored mesh-second",
+        "review": "",
+        "roughness": "0.41999998688698",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      },
+      "expected": {
+        "allow": false,
+        "asset_class": "BoxMesh",
+        "asset_external_path": "",
+        "card": {},
+        "id": "new-mesh-second",
+        "kind": 0,
+        "material_color": "(0.2, 0.7, 0.3, 1.0)",
+        "mesh_size": "(0.7, 1.3, 0.8)",
+        "name": "updated new-mesh-second",
+        "resource_name": "Authored mesh-second",
+        "review": "",
+        "roughness": "0.41999998688698",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      }
+    },
+    "id": "all_persisted_fields_mesh-second",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "palette_and_Inspector_exact_mesh-second",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "emitted_is_draft": false,
+      "path": "res://identity/glb.tres"
+    },
+    "id": "Creator_canonical_glb",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "actual": {
+        "allow": false,
+        "asset_class": "PackedScene",
+        "asset_external_path": "res://fixtures/original_plant.glb",
+        "card": {},
+        "id": "new-glb",
+        "kind": 3,
+        "material_color": "",
+        "mesh_size": "",
+        "name": "authored_plant",
+        "resource_name": "Authored glb",
+        "review": "",
+        "roughness": "",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      },
+      "expected": {
+        "allow": false,
+        "asset_class": "PackedScene",
+        "asset_external_path": "res://fixtures/original_plant.glb",
+        "card": {},
+        "id": "new-glb",
+        "kind": 3,
+        "material_color": "",
+        "mesh_size": "",
+        "name": "updated new-glb",
+        "resource_name": "Authored glb",
+        "review": "",
+        "roughness": "",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      }
+    },
+    "id": "all_persisted_fields_glb",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "palette_and_Inspector_exact_glb",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "emitted_is_draft": false,
+      "path": "res://identity/packed.tres"
+    },
+    "id": "Creator_canonical_packed",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "actual": {
+        "allow": false,
+        "asset_class": "PackedScene",
+        "asset_external_path": "res://fixtures/static_plant.tscn",
+        "card": {},
+        "id": "new-packed",
+        "kind": 3,
+        "material_color": "",
+        "mesh_size": "",
+        "name": "authored_plant",
+        "resource_name": "Authored packed",
+        "review": "",
+        "roughness": "",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      },
+      "expected": {
+        "allow": false,
+        "asset_class": "PackedScene",
+        "asset_external_path": "res://fixtures/static_plant.tscn",
+        "card": {},
+        "id": "new-packed",
+        "kind": 3,
+        "material_color": "",
+        "mesh_size": "",
+        "name": "updated new-packed",
+        "resource_name": "Authored packed",
+        "review": "",
+        "roughness": "",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      }
+    },
+    "id": "all_persisted_fields_packed",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "palette_and_Inspector_exact_packed",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "emitted_is_draft": false,
+      "path": "res://identity/png.tres"
+    },
+    "id": "Creator_canonical_png",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "actual": {
+        "allow": false,
+        "asset_class": "",
+        "asset_external_path": "",
+        "card": {
+          "count": "4",
+          "gutter": "0.5",
+          "height": "1.23",
+          "mode": "2",
+          "region": "[P: (0, 0), S: (128, 128)]",
+          "splay": "7.5",
+          "texture": "res://fixtures/grass.png",
+          "threshold": "0.43",
+          "width": "0.73"
+        },
+        "id": "new-png",
+        "kind": 4,
+        "material_color": "",
+        "mesh_size": "",
+        "name": "authored_plant",
+        "resource_name": "Authored png",
+        "review": "",
+        "roughness": "",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      },
+      "expected": {
+        "allow": false,
+        "asset_class": "",
+        "asset_external_path": "",
+        "card": {
+          "count": "4",
+          "gutter": "0.5",
+          "height": "1.23",
+          "mode": "2",
+          "region": "[P: (0, 0), S: (128, 128)]",
+          "splay": "7.5",
+          "texture": "res://fixtures/grass.png",
+          "threshold": "0.43",
+          "width": "0.73"
+        },
+        "id": "new-png",
+        "kind": 4,
+        "material_color": "",
+        "mesh_size": "",
+        "name": "updated new-png",
+        "resource_name": "Authored png",
+        "review": "",
+        "roughness": "",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      }
+    },
+    "id": "all_persisted_fields_png",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "palette_and_Inspector_exact_png",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "emitted_is_draft": false,
+      "path": "res://identity/webp.tres"
+    },
+    "id": "Creator_canonical_webp",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "actual": {
+        "allow": false,
+        "asset_class": "",
+        "asset_external_path": "",
+        "card": {
+          "count": "4",
+          "gutter": "0.5",
+          "height": "1.23",
+          "mode": "2",
+          "region": "[P: (0, 0), S: (128, 128)]",
+          "splay": "7.5",
+          "texture": "res://fixtures/grass.webp",
+          "threshold": "0.43",
+          "width": "0.73"
+        },
+        "id": "new-webp",
+        "kind": 4,
+        "material_color": "",
+        "mesh_size": "",
+        "name": "authored_plant",
+        "resource_name": "Authored webp",
+        "review": "",
+        "roughness": "",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      },
+      "expected": {
+        "allow": false,
+        "asset_class": "",
+        "asset_external_path": "",
+        "card": {
+          "count": "4",
+          "gutter": "0.5",
+          "height": "1.23",
+          "mode": "2",
+          "region": "[P: (0, 0), S: (128, 128)]",
+          "splay": "7.5",
+          "texture": "res://fixtures/grass.webp",
+          "threshold": "0.43",
+          "width": "0.73"
+        },
+        "id": "new-webp",
+        "kind": 4,
+        "material_color": "",
+        "mesh_size": "",
+        "name": "updated new-webp",
+        "resource_name": "Authored webp",
+        "review": "",
+        "roughness": "",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      }
+    },
+    "id": "all_persisted_fields_webp",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "palette_and_Inspector_exact_webp",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "emitted_is_draft": false,
+      "path": "res://identity/review-required.tres"
+    },
+    "id": "Creator_canonical_review-required",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "actual": {
+        "allow": false,
+        "asset_class": "PackedScene",
+        "asset_external_path": "res://fixtures/authored_plant.tscn",
+        "card": {},
+        "id": "new-review-required",
+        "kind": 3,
+        "material_color": "",
+        "mesh_size": "",
+        "name": "authored_plant",
+        "resource_name": "Authored review-required",
+        "review": "",
+        "roughness": "",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      },
+      "expected": {
+        "allow": false,
+        "asset_class": "PackedScene",
+        "asset_external_path": "res://fixtures/authored_plant.tscn",
+        "card": {},
+        "id": "new-review-required",
+        "kind": 3,
+        "material_color": "",
+        "mesh_size": "",
+        "name": "updated new-review-required",
+        "resource_name": "Authored review-required",
+        "review": "",
+        "roughness": "",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      }
+    },
+    "id": "all_persisted_fields_review-required",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "palette_and_Inspector_exact_review-required",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "emitted_is_draft": false,
+      "path": "res://identity/reviewed.tres"
+    },
+    "id": "Creator_canonical_reviewed",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "actual": {
+        "allow": true,
+        "asset_class": "PackedScene",
+        "asset_external_path": "res://fixtures/authored_plant.tscn",
+        "card": {},
+        "id": "new-reviewed",
+        "kind": 3,
+        "material_color": "",
+        "mesh_size": "",
+        "name": "authored_plant",
+        "resource_name": "Authored reviewed",
+        "review": "static-v1:4186c5b970b4b05bda0202c019b054d662a4416448c7e15c3fe5b3f1c163bed8",
+        "roughness": "",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      },
+      "expected": {
+        "allow": true,
+        "asset_class": "PackedScene",
+        "asset_external_path": "res://fixtures/authored_plant.tscn",
+        "card": {},
+        "id": "new-reviewed",
+        "kind": 3,
+        "material_color": "",
+        "mesh_size": "",
+        "name": "updated new-reviewed",
+        "resource_name": "Authored reviewed",
+        "review": "static-v1:4186c5b970b4b05bda0202c019b054d662a4416448c7e15c3fe5b3f1c163bed8",
+        "roughness": "",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      }
+    },
+    "id": "all_persisted_fields_reviewed",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "palette_and_Inspector_exact_reviewed",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "emitted_is_draft": false,
+      "path": "res://identity/hard.tres"
+    },
+    "id": "Creator_canonical_hard",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "actual": {
+        "allow": false,
+        "asset_class": "PackedScene",
+        "asset_external_path": "",
+        "card": {},
+        "id": "new-hard",
+        "kind": 3,
+        "material_color": "",
+        "mesh_size": "",
+        "name": "authored_plant",
+        "resource_name": "Authored hard",
+        "review": "",
+        "roughness": "",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      },
+      "expected": {
+        "allow": false,
+        "asset_class": "PackedScene",
+        "asset_external_path": "",
+        "card": {},
+        "id": "new-hard",
+        "kind": 3,
+        "material_color": "",
+        "mesh_size": "",
+        "name": "updated new-hard",
+        "resource_name": "Authored hard",
+        "review": "",
+        "roughness": "",
+        "schema": 1,
+        "transform": "[X: (0.771017, 0.0, -0.240058), Y: (0.0, 1.2, 0.0), Z: (0.213385, 0.0, 0.867394), O: (0.1, 0.2, 0.3)]",
+        "variant": "static-v1"
+      }
+    },
+    "id": "all_persisted_fields_hard",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "palette_and_Inspector_exact_hard",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "same_display_name_distinct_objects_and_ids",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "append_Undo_records_unchanged",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "append_Redo_same_canonical",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "removal_keeps_external_archive_and_records",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "removal_Undo_same_source",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "Save_Dialog_Cancel_restores_draft",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "close_cancel_no_publish_or_orphan_Save",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "close_esc_no_publish_or_orphan_Save",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "close_x_no_publish_or_orphan_Save",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Путь занят: res://identity/mesh.tres. Выберите новое имя или откройте существующий Source отдельно. Перезапись из Creator запрещена.",
+      "path": "res://identity/mesh.tres"
+    },
+    "id": "occupied_or_invalid_path_refused",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Выберите нормализованный путь Source .tres внутри проекта (res://).",
+      "path": "res://identity/./mesh.tres"
+    },
+    "id": "occupied_or_invalid_path_refused",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Выберите нормализованный путь Source .tres внутри проекта (res://).",
+      "path": "res://identity/nested/../mesh.tres"
+    },
+    "id": "occupied_or_invalid_path_refused",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Выберите нормализованный путь Source .tres внутри проекта (res://).",
+      "path": "res://identity\\mesh.tres"
+    },
+    "id": "occupied_or_invalid_path_refused",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Путь занят: res://identity/wrong_type.tres. Выберите новое имя или откройте существующий Source отдельно. Перезапись из Creator запрещена.",
+      "path": "res://identity/wrong_type.tres"
+    },
+    "id": "occupied_or_invalid_path_refused",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Путь занят resource cache: res://identity/cache_only.tres. Выберите другое имя; существующий ресурс не заменяется.",
+      "path": "res://identity/cache_only.tres"
+    },
+    "id": "occupied_or_invalid_path_refused",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Выберите нормализованный путь Source .tres внутри проекта (res://).",
+      "path": "user://bad.tres"
+    },
+    "id": "occupied_or_invalid_path_refused",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Выберите нормализованный путь Source .tres внутри проекта (res://).",
+      "path": "res://identity/bad.res"
+    },
+    "id": "occupied_or_invalid_path_refused",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Cannot save source: res://identity/fault-save-error.tres (error 19). Choose a writable project path."
+    },
+    "id": "fault_save-error_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-null.tres. Source не добавлен: загрузка не вернула GFVegetationSource. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_null_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-wrong-type.tres. Source не добавлен: загрузка не вернула GFVegetationSource. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_wrong-type_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-uncached.tres. Source не добавлен: загруженный Source не является ресурсом этого пути в cache. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_uncached_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-schema.tres. Source не добавлен: ожидалась Source schema_version = 1. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_schema_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-id.tres. Source не добавлен: значение поля Source.fields.source_id отличается от сохранённого draft. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_id_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-kind.tres. Source не добавлен: значение поля Source.fields.kind отличается от сохранённого draft. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_kind_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-display.tres. Source не добавлен: значение поля Source.fields.display_name отличается от сохранённого draft. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_display_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-name.tres. Source не добавлен: значение поля Source.fields.resource_name отличается от сохранённого draft. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_name_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-variant.tres. Source не добавлен: значение поля Source.fields.variant_revision отличается от сохранённого draft. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_variant_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-transform.tres. Source не добавлен: значение поля Source.fields.mesh_transform отличается от сохранённого draft. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_transform_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-material.tres. Source не добавлен: значение поля Source.fields.surface_materials[0].fields.roughness отличается от сохранённого draft. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_material_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-mesh.tres. Source не добавлен: значение поля Source.fields.asset.fields.size отличается от сохранённого draft. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_mesh_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-asset.tres. Source не добавлен: значение поля Source.fields.asset.external_path отличается от сохранённого draft. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_asset_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-card.tres. Source не добавлен: значение поля Source.fields.alpha_card.fields.width_m отличается от сохранённого draft. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_card_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-texture.tres. Source не добавлен: значение поля Source.fields.alpha_card.fields.texture.external_path отличается от сохранённого draft. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_texture_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-allow.tres. Source не добавлен: значение поля Source.fields.allow_scene_fallback отличается от сохранённого draft. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_allow_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-review.tres. Source не добавлен: значение поля Source.fields.reviewed_scene_revision отличается от сохранённого draft. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_review_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-local.tres. Source не добавлен: Source неожиданно resource_local_to_scene=true. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_local_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Файл записан: res://identity/fault-path.tres. Source не добавлен: Source не имеет ожидаемого внешнего resource_path. Файл сохранён; выберите другое имя или проверьте его отдельно."
+    },
+    "id": "fault_path_no_publish_file_retained",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "actual_Save_Error_no_publish",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Source saved: res://identity/context-set.tres. Scene/set changed; add the .tres through the Set Inspector."
+    },
+    "id": "context_set_saved_not_added_elsewhere",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "message": "Source saved: res://identity/context-layer.tres. Scene/set changed; add the .tres through the Set Inspector."
+    },
+    "id": "context_layer_saved_not_added_elsewhere",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "canonical_png_real_reimport_keeps_identity_records",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "canonical_png_reimport_restore",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "canonical_webp_real_reimport_keeps_identity_records",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "canonical_webp_reimport_restore",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "canonical_GLB_real_reimport_revision_records",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "canonical_GLB_restore",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "canonical_revision_does_not_renew_approval",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "canonical_revision_restore",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "Creator_keeps_hard_unsupported_blocked",
+    "status": "FAIL"
+  },
+  {
+    "facts": {},
+    "id": "legacy_no_migration_review_transfer_or_record_change",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "two_scenes_saved",
+    "status": "PASS"
+  }
+]

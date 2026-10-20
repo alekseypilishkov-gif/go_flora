@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://31qdppfdrkmy"]
+
+[node name="" type="Node3D" unique_id=383033291]
+
+[node name="@AnimationPlayer@23311" type="AnimationPlayer" parent="." unique_id=952039749]

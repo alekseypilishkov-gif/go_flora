@@ -1,0 +1,130 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+GO_FLORA_PLUGIN_ENABLED
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+PASS STAGE021_EDITOR installed_enabled
+PASS STAGE021_EDITOR fresh_default_right_Inspector_tab_group
+PASS STAGE021_EDITOR bounded_minimum_260_by_120
+PASS STAGE021_EDITOR four_owner_names_no_GFPaletteEntry_labels
+PASS STAGE021_EDITOR all_rows_type_ID_tooltip_and_asset_preview
+PASS STAGE021_EDITOR click_grass_transient_selected_mode_no_history
+PASS STAGE021_EDITOR selected_begin_grass_0
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=18 removed=0 records=20 set=set-a
+PASS STAGE021_EDITOR selected_commit_grass_0
+PASS STAGE021_EDITOR selected_one_native_undo_grass_0
+PASS STAGE021_EDITOR selected_native_redo_IDs_grass_0
+PASS STAGE021_EDITOR selected_begin_grass_2
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=1 removed=0 records=3 set=set-a
+PASS STAGE021_EDITOR selected_commit_grass_2
+PASS STAGE021_EDITOR selected_one_native_undo_grass_2
+PASS STAGE021_EDITOR selected_native_redo_IDs_grass_2
+PASS STAGE021_EDITOR selected_begin_flower_0
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=18 removed=0 records=20 set=set-a
+PASS STAGE021_EDITOR selected_commit_flower_0
+PASS STAGE021_EDITOR selected_one_native_undo_flower_0
+PASS STAGE021_EDITOR selected_native_redo_IDs_flower_0
+PASS STAGE021_EDITOR selected_begin_flower_2
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=1 removed=0 records=3 set=set-a
+PASS STAGE021_EDITOR selected_commit_flower_2
+PASS STAGE021_EDITOR selected_one_native_undo_flower_2
+PASS STAGE021_EDITOR selected_native_redo_IDs_flower_2
+PASS STAGE021_EDITOR selection_does_not_rewrite_mix_configuration
+PASS STAGE021_EDITOR mix_source_selector_independent_of_Single_tool
+PASS STAGE021_EDITOR disable_two_via_controls_keeps_old_records_weights
+PASS STAGE021_EDITOR filtered_mix_begin
+PASS STAGE021_EDITOR filtered_mix_only_enabled_sources
+GO_FLORA_PENDING_CLEARED
+GO_FLORA_COMMIT added=18 removed=0 records=20 set=set-a
+PASS STAGE021_EDITOR native_undo_enable_flag_scene_history
+PASS STAGE021_EDITOR native_redo_enable_flag_records_unchanged
+PASS STAGE021_EDITOR weight_zero_control_excludes_mix_only
+PASS STAGE021_EDITOR weight_native_undo_refreshes_row
+PASS STAGE021_EDITOR noeligible_mix_visible_actionable_diagnostic
+PASS STAGE021_EDITOR erase_available_with_all_sources_disabled
+GO_FLORA_PENDING_CLEARED
+PASS STAGE021_EDITOR disabled_selected_visible_diagnostic
+PASS STAGE021_EDITOR resource_rename_refresh_and_long_text_stable_width
+PASS STAGE021_EDITOR many_sources_scroll_without_resizing_dock
+PASS STAGE021_EDITOR OpenSet_official_API_focuses_visible_Inspector_from_GOFLORA_tab
+PASS STAGE021_EDITOR Russian_set_Enabled_Density_Distance_click_help
+PASS STAGE021_EDITOR official_EditorInspectorPlugin_one_named_entries_property
+PASS STAGE021_EDITOR Inspector_names_and_native_reusable_source_picker
+PASS STAGE021_EDITOR Inspector_weight_edits_sync_dock
+PASS STAGE021_EDITOR Inspector_weight_native_undo_sync_both_views
+PASS STAGE021_EDITOR Inspector_duplicate_reference_refused_keeps_records
+PASS STAGE021_EDITOR Inspector_duplicate_reference_no_undo_action
+PASS STAGE021_EDITOR Inspector_append_active_duplicate_refused
+PASS STAGE021_EDITOR Inspector_append_duplicate_no_undo_action
+PASS STAGE021_EDITOR no_resource_name_persistence_hack
+PASS STAGE021_EDITOR set_switch_OpenSet_uses_current_set
+PASS STAGE021_EDITOR other_node_selection_OpenSet_keeps_active_set
+PASS STAGE021_EDITOR return_set_restores_transient_selection_no_stale_rows
+PASS STAGE021_EDITOR Russian_tooltip_layer
+PASS STAGE021_EDITOR Russian_tooltip_set
+PASS STAGE021_EDITOR Russian_tooltip_refresh
+PASS STAGE021_EDITOR Russian_tooltip_mix
+PASS STAGE021_EDITOR Russian_tooltip_entry_enabled
+PASS STAGE021_EDITOR Russian_tooltip_weight
+PASS STAGE021_EDITOR Russian_tooltip_inspect_set
+PASS STAGE021_EDITOR Russian_tooltip_Paint
+PASS STAGE021_EDITOR Russian_tooltip_Erase
+PASS STAGE021_EDITOR Russian_tooltip_Single
+PASS STAGE021_EDITOR Russian_tooltip_radius_m
+PASS STAGE021_EDITOR Russian_tooltip_density_per_m2
+PASS STAGE021_EDITOR Russian_tooltip_spacing_ratio
+PASS STAGE021_EDITOR Russian_tooltip_seed
+PASS STAGE021_EDITOR Russian_tooltip_yaw_min_degrees
+PASS STAGE021_EDITOR Russian_tooltip_yaw_max_degrees
+PASS STAGE021_EDITOR Russian_tooltip_scale_min
+PASS STAGE021_EDITOR Russian_tooltip_scale_max
+PASS STAGE021_EDITOR Russian_tooltip_align_normal
+PASS STAGE021_EDITOR Russian_tooltip_slope_min_degrees
+PASS STAGE021_EDITOR Russian_tooltip_slope_max_degrees
+PASS STAGE021_EDITOR Russian_tooltip_height_min_m
+PASS STAGE021_EDITOR Russian_tooltip_height_max_m
+PASS STAGE021_EDITOR Russian_tooltip_height_layer_relative
+PASS STAGE021_EDITOR Russian_tooltip_collision_mask
+PASS STAGE021_EDITOR Russian_tooltip_ray_range_m
+PASS STAGE021_EDITOR Russian_tooltip_max_candidates
+PASS STAGE021_EDITOR Russian_tooltip_distance
+PASS STAGE021_EDITOR Russian_tooltip_target
+PASS STAGE021_EDITOR Russian_tooltip_help
+PASS STAGE021_EDITOR click_Help_opens_Russian_legend
+PASS STAGE021_EDITOR Russian_Alpha_tooltip_texture
+PASS STAGE021_EDITOR Russian_Alpha_tooltip_card_mode
+PASS STAGE021_EDITOR Russian_Alpha_tooltip_width_m
+PASS STAGE021_EDITOR Russian_Alpha_tooltip_height_m
+PASS STAGE021_EDITOR Russian_Alpha_tooltip_radial_count
+PASS STAGE021_EDITOR Russian_Alpha_tooltip_splay_degrees
+PASS STAGE021_EDITOR Russian_Alpha_tooltip_alpha_threshold
+PASS STAGE021_EDITOR Russian_Alpha_tooltip_gutter_px
+PASS STAGE021_EDITOR Russian_Alpha_tooltip_Atlas X
+PASS STAGE021_EDITOR Russian_Alpha_tooltip_Atlas Y
+PASS STAGE021_EDITOR Russian_Alpha_tooltip_Atlas width
+PASS STAGE021_EDITOR Russian_Alpha_tooltip_Atlas height
+PASS STAGE021_EDITOR Russian_Alpha_save_tooltip
+PASS STAGE021_EDITOR native_editor_save_no_record_changes
+PASS STAGE021_EDITOR plugin_disable_removes_dock_and_observers
+GO_FLORA_PLUGIN_ENABLED
+PASS STAGE021_EDITOR plugin_reenable_single_instance
+PASS STAGE021_EDITOR reenable_single_Inspector_palette_no_stale_callbacks
+PASS STAGE021_EDITOR scene_switch_OpenSet_new_resource_resets_selection_preserves_scene_A
+NOT_RUN INTERACTIVE_GUI_QA
+PASS STAGE021_EDITOR_COMPLETE

@@ -1,0 +1,36 @@
+{
+  "probes": [
+    {
+      "case": "build",
+      "status": "PASS",
+      "command": [
+        "C:\\Users\\pial\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "tools/package_stage02.py",
+        "--output",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\06_source_identity_fix\\.scratch\\packages"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "package-tests",
+      "status": "FAIL",
+      "command": [
+        "C:\\Users\\pial\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "tests/test_stage02_package.py",
+        "--godot",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\issue18-package-engine-1792497495297819700\\godot.exe",
+        "--output",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\06_source_identity_fix\\.scratch\\package-test",
+        "--package-output",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\06_source_identity_fix\\.scratch\\package-test\\packages"
+      ],
+      "exit_code": 1
+    }
+  ],
+  "engine": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\issue18-package-engine-1792497495297819700\\godot.exe",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "portable_editor_cache_isolated": true,
+  "INTERACTIVE_GUI_QA": "NOT_RUN"
+}

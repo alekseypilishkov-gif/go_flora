@@ -1,0 +1,80 @@
+{
+  "probes": [
+    {
+      "case": "version",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\identity-evidence-green-1792497717068515000\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\identity-evidence-green-1792497717068515000\\candidate",
+        "--headless",
+        "--version"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\identity-evidence-green-1792497717068515000\\profiles\\version",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "identity_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\identity-evidence-green-1792497717068515000\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\identity-evidence-green-1792497717068515000\\identity",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\identity-evidence-green-1792497717068515000\\profiles\\identity_import",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "identity",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\identity-evidence-green-1792497717068515000\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\identity-evidence-green-1792497717068515000\\identity",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\identity-evidence-green-1792497717068515000\\profiles\\identity",
+      "unexpected_errors": [],
+      "expected_error": "Cannot save file 'res://identity/missing_directory/error.tres'"
+    },
+    {
+      "case": "identity_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\identity-evidence-green-1792497717068515000\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\identity-evidence-green-1792497717068515000\\identity",
+        "--headless",
+        "--script",
+        "tests/test_issue18_reopen.gd"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\identity-evidence-green-1792497717068515000\\profiles\\identity_reopen",
+      "unexpected_errors": [],
+      "expected_error": ""
+    }
+  ],
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "engine": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\identity-evidence-green-1792497717068515000\\engine\\godot.exe",
+  "portable_editor_cache_isolated": true,
+  "INTERACTIVE_GUI_QA": "NOT_RUN",
+  "scope": "Isolated automatic headless/native Editor API; graphics is a separate renderer gate"
+}

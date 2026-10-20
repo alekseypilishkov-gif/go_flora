@@ -1,0 +1,566 @@
+{
+  "probes": [
+    {
+      "case": "version",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\candidate",
+        "--headless",
+        "--version"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\version",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "identity_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\identity",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\identity_import",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "identity",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\identity",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\identity",
+      "unexpected_errors": [],
+      "expected_error": "Cannot save file 'res://identity/missing_directory/error.tres'"
+    },
+    {
+      "case": "identity_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\identity",
+        "--headless",
+        "--script",
+        "tests/test_issue18_reopen.gd"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\identity_reopen",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "regression_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\candidate",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\regression_import",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage01",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage01.gd"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage01",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage01_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage01_reopen.gd"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage01_reopen",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage02",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage02.gd"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage02",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage02_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage02_reopen.gd"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage02_reopen",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage021",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage021.gd"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage021",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage021_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage021_reopen.gd"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage021_reopen",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage023",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage023.gd"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage023",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage023_catalog",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_stage023_catalog.gd"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage023_catalog",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "issue13",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_issue13_diagnostics.gd"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\issue13",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "issue16",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_issue16_warnings.gd"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\issue16",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "issue16_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\candidate",
+        "--headless",
+        "--script",
+        "tests/test_issue16_reopen.gd"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\issue16_reopen",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage01_editor_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\stage01_editor",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage01_editor_import",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage01_editor",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\stage01_editor",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage01_editor",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage02_editor_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\stage02_editor",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage02_editor_import",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage02_editor",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\stage02_editor",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage02_editor",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage021_editor_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\stage021_editor",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage021_editor_import",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage021_editor",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\stage021_editor",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage021_editor",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage022_editor_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\stage022_editor",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage022_editor_import",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage022_editor",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\stage022_editor",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage022_editor",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage022_reopen",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\stage022_editor",
+        "--headless",
+        "--script",
+        "tests/test_stage022_reopen.gd"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage022_reopen",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage023_editor_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\stage023_editor",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage023_editor_import",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "stage023_editor",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\stage023_editor",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\stage023_editor",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "issue13_editor_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\issue13_editor",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\issue13_editor_import",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "issue13_editor",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\issue13_editor",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\issue13_editor",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "issue16_editor_import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\issue16_editor",
+        "--headless",
+        "--editor",
+        "--import"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\issue16_editor_import",
+      "unexpected_errors": [],
+      "expected_error": ""
+    },
+    {
+      "case": "issue16_editor",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\issue16_editor",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ],
+      "profile": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\profiles\\issue16_editor",
+      "unexpected_errors": [],
+      "expected_error": ""
+    }
+  ],
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "engine": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\all-green-1792496805807833600\\engine\\godot.exe",
+  "portable_editor_cache_isolated": true,
+  "INTERACTIVE_GUI_QA": "NOT_RUN",
+  "scope": "Isolated automatic headless/native Editor API; graphics is a separate renderer gate"
+}

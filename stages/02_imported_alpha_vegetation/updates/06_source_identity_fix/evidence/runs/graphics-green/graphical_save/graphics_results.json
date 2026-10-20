@@ -1,0 +1,37 @@
+[
+  {
+    "facts": {},
+    "id": "Creator_external_in_graphical_editor",
+    "scope": "graphical native Editor API, no physical owner GUI acceptance",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "native_Save_As_keeps_ExtResource",
+    "scope": "graphical native Editor API, no physical owner GUI acceptance",
+    "status": "PASS"
+  },
+  {
+    "facts": {
+      "bytes": 3225,
+      "path": "C:/Users/pial/.codex/worktrees/issue-18-source-identity/GO_FLORA/.scratch/qa018/graphics-green-1792496819380803100/engine/editor_data/cache/resthumb-3aecf0056793a50b64feb988596aa317.png",
+      "renderer": "NVIDIA GeForce RTX 5060 Ti",
+      "size": "(64, 64)"
+    },
+    "id": "native_Save_As_creates_real_thumbnail",
+    "scope": "graphical native Editor API, no physical owner GUI acceptance",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "native_Save_existing_scene_and_thumbnail",
+    "scope": "graphical native Editor API, no physical owner GUI acceptance",
+    "status": "PASS"
+  },
+  {
+    "facts": {},
+    "id": "native_saved_scene_reopens_canonical",
+    "scope": "graphical native Editor API, no physical owner GUI acceptance",
+    "status": "PASS"
+  }
+]

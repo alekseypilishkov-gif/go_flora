@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="GFVegetationSource" format=3 uid="uid://dnkumenowmrrx"]
+
+[ext_resource type="Script" uid="uid://bv87vsx5r0213" path="res://addons/go_flora/data/source.gd" id="1_2mkr6"]
+
+[sub_resource type="PackedScene" id="PackedScene_vsv60"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [],
+"names": PackedStringArray("", "Node3D", "@AnimationPlayer@23311", "AnimationPlayer"),
+"node_count": 2,
+"node_ids": PackedInt32Array(925419622, 1427253818),
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 3, 2, -1, 0, 0),
+"variants": [],
+"version": 3
+}
+
+[resource]
+resource_name = "Authored hard"
+script = ExtResource("1_2mkr6")
+source_id = "new-hard"
+display_name = "updated new-hard"
+kind = 3
+asset = SubResource("PackedScene_vsv60")
+mesh_transform = Transform3D(0.7710167, 0, 0.21338515, 0, 1.2, 0, -0.24005829, 0, 0.86739373, 0.1, 0.2, 0.3)

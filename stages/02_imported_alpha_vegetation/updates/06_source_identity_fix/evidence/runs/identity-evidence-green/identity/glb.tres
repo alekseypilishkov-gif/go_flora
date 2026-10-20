@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GFVegetationSource" format=3 uid="uid://dmw4sld1f80nh"]
+
+[ext_resource type="PackedScene" uid="uid://bxsil63tet7wn" path="res://fixtures/original_plant.glb" id="1_gokeo"]
+[ext_resource type="Script" uid="uid://bv87vsx5r0213" path="res://addons/go_flora/data/source.gd" id="2_nnaf7"]
+
+[resource]
+resource_name = "Authored glb"
+script = ExtResource("2_nnaf7")
+source_id = "new-glb"
+display_name = "updated new-glb"
+kind = 3
+asset = ExtResource("1_gokeo")
+mesh_transform = Transform3D(0.7710167, 0, 0.21338515, 0, 1.2, 0, -0.24005829, 0, 0.86739373, 0.1, 0.2, 0.3)

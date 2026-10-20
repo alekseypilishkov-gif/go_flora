@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://b18gbi740qbeu"]
+
+[ext_resource type="Script" uid="uid://b3usf0s7vay34" path="res://addons/go_flora/vegetation_layer_3d.gd" id="1_sshrv"]
+[ext_resource type="Script" uid="uid://c87lvab8bo1nl" path="res://addons/go_flora/data/instance_record.gd" id="2_vnbbx"]
+[ext_resource type="Script" uid="uid://rdt7t3u0kc6o" path="res://addons/go_flora/data/layer_data.gd" id="3_jdhgn"]
+[ext_resource type="Script" uid="uid://d1h11t2tx63a4" path="res://addons/go_flora/data/vegetation_set.gd" id="4_o4ek4"]
+[ext_resource type="Script" uid="uid://d0ke7qyjm8ffo" path="res://addons/go_flora/data/palette_entry.gd" id="5_1asaq"]
+[ext_resource type="Script" uid="uid://bv87vsx5r0213" path="res://addons/go_flora/data/source.gd" id="6_hcmng"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1g04"]
+albedo_color = Color(0.95, 0.42, 0.09, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_y4qkf"]
+material = SubResource("StandardMaterial3D_i1g04")
+size = Vector3(0.65, 0.8, 0.65)
+
+[sub_resource type="Resource" id="Resource_oncxo"]
+script = ExtResource("6_hcmng")
+source_id = "primitive-box-v1"
+display_name = "Orange block shrub"
+asset = SubResource("BoxMesh_y4qkf")
+mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[sub_resource type="Resource" id="Resource_vtas4"]
+script = ExtResource("5_1asaq")
+source = SubResource("Resource_oncxo")
+weight = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tql22"]
+albedo_color = Color(0.12, 0.65, 0.32, 1)
+roughness = 0.9
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jbdfk"]
+material = SubResource("StandardMaterial3D_tql22")
+top_radius = 0.0
+bottom_radius = 0.45
+height = 1.5
+radial_segments = 8
+
+[sub_resource type="Resource" id="Resource_4gl14"]
+script = ExtResource("6_hcmng")
+source_id = "primitive-cone-v1"
+display_name = "Green cone bush"
+asset = SubResource("CylinderMesh_jbdfk")
+mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[sub_resource type="Resource" id="Resource_bej8n"]
+script = ExtResource("5_1asaq")
+source = SubResource("Resource_4gl14")
+
+[sub_resource type="Resource" id="Resource_iuwan"]
+script = ExtResource("4_o4ek4")
+set_id = "ux-set-b"
+display_name = "Сцена B"
+entries = Array[ExtResource("5_1asaq")]([SubResource("Resource_vtas4"), SubResource("Resource_bej8n")])
+
+[sub_resource type="Resource" id="Resource_1s0wm"]
+resource_local_to_scene = true
+script = ExtResource("3_jdhgn")
+layer_id = "ux-scene-b"
+sets = Array[ExtResource("4_o4ek4")]([SubResource("Resource_iuwan")])
+
+[node name="PaletteSceneB" type="Node3D" unique_id=1085126112]
+
+[node name="VegetationLayer" type="Node3D" parent="." unique_id=1260684707]
+script = ExtResource("1_sshrv")
+layer_data = SubResource("Resource_1s0wm")

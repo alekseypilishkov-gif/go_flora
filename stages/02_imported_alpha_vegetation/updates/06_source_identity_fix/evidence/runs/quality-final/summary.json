@@ -1,0 +1,55 @@
+{
+  "probes": [
+    {
+      "case": "working-whitespace",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "staged-whitespace",
+      "status": "PASS",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "repository",
+      "status": "PASS",
+      "command": [
+        "C:\\Users\\pial\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "tools/verify_repository.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "bash-whitespace",
+      "status": "PASS",
+      "evidence": "../quality/bash-whitespace-regression.json",
+      "note": "Previously executed unchanged gate; not repeated"
+    },
+    {
+      "case": "historical_tests_stages_and_runtime_scope",
+      "status": "PASS",
+      "files": 1960,
+      "method": "pinned-main Git blob SHA-1 vs raw working bytes; additional working SHA-256"
+    },
+    {
+      "case": "new_UID_unique",
+      "status": "PASS",
+      "uid": "uid://br6vakuq24did",
+      "paths": [
+        "addons\\go_flora\\editor\\source_persistence.gd.uid"
+      ]
+    }
+  ]
+}

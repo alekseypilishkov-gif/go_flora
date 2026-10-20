@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 616.56 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Ti
+
+GO_FLORA_PLUGIN_ENABLED
+PASS ISSUE18_GRAPHICS Creator_external_in_graphical_editor
+PASS ISSUE18_GRAPHICS native_Save_As_keeps_ExtResource
+PASS ISSUE18_GRAPHICS native_Save_As_creates_real_thumbnail
+PASS ISSUE18_GRAPHICS native_Save_existing_scene_and_thumbnail
+PASS ISSUE18_GRAPHICS native_saved_scene_reopens_canonical
+ISSUE18_GRAPHICAL_SAVE_COMPLETE

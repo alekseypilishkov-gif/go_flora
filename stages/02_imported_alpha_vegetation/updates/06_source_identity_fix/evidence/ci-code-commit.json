@@ -1,0 +1,158 @@
+{
+  "commit": "caf41af5f83d51d8a3b32127fb1a242475468376",
+  "scope": "GitHub pull_request workflow runs; all three completed success",
+  "workflow_runs": [
+    {
+      "id": 39418879904,
+      "name": "Stage 01 Godot automatic checks",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 55,
+      "jobs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/39418879904/jobs",
+      "logs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/39418879904/logs",
+      "workflow_id": 384294000
+    },
+    {
+      "id": 39418879589,
+      "name": "Repository static checks",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 61,
+      "jobs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/39418879589/jobs",
+      "logs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/39418879589/logs",
+      "workflow_id": 384156721
+    },
+    {
+      "id": 39418879786,
+      "name": "Stage 02 imported assets automatic checks",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 44,
+      "jobs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/39418879786/jobs",
+      "logs_url": "https://api.github.com/repos/alekseypilishkov-gif/go_flora/actions/runs/39418879786/logs",
+      "workflow_id": 385149788
+    }
+  ],
+  "jobs_stage02": {
+    "jobs": [
+      {
+        "id": 118614584331,
+        "name": "isolated-native",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 39418879786,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Download pinned Godot 4.7.2",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Stage 01 regressions before Stage 02 probes",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "GLB import, cards, fallback, persistence and native Editor API",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Reproducible plugin ZIP and repeated installation on disposable project",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Stage 02.1 named palette, source modes, right dock, Inspector and Russian help",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Stage 02.2 native Quick Load and Load, Save, Cancel, context and reopen",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Stage 01 regressions last",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Stage 02.3 continuous erase, source archive and native scene Undo",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          },
+          {
+            "name": "Source Diagnostics states, Inspector navigation and popup lifecycle",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12
+          },
+          {
+            "name": "Configuration warning filtering, record aggregation, reimport and archive persistence",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13
+          },
+          {
+            "name": "Canonical external Source creation, validation failures and fresh-process references",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14
+          },
+          {
+            "name": "Upload automatic evidence; GPU and interactive GUI are separate gates",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 29
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 30
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 31
+          }
+        ]
+      }
+    ]
+  }
+}

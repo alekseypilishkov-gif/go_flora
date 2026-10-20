@@ -1,0 +1,37 @@
+{
+  "probes": [
+    {
+      "case": "import",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\initial-fix-1792495660841843300\\project",
+        "--headless",
+        "--editor",
+        "--import"
+      ]
+    },
+    {
+      "case": "canonical",
+      "status": "FAIL",
+      "exit_code": 1,
+      "command": [
+        "C:\\Dev\\GO_FLORA\\.scratch\\godot-portable\\godot.exe",
+        "--language",
+        "en",
+        "--path",
+        "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\initial-fix-1792495660841843300\\project",
+        "--headless",
+        "--editor",
+        "demo.tscn"
+      ]
+    }
+  ],
+  "project": "C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\.scratch\\qa018\\initial-fix-1792495660841843300\\project",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "INTERACTIVE_GUI_QA": "NOT_RUN"
+}
