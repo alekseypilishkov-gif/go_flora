@@ -16,7 +16,7 @@
 
 На main ResourceSaver.save(draft, path) записывал файл, но Creator испускал прежний draft с пустым resource_path. Палитра сохраняла его как самостоятельный встроенный SubResource. Совпадение display_name не объясняет эту потерю внешней идентичности; логические ID также не являются основанием для автоматического объединения объектов.
 
-Исходная ошибка воспроизведена **до изменения production-кода**: [red-main/summary.json](evidence/runs/red-main/summary.json), [red-main/identity/results.json](evidence/runs/red-main/assertions.json). FAIL фиксирует emitted_is_draft=true и пустой draft_path при наличии записанного .tres.
+Исходная ошибка воспроизведена **до изменения production-кода**: [red-main/summary.json](evidence/runs/red-main/summary.json), [red-main/assertions.json](evidence/runs/red-main/assertions.json). FAIL фиксирует emitted_is_draft=true и пустой draft_path при наличии записанного .tres.
 
 Изменён только путь создания:
 
@@ -36,8 +36,8 @@
 |---|---|---|
 | Main до исправления | FAIL, ожидаемый regression RED | [red-main](evidence/runs/red-main/summary.json) |
 | Полный итоговый запуск | PASS, 31 процесс/probe, включая import/version | [all-green](evidence/runs/all-green/summary.json) |
-| Новый native Editor suite | PASS, 80 assertions | [identity/results.json](evidence/runs/all-green/identity/results.json) |
-| Две сцены, новый процесс | PASS, 2 проверки, все поля и порядок records | [reopen_results.json](evidence/runs/all-green/identity/reopen_results.json) |
+| Новый native Editor suite | PASS, 80 assertions | [identity/results.json](evidence/runs/identity-evidence-green/identity/results.json) |
+| Две сцены, новый процесс | PASS, 2 проверки, все поля и порядок records | [reopen_results.json](evidence/runs/identity-evidence-green/identity/reopen_results.json) |
 | Stage 01; 02; 02.1; 02.2; 02.3 | PASS, core/reopen/native Editor harnesses | [all-green](evidence/runs/all-green/summary.json) |
 | Issue #13 Diagnostics; Issue #16 Warnings | PASS, runtime и native Editor | [all-green](evidence/runs/all-green/summary.json) |
 | Графический native Save As, повторный Save, reopen, thumbnail | PASS, 5 assertions | [graphics_results.json](evidence/runs/graphics-green/graphical_save/graphics_results.json) |
@@ -53,6 +53,8 @@ python -B tools/run_issue18_tests.py --godot <Godot-4.7.2> --label graphics-gree
 Suite покрывает Static Mesh, GLB, статическую PackedScene, PNG/WebP с нестандартными настройками карточки/материала/transform, reviewed и unreviewed сцены, HARD_UNSUPPORTED. Два одноимённых authored_plant имеют разные IDs и открываются как выбранные объекты; Diagnostics/Inspector покрыты также неизменённым Issue #13 suite. Проверены общий Source в двух Sets, ExtResource в двух сценах и правка общего .tres между сохранением и новым процессом.
 
 Дополнительно проверены занятый файл и wrong-type .tres с неизменным SHA, cache-only путь, алиасы нормализации, недопустимые пути, Cancel/Esc/X, реальный Save Error и инъекции отказов загрузки/полей. Проверены смена layer/Set после записи, append Undo/Redo, безопасное удаление с архивом и Undo, реальные PNG/WebP/GLB reimport/restore. Ревизия сцены и недоступный ассет не сбрасывают approval и не переписывают records; устаревшее одобрение остаётся fail closed.
+
+После итогового review facts теста изолирован Dictionary ожиданий начального сравнения от дальнейшего rename/reopen. Последний [identity-evidence-green](evidence/runs/identity-evidence-green/summary.json) повторно подтвердил 80 + 2 assertions с совпадающими snapshot facts; production addon не менялся. Предыдущие evidence сохранены.
 
 GPU-проба использовала GL compatibility, NVIDIA GeForce RTX 5060 Ti и реальные EditorInterface.save_scene_as/save_scene. Получен [PNG thumbnail](evidence/runs/graphics-green/graphical_save/thumbnail.png), 64×64, 3225 bytes, в изолированном editor cache. Скриптовое управление редактором не заменяет ручную GUI-приёмку.
 
@@ -73,6 +75,10 @@ GPU-проба использовала GL compatibility, NVIDIA GeForce RTX 506
 Ранние пробы использовали общий игнорируемый portable cache инструментария Codex: _sc_ рядом с входным Godot имел приоритет над APPDATA. Оригинальный TEST_FLORA не затрагивался. Runner исправлен на полную изоляцию binary/cache; финальные запуски выполнены заново. Все промежуточные логи сохранены в evidence/runs.
 
 Статические quality gates: [quality-final/summary.json](evidence/runs/quality-final/summary.json). Первый запуск нашёл неверную ссылку Markdown и ограничение Windows для git show с длинным resource path; сохранены [исходный лог](evidence/runs/quality/repository.log) и [отказ scope probe](evidence/runs/quality/scope-probe-failure.json). Ссылка исправлена, сравнение защищённых файлов выполнено через pinned Git blob hashes без длинных аргументов пути. Финальные проверки прошли.
+
+Проверка пакета: первый install-probe в глубоком stage-пути завершился FAIL из-за длины Windows path ([лог](evidence/package/package-tests.log)). В коротком disposable пути тот же неизменённый installer прошёл все шесть проверок ([summary](evidence/package-green/installation-summary.json)); installer в Stage B не исправлялся.
+
+Первый delivery whitespace gate отклонил два сырых runtime-лога из-за пустой строки stdout в EOF ([summary](evidence/runs/delivery-gates-initial/summary.json)). Правило сохранения terminal whitespace ограничено generated .log текущего Stage B evidence, включая package logs; исходный stdout сохранён, проверки кода/документации не отключены.
 
 ## Поставка и приёмка
 

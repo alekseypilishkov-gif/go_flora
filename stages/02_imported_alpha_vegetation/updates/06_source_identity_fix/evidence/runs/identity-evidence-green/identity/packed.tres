@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GFVegetationSource" format=3 uid="uid://cyllwgmbfmsju"]
+
+[ext_resource type="PackedScene" path="res://fixtures/static_plant.tscn" id="1_rsy8u"]
+[ext_resource type="Script" uid="uid://bv87vsx5r0213" path="res://addons/go_flora/data/source.gd" id="2_qgs54"]
+
+[resource]
+resource_name = "Authored packed"
+script = ExtResource("2_qgs54")
+source_id = "new-packed"
+display_name = "updated new-packed"
+kind = 3
+asset = ExtResource("1_rsy8u")
+mesh_transform = Transform3D(0.7710167, 0, 0.21338515, 0, 1.2, 0, -0.24005829, 0, 0.86739373, 0.1, 0.2, 0.3)

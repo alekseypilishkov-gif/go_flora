@@ -85,7 +85,7 @@ func run() -> void:
 		I.record(d,canonical,"set-0")
 		I.record(d,canonical,"set-1")
 		created.append(canonical)
-		expected.append({"path":path,"fields":before})
+		expected.append({"path":path,"fields":before.duplicate(true)})
 	check(created[0].display_name==created[1].display_name and created[0].source_id!=created[1].source_id and created[0]!=created[1],"same_display_name_distinct_objects_and_ids")
 	var before_records=I.records(d)
 	var manager=plugin.get_undo_redo()

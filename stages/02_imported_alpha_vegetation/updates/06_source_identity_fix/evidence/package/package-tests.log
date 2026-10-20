@@ -1,0 +1,16 @@
+PASS plugin-only reproducible ZIP CRC/SHA
+Traceback (most recent call last):
+  File "C:\Users\pial\.codex\worktrees\issue-18-source-identity\GO_FLORA\tests\test_stage02_package.py", line 76, in <module>
+    main()
+  File "C:\Users\pial\.codex\worktrees\issue-18-source-identity\GO_FLORA\tests\test_stage02_package.py", line 47, in main
+    installations.append(install(project, archive))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pial\.codex\worktrees\issue-18-source-identity\GO_FLORA\tools\install_stage02.py", line 47, in install
+    destination.write_bytes(package.read(name))
+  File "C:\Users\pial\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1036, in write_bytes
+    with self.open(mode='wb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pial\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\pial\\.codex\\worktrees\\issue-18-source-identity\\GO_FLORA\\stages\\02_imported_alpha_vegetation\\updates\\06_source_identity_fix\\.scratch\\package-test\\project\\.scratch\\go_flora_updates\\20261020T115816116073Z\\new\\go_flora\\rendering\\configuration_warnings.gd.uid'
