@@ -1,0 +1,16 @@
+
+Traceback (most recent call last):
+  File "C:\Dev\GO_FLORA\stages\00_source_audit\evidence\whitespace_probe.py", line 50, in <module>
+    test_gate("PR base catches committed whitespace", base, 2)
+  File "C:\Dev\GO_FLORA\stages\00_source_audit\evidence\whitespace_probe.py", line 32, in test_gate
+    result = subprocess.run([str(bash), "--noprofile", "--norc", "-c", gate], cwd=fixture,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pial\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pial\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\pial\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] �� ������� ����� ��������� ����

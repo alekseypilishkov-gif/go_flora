@@ -802,7 +802,11 @@ func _show_source_details() -> void:
 			DisplayServer.clipboard_set(sources[picker.selected].resolve().revision))
 	inspect.pressed.connect(func() -> void:
 		if not sources.is_empty():
-			get_editor_interface().edit_resource(sources[picker.selected]))
+			var source := sources[picker.selected]
+			_source_details.hide()
+			_source_details.queue_free()
+			_source_details = null
+			inspect_resource.call_deferred(source))
 	get_editor_interface().get_base_control().add_child(_source_details)
 	_source_details.confirmed.connect(_source_details.queue_free)
 	_source_details.canceled.connect(_source_details.queue_free)

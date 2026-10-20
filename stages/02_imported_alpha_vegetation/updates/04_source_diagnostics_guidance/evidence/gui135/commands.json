@@ -1,0 +1,66 @@
+[
+  {
+    "name": "gui135-red",
+    "started": "2026-10-20T04:17:46.510Z",
+    "args": [
+      "tools/run_issue13_tests.py",
+      "--godot",
+      ".scratch/godot-portable/godot.exe",
+      "--label",
+      "gui135-red"
+    ],
+    "status": "FAIL",
+    "exit_code": 1
+  },
+  {
+    "name": "gui135-green",
+    "started": "2026-10-20T04:19:47.493Z",
+    "args": [
+      "tools/run_issue13_tests.py",
+      "--godot",
+      ".scratch/godot-portable/godot.exe",
+      "--label",
+      "gui135-green"
+    ],
+    "status": "PASS",
+    "exit_code": 0
+  },
+  {
+    "name": "gui135-red-confirmed",
+    "started": "2026-10-20T04:21:21.658Z",
+    "args": [
+      ".scratch/gui135_red_confirm.py"
+    ],
+    "status": "PASS",
+    "exit_code": 0
+  },
+  {
+    "name": "gui135-repository-validation",
+    "started": "2026-10-20T04:22:23.490Z",
+    "args": [
+      "tools/verify_repository.py"
+    ],
+    "status": "PASS",
+    "exit_code": 0
+  },
+  {
+    "name": "gui135-whitespace-regression",
+    "started": "2026-10-20T04:23:02.787Z",
+    "args": [
+      "stages/00_source_audit/evidence/whitespace_probe.py"
+    ],
+    "status": "FAIL",
+    "exit_code": 1
+  },
+  {
+    "name": "gui135-whitespace-regression-explicit",
+    "started": "2026-10-20T04:23:44.291Z",
+    "args": [
+      "stages/00_source_audit/evidence/whitespace_probe.py",
+      "--bash",
+      "C:/Program Files/Git/bin/bash.exe"
+    ],
+    "status": "FAIL",
+    "exit_code": 1
+  }
+]

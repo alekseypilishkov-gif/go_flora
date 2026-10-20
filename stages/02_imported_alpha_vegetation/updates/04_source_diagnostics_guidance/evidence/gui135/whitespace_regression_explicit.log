@@ -1,0 +1,8 @@
+
+Traceback (most recent call last):
+  File "C:\Dev\GO_FLORA\stages\00_source_audit\evidence\whitespace_probe.py", line 50, in <module>
+    test_gate("PR base catches committed whitespace", base, 2)
+  File "C:\Dev\GO_FLORA\stages\00_source_audit\evidence\whitespace_probe.py", line 34, in test_gate
+    assert result.returncode == expected, (label, result.returncode, result.stdout, result.stderr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('PR base catches committed whitespace', 3221225794, '', '      0 [main] bash (37156) C:\\Program Files\\Git\\bin\\..\\usr\\bin\\bash.exe: *** fatal error - NtCreateDirectoryObject(\\BaseNamedObjects\\msys-2.0S5-1888ae32e00d56aa): 0xC0000022\n')

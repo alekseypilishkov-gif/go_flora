@@ -1,0 +1,10 @@
+{
+  "base": "eaa43d991d88c8459c4e276a1b412bb28fd3d735",
+  "changedAddonFiles": [
+    "addons/go_flora/editor/plugin.gd"
+  ],
+  "unchangedAddonFiles": 54,
+  "inspect_resource_helper_unchanged": true,
+  "owner_project_accessed": false,
+  "status": "PASS"
+}

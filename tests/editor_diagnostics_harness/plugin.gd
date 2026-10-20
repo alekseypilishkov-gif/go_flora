@@ -49,6 +49,95 @@ func rect_inside(parent: Control, child: Control) -> bool:
 func immediately_after(previous: Control, following: Control) -> bool:
 	return following.position.y >= previous.position.y + previous.size.y and following.position.y - (previous.position.y + previous.size.y) <= 12.0
 
+func owning_dock(control: Node) -> EditorDock:
+	while control != null:
+		if control is EditorDock:
+			return control
+		control = control.get_parent()
+	return null
+
+func source_data_snapshot(sources: Array[GFVegetationSource]) -> String:
+	var values: Array = []
+	for source in sources:
+		# Capture persisted Source fields, excluding lazy resolver caches.
+		values.append([source.schema_version, source.source_id, source.display_name, source.kind,
+			source.asset.get_instance_id(), source.surface_materials, source.mesh_transform,
+			source.variant_revision, source.alpha_card, source.allow_scene_fallback, source.reviewed_scene_revision])
+	return var_to_str(values)
+
+func check_inspector_navigation(plugin: EditorPlugin, layer: VegetationLayer3D, vegetation_set: GFVegetationSet) -> void:
+	var first := source_for("res://fixtures/authored_plant.tscn", "ui-navigation-first", "authored_plant")
+	first.allow_scene_fallback = true
+	first.reviewed_scene_revision = first.resolve().revision
+	var second := source_for("res://fixtures/authored_plant.tscn", "ui-navigation-second", "authored_plant")
+	var sources: Array[GFVegetationSource] = [first, second]
+	vegetation_set.entries.assign([entry_for(first), entry_for(second)])
+	vegetation_set.emit_changed()
+	var source_state := source_data_snapshot(sources)
+	var records := var_to_str(layer.layer_data.records)
+	var inspector := get_editor_interface().get_inspector()
+	var flora := plugin._dock_scroll as Control
+	var flora_dock := owning_dock(flora)
+	var inspector_dock := owning_dock(inspector)
+	check(flora_dock != null and inspector_dock != null, "navigation_public_editor_docks_found")
+	if flora_dock == null or inspector_dock == null:
+		return
+	var flora_parent := flora_dock.get_parent()
+	var inspector_parent := inspector_dock.get_parent()
+	check(first != second and first.source_id != second.source_id and first.display_name == second.display_name,
+		"navigation_same_name_distinct_objects_and_ids")
+	for index in [1, 0, 1]:
+		# Public dock activation exercises return navigation without changing layout.
+		# Physical Ctrl+Alt+G remains an owner GUI check.
+		flora_dock.make_visible()
+		await frames(8)
+		check(flora.is_visible_in_tree(), "navigation_return_to_GOFLORA_%d" % index)
+		plugin._show_source_details()
+		await frames()
+		var dialog := plugin._source_details as AcceptDialog
+		var picker := dialog.find_child("SourceDiagnosticsPicker", true, false) as OptionButton
+		var inspect := dialog.find_child("SourceDiagnosticsEditSource", true, false) as Button
+		var copy := dialog.find_child("SourceDiagnosticsCopyRevision", true, false) as Button
+		check(dialog.visible and picker.item_count == 2 and picker.get_item_text(0) == picker.get_item_text(1),
+			"navigation_reopened_duplicate_name_selector_%d" % index)
+		picker.select(1 - index)
+		picker.item_selected.emit(1 - index)
+		picker.select(index)
+		picker.item_selected.emit(index)
+		check(str(copy.get_meta("go_flora_selected_revision", "")) == sources[index].resolve().revision,
+			"navigation_copy_binding_before_inspect_%d" % index)
+		# Close with layout refreshes still deferred, exercising the popup lifecycle.
+		inspect.pressed.emit()
+		check(not dialog.visible and dialog.is_queued_for_deletion(), "navigation_dialog_dismissed_immediately_%d" % index)
+		await frames(12)
+		check(not is_instance_valid(dialog) and not is_instance_valid(plugin._source_details) and not plugin._source_ui_open(),
+			"navigation_dialog_freed_no_modal_left_%d" % index)
+		check(inspector.get_edited_object() == sources[index]
+			and (inspector.get_edited_object() as GFVegetationSource).source_id == sources[index].source_id,
+			"navigation_exact_selected_object_and_id_%d" % index)
+		check(inspector.is_visible_in_tree(), "navigation_Inspector_automatically_visible_%d" % index)
+		# Permit the pre-fix regression probe to continue after a failed dismissal.
+		if is_instance_valid(dialog):
+			dialog.hide()
+			dialog.queue_free()
+		await frames()
+	flora_dock.make_visible()
+	await frames()
+	check(flora.is_visible_in_tree(), "navigation_return_to_GOFLORA_after_cycles")
+	for close_signal in ["canceled", "confirmed"]:
+		plugin._show_source_details()
+		await frames()
+		var dialog := plugin._source_details as AcceptDialog
+		dialog.hide()
+		dialog.emit_signal(close_signal)
+		await frames()
+		check(not is_instance_valid(dialog) and not plugin._source_ui_open(), "navigation_reopen_%s_frees_dialog" % close_signal)
+	check(owning_dock(flora) == flora_dock and owning_dock(inspector) == inspector_dock
+		and flora_dock.get_parent() == flora_parent and inspector_dock.get_parent() == inspector_parent,
+		"navigation_dock_topology_unchanged")
+	check(source_data_snapshot(sources) == source_state, "navigation_source_data_unchanged")
+	check(var_to_str(layer.layer_data.records) == records, "navigation_records_unchanged")
+
 func run() -> void:
 	DirAccess.make_dir_recursive_absolute("res://.scratch")
 	var scene: Node
@@ -158,6 +247,8 @@ func run() -> void:
 	if is_instance_valid(dialog):
 		dialog.hide()
 		dialog.queue_free()
+	await frames()
+	await check_inspector_navigation(plugin, layer, vegetation_set)
 	vegetation_set.entries = previous_entries
 	vegetation_set.emit_changed()
 	await frames()
