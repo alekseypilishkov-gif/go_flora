@@ -1,0 +1,9 @@
+extends SceneTree
+func _initialize() -> void:
+	var failures:=0
+	for renderer in ["gl_compatibility","mobile","forward_plus"]:
+		var texture: Texture2D=load("res://out/facade_%s.tres"%renderer)
+		var ok:=texture.get_image().get_pixel(0,0)==Color(0,1,0,0)
+		print(("PASS " if ok else "FAIL ")+"FACADE_FRESH_PROCESS_"+renderer)
+		if not ok: failures+=1
+	quit(0 if failures==0 else 1)

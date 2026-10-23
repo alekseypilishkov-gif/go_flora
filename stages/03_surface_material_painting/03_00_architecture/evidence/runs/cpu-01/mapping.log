@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS affine_roundtrip_0 null
+PASS world_brush_metric_0 null
+PASS affine_roundtrip_1 null
+PASS world_brush_metric_1 null
+PASS negative_coordinates_floor null
+PASS stacked_floors_alias_in_XZ_projection null
+PASS TriangleMesh_BVH_creation null
+PASS mesh_BVH_segment_hit {"face_index":0,"normal":"(0.0, 1.0, 0.0)","position":"(0.0, 0.0, 0.0)"}
+PASS matching_physics_trimesh_hit null
+PASS physics_hit_does_not_supply_mesh_UV ["position","normal","face_index","collider_id","collider","shape","rid"]
+PASS collider_mesh_mismatch_detectable null
+PASS MAPPING_COMPLETE

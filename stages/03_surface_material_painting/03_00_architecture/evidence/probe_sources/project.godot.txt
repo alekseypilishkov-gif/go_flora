@@ -1,0 +1,8 @@
+config_version=5
+[application]
+config/name="Surface0300 disposable API research"
+[rendering]
+renderer/rendering_method="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+shader_compiler/shader_cache/enabled=false
+rendering_device/pipeline_cache/enable=false

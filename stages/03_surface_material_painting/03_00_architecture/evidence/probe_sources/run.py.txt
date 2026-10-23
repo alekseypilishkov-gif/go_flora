@@ -1,0 +1,91 @@
+import argparse, hashlib, json, os, shutil, subprocess, sys, time
+from pathlib import Path
+sys.stdout.reconfigure(encoding="utf-8",errors="replace")
+ROOT=Path(__file__).resolve().parents[2]
+BASE=ROOT/".scratch/surface0300"
+PROJECT=BASE/"project"
+OUT=ROOT/"stages/03_surface_material_painting/03_00_architecture/evidence"
+parser=argparse.ArgumentParser()
+parser.add_argument("--phase",choices=["cpu","gpu","editor"],required=True)
+parser.add_argument("--label",required=True)
+parser.add_argument("--renderer",choices=["gl_compatibility","mobile","forward_plus"])
+parser.add_argument("--editor-gpu",action="store_true")
+args=parser.parse_args()
+out=OUT/"runs"/args.label
+out.mkdir(parents=True,exist_ok=False)
+engine=ROOT/".scratch/godot/godot.exe"
+engine.parent.mkdir(parents=True,exist_ok=True)
+if not engine.exists():
+    shutil.copyfile(Path("C:/Dev/GO_FLORA/.scratch/godot-portable/godot.exe"),engine)
+profile=BASE/"profiles"/args.label
+profile.mkdir(parents=True,exist_ok=True)
+env=dict(os.environ,APPDATA=str(profile),LOCALAPPDATA=str(profile),PYTHONIOENCODING="utf-8")
+rows=[]
+def run(name,flags,marker):
+    command=[str(engine.relative_to(ROOT)),"--path",str(PROJECT.relative_to(ROOT)),*flags]
+    start=time.perf_counter()
+    try:
+        p=subprocess.run(command,cwd=ROOT,env=env,capture_output=True,text=True,encoding="utf-8",errors="replace",timeout=45,creationflags=subprocess.CREATE_NO_WINDOW if os.name=="nt" else 0)
+        log=p.stdout+p.stderr
+        ok=p.returncode==0 and marker in log and not any(v in log for v in ["SCRIPT ERROR","ERROR:","FAIL "])
+        row=dict(case=name,status="PASS" if ok else "FAIL",exit_code=p.returncode,command=command,seconds=round(time.perf_counter()-start,3))
+    except (subprocess.TimeoutExpired,OSError) as e:
+        log=str(e)
+        row=dict(case=name,status="FAIL",command=command,error=log)
+    (out/(name+".log")).write_text(log.rstrip()+"\n",encoding="utf-8")
+    rows.append(row)
+    print(name,row["status"],flush=True)
+    print(log.rstrip(),flush=True)
+    return row["status"]=="PASS"
+if args.phase=="cpu":
+    run("version",["--headless","--version"],"4.7.2.stable.official.ed1daf0bf")
+    if run("import",["--headless","--editor","--import"],"Godot Engine"):
+        if run("storage",["--headless","--script","res://storage.gd"],"PASS STORAGE_COMPLETE"):
+            run("fresh_reopen",["--headless","--script","res://reopen.gd"],"PASS FRESH_PROCESS")
+        run("mapping",["--headless","--script","res://mapping.gd"],"PASS MAPPING_COMPLETE")
+elif args.phase=="gpu":
+    for renderer in ([args.renderer] if args.renderer else ["gl_compatibility","mobile","forward_plus"]):
+        run(renderer,["--rendering-method",renderer,"--position","-12000,-12000","--script","res://gpu.gd","--",renderer],"PASS GPU_COMPLETE")
+    if not args.renderer and all(r["status"]=="PASS" for r in rows):
+        run("facade_fresh_process",["--headless","--script","res://facade_reopen.gd"],"PASS FACADE_FRESH_PROCESS")
+else:
+    previous=PROJECT
+    PROJECT=BASE/("editor_project_"+args.label)
+    PROJECT.mkdir(exist_ok=False)
+    (PROJECT/"out").mkdir()
+    for name in ["mask.gd","holder.gd"]:
+        (PROJECT/name).write_text("@tool\n"+(previous/name).read_text(encoding="utf-8"),encoding="utf-8")
+    shutil.copyfile(previous/"out/embedded.tscn",PROJECT/"out/embedded.tscn")
+    shutil.copyfile(BASE/"editor_reopen.gd",PROJECT/"editor_reopen.gd")
+    plugin=PROJECT/"addons/probe"
+    plugin.mkdir(parents=True)
+    shutil.copyfile(BASE/"editor_probe.gd",plugin/"plugin.gd")
+    (plugin/"plugin.cfg").write_text('[plugin]\nname="DisposableAPIProbe"\ndescription="research only"\nauthor="GO_FLORA"\nversion="0"\nscript="plugin.gd"\n')
+    (PROJECT/"project.godot").write_text('config_version=5\n[application]\nconfig/name="SurfaceAPIProbe"\n[rendering]\nrenderer/rendering_method="gl_compatibility"\nshader_compiler/shader_cache/enabled=false\nrendering_device/pipeline_cache/enable=false\n')
+    run("editor_import",["--headless","--editor","--import"],"Godot Engine")
+    with (PROJECT/"project.godot").open("a") as f:
+        f.write('\n[editor_plugins]\nenabled=PackedStringArray("res://addons/probe/plugin.cfg")\n')
+    native_flags=["--editor","--position","-12000,-12000"] if args.editor_gpu else ["--headless","--editor"]
+    if run("editor_api",[*native_flags,"res://out/embedded.tscn"],"PASS EDITOR_PROBE_COMPLETE"):
+        run("editor_fresh_reopen",["--headless","--script","res://editor_reopen.gd"],"PASS EDITOR_SAVED_FRESH_PROCESS")
+summary=dict(probes=rows,engine_sha256=hashlib.sha256(engine.read_bytes()).hexdigest(),baseline="d911087157ecaa9e3ab2b92d95049f2999aebab1",INTERACTIVE_GUI_QA="NOT_RUN")
+(out/"summary.json").write_text(json.dumps(summary,indent=2)+"\n",encoding="utf-8")
+source=OUT/"probe_sources"
+source.mkdir(exist_ok=True)
+original=BASE/"project"
+for file in [Path(__file__),BASE/"snapshot.py",BASE/"editor_probe.gd",BASE/"editor_reopen.gd",*original.glob("*.gd"),*original.glob("*.gdshader"),original/"project.godot"]:
+    dest=source/(file.name+".txt")
+    if not dest.exists() or dest.read_bytes()!=file.read_bytes():
+        # One final source listing, attempt logs retain all failed executions.
+        shutil.copyfile(file,dest)
+outputs=[PROJECT/"out/storage.json",PROJECT/"out/embedded.tscn",PROJECT/"out/external.tscn"] if args.phase=="cpu" else ([PROJECT/"out/embedded.tscn"] if args.phase=="editor" else [])
+for file in outputs:
+    if file.exists(): shutil.copyfile(file,out/(file.name+(".txt" if file.suffix==".tscn" else "")))
+if args.phase=="gpu":
+    for file in (PROJECT/"out").glob("gpu_*"):
+        if args.renderer and file.stem not in ["gpu_"+args.renderer,"gpu_mask"]: continue
+        if file.suffix in [".json",".png"]: shutil.copyfile(file,out/file.name)
+    for file in (PROJECT/"out").glob("facade_*.tres"):
+        shutil.copyfile(file,out/(file.name+".txt"))
+print("RESULT",out.relative_to(ROOT),flush=True)
+raise SystemExit(any(r["status"]!="PASS" for r in rows))

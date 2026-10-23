@@ -1,0 +1,81 @@
+{
+  "checked_head": "d911087157ecaa9e3ab2b92d95049f2999aebab1",
+  "baseline": "d911087157ecaa9e3ab2b92d95049f2999aebab1",
+  "checks": [
+    {
+      "case": "working_whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "case": "staged_whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "case": "repository",
+      "command": [
+        "C:\\Users\\pial\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "tools/verify_repository.py"
+      ],
+      "status": "FAIL",
+      "exit_code": 1
+    },
+    {
+      "case": "scope",
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "d911087157ecaa9e3ab2b92d95049f2999aebab1",
+        "--",
+        "addons",
+        "docs",
+        "tests",
+        "tools",
+        ".github",
+        "AGENTS.md",
+        "README.md",
+        "LICENSE",
+        "CONTRIBUTING.md",
+        ".gitattributes",
+        ".gitignore",
+        "stages/00_source_audit",
+        "stages/01_painter_mvp",
+        "stages/02_imported_alpha_vegetation"
+      ],
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "case": "committed_whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "d911087157ecaa9e3ab2b92d95049f2999aebab1...HEAD"
+      ],
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "case": "final_probe_python_syntax",
+      "status": "PASS",
+      "command": "ast.parse evidence/probe_sources/*.py.txt"
+    }
+  ],
+  "committed_gate_has_changes": false,
+  "final_head_check": "Repeated in terminal after final delivery commit; see delivery message",
+  "INTERACTIVE_GUI_QA": "NOT_RUN"
+}

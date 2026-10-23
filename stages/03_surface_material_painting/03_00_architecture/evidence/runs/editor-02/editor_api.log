@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 616.56 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Ti
+
+PASS EDITOR_API context_uses_scene_history {"history_id":1}
+PASS EDITOR_API one_scene_undo_exact_bytes null
+PASS EDITOR_API one_scene_redo_exact_bytes null
+PASS EDITOR_API native_editor_save_scene 0
+PASS EDITOR_API apply_changes_called_before_save {"calls":1}
+PASS EDITOR_API native_save_embedded_bytes_fresh_load null
+OBSERVATION safe_save_setting true
+PASS EDITOR_PROBE_COMPLETE

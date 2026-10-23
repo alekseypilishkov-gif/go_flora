@@ -1,0 +1,27 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.351 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5060 Ti
+
+DEVICE NVIDIA GeForce RTX 5060 Ti / 1.4.351 / forward_plus
+PASS four_layer_channel_0 {"max_error":0.0,"observed":"(1.0, 0.0, 0.0, 1.0)","reference":"(1.0, 0.0, 0.0, 1.0)"}
+PASS four_layer_channel_1 {"max_error":0.0,"observed":"(0.0, 1.0, 0.0, 1.0)","reference":"(0.0, 1.0, 0.0, 1.0)"}
+PASS four_layer_channel_2 {"max_error":0.0,"observed":"(0.0, 0.0, 1.0, 1.0)","reference":"(0.0, 0.0, 1.0, 1.0)"}
+PASS four_layer_channel_3 {"max_error":0.0,"observed":"(1.0, 1.0, 1.0, 1.0)","reference":"(1.0, 1.0, 1.0, 1.0)"}
+PASS zero_weights_base_fallback {"max_error":0.0,"observed":"(1.0, 0.0, 0.0, 1.0)","reference":"(1.0, 0.0, 0.0, 1.0)"}
+PASS normalized_weight_blend {"max_error":0.0,"observed":"(0.7373, 0.7333, 0.0, 1.0)","reference":"(0.7373, 0.7333, 0.0, 1.0)"}
+PASS linear_roughness_blend {"max_error":0.0,"observed":"(0.5843, 0.5843, 0.5843, 1.0)","reference":"(0.5843, 0.5843, 0.5843, 1.0)"}
+PASS decoded_normal_mix_flat_fixture {"max_error":0.00392156839370728,"observed":"(0.7333, 0.7333, 1.0, 1.0)","reference":"(0.7373, 0.7373, 1.0, 1.0)"}
+PASS detail_tiling_does_not_change_constant_mask {"max_error":0.0,"observed":"(0.7373, 0.7333, 0.0, 1.0)","reference":"(0.7373, 0.7333, 0.0, 1.0)"}
+PASS gpu_fixture_png_saved null
+PASS ImageTexture_update_changes_GPU {"max_error":0.0,"observed":"(0.0, 1.0, 0.0, 1.0)","reference":"(0.0, 1.0, 0.0, 1.0)"}
+PASS GPU_update_does_not_write_source_PNG null
+PASS GPU_COMPLETE
+ERROR: Unable to create shader cache directory CanvasOcclusionShaderRD/606df5c981910bc4bc719cf497719273e80d1f314f65e68820bf8e2111368cdb at user://shader_cache.
+   at: _initialize_cache (servers/rendering/renderer_rd/shader_rd.cpp:1063)
+ERROR: Unable to create shader cache directory OctmapDownsamplerShaderRD/17404978f453a0a0388dfb81b2d08f173476d2c3b680e2e6aa35bcf438e24f11 at user://shader_cache.
+   at: _initialize_cache (servers/rendering/renderer_rd/shader_rd.cpp:1063)
+ERROR: Unable to create shader cache directory OctmapRoughnessShaderRD/8470960c68b74292e24251e3b7e41d28e9a5054dce0cd1d77c2a2a865a10af43 at user://shader_cache.
+   at: _initialize_cache (servers/rendering/renderer_rd/shader_rd.cpp:1063)
+ERROR: Unable to create shader cache directory SmaaEdgeDetectionShaderRD/8879d099a2601bd01d4582b1e86a091c5f89a7bc46aecc9e805410f75bcda245 at user://shader_cache.
+   at: _initialize_cache (servers/rendering/renderer_rd/shader_rd.cpp:1063)
+ERROR: Unable to create shader cache directory SmaaWeightCalculationShaderRD/de1d49d5ff947e8b8382f43a79f57c4cceb02eed6f86d5175093ca63e94052bf at user://shader_cache.
+   at: _initialize_cache (servers/rendering/renderer_rd/shader_rd.cpp:1063)

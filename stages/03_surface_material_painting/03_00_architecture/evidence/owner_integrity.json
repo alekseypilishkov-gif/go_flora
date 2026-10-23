@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "file_count": 2478,
+  "changed": [],
+  "added": [],
+  "head_unchanged": true,
+  "status_unchanged": true,
+  "excluded": "ignored caches and Git administrative metadata; TEST_FLORA and PR19 worktree were not inspected"
+}
