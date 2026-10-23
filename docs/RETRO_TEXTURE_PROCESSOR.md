@@ -1,4 +1,6 @@
-# Retro Texture Processor / Texture Lab — DRAFT
+# Retro Texture Processor / Texture Lab — DEFERRED HISTORICAL DRAFT
+
+> **Product pivot, 23.10.2026:** research below is retained for provenance/history only. Creating/retro-converting texture assets inside GO_FLORA is **not an active direction or Surface Painter MVP prerequisite**. The plugin consumes ready-made materials/textures. See [owner product decision](PRODUCT_DIRECTION_20261023.md) and [Roadmap](ROADMAP.md).
 
 Дата: 15 октября 2026. **Только архитектурное предложение. Не реализовано; код, библиотеки и assets не копировались и не интегрировались.** Модуль относится к будущему [GO_FLORA Studio](GO_FLORA_STUDIO.md). Точный implementation scope, язык/способ переноса и acceptance gates требуют отдельной задачи владельца.
 
