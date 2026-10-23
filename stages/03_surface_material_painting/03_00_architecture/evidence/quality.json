@@ -1,5 +1,5 @@
 {
-  "checked_head": "d911087157ecaa9e3ab2b92d95049f2999aebab1",
+  "checked_head": "c8089db947f36aaae37d64a18ed7feceea64de7b",
   "baseline": "d911087157ecaa9e3ab2b92d95049f2999aebab1",
   "checks": [
     {
@@ -75,7 +75,7 @@
       "command": "ast.parse evidence/probe_sources/*.py.txt"
     }
   ],
-  "committed_gate_has_changes": false,
+  "committed_gate_has_changes": true,
   "final_head_check": "Repeated in terminal after final delivery commit; see delivery message",
   "INTERACTIVE_GUI_QA": "NOT_RUN"
 }

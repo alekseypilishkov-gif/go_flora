@@ -29,7 +29,7 @@ for name in addon:
 (OUT/"source_identity.json").write_text(json.dumps(dict(baseline=BASE,scope="Git-filter-normalized addon equality; SHA256 records actual working bytes",status="PASS" if all(r["status"]=="PASS" for r in rows) else "FAIL",files=rows),indent=2)+"\n",encoding="utf-8")
 sources=OUT/"probe_sources"
 # Preserve final executable probe listings only as text. No addon implementation.
-for file in [Path(__file__), ROOT/".scratch/surface0300/snapshot.py"]:
+for file in [Path(__file__), ROOT/".scratch/surface0300/snapshot.py", ROOT/".scratch/surface0300/run.py"]:
     (sources/(file.name+".txt")).write_bytes(file.read_bytes())
 manifest={str(p.relative_to(OUT)).replace("\\","/"):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(sources.glob("*")) if p.is_file()}
 (OUT/"probe_sources_manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")

@@ -78,10 +78,12 @@ for file in [Path(__file__),BASE/"snapshot.py",BASE/"editor_probe.gd",BASE/"edit
     if not dest.exists() or dest.read_bytes()!=file.read_bytes():
         # One final source listing, attempt logs retain all failed executions.
         shutil.copyfile(file,dest)
-for file in [PROJECT/"out/storage.json",PROJECT/"out/embedded.tscn",PROJECT/"out/external.tscn"]:
+outputs=[PROJECT/"out/storage.json",PROJECT/"out/embedded.tscn",PROJECT/"out/external.tscn"] if args.phase=="cpu" else ([PROJECT/"out/embedded.tscn"] if args.phase=="editor" else [])
+for file in outputs:
     if file.exists(): shutil.copyfile(file,out/(file.name+(".txt" if file.suffix==".tscn" else "")))
 if args.phase=="gpu":
     for file in (PROJECT/"out").glob("gpu_*"):
+        if args.renderer and file.stem not in ["gpu_"+args.renderer,"gpu_mask"]: continue
         if file.suffix in [".json",".png"]: shutil.copyfile(file,out/file.name)
     for file in (PROJECT/"out").glob("facade_*.tres"):
         shutil.copyfile(file,out/(file.name+".txt"))
