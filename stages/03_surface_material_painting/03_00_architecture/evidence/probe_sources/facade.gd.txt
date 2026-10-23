@@ -1,0 +1,20 @@
+extends Texture2D
+@export var data: Resource
+var _gpu: ImageTexture
+func _init() -> void:
+	resource_local_to_scene=true
+func _get_width() -> int:
+	return data.size.x if data!=null else 0
+func _get_height() -> int:
+	return data.size.y if data!=null else 0
+func _has_alpha() -> bool:
+	return true
+func _get_image() -> Image:
+	return Image.create_from_data(data.size.x,data.size.y,false,Image.FORMAT_RGBA8,data.pixels) if data!=null else Image.new()
+func _get_rid() -> RID:
+	if _gpu==null:
+		_gpu=ImageTexture.create_from_image(_get_image())
+	return _gpu.get_rid()
+func sync() -> void:
+	if _gpu!=null: _gpu.update(_get_image())
+	emit_changed()

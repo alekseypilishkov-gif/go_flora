@@ -1,0 +1,151 @@
+{
+  "INTERACTIVE_GUI_QA": "NOT_RUN",
+  "results": [
+    {
+      "details": null,
+      "name": "png_write",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "png_rgba8_exact_including_zero_alpha",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "external_res_save",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "canonical_reloaded_bytes_and_path",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "draft_path": "",
+        "loaded_path": "res://out/mask.res"
+      },
+      "name": "saved_draft_is_not_canonical",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "scene_external_pack",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "scene_save_after_external_RAM_edit",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "scene_ResourceSaver_does_not_flush_external_mask",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "cache_reuse_is_RAM_not_disk_validation",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "embedded_scene_save",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "embedded_mask_single_scene_graph",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "undo_action_applies_bytes",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "undo_restores_exact_bytes",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "redo_restores_exact_bytes",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "scratch_preview_independent_from_authority",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "embedded_size_256",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "embedded_size_512",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "embedded_size_1024",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "recoverable_temp_save",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "temp_disk_validation",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "error": 0,
+        "power_loss_durability": "NOT_TESTED"
+      },
+      "name": "same_directory_replace_native",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "replacement_fresh_disk_bytes",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "per_instance_override_preserves_shared_mesh_material",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "null_override_restore",
+      "status": "PASS"
+    }
+  ],
+  "sizes": [
+    {
+      "pack_save_usec": 3657,
+      "raw_bytes": 262144,
+      "scene_bytes": 350042,
+      "side": 256
+    },
+    {
+      "pack_save_usec": 12842,
+      "raw_bytes": 1048576,
+      "scene_bytes": 1398618,
+      "side": 512
+    },
+    {
+      "pack_save_usec": 47117,
+      "raw_bytes": 4194304,
+      "scene_bytes": 5592924,
+      "side": 1024
+    }
+  ]
+}

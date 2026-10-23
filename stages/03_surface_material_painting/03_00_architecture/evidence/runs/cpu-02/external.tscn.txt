@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://holder.gd" id="1_gfst2"]
+[ext_resource type="Resource" path="res://out/mask.res" id="2_dedc4"]
+
+[node name="ProbeExternal" type="Node3D" unique_id=44981566]
+script = ExtResource("1_gfst2")
+paint = ExtResource("2_dedc4")

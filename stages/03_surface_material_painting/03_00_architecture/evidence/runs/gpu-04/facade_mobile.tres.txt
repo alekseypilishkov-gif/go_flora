@@ -1,0 +1,17 @@
+[gd_resource type="Texture2D" format=4]
+
+[ext_resource type="Script" path="res://mask.gd" id="1_u5nec"]
+[ext_resource type="Script" path="res://facade.gd" id="2_6vpk4"]
+
+[sub_resource type="Resource" id="Resource_xl6pu"]
+resource_local_to_scene = true
+script = ExtResource("1_u5nec")
+channel_ids = PackedStringArray("base", "dirt", "rock", "mud")
+size = Vector2i(8, 8)
+pixels = PackedByteArray("AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAA==")
+
+[resource]
+resource_local_to_scene = true
+resource_name = ""
+script = ExtResource("2_6vpk4")
+data = SubResource("Resource_xl6pu")

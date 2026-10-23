@@ -1,0 +1,57 @@
+import ast, hashlib, json, os, subprocess, sys
+from pathlib import Path
+sys.stdout.reconfigure(encoding="utf-8",errors="replace")
+ROOT=Path(__file__).resolve().parents[2]
+OUT=ROOT/"stages/03_surface_material_painting/03_00_architecture/evidence"
+BASE="d911087157ecaa9e3ab2b92d95049f2999aebab1"
+env=dict(os.environ,PYTHONIOENCODING="utf-8",GIT_OPTIONAL_LOCKS="0")
+def raw(*args):
+    return subprocess.check_output(["git",*args],cwd=ROOT,env=env)
+# Preserve serialization bytes as text evidence; verify every move stays in this stage.
+for file in (OUT/"runs").rglob("*.tscn"):
+    source=file.resolve()
+    target=file.with_name(file.name+".txt").resolve()
+    assert source.is_relative_to(OUT.resolve()) and target.is_relative_to(OUT.resolve())
+    if target.exists():
+        assert source.read_bytes()==target.read_bytes()
+        source.unlink()
+    else:
+        source.rename(target)
+before=OUT/"owner_before.json"
+obj=json.loads(before.read_text(encoding="utf-8"))
+before.write_text(json.dumps(obj,ensure_ascii=False,separators=(",",":"))+"\n",encoding="utf-8")
+addon=raw("ls-tree","-r","--name-only",BASE,"--","addons/go_flora").decode().splitlines()
+rows=[]
+for name in addon:
+    pinned=raw("rev-parse",f"{BASE}:{name}").decode().strip()
+    working=raw("hash-object","--path="+name,name).decode().strip()
+    rows.append(dict(path=name,sha256=hashlib.sha256((ROOT/name).read_bytes()).hexdigest(),pinned_git_blob=pinned,working_git_blob=working,status="PASS" if pinned==working else "FAIL"))
+(OUT/"source_identity.json").write_text(json.dumps(dict(baseline=BASE,scope="Git-filter-normalized addon equality; SHA256 records actual working bytes",status="PASS" if all(r["status"]=="PASS" for r in rows) else "FAIL",files=rows),indent=2)+"\n",encoding="utf-8")
+sources=OUT/"probe_sources"
+# Preserve final executable probe listings only as text. No addon implementation.
+for file in [Path(__file__), ROOT/".scratch/surface0300/snapshot.py"]:
+    (sources/(file.name+".txt")).write_bytes(file.read_bytes())
+manifest={str(p.relative_to(OUT)).replace("\\","/"):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(sources.glob("*")) if p.is_file()}
+(OUT/"probe_sources_manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")
+quality_dir=OUT/"quality"/(sys.argv[1] if len(sys.argv)>1 else "final-01")
+quality_dir.mkdir(parents=True,exist_ok=False)
+checks=[]
+def case(name,command):
+    p=subprocess.run(command,cwd=ROOT,env=env,capture_output=True,text=True,encoding="utf-8",errors="replace")
+    log=(p.stdout+p.stderr).rstrip()+"\n"
+    (quality_dir/(name+".log")).write_text(log,encoding="utf-8")
+    checks.append(dict(case=name,command=command,status="PASS" if p.returncode==0 else "FAIL",exit_code=p.returncode))
+    print(name,checks[-1]["status"],flush=True)
+case("working_whitespace",["git","diff","--check"])
+case("staged_whitespace",["git","diff","--cached","--check"])
+case("repository", [sys.executable,"tools/verify_repository.py"])
+case("scope",["git","diff","--exit-code",BASE,"--","addons","docs","tests","tools",".github","AGENTS.md","README.md","LICENSE","CONTRIBUTING.md",".gitattributes",".gitignore","stages/00_source_audit","stages/01_painter_mvp","stages/02_imported_alpha_vegetation"])
+head=raw("rev-parse","HEAD").decode().strip()
+case("committed_whitespace",["git","diff","--check",BASE+"...HEAD"])
+for file in sources.glob("*.py.txt"):
+    ast.parse(file.read_text(encoding="utf-8"),filename=file.name)
+checks.append(dict(case="final_probe_python_syntax",status="PASS",command="ast.parse evidence/probe_sources/*.py.txt"))
+(OUT/"quality.json").write_text(json.dumps(dict(checked_head=head,baseline=BASE,checks=checks,committed_gate_has_changes=head!=BASE,final_head_check="Repeated in terminal after final delivery commit; see delivery message",INTERACTIVE_GUI_QA="NOT_RUN"),indent=2)+"\n",encoding="utf-8")
+print("IDENTITY",len(rows),"files", "PASS" if all(r["status"]=="PASS" for r in rows) else "FAIL",flush=True)
+print("MANIFEST_SIZE",before.stat().st_size,flush=True)
+raise SystemExit(any(c["status"]!="PASS" for c in checks) or any(r["status"]!="PASS" for r in rows))

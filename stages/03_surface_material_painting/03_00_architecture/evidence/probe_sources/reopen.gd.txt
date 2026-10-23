@@ -1,0 +1,13 @@
+extends SceneTree
+func _initialize() -> void:
+	var scene: PackedScene = load("res://out/embedded.tscn")
+	var a := scene.instantiate()
+	var b := scene.instantiate()
+	var expected := Image.load_from_file("res://out/weights.png").get_data()
+	expected[0]=(expected[0]+1)%255
+	var ok: bool = a.paint.pixels==expected and b.paint.pixels==expected and a.paint!=b.paint
+	print(("PASS " if ok else "FAIL ")+"FRESH_PROCESS_EMBEDDED_EXACT_BYTES_AND_LOCAL_ISOLATION")
+	print("OBSERVATION_DUPLICATED_SURFACE_IDS ",a.paint.surface_id," / ",b.paint.surface_id)
+	a.free()
+	b.free()
+	quit(0 if ok else 1)

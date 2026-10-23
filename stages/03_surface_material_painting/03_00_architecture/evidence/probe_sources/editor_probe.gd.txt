@@ -1,0 +1,54 @@
+@tool
+extends EditorPlugin
+var pending_preview := false
+var apply_count := 0
+var failures := 0
+func _enter_tree() -> void:
+	call_deferred("run")
+func _apply_changes() -> void:
+	apply_count += 1
+	pending_preview = false
+func check(ok: bool,name: String,details: Variant=null) -> void:
+	print(("PASS " if ok else "FAIL ")+"EDITOR_API "+name+" "+JSON.stringify(details))
+	if not ok: failures+=1
+func run() -> void:
+	for i in 60:
+		if is_instance_valid(EditorInterface.get_edited_scene_root()): break
+		await get_tree().process_frame
+	var target := EditorInterface.get_edited_scene_root()
+	if target==null:
+		check(false,"scene_root")
+		get_tree().quit(1)
+		return
+	var paint: Resource=target.paint
+	var before: PackedByteArray=paint.pixels.duplicate()
+	var after:=before.duplicate()
+	after[0]=(after[0]+13)%255
+	var manager:=get_undo_redo()
+	var id:=manager.get_object_history_id(target)
+	manager.create_action("probe one surface byte gesture",UndoRedo.MERGE_DISABLE,target)
+	manager.add_do_property(paint,"pixels",after.duplicate())
+	manager.add_undo_property(paint,"pixels",before.duplicate())
+	manager.commit_action()
+	var scene_history:=manager.get_history_undo_redo(id)
+	check(scene_history.has_undo() and paint.pixels==after,"context_uses_scene_history",{"history_id":id})
+	scene_history.undo()
+	check(paint.pixels==before,"one_scene_undo_exact_bytes")
+	scene_history.redo()
+	check(paint.pixels==after,"one_scene_redo_exact_bytes")
+	pending_preview=true
+	var count_before:=apply_count
+	EditorInterface.mark_scene_as_unsaved()
+	var code:=EditorInterface.save_scene()
+	check(code==OK,"native_editor_save_scene",code)
+	check(apply_count>count_before and not pending_preview,"apply_changes_called_before_save",{"calls":apply_count-count_before})
+	var packed:=ResourceLoader.load(target.scene_file_path,"",ResourceLoader.CACHE_MODE_IGNORE_DEEP) as PackedScene
+	var fresh:=packed.instantiate()
+	check(fresh.paint.pixels==after,"native_save_embedded_bytes_fresh_load")
+	fresh.free()
+	var file:=FileAccess.open("res://out/editor_expected.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify(Array(after)))
+	file.close()
+	print("OBSERVATION safe_save_setting ",EditorInterface.get_editor_settings().get_setting("filesystem/on_save/safe_save_on_backup_then_rename"))
+	print(("PASS " if failures==0 else "FAIL ")+"EDITOR_PROBE_COMPLETE")
+	get_tree().quit(0 if failures==0 else 1)
