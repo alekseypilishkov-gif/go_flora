@@ -1,0 +1,32 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS png_write null
+PASS png_rgba8_exact_including_zero_alpha null
+PASS external_res_save null
+PASS canonical_reloaded_bytes_and_path null
+PASS saved_draft_is_not_canonical {"draft_path":"","loaded_path":"res://out/mask.res"}
+PASS scene_external_pack null
+PASS scene_save_after_external_RAM_edit null
+PASS scene_ResourceSaver_does_not_flush_external_mask null
+PASS cache_reuse_is_RAM_not_disk_validation null
+PASS embedded_scene_save null
+PASS embedded_mask_single_scene_graph null
+PASS undo_action_applies_bytes null
+PASS undo_restores_exact_bytes null
+PASS redo_restores_exact_bytes null
+PASS scratch_preview_independent_from_authority null
+PASS embedded_size_256 null
+PASS embedded_size_512 null
+PASS embedded_size_1024 null
+MEASURE embedded_sizes [{"pack_save_usec":3657,"raw_bytes":262144,"scene_bytes":350042,"side":256},{"pack_save_usec":12842,"raw_bytes":1048576,"scene_bytes":1398618,"side":512},{"pack_save_usec":47117,"raw_bytes":4194304,"scene_bytes":5592924,"side":1024}]
+PASS recoverable_temp_save null
+PASS temp_disk_validation null
+PASS same_directory_replace_native {"error":0,"power_loss_durability":"NOT_TESTED"}
+PASS replacement_fresh_disk_bytes null
+PASS per_instance_override_preserves_shared_mesh_material null
+PASS null_override_restore null
+PASS STORAGE_COMPLETE
+WARNING: Loaded resource as image file, this will not work on export: 'res://out/weights.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] run (res://storage.gd:21)

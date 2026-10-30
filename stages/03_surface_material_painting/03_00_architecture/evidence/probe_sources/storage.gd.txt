@@ -1,0 +1,108 @@
+extends SceneTree
+const Mask = preload("res://mask.gd")
+const Holder = preload("res://holder.gd")
+var failures := 0
+var results: Array = []
+func check(ok: bool, name: String, details: Variant = null) -> void:
+	results.append({"name": name, "status": "PASS" if ok else "FAIL", "details": details})
+	print(("PASS " if ok else "FAIL ") + name + " " + JSON.stringify(details))
+	if not ok: failures += 1
+func _initialize() -> void:
+	call_deferred("run")
+func run() -> void:
+	DirAccess.make_dir_recursive_absolute("res://out")
+	var image := Image.create(32,32,false,Image.FORMAT_RGBA8)
+	for y in 32:
+		for x in 32:
+			var a := (x*7+y*3)%256
+			image.set_pixel(x,y,Color8(a,255-a,0,0))
+	var initial := image.get_data()
+	check(image.save_png("res://out/weights.png")==OK,"png_write")
+	var png := Image.load_from_file("res://out/weights.png")
+	check(png.get_data()==initial,"png_rgba8_exact_including_zero_alpha")
+	var external := Mask.new()
+	external.resource_local_to_scene = false
+	external.pixels = initial
+	check(ResourceSaver.save(external,"res://out/mask.res",ResourceSaver.FLAG_COMPRESS)==OK,"external_res_save")
+	var canonical := ResourceLoader.load("res://out/mask.res","",ResourceLoader.CACHE_MODE_REUSE)
+	check(canonical.pixels==initial and canonical.resource_path=="res://out/mask.res","canonical_reloaded_bytes_and_path")
+	check(external.resource_path.is_empty() and external!=canonical,"saved_draft_is_not_canonical",{"draft_path":external.resource_path,"loaded_path":canonical.resource_path})
+	var holder := Holder.new()
+	holder.name = "ProbeExternal"
+	holder.paint = canonical
+	var packed := PackedScene.new()
+	check(packed.pack(holder)==OK and ResourceSaver.save(packed,"res://out/external.tscn")==OK,"scene_external_pack")
+	var changed := initial.duplicate()
+	changed[0] = (changed[0]+1)%255
+	canonical.pixels = changed
+	packed = PackedScene.new()
+	check(packed.pack(holder)==OK and ResourceSaver.save(packed,"res://out/external.tscn")==OK,"scene_save_after_external_RAM_edit")
+	var disk := ResourceLoader.load("res://out/mask.res","",ResourceLoader.CACHE_MODE_IGNORE_DEEP)
+	check(disk.pixels==initial and canonical.pixels==changed,"scene_ResourceSaver_does_not_flush_external_mask")
+	check(ResourceLoader.load("res://out/mask.res")==canonical,"cache_reuse_is_RAM_not_disk_validation")
+	var embedded := Mask.new()
+	embedded.pixels = changed.duplicate()
+	holder.paint = embedded
+	packed = PackedScene.new()
+	check(packed.pack(holder)==OK and ResourceSaver.save(packed,"res://out/embedded.tscn")==OK,"embedded_scene_save")
+	var scene_text := FileAccess.get_file_as_string("res://out/embedded.tscn")
+	check(not scene_text.contains("out/mask.res") and scene_text.contains("pixels ="),"embedded_mask_single_scene_graph")
+	var undo := UndoRedo.new()
+	undo.create_action("probe one complete byte transaction",UndoRedo.MERGE_DISABLE)
+	undo.add_do_property(embedded,"pixels",initial.duplicate())
+	undo.add_undo_property(embedded,"pixels",changed.duplicate())
+	undo.commit_action()
+	check(embedded.pixels==initial,"undo_action_applies_bytes")
+	undo.undo()
+	check(embedded.pixels==changed,"undo_restores_exact_bytes")
+	undo.redo()
+	check(embedded.pixels==initial,"redo_restores_exact_bytes")
+	undo.clear_history()
+	undo.free()
+	var preview := Image.create_from_data(32,32,false,Image.FORMAT_RGBA8,embedded.pixels)
+	preview.fill(Color.BLUE)
+	check(embedded.pixels==initial,"scratch_preview_independent_from_authority")
+	var sizes: Array = []
+	for side in [256,512,1024]:
+		var big := Mask.new()
+		big.size = Vector2i(side,side)
+		big.pixels.resize(side*side*4)
+		for i in big.pixels.size(): big.pixels[i]=(i*17+int(i/4))%256
+		holder.paint = big
+		packed = PackedScene.new()
+		var start := Time.get_ticks_usec()
+		var code := packed.pack(holder)
+		if code==OK: code=ResourceSaver.save(packed,"res://out/size_%d.tscn"%side)
+		var elapsed := Time.get_ticks_usec()-start
+		check(code==OK,"embedded_size_%d"%side)
+		sizes.append({"side":side,"raw_bytes":big.pixels.size(),"scene_bytes":FileAccess.get_file_as_bytes("res://out/size_%d.tscn"%side).size(),"pack_save_usec":elapsed})
+	print("MEASURE embedded_sizes "+JSON.stringify(sizes))
+	var next := Mask.new()
+	next.pixels = changed
+	check(ResourceSaver.save(next,"res://out/next.res",ResourceSaver.FLAG_COMPRESS)==OK,"recoverable_temp_save")
+	var reloaded := ResourceLoader.load("res://out/next.res","",ResourceLoader.CACHE_MODE_IGNORE_DEEP)
+	check(reloaded.pixels==changed,"temp_disk_validation")
+	var rename_code := DirAccess.rename_absolute("res://out/next.res","res://out/mask.res")
+	check(rename_code==OK,"same_directory_replace_native",{"error":rename_code,"power_loss_durability":"NOT_TESTED"})
+	check(ResourceLoader.load("res://out/mask.res","",ResourceLoader.CACHE_MODE_IGNORE_DEEP).pixels==changed,"replacement_fresh_disk_bytes")
+	var mesh := PlaneMesh.new()
+	var original := StandardMaterial3D.new()
+	original.albedo_color=Color.RED
+	mesh.material=original
+	var a := MeshInstance3D.new()
+	var b := MeshInstance3D.new()
+	a.mesh=mesh
+	b.mesh=mesh
+	var owned := ShaderMaterial.new()
+	a.set_surface_override_material(0,owned)
+	check(a.get_active_material(0)==owned and b.get_active_material(0)==original and mesh.material==original,"per_instance_override_preserves_shared_mesh_material")
+	a.set_surface_override_material(0,null)
+	check(a.get_active_material(0)==original,"null_override_restore")
+	a.free()
+	b.free()
+	holder.free()
+	var file := FileAccess.open("res://out/storage.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify({"results":results,"sizes":sizes,"INTERACTIVE_GUI_QA":"NOT_RUN"},"  "))
+	file.close()
+	print(("PASS " if failures==0 else "FAIL ")+"STORAGE_COMPLETE")
+	quit(0 if failures==0 else 1)

@@ -1,0 +1,10 @@
+extends SceneTree
+func _initialize() -> void:
+	var scene: PackedScene=load("res://out/embedded.tscn")
+	var node:=scene.instantiate()
+	var expected: Array=JSON.parse_string(FileAccess.get_file_as_string("res://out/editor_expected.json"))
+	var bytes:=PackedByteArray(expected)
+	var ok: bool=node.paint.pixels==bytes
+	node.free()
+	print(("PASS " if ok else "FAIL ")+"EDITOR_SAVED_FRESH_PROCESS")
+	quit(0 if ok else 1)

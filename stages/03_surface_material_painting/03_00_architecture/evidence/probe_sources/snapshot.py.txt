@@ -1,0 +1,29 @@
+import hashlib, json, os, subprocess, sys
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT / "stages/03_surface_material_painting/03_00_architecture/evidence"
+OWNER = Path("C:/Dev/GO_FLORA")
+OUT.mkdir(parents=True, exist_ok=True)
+env = dict(os.environ, GIT_OPTIONAL_LOCKS="0")
+def git(*args):
+    return subprocess.check_output(["git", "-C", str(OWNER), *args], env=env)
+def capture():
+    names = git("ls-files", "-z", "--cached", "--others", "--exclude-standard").decode("utf-8").split("\0")
+    return {"head": git("rev-parse","HEAD").decode().strip(),
+            "status": git("status","--porcelain=v1","--untracked-files=all").decode(),
+            "files": {n: hashlib.sha256((OWNER/n).read_bytes()).hexdigest() for n in sorted(set(names)) if n and (OWNER/n).is_file()}}
+now = capture()
+if sys.argv[1] == "before":
+    (OUT / "owner_before.json").write_text(json.dumps(now, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
+    print("PASS OWNER_BASELINE", len(now["files"]), now["head"])
+else:
+    before = json.loads((OUT / "owner_before.json").read_text(encoding="utf-8"))
+    changed = [n for n in before["files"] if now["files"].get(n) != before["files"][n]]
+    added = sorted(set(now["files"]) - set(before["files"]))
+    result = {"status": "PASS" if now == before else "FAIL", "file_count":len(now["files"]),
+              "changed":changed, "added":added, "head_unchanged":now["head"]==before["head"],
+              "status_unchanged":now["status"]==before["status"],
+              "excluded":"ignored caches and Git administrative metadata; TEST_FLORA and PR19 worktree were not inspected"}
+    (OUT / "owner_integrity.json").write_text(json.dumps(result,indent=2)+"\n",encoding="utf-8")
+    print(json.dumps(result))
+    sys.exit(result["status"]!="PASS")

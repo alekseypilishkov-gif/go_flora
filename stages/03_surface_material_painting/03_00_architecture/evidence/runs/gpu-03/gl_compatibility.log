@@ -1,0 +1,22 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 616.56 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Ti
+
+DEVICE NVIDIA GeForce RTX 5060 Ti / 3.3.0 NVIDIA 616.56 / gl_compatibility
+PASS four_layer_channel_0 {"max_error":0.0,"observed":"(1.0, 0.0, 0.0, 1.0)","reference":"(1.0, 0.0, 0.0, 1.0)"}
+PASS four_layer_channel_1 {"max_error":0.0,"observed":"(0.0, 1.0, 0.0, 1.0)","reference":"(0.0, 1.0, 0.0, 1.0)"}
+PASS four_layer_channel_2 {"max_error":0.0,"observed":"(0.0, 0.0, 1.0, 1.0)","reference":"(0.0, 0.0, 1.0, 1.0)"}
+PASS four_layer_channel_3 {"max_error":0.0,"observed":"(1.0, 1.0, 1.0, 1.0)","reference":"(1.0, 1.0, 1.0, 1.0)"}
+PASS zero_weights_base_fallback {"max_error":0.0,"observed":"(1.0, 0.0, 0.0, 1.0)","reference":"(1.0, 0.0, 0.0, 1.0)"}
+PASS normalized_weight_blend {"max_error":0.0,"observed":"(0.502, 0.498, 0.0, 1.0)","reference":"(0.502, 0.498, 0.0, 1.0)"}
+PASS linear_roughness_blend {"max_error":0.0,"observed":"(0.298, 0.298, 0.298, 1.0)","reference":"(0.298, 0.298, 0.298, 1.0)"}
+PASS decoded_normal_mix_flat_fixture {"max_error":0.00392159819602966,"observed":"(0.498, 0.498, 1.0, 1.0)","reference":"(0.502, 0.502, 1.0, 1.0)"}
+PASS detail_tiling_does_not_change_constant_mask {"max_error":0.0,"observed":"(0.502, 0.498, 0.0, 1.0)","reference":"(0.502, 0.498, 0.0, 1.0)"}
+PASS gpu_fixture_png_saved null
+PASS ImageTexture_update_changes_GPU {"max_error":0.0,"observed":"(0.0, 1.0, 0.0, 1.0)","reference":"(0.0, 1.0, 0.0, 1.0)"}
+PASS GPU_update_does_not_write_source_PNG null
+PASS CPU_resource_Texture2D_facade_GPU {"max_error":0.0,"observed":"(0.0, 1.0, 0.0, 1.0)","reference":"(0.0, 1.0, 0.0, 1.0)"}
+PASS facade_managed_material_save null
+FAIL facade_does_not_serialize_GPU_cache null
+PASS facade_saved_authoritative_bytes null
+PASS facade_reload_GPU_rebuild {"max_error":0.0,"observed":"(0.0, 1.0, 0.0, 1.0)","reference":"(0.0, 1.0, 0.0, 1.0)"}
+FAIL GPU_COMPLETE

@@ -1,0 +1,48 @@
+extends SceneTree
+var failures := 0
+func check(ok: bool,name: String,details: Variant = null) -> void:
+	print(("PASS " if ok else "FAIL ")+name+" "+JSON.stringify(details))
+	if not ok: failures+=1
+func _initialize() -> void:
+	call_deferred("run")
+func run() -> void:
+	var transforms: Array[Transform3D] = [Transform3D.IDENTITY,Transform3D(Basis.from_euler(Vector3(0.2,0.7,0.1)).scaled(Vector3(2,0.5,3)),Vector3(-12,5,-19))]
+	for i in transforms.size():
+		var t: Transform3D = transforms[i]
+		var local := Vector3(-2,0.75,-3)
+		var recovered := t.affine_inverse()*(t*local)
+		check(recovered.distance_to(local)<0.00001,"affine_roundtrip_%d"%i)
+		var d := Vector3(0.2,0,-0.4)
+		var metric: float = d.dot(t.basis.transposed()*t.basis*d)
+		check(absf(metric-(t.basis*d).length_squared())<0.00001,"world_brush_metric_%d"%i)
+	check(Vector2(-0.01,-1.01).floor()==Vector2(-1,-2),"negative_coordinates_floor")
+	var floor_a:=Vector3(1,0,2)
+	var floor_b:=Vector3(1,8,2)
+	check(Vector2(floor_a.x,floor_a.z)==Vector2(floor_b.x,floor_b.z),"stacked_floors_alias_in_XZ_projection")
+	var mesh := PlaneMesh.new()
+	mesh.size=Vector2(4,4)
+	var triangles := TriangleMesh.new()
+	check(triangles.create_from_faces(mesh.get_faces()),"TriangleMesh_BVH_creation")
+	var refined := triangles.intersect_segment(Vector3(0,3,0),Vector3(0,-3,0))
+	check(not refined.is_empty(),"mesh_BVH_segment_hit",refined)
+	var world := Node3D.new()
+	root.add_child(world)
+	var body := StaticBody3D.new()
+	world.add_child(body)
+	var shape := CollisionShape3D.new()
+	shape.shape=mesh.create_trimesh_shape()
+	body.add_child(shape)
+	await physics_frame
+	await physics_frame
+	var query:=PhysicsRayQueryParameters3D.create(Vector3(0,3,0),Vector3(0,-3,0),1)
+	var hit:=world.get_world_3d().direct_space_state.intersect_ray(query)
+	check(not hit.is_empty() and hit.position.distance_to(Vector3.ZERO)<0.001,"matching_physics_trimesh_hit")
+	check(not hit.has("uv"),"physics_hit_does_not_supply_mesh_UV",hit.keys())
+	body.position.y=0.3
+	await physics_frame
+	await physics_frame
+	hit=world.get_world_3d().direct_space_state.intersect_ray(query)
+	check(not hit.is_empty() and hit.position.distance_to(refined.position)>0.29,"collider_mesh_mismatch_detectable")
+	world.free()
+	print(("PASS " if failures==0 else "FAIL ")+"MAPPING_COMPLETE")
+	quit(0 if failures==0 else 1)

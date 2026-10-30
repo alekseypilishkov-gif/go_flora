@@ -1,0 +1,108 @@
+{
+  "INTERACTIVE_GUI_QA": "NOT_RUN",
+  "device": "NVIDIA GeForce RTX 5060 Ti",
+  "renderer": "mobile",
+  "results": [
+    {
+      "details": {
+        "max_error": 0.0,
+        "observed": "(1.0, 0.0, 0.0, 1.0)",
+        "reference": "(1.0, 0.0, 0.0, 1.0)"
+      },
+      "name": "four_layer_channel_0",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "max_error": 0.0,
+        "observed": "(0.0, 1.0, 0.0, 1.0)",
+        "reference": "(0.0, 1.0, 0.0, 1.0)"
+      },
+      "name": "four_layer_channel_1",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "max_error": 0.0,
+        "observed": "(0.0, 0.0, 1.0, 1.0)",
+        "reference": "(0.0, 0.0, 1.0, 1.0)"
+      },
+      "name": "four_layer_channel_2",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "max_error": 0.0,
+        "observed": "(1.0, 1.0, 1.0, 1.0)",
+        "reference": "(1.0, 1.0, 1.0, 1.0)"
+      },
+      "name": "four_layer_channel_3",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "max_error": 0.0,
+        "observed": "(1.0, 0.0, 0.0, 1.0)",
+        "reference": "(1.0, 0.0, 0.0, 1.0)"
+      },
+      "name": "zero_weights_base_fallback",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "max_error": 0.0,
+        "observed": "(0.7373, 0.7333, 0.0, 1.0)",
+        "reference": "(0.7373, 0.7333, 0.0, 1.0)"
+      },
+      "name": "normalized_weight_blend",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "max_error": 0.0,
+        "observed": "(0.5843, 0.5843, 0.5843, 1.0)",
+        "reference": "(0.5843, 0.5843, 0.5843, 1.0)"
+      },
+      "name": "linear_roughness_blend",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "max_error": 0.00392156839370728,
+        "observed": "(0.7333, 0.7333, 1.0, 1.0)",
+        "reference": "(0.7373, 0.7373, 1.0, 1.0)"
+      },
+      "name": "decoded_normal_mix_flat_fixture",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "max_error": 0.0,
+        "observed": "(0.7373, 0.7333, 0.0, 1.0)",
+        "reference": "(0.7373, 0.7333, 0.0, 1.0)"
+      },
+      "name": "detail_tiling_does_not_change_constant_mask",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "gpu_fixture_png_saved",
+      "status": "PASS"
+    },
+    {
+      "details": {
+        "max_error": 0.0,
+        "observed": "(0.0, 1.0, 0.0, 1.0)",
+        "reference": "(0.0, 1.0, 0.0, 1.0)"
+      },
+      "name": "ImageTexture_update_changes_GPU",
+      "status": "PASS"
+    },
+    {
+      "details": null,
+      "name": "GPU_update_does_not_write_source_PNG",
+      "status": "PASS"
+    }
+  ],
+  "scope": "13 sampler API and flat unshaded debug values; no lighting/performance/mobile hardware validation"
+}
